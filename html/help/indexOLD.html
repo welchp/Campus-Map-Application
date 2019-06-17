@@ -1,0 +1,181 @@
+<html>
+<head>
+    
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <title>Map Help</title>
+    
+    <link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed' rel='stylesheet'>
+
+    <link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/css/calcite-web.min.css">
+    <link rel="stylesheet" href="help.css">
+    
+    
+    
+  
+    
+
+</head>
+
+<body>
+    
+    <div id="mega-header">
+        <div id="mega-header-content">
+            
+            <div id="mega-logo">
+                <img style="margin-right:auto" src="primary_logo_with_seal_white.png">
+            </div>
+            
+            <!--
+            <div id="mega-header-nav">
+                
+                  <div id="links">
+                  <h6>MyUCSC</h6>
+                  <h6>People</h6>
+                  <h6>Calendars</h6>
+                  <h6>A-Z Index</h6>
+                </div>
+                
+                <input placeholder=" search this site">
+            
+            </div>
+            -->
+            
+        </div>
+        
+    </div>
+    
+    <div id="title-wrapper">
+        
+        <div id="title-text">
+            <h1>Interactive Map Help</h1>
+            <h6 class="subtitle">https://maps.ucsc.edu/help</h6>
+        </div>
+        
+    </div>
+
+    <div id="main-wrapper">
+        
+        <div id="side-nav">
+            <h3>Contents</h3>
+            
+                <ul>
+                    <li><a id="about-button" href="#about">About This Web Map</a></li>
+                    <li><a id="usage-button" href="#usage">How to Effectively Use This Web Map</a></li>
+                        <ul>
+                            <li><a id="usage-button" href="#finding">Finding Features</a></li>
+                            <li><a id="usage-button" href="#panning">Panning and Zooming</a></li>
+                            <li><a id="usage-button" href="#location">Using Your Current Location</a></li>
+                            <li><a id="usage-button" href="#usage">Locating Features</a></li>
+                        </ul>
+                </ul> 
+        </div>
+        
+        <div id="main-content">
+            
+            <h3 id="about" class="section">
+                About This Web Map
+            </h3>
+            
+            <p>
+                This web mapping application has undergone a facelift in recent months. It was previously managed by ITS and TAPS staff through a Drupal CMS and is now managed by Physical Planning, Development & Operations (PPDO) staff through a combination of locally developed HTML, CSS, and JavaScript and remotely hosted data.<br><br>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus dignissim ligula nec nulla mollis, sit amet venenatis tellus malesuada. Mauris eget risus sed lorem auctor convallis non vitae magna. Nam congue convallis suscipit. Nam pulvinar neque aliquam orci faucibus, in auctor odio blandit. Maecenas a risus sed sem tempor pharetra a nec nunc. Integer cursus enim massa, nec volutpat erat rhoncus euismod. Aliquam venenatis odio vitae nunc tempor molestie.
+            </p>
+            
+            
+            <h3 id="usage"  class="section">
+                How to Effectively Use This Web Map
+            </h3>
+            
+            <h4 id="finding">
+                Finding Features
+            </h4>
+            
+            <p>
+                When finding features, it is important to consider whether the features are <strong>named</strong> or <strong>unnamed</strong>. Understanding that distinction will indicate whether to use the <a href="#contents-section">Contents</a> section or the <a href="#search-bar">Search Bar</a> to find the features in question.<br><br>
+                Here are some examples of both named and unnamed features.
+            </p>
+            
+            <table>
+                <tr>
+                    <th>NAMED</th>
+                    <th>UNNAMED</th>
+                </tr>
+                <tr>
+                    <td>Barn G or McHenry Library</td>
+                    <td>Buildings</td>
+                </tr>
+                <tr>
+                    <td>Vivas or Owl's Nest Cafe</td>
+                    <td>Restaurants and Cafes</td>
+                </tr>
+                <tr>
+                    <td>East Field</td>
+                    <td>Trails, Courts & Athletic Facilities</td>
+                </tr>
+                <tr>
+                    <td>Lower Campus</td>
+                    <td>Bus/ Shuttle Stops</td>
+                </tr>
+            </table>
+            
+            <p>
+                Now that you understand the difference between <strong>named</strong> and <strong>unnamed</strong> features, it's time to learn which tool to use to find each. There are two primary tools to find features:
+            </p>
+            
+            <div class="full-width horizontal centered" style=margin-bottom:60px;margin-top:60px;>
+                <span class="horizontal centered"><img src="1.png"><h6>The Contents Section</h6></span>
+                <span class="horizontal centered"><img src="2.png"><h6>The Search Bar</h6></span>
+            </div>
+            
+            <div style=margin-bottom:60px>
+                <img id="app" src="app.png">
+            </div>
+            
+            <img id="contents-section" src="1.png">
+            <h5 class="left top-room">The Contents Section</h5>
+            <p>
+                ! This is the suggested method for finding <strong>unnamed</strong> features.<br><br>
+                This section is located along the left side of the web map and is composed of a vertical list of features. The checkbox to the right of each feature will make that feature appear or disappear on the map when checked. When visible, the checkbox will fill with the color of the icon used to represent the feature.<br><br>
+                Since you don't know the name of the individual feature, the best way to find it is to turn all the features  on and pan/zoom around to find which one you are looking for.<br><br>
+                <em>e.g. "Show me all Bus Stops" instead of "Show me the Barn Theater Bus Stop"</em>
+                
+            </p>
+            
+            <img id="search-bar" src="2.png">
+            <h5 class="left top-room">The Search Bar</h5>
+            <p>
+                ! This is the suggested method for finding <strong>named</strong> features.<br><br>
+                This section is located towards the upper right corner of the web map. It behaves as more of an auto-complete rather than a similarity search. The suggested method for using this tool is to begin typing the name of the feature you are searching for, and click one of the suggested results that appear beneath the Search Bar itself.<br><br>
+                It is composed of a vertical list of features. The checkbox to the right of each feature will make that feature appear or disappear on the map when checked. When visible, the checkbox will fill with the color of the icon used to represent the feature.<br><br>
+                
+            </p>
+            <br />
+            <br />
+            
+            <h4 id="panning">
+                Panning and Zooming
+            </h4>
+            
+            <p>
+                ! You can pan and zoom around as you would with most any other webmap.
+                <br><br>
+                If you are on a <strong>desktop</strong> computer:<br>
+                Scroll up and down with your mouse wheel to zoom in and out.<br>
+                Hold a left-click and drag your mouse to pan around at the same zoom scale.<br>
+                You can always use the +/- buttons at the top left of the web map to perform the same zoom operations.<br><br>
+                If you are on a <strong>mobile device</strong> with a touch screen:<br>
+                Touch the screen with two fingers and pinch them together to zoom out or pull them apart to zoom in.<br>
+                Touch the screen with one finger and drag it to pan around at the same zoom scale.<br>
+                You can always use the +/- buttons at the top left of the web map to perform the same zoom operations.
+            </p>        
+        </div>
+        
+    
+    </div>
+</body>
+
+</html>

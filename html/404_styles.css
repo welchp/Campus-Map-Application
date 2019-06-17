@@ -1,0 +1,9 @@
+html, body {
+    padding:40px;
+    margin:0px;
+}
+
+#else-div {
+    display:flex;
+    flex-direction: row;
+}
