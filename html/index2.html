@@ -49,44 +49,44 @@
 		<div id="header">
 			<div id="nav" class="panel-dark-blue">
 				<img src="images/logos/primary_logo_with_seal_white.png" id="ucsc-logo">
-				<h1 class="trailer-half">Interactive Map</h1>
+				<h1 class="trailer-half phone-hide">Interactive Map</h1>
 				<div id="map-options">
-				    <div id="fieldsets">
+				    <div id="fieldsets" class="phone-hide">
 				    	<div>
 							<fieldset id="building-label-selector" class="radio-group">
 							  <legend class="radio-group-title">Building Labels</legend>
-							  <input class="radio-group-input" type="radio" id="On" name="framework" checked />
-							  <label class="radio-group-label" for="On">On</label>
-							  <input class="radio-group-input" type="radio" id="Off" name="framework" />
+							  <input class="radio-group-input" type="radio" id="On" value ="on"name="building-label-toggle" />
+							  <label class="radio-group-label" for="On"><p>On</p></label>
+							  <input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
 							  <label class="radio-group-label" for="Off">Off</label>
 							</fieldset>
 						</div>
 						<div>
 							<fieldset id="basemap-selector" class="radio-group">
 								<legend class="radio-group-title">Choose your basemap</legend>
-								<input class="radio-group-input" type="radio" id="satellite" name="framework" checked />
+								<input class="radio-group-input" type="radio" id="satellite" name="basemap-selector" checked />
 								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" name="framework" />
+								<input class="radio-group-input" type="radio" id="carto" name="basemap-selector" />
 								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" name="framework" />
+								<input class="radio-group-input" type="radio" id="hybrid" name="basemap-selector" />
 								<label class="radio-group-label" for="hybrid">Hybrid</label>
 							</fieldset>
 						</div>
 				  </div>
-				  <i id="menu-icon" class="icon-ui-menu"></i>
+				  <i id="menu-icon" class="icon-ui-menu phone-show"></i>
 				</div>
 			</div>
 		</div>
 		
-		<header class="third-nav">
+		<header class="third-nav phone-hide">
 			<div class="third-nav-container">
 			  <div class="grid-container">
 				<nav class="break" role="navigation" aria-labelledby="thirdnav">
 				  	<div id="break">
-					  <a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank">Printable Maps</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank">Detailed Directions</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="https://maps.google.com" target="_blank">Google Routing</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="help/">Help</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="icon-ui-documentation"></i>Printable Maps</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-maps"></i>Detailed Directions</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="https://maps.google.com" target="_blank"><i class="icon-ui-directions"></i>Google Routing</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="help/"><i class="icon-ui-support"></i>Help</a>
 					</div>
 				  	<div id="support-nav">
 					  
@@ -97,23 +97,50 @@
 		  </header>
 		
 		<div id="main-content">
-			<div id="side-nav">
+			<div id="side-nav" class="phone-hide">
 				<aside class="side-nav" aria-role="complementary">
-					<h4 class="side-nav-title">Map Layers</h4>
+					<h4 class="side-nav-title" onclick="showAll(foods)">Food & Drink</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link">Food and Drink</a>
-						<a href="#" class="side-nav-link">Transportation</a>
-						<a href="#" class="side-nav-link">Academics</a>
-						<a href="#" class="side-nav-link">Health, Safety and Facilities</a>
-						<a href="#" class="side-nav-link">Recreation</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">Restaurants and Cafes</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">The Perk Coffee Shops</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">College Dining Halls</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">Food Trucks</a>
+				</nav>
+					<h4 class="side-nav-title">Transportation</h4>
+					<nav role="navigation" aria-labelledby="sidenav">
+						<a href="#" class="side-nav-link">Metro Bus and Shuttle Stops</a>
+						<a href="#" class="side-nav-link">Parking Lots</a>
+						<a href="#" class="side-nav-link">Bike Repair</a>
+						<a href="#" class="side-nav-link">Bike Parking</a>
+					</nav>
+					<h4 class="side-nav-title">Academics</h4>
+					<nav role="navigation" aria-labelledby="sidenav">
+						<a href="#" class="side-nav-link">Colleges</a>
+						<a href="#" class="side-nav-link">Libraries</a>
+					</nav>
+					<h4 class="side-nav-title">Health, Safety & Facilities</h4>
+					<nav role="navigation" aria-labelledby="sidenav">
+						<a href="#" class="side-nav-link">Emergency Phones</a>
+						<a href="#" class="side-nav-link">All-Gender Restrooms</a>
+						<a href="#" class="side-nav-link">Lactation Rooms</a>						
+					</nav>
+					<h4 class="side-nav-title">Recreation</h4>
+					<nav role="navigation" aria-labelledby="sidenav">
+						<a href="#" class="side-nav-link">Trails, Courts, & Atheltic Facilities</a>
+						<a href="#" class="side-nav-link">Campus Gardens</a>
+						<a href="#" class="side-nav-link">Places of Interest</a>
 					</nav>
 				</aside>
 			</div>
-
-			<div id="viewDiv">
+			<div id="main-wrapper">
+				<div id="viewDiv">
+				</div>
 			</div>
 		</div>
 	</div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
-</body></html>
+</body>
+</html>

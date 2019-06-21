@@ -43,6 +43,8 @@ var bike_parking_lyr;
 var genderinclusive_lyr;
 var emergency_phones_lyr;
 
+var foods = [];
+
 var pinkMarker;
 var sizeVisVar;
 var greenMarker;
@@ -50,6 +52,19 @@ var yellowMarker;
 var defaultMarker;
 var lightBlueMarker;
 
+function setBuildingLabels() {
+	$(document).ready(function(){
+		var buildingLabelsVisible = $("input[type='radio'][name='building-label-toggle']");
+		buildingLabelsVisible.click(function(){
+			var radioValue = $("input[type='radio'][name='building-label-toggle']:checked").val();
+			if(radioValue == 'on'){
+			    buildings_lyr.labelsVisible = true;
+			} else {
+				buildings_lyr.labelsVisible = false;
+			}
+		});
+	});
+}
 
 
 function showLegend() {
@@ -57,7 +72,6 @@ function showLegend() {
         $('.legend').toggleClass('hidden');
     })
 }
-
 
 function toggleVisibility() {
     $('.visibility-toggle-pink').bind('click', function() {
@@ -79,6 +93,7 @@ function toggleVisibility() {
         $(this).toggleClass('green');
     });
 };
+
 function toggleMenu() {
     $("#menu-icon-div").bind('click', function() {
         $("#mobile-menu").toggleClass("hidden")
@@ -99,7 +114,8 @@ function turnOnExploreMode() {
     $('#explore-button').bind('click', function() {
         $(this).toggleClass('explore-mode-on');
     })
-} 
+}
+
 function changeVisibility(lyr){
     console.log("visible was: " + lyr.visible)
     if (lyr.visible == false){
@@ -443,7 +459,8 @@ require([
     
     webmap = new WebMap({
         portalItem: {
-            id:"4fb6663a73744a789b219418bc9ec7a4"
+            //id:"4fb6663a73744a789b219418bc9ec7a4"
+		  	id:"795020303530467f8d096fca5f4d022c"
         }
     });
 	aerial_webmap = new WebMap({
@@ -482,11 +499,11 @@ require([
     view = new MapView({
         container: "viewDiv",
         map: webmap,
-        zoom: 14.5,
-        center: [-122.05790085983072,36.990529877084725],
+        zoom: 14,
+        center: [-122.058864,36.995662],
         popup:{
-            highlightEnabled: false,
-            dockEnabled: true,
+            highlightEnabled: true,
+            dockEnabled: false,
             dockOptions:{
                 position: "bottom-right"
             }
@@ -627,6 +644,17 @@ require([
         },
         definitionExpression: "OBJECTID not in (703)",
         visible: true,
+	  	renderer: {
+			type: "simple",  // autocasts as new SimpleRenderer()
+			symbol: {
+			  type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
+			  color: null,
+			  outline: {  // autocasts as new SimpleLineSymbol()
+				width: 0.5,
+				color: null
+			  }
+			}
+		  },
         labelingInfo: [buildingsLabelClass]
     })
 	buildings_lyr.labelsVisible = false;	
@@ -765,13 +793,13 @@ require([
         portalItem:{
             id: "a3bb6a92e1ff46ac82beea01c05f9673"
         },
-        visible: true,
+        visible: false,
         labelingInfo:[transitLabelClass],
         definitionExpression: "CampusZoneType in ('Primary', 'Secondary')"
     })
     
-    
-    
+    //Layer Groups  
+  
     //add all layers that were just loaded so they can quickly be toggled on/off
     
     view.when(function() {
@@ -798,8 +826,6 @@ require([
         	colleges_lyr,
         	labels_lyr
         ])
-        
-        view.popup.dockEnabled = true;
     })
     .catch(function(){
         alert('ERROR LOADING LAYERS')
@@ -825,6 +851,7 @@ require([
     
     toggleVisibility();
     toggleMenu();
+  	setBuildingLabels();
     showLegend();
     
 });
