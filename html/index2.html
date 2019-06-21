@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    
+<head>
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131157910-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-131157910-1');
+	</script>
+
+	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
+
+	<meta charset="utf-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="The official interactive map of the University of California, Santa Cruz. Created and maintained by campus staff. Thank you for your patience as we migrate to more efficient technology, designed to make updates more efficient, so that we can always offer you the latest and greatest content. We are open to your feedback! Please send an email to maps@ucsc.edu for questions, comments, or general opinions about your experience with the map.">
+
+	<meta name="google-site-verification" content="-aFo-1oVHoMXc9RrXzD0S4gsiDvI4LWdV5FIxoVm8mo" />
+
+	<title>Campus Map | University of California, Santa Cruz</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Roboto|Questrial|Raleway' rel='stylesheet'>
+	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/calcite-web.min.css">
+
+	<link rel="stylesheet" href="https://js.arcgis.com/4.9/dijit/themes/claro/claro.css">
+	<link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">
+
+	<link rel="stylesheet" href="css/w3.css">
+	<!--link rel="stylesheet" href="css/app_styles.css"-->
+	<link rel="stylesheet" href="css/layout.css">
+
+	<script src="https://js.arcgis.com/4.9/"></script>
+	<script src='js/main.js'></script>
+
+
+</head>
+
+<body>
+	<div id="main-grid">
+		<div id="header">
+			<div id="nav" class="panel-dark-blue">
+				<img src="images/logos/primary_logo_with_seal_white.png" id="ucsc-logo">
+				<h1 class="trailer-half">Interactive Map</h1>
+				<div id="map-options">
+				    <div id="fieldsets">
+				    	<div>
+							<fieldset id="building-label-selector" class="radio-group">
+							  <legend class="radio-group-title">Building Labels</legend>
+							  <input class="radio-group-input" type="radio" id="On" name="framework" checked />
+							  <label class="radio-group-label" for="On">On</label>
+							  <input class="radio-group-input" type="radio" id="Off" name="framework" />
+							  <label class="radio-group-label" for="Off">Off</label>
+							</fieldset>
+						</div>
+						<div>
+							<fieldset id="basemap-selector" class="radio-group">
+								<legend class="radio-group-title">Choose your basemap</legend>
+								<input class="radio-group-input" type="radio" id="satellite" name="framework" checked />
+								<label class="radio-group-label" for="satellite">Satellite</label>
+								<input class="radio-group-input" type="radio" id="carto" name="framework" />
+								<label class="radio-group-label" for="carto">Carto</label>
+								<input class="radio-group-input" type="radio" id="hybrid" name="framework" />
+								<label class="radio-group-label" for="hybrid">Hybrid</label>
+							</fieldset>
+						</div>
+				  </div>
+				  <i id="menu-icon" class="icon-ui-menu"></i>
+				</div>
+			</div>
+		</div>
+		
+		<header class="third-nav">
+			<div class="third-nav-container">
+			  <div class="grid-container">
+				<nav class="break" role="navigation" aria-labelledby="thirdnav">
+				  	<div id="break">
+					  <a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank">Printable Maps</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank">Detailed Directions</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="https://maps.google.com" target="_blank">Google Routing</a>
+					  <a class="third-nav-link hvr-underline-from-left" href="help/">Help</a>
+					</div>
+				  	<div id="support-nav">
+					  
+					</div>
+				</nav>
+			  </div>
+			</div>
+		  </header>
+		
+		<div id="main-content">
+			<div id="side-nav">
+				<aside class="side-nav" aria-role="complementary">
+					<h4 class="side-nav-title">Map Layers</h4>
+					<nav role="navigation" aria-labelledby="sidenav">
+						<a href="#" class="side-nav-link">Food and Drink</a>
+						<a href="#" class="side-nav-link">Transportation</a>
+						<a href="#" class="side-nav-link">Academics</a>
+						<a href="#" class="side-nav-link">Health, Safety and Facilities</a>
+						<a href="#" class="side-nav-link">Recreation</a>
+					</nav>
+				</aside>
+			</div>
+
+			<div id="viewDiv">
+			</div>
+		</div>
+	</div>
+
+
+</body></html>
