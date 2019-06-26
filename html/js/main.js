@@ -1,3 +1,7 @@
+var satellite;
+var carto;
+var hybrid;
+
 var map;
 var webmap;
 var aerial_webmap;
@@ -42,8 +46,14 @@ var dining_halls_lyr;
 var bike_parking_lyr;
 var genderinclusive_lyr;
 var emergency_phones_lyr;
+var lactation_lyr;
 
 var foods = [];
+var transportations = [];
+var academics = [];
+var facilities = [];
+var recreations = [];
+var allLayers = [];
 
 var pinkMarker;
 var sizeVisVar;
@@ -64,6 +74,50 @@ function setBuildingLabels() {
 			}
 		});
 	});
+}
+
+
+function setBasemap() {
+  $(document).ready(function(){
+		var basemapSelector = $("input[type='radio'][name='basemap-selector']");
+		basemapSelector.click(function() {
+			var radioValue = $("input[type='radio'][name='basemap-selector']:checked").val();
+			if(radioValue == 'satellite') {
+			  	switchBasemap(satellite);
+			} else if (radioValue == 'carto') {
+				switchBasemap(carto);			
+			} else {
+			  if(radioValue == 'hybrid') {
+			  	switchBasemap(hybrid);
+			}}
+		});
+	});
+}
+					
+function switchBasemap(basemap){
+  	console.log("view.map = basemap")
+	view.map = basemap
+  	allLayers.forEach(function(layers){
+	    layers.forEach(function(lyr){
+		  basemap.add(lyr)
+		})  
+	})
+}
+
+function isNotVisible(lyr){
+  return lyr.visible == false
+}
+
+function groupToggle(layer_list) {
+  if (layer_list.some(isNotVisible)){
+	  layer_list.forEach(function(lyr) {
+	      lyr.visible = true
+	  })
+  } else {
+	  layer_list.forEach(function(lyr) {
+	  	  lyr.visible = false
+  	  })
+  }
 }
 
 
@@ -457,13 +511,20 @@ require([
     
     //MAPS TO USE AS BASEMAPS
     
-    webmap = new WebMap({
+    carto = new WebMap({
         portalItem: {
-            //id:"4fb6663a73744a789b219418bc9ec7a4"
 		  	id:"795020303530467f8d096fca5f4d022c"
         }
     });
-	aerial_webmap = new WebMap({
+  
+  	satellite = new WebMap({
+        portalItem: {
+            id:"4fb6663a73744a789b219418bc9ec7a4"
+		  	//id:"795020303530467f8d096fca5f4d022c"
+        }
+    });
+  
+	hybrid = new WebMap({
         portalItem: {
             id:"e75286a8ed7f4d028b823ee59a2bd918"
         }
@@ -498,7 +559,7 @@ require([
     
     view = new MapView({
         container: "viewDiv",
-        map: webmap,
+        map: carto,
         zoom: 14,
         center: [-122.058864,36.995662],
         popup:{
@@ -799,11 +860,17 @@ require([
     })
     
     //Layer Groups  
+  	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
+  	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
+  	academics = [libraries_lyr]
+  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
+  	recreations = [rec_lyr, gardens_lyr, poi_lyr]
+  	allLayers = [foods, transportations, academics, facilities, recreations] 
   
     //add all layers that were just loaded so they can quickly be toggled on/off
     
     view.when(function() {
-        webmap.addMany([
+        carto.addMany([
         	buildings_lyr,
             parking_lyr,
             bus_route_lyr,
@@ -851,6 +918,7 @@ require([
     
     toggleVisibility();
     toggleMenu();
+  	setBasemap();
   	setBuildingLabels();
     showLegend();
     

@@ -55,7 +55,7 @@
 				    	<div>
 							<fieldset id="building-label-selector" class="radio-group">
 							  <legend class="radio-group-title">Building Labels</legend>
-							  <input class="radio-group-input" type="radio" id="On" value ="on"name="building-label-toggle" />
+							  <input class="radio-group-input" type="radio" id="On" value ="on" name="building-label-toggle" />
 							  <label class="radio-group-label" for="On"><p>On</p></label>
 							  <input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
 							  <label class="radio-group-label" for="Off">Off</label>
@@ -64,11 +64,11 @@
 						<div>
 							<fieldset id="basemap-selector" class="radio-group">
 								<legend class="radio-group-title">Choose your basemap</legend>
-								<input class="radio-group-input" type="radio" id="satellite" name="basemap-selector" checked />
+								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
 								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" name="basemap-selector" />
+								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
 								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" name="basemap-selector" />
+								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
 								<label class="radio-group-label" for="hybrid">Hybrid</label>
 							</fieldset>
 						</div>
@@ -77,7 +77,6 @@
 				</div>
 			</div>
 		</div>
-		
 		<header class="third-nav phone-hide">
 			<div class="third-nav-container">
 			  <div class="grid-container">
@@ -95,40 +94,39 @@
 			  </div>
 			</div>
 		  </header>
-		
 		<div id="main-content">
 			<div id="side-nav" class="phone-hide">
 				<aside class="side-nav" aria-role="complementary">
-					<h4 class="side-nav-title" onclick="showAll(foods)">Food & Drink</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(foods)">Food & Drink</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">Restaurants and Cafes</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">The Perk Coffee Shops</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">College Dining Halls</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">Food Trucks</a>
 				</nav>
-					<h4 class="side-nav-title">Transportation</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(transportations)">Transportation</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link">Metro Bus and Shuttle Stops</a>
-						<a href="#" class="side-nav-link">Parking Lots</a>
-						<a href="#" class="side-nav-link">Bike Repair</a>
-						<a href="#" class="side-nav-link">Bike Parking</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">Metro Bus and Shuttle Stops</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">Parking Lots</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">Bike Repair</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">Bike Parking</a>
 					</nav>
-					<h4 class="side-nav-title">Academics</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(academics)">Academics</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link">Colleges</a>
-						<a href="#" class="side-nav-link">Libraries</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">Colleges</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">Libraries</a>
 					</nav>
-					<h4 class="side-nav-title">Health, Safety & Facilities</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(facilities)">Health, Safety & Facilities</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link">Emergency Phones</a>
-						<a href="#" class="side-nav-link">All-Gender Restrooms</a>
-						<a href="#" class="side-nav-link">Lactation Rooms</a>						
+						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">Emergency Phones</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">All-Gender Restrooms</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">Lactation Rooms</a>						
 					</nav>
-					<h4 class="side-nav-title">Recreation</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(recreations)">Recreation</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link">Trails, Courts, & Atheltic Facilities</a>
-						<a href="#" class="side-nav-link">Campus Gardens</a>
-						<a href="#" class="side-nav-link">Places of Interest</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">Trails, Courts, & Atheltic Facilities</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">Campus Gardens</a>
+						<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">Places of Interest</a>
 					</nav>
 				</aside>
 			</div>
