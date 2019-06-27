@@ -47,6 +47,7 @@ var bike_parking_lyr;
 var genderinclusive_lyr;
 var emergency_phones_lyr;
 var lactation_lyr;
+var buildingsLayerView;
 
 var foods = [];
 var transportations = [];
@@ -54,6 +55,7 @@ var academics = [];
 var facilities = [];
 var recreations = [];
 var allLayers = [];
+var everyLayer = [];
 
 var pinkMarker;
 var sizeVisVar;
@@ -75,8 +77,6 @@ function setBuildingLabels() {
 		});
 	});
 }
-
-
 function setBasemap() {
   $(document).ready(function(){
 		var basemapSelector = $("input[type='radio'][name='basemap-selector']");
@@ -88,12 +88,11 @@ function setBasemap() {
 				switchBasemap(carto);			
 			} else {
 			  if(radioValue == 'hybrid') {
-			  	switchBasemap(hybrid);
-			}}
-		});
-	});
+			  	switchBasemap(hybrid)				
+			}};
+		})
+  });
 }
-					
 function switchBasemap(basemap){
   	console.log("view.map = basemap")
 	view.map = basemap
@@ -103,11 +102,9 @@ function switchBasemap(basemap){
 		})  
 	})
 }
-
 function isNotVisible(lyr){
   return lyr.visible == false
 }
-
 function groupToggle(layer_list) {
   if (layer_list.some(isNotVisible)){
 	  layer_list.forEach(function(lyr) {
@@ -120,13 +117,11 @@ function groupToggle(layer_list) {
   }
 }
 
-
 function showLegend() {
     $('#legend-button').bind('click', function(){
         $('.legend').toggleClass('hidden');
     })
 }
-
 function toggleVisibility() {
     $('.visibility-toggle-pink').bind('click', function() {
         $(this).toggleClass('pink');
@@ -147,7 +142,6 @@ function toggleVisibility() {
         $(this).toggleClass('green');
     });
 };
-
 function toggleMenu() {
     $("#menu-icon-div").bind('click', function() {
         $("#mobile-menu").toggleClass("hidden")
@@ -161,15 +155,12 @@ function toggleMenu() {
     });
 }
 
-
 //Layer functions
-
 function turnOnExploreMode() {
     $('#explore-button').bind('click', function() {
         $(this).toggleClass('explore-mode-on');
     })
 }
-
 function changeVisibility(lyr){
     console.log("visible was: " + lyr.visible)
     if (lyr.visible == false){
@@ -182,7 +173,6 @@ function changeVisibility(lyr){
     }
     console.log("visible is: " + lyr.visible)
 }
-
 
 //Drop down functions
 function showMobileAmenities() {
@@ -226,10 +216,7 @@ function showMobileRecreation() {
         }
 }
 
-
-
 //Extra Functions
-
 function showIcon() {
     var x = document.getElementById("connectivity-list");
         if (x.className.indexOf("w3-show") == -1) {
@@ -297,13 +284,29 @@ require([
     "esri/core/watchUtils",
 	"esri/core/urlUtils",
 	"esri/tasks/support/Query",
+	"esri/core/Collection",
     "dojo/domReady!"], function(
-        esriConfig, Map, MapView, Basemap, WebMap, Layer, FeatureLayer, Search, Locate, Home, Popup, LabelClass, MapImageLayer, promiseUtils, watchUtils, urlUtils, Query
+        esriConfig, 
+		Map,
+		MapView,
+		Basemap,
+		WebMap,
+		Layer,
+		FeatureLayer,
+		Search,
+		Locate,
+		Home,
+		Popup,
+		LabelClass,
+		MapImageLayer,
+		promiseUtils,
+		watchUtils,
+		urlUtils,
+		Query,
+		Collection
         ) {
     
-    
     //POPUP
-    
     var app_popup = new Popup({
         dockEnabled: true,
         dockOptions:{
@@ -311,10 +314,7 @@ require([
         }
     });
     
-    
-    
     //FEATURE RENDERERS
-    
     var defaultMarker = {
         type: "simple",
         symbol:{
@@ -376,7 +376,6 @@ require([
         }
     };
     
-    
     //TESTING REFERENCE SCALE FOR POINT SYMBOLS
     /*
     var sizeVisVar = {
@@ -401,9 +400,7 @@ require([
     defaultMarker.visualVariables.push(sizeVisVar);
     */
     
-    
     //LABEL CLASSES
-    
     var buildingsLabelClass = {
         symbol: {
             type: "text",
@@ -507,31 +504,37 @@ require([
         }
     };
     
-    
-    
     //MAPS TO USE AS BASEMAPS
-    
     carto = new WebMap({
         portalItem: {
 		  	id:"795020303530467f8d096fca5f4d022c"
         }
     });
-  
+	carto.when(function(carto) {
+        carto.addMany(everyLayer)
+    })
+	
   	satellite = new WebMap({
         portalItem: {
-            id:"4fb6663a73744a789b219418bc9ec7a4"
+            id:"e75286a8ed7f4d028b823ee59a2bd918"
 		  	//id:"795020303530467f8d096fca5f4d022c"
         }
     });
-  
+	satellite.when(function(satellite) {
+        satellite.addMany(everyLayer)
+    })
+	
 	hybrid = new WebMap({
         portalItem: {
-            id:"e75286a8ed7f4d028b823ee59a2bd918"
+            //id:"e75286a8ed7f4d028b823ee59a2bd918"
+			id:"89f67154356949c8b147bfe0421482f2"
         }
     });
+	hybrid.when(function(hybrid) {
+        hybrid.addMany(everyLayer)
+    })
 	
 	//////////////////////////////////////////////
-	
     poster_webmap = new WebMap({
         portalItem: {
             id:"75c6c947af6f4a69b18c45a91d18123e"
@@ -553,15 +556,13 @@ require([
         }
     });
     
-    
-    
     //MAP VIEW
-    
     view = new MapView({
         container: "viewDiv",
-        map: carto,
+        map: hybrid,
         zoom: 14,
-        center: [-122.058864,36.995662],
+        center: [-122.068564,36.999662],
+		layerViews:everyLayer,
         popup:{
             highlightEnabled: true,
             dockEnabled: false,
@@ -570,7 +571,6 @@ require([
             }
         }
     })
-    
     
     //WIDGETS
     view.ui.remove("attribution");
@@ -698,7 +698,6 @@ require([
     
     
     //LOAD ALL MAP LAYERS
-    
 	buildings_lyr = new FeatureLayer({
         portalItem:{
             id:"9f17f4aed3554b15a189f89b13f36b58"
@@ -719,7 +718,6 @@ require([
         labelingInfo: [buildingsLabelClass]
     })
 	buildings_lyr.labelsVisible = false;	
-
     colleges_lyr = new FeatureLayer({
         portalItem:{
             id:"de8c23622c384eb6968a7e77d6ba68d9"
@@ -741,7 +739,6 @@ require([
         labelingInfo:[parkingLabelClass],
         definitionExpression: "NUMBER is not null"
     })
-    
     poi_lyr = new FeatureLayer({
         portalItem:{
             id:"b255a3ac03bf4bda812305f105e6b65c"
@@ -836,20 +833,24 @@ require([
         },
         visible: false
     })
+	lactation_lyr = new FeatureLayer({
+        portalItem:{
+            id: "38160cfa13ca4f83b555af4bb72e1205"
+        },
+        visible: false
+    })
     emergency_phones_lyr = new FeatureLayer({
         portalItem:{
             id: "c67599ead669443dbbb3a5eaa0e376de"
         },
         visible: false
     })
-    
     bus_route_lyr = new FeatureLayer({
         portalItem:{
             id: "2280263859654b5e9902a17dc9a195f0"
         },
         visible: false,
     })
-
 	labels_lyr = new FeatureLayer({
         portalItem:{
             id: "a3bb6a92e1ff46ac82beea01c05f9673"
@@ -866,39 +867,20 @@ require([
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
   	allLayers = [foods, transportations, academics, facilities, recreations] 
-  
-    //add all layers that were just loaded so they can quickly be toggled on/off
-    
-    view.when(function() {
-        carto.addMany([
-        	buildings_lyr,
-            parking_lyr,
-            bus_route_lyr,
-            zones_lyr,
-            libraries_lyr,
-            shuttles_lyr,
-            metro_bus_lyr,
-            cafes_lyr,
-            perks_lyr,
-            food_trucks_lyr,
-            bike_repair_lyr,
-            dining_halls_lyr,
-            bike_parking_lyr,
-            bike_repair_lyr,
-            genderinclusive_lyr,
-            emergency_phones_lyr,
-            gardens_lyr,
-            poi_lyr,
-            rec_lyr,
-        	colleges_lyr,
-        	labels_lyr
-        ])
-    })
-    .catch(function(){
-        alert('ERROR LOADING LAYERS')
-    })
-
+  	
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
+	
+	function changeCursor(response){
+		if (response.results.length > 0 && response.results[0].graphic.layer.title == 'buildings_app'){
+			document.getElementById("viewDiv").style.cursor = "pointer";
+		} else {
+			document.getElementById("viewDiv").style.cursor = "default";
+		}
+	}
 	view.when(function(){
+		console.log("adding layers...")
+		//hybrid.addMany(everyLayer)
+		console.log("parsing URL for params...")
         u = document.URL
         params = urlUtils.urlToObject(u);
         query = new Query();
@@ -915,13 +897,13 @@ require([
             }, 2000);
         });
     });
-    
+	
     toggleVisibility();
     toggleMenu();
   	setBasemap();
   	setBuildingLabels();
     showLegend();
-    
+	
 });
 
 function toggleBasemap() {
@@ -979,14 +961,10 @@ function toggleBasemap() {
             ]);
         };
 }
-
 function toggleBuildingLabels() {
     if (buildings_lyr.labelsVisible == true) {
         buildings_lyr.labelsVisible = false;
     } else {
         buildings_lyr.labelsVisible = true;
     }
-}
-            
-        
-       
+}   
