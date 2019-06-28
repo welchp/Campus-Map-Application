@@ -38,6 +38,7 @@
 	<!--link rel="stylesheet" href="css/app_styles.css"-->
 	<link rel="stylesheet" href="css/layout.css">
 
+	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
 	<script src='js/main.js'></script>
 
@@ -66,9 +67,9 @@
 								<legend class="radio-group-title">Choose your basemap</legend>
 								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
 								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
+								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" />
 								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
+								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" checked />
 								<label class="radio-group-label" for="hybrid">Hybrid</label>
 							</fieldset>
 						</div>
@@ -95,34 +96,34 @@
 			</div>
 		  </header>
 		<div id="main-content">
-			<div id="side-nav" class="phone-hide">
+			<div id="side-nav" class="tablet-hide">
 				<aside class="side-nav" aria-role="complementary">
-					<h4 class="side-nav-title" onclick="groupToggle(foods)">Food & Drink</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(foods)"><i class="fas fa-utensils"></i>Food & Drink</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">Restaurants and Cafes</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">The Perk Coffee Shops</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">College Dining Halls</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">Food Trucks</a>
-				</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(transportations)">Transportation</h4>
+					</nav>
+					<h4 class="side-nav-title" onclick="groupToggle(transportations)"><i class="fas fa-bus"></i>Transportation</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">Metro Bus and Shuttle Stops</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">Parking Lots</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">Bike Repair</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">Bike Parking</a>
 					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(academics)">Academics</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(academics)"><i class="fas fa-book"></i>Academics</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">Colleges</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">Libraries</a>
 					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(facilities)">Health, Safety & Facilities</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(facilities)"><i class="fas fa-life-ring"></i>Health, Safety & Facilities</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">Emergency Phones</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">All-Gender Restrooms</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">Lactation Rooms</a>						
 					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(recreations)">Recreation</h4>
+					<h4 class="side-nav-title" onclick="groupToggle(recreations)"><i class="fas fa-hiking"></i>Recreation</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">Trails, Courts, & Atheltic Facilities</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">Campus Gardens</a>

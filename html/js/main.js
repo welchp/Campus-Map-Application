@@ -23,7 +23,8 @@ var foodLabelClass;
 var bldgLabelClass;
 var zonesLabelClass;
 var parkingLabelClass;
-var transitLabelClass;
+var metroLabelClass;
+var shuttleLabelClass;
 
 var poi_lyr;
 var rec_lyr;
@@ -94,7 +95,7 @@ function setBasemap() {
   });
 }
 function switchBasemap(basemap){
-  	console.log("view.map = basemap")
+  	console.log("view.map = " + basemap.title)
 	view.map = basemap
   	allLayers.forEach(function(layers){
 	    layers.forEach(function(lyr){
@@ -455,12 +456,30 @@ require([
             expression: "'LOT# ' + $feature.NUM"
         }
     };
-    var transitLabelClass = {
+    var metroLabelClass = {
         symbol: {
             type: "text",
-            color: "white",
-            haloColor: [0, 0, 0, 1.0],
-            haloSize: 0.85,
+            color: [150,187,223],
+            haloColor: [0,0,0,0.8],
+            haloSize: 0.5,
+            font: {
+                family: "Arial Unicode MS",
+                size: 10,
+                style: "normal",
+                weight: "bold"
+            }
+        },
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+            expression: "$feature.Name"
+        }
+    };
+	var shuttleLabelClass = {
+        symbol: {
+            type: "text",
+            color: [253,249,153],
+            haloColor: [0, 0, 0, 0.8],
+            haloSize: 0.5,
             font: {
                 family: "Arial Unicode MS",
                 size: 10,
@@ -516,8 +535,7 @@ require([
 	
   	satellite = new WebMap({
         portalItem: {
-            id:"e75286a8ed7f4d028b823ee59a2bd918"
-		  	//id:"795020303530467f8d096fca5f4d022c"
+            id:"515d7e26cfb64c42824a97a46ce439ca"
         }
     });
 	satellite.when(function(satellite) {
@@ -526,7 +544,6 @@ require([
 	
 	hybrid = new WebMap({
         portalItem: {
-            //id:"e75286a8ed7f4d028b823ee59a2bd918"
 			id:"89f67154356949c8b147bfe0421482f2"
         }
     });
@@ -806,18 +823,18 @@ require([
     })
     shuttles_lyr = new FeatureLayer({
         portalItem:{
-            id: "9684474d787e4b45b08d9bba098cf7c3"
+            id: "78d6428371d34521a4d7848163e8cae8"
         },
         visible: false,
-        labelingInfo:[transitLabelClass],
+        labelingInfo:[shuttleLabelClass],
         definitionExpression: "STOPTYPE = 'Campus Shuttle'"
     })
     metro_bus_lyr = new FeatureLayer({
         portalItem:{
-            id: "9684474d787e4b45b08d9bba098cf7c3"
+            id: "78d6428371d34521a4d7848163e8cae8"
         },
         visible: false,
-        labelingInfo:[transitLabelClass],
+        labelingInfo:[metroLabelClass],
         definitionExpression: "STOPTYPE = 'Santa Cruz Metro'"
     })
     gardens_lyr = new FeatureLayer({
@@ -825,7 +842,7 @@ require([
             id: "2ccfa63e4d764460adcb1f4ea2aff61c"
         },
         visible: false,
-        labelingInfo:[transitLabelClass],
+        labelingInfo:[foodLabelClass],
     })
     genderinclusive_lyr = new FeatureLayer({
         portalItem:{
@@ -856,7 +873,7 @@ require([
             id: "a3bb6a92e1ff46ac82beea01c05f9673"
         },
         visible: false,
-        labelingInfo:[transitLabelClass],
+        labelingInfo:[foodLabelClass],
         definitionExpression: "CampusZoneType in ('Primary', 'Secondary')"
     })
     
