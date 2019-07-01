@@ -25,6 +25,8 @@ var zonesLabelClass;
 var parkingLabelClass;
 var metroLabelClass;
 var shuttleLabelClass;
+var academicsLabelClass;
+var recLabelClass;
 
 var poi_lyr;
 var rec_lyr;
@@ -460,7 +462,7 @@ require([
         symbol: {
             type: "text",
             color: [150,187,223],
-            haloColor: [0,0,0,0.8],
+            haloColor: [0,0,0],
             haloSize: 0.5,
             font: {
                 family: "Arial Unicode MS",
@@ -478,7 +480,7 @@ require([
         symbol: {
             type: "text",
             color: [253,249,153],
-            haloColor: [0, 0, 0, 0.8],
+            haloColor: [0,0,0],
             haloSize: 0.5,
             font: {
                 family: "Arial Unicode MS",
@@ -494,22 +496,46 @@ require([
     };
     var foodLabelClass = {
         symbol: {
-            verticalOffset: {
-                screenLength: 150,
-                maxWorldLength: 2000,
-                minWorldLength: 30
-              },
-              callout: {
-                type: "line", // autocasts as new LineCallout3D()
-                size: 0.5,
-                color: [0, 0, 0],
-                border: {
-                  color: [255, 255, 255]
-                }},
             type: "text",
-            color: "white",
-            haloColor: [0, 0, 0, 1.0],
-            haloSize: 0.85,
+            color: [228,69,75],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
+            font: {
+                family: "Arial Unicode MS",
+                size: 10,
+                style: "normal",
+                weight: "bold"
+            }
+        },
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+            expression: "$feature.Name"
+        }
+    };
+	var academicsLabelClass = {
+        symbol: {
+            type: "text",
+            color: [59,83,148],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
+            font: {
+                family: "Arial Unicode MS",
+                size: 10,
+                style: "normal",
+                weight: "bold"
+            }
+        },
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+            expression: "$feature.Name"
+        }
+    };
+	var recLabelClass = {
+        symbol: {
+            type: "text",
+            color: [78,152,34],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
             font: {
                 family: "Arial Unicode MS",
                 size: 10,
@@ -550,30 +576,9 @@ require([
 	hybrid.when(function(hybrid) {
         hybrid.addMany(everyLayer)
     })
-	
-	//////////////////////////////////////////////
-    poster_webmap = new WebMap({
-        portalItem: {
-            id:"75c6c947af6f4a69b18c45a91d18123e"
-        }
-    });
-    cad_webmap = new WebMap({
-        portalItem: {
-            id:"aef98fd8151d4ab8aea88671f8e81832"
-        }
-    });
-    newspaper_webmap = new WebMap({
-        portalItem: {
-            id:"75a3ce8990674a5ebd5b9ab66bdab893"
-        }
-    });
-    terrain_map = new WebMap({
-        portalItem: {
-            id:"5f68957c846942f19d2ac5cb191842c8"
-        }
-    });
+   
     
-    //MAP VIEW
+    /////////////    MAP VIEW    \\\\\\\\\\\\\
     view = new MapView({
         container: "viewDiv",
         map: hybrid,
@@ -589,7 +594,7 @@ require([
         }
     })
     
-    //WIDGETS
+    //////////     WIDGETS   \\\\\\\\\\\\\
     view.ui.remove("attribution");
     
     homeBtn = new Home({
@@ -768,14 +773,14 @@ require([
             id:"30ba437201bd4a16b90ca8b34ea65a4a"
         },
         visible: false,
-        labelingInfo:[foodLabelClass]
+        labelingInfo:[recLabelClass]
     })
     libraries_lyr = new FeatureLayer({
         portalItem:{
             id:"b82d703a18bc469392089b91b413a5f5"
         },
         visible: false,
-        labelingInfo:[foodLabelClass]
+        labelingInfo:[academicsLabelClass]
     })
     cafes_lyr = new FeatureLayer({
         portalItem:{
@@ -842,7 +847,7 @@ require([
             id: "2ccfa63e4d764460adcb1f4ea2aff61c"
         },
         visible: false,
-        labelingInfo:[foodLabelClass],
+        labelingInfo:[recLabelClass],
     })
     genderinclusive_lyr = new FeatureLayer({
         portalItem:{
