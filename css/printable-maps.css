@@ -1,0 +1,22 @@
+#main-content {
+	display:flex;
+	flex-wrap: wrap;
+}
+
+.thumb {
+	border:1px solid #dcdcdc;
+	margin:10px;
+	min-height:200px;
+	max-height:200px;
+	min-width:200px;
+	max-width:200px;
+}
+
+.banner-image {
+    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background.jpg);
+    width:100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:1.0;
+}
