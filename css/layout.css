@@ -17,8 +17,9 @@ body {
 	text-align: center;
 	color:white;
 	background-color:#AA1712;
-	border-radius: 4px;
-	margin:auto 0 10px 0;
+	border-radius: 2px;
+	margin:auto 0 0 0;
+	padding:8px 0;
 	text-shadow: 0 1px 1px rgba(0,0,0,0.6);
 	box-shadow: 0 4px 4px rgba(0,0,0,0.15);
 }
@@ -168,11 +169,16 @@ body {
 	width:100%;
 }
 
+nav > a {
+}
+
 .side-nav-title {
 	width:100%;
 	background-color: #01589D;
 	color:white;
+	border-left: 2px solid #01589D;
 	padding:4px;
+	position:relative;
 }
 
 .side-nav-title:hover {
@@ -181,6 +187,12 @@ body {
 
 .side-nav-link {
 	line-height: 1em;
+}
+
+.vis-indicator-all {
+	position:absolute;
+	right:4px;
+	color:yellowgreen;
 }
 
 /* H O V E R */
