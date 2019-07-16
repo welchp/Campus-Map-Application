@@ -105,10 +105,18 @@ function switchBasemap(basemap){
 		})  
 	})
 }
+
 function isNotVisible(lyr){
   return lyr.visible == false
 }
-function groupToggle(layer_list) {
+
+function indicateAll(){
+	//event handler
+	//when side-nav-title is clicked, get all children layers
+	//if one is checked, make all checked, else, make all unchecked
+}
+
+function groupToggle(layer_list) {	
   if (layer_list.some(isNotVisible)){
 	  layer_list.forEach(function(lyr) {
 	      lyr.visible = true
@@ -175,6 +183,18 @@ function changeVisibility(lyr){
         lyr.visible = false;
     }
     console.log("visible is: " + lyr.visible)
+}
+
+function indicateVisibility() {
+	document.addEventListener('click', function (event) {
+	// If the clicked element doesn't have the right selector, bail
+	if (!event.target.matches('.side-nav-link')) return;
+		if (event.target.childNodes[1].className == "icon-ui-radio-checked") {
+			event.target.childNodes[1].className = "icon-ui-radio-unchecked"
+		} else {
+			event.target.childNodes[1].className = "icon-ui-radio-checked"
+		}
+	}, false);
 }
 
 //Drop down functions
@@ -920,6 +940,7 @@ require([
         });
     });
 	
+	indicateVisibility();
     toggleVisibility();
     toggleMenu();
   	setBasemap();

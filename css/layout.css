@@ -179,6 +179,7 @@ nav > a {
 	border-left: 2px solid #01589D;
 	padding:4px;
 	position:relative;
+	font-family: "Roboto Condensed", sans-serif;
 }
 
 .side-nav-title:hover {
@@ -187,6 +188,7 @@ nav > a {
 
 .side-nav-link {
 	line-height: 1em;
+	font-family: "Roboto"
 }
 
 .vis-indicator-all {
