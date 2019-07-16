@@ -10,6 +10,23 @@ body {
 	margin-right:10px;	
 }
 
+#contact, #contact:hover {
+	text-decoration: none;
+	width:100%;
+	padding:4px;
+	text-align: center;
+	color:white;
+	background-color:#AA1712;
+	border-radius: 4px;
+	margin:auto 0 10px 0;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.6);
+	box-shadow: 0 4px 4px rgba(0,0,0,0.15);
+}
+
+#contact:hover {
+	transform: scale(1.01)
+}
+
 #main-grid {
 	display:grid;
 	height:100vh;
@@ -125,9 +142,10 @@ body {
 }
 
 .radio-group-label {
-	font-family: "Roboto";
-	height:20px;
-	padding:0px 10px
+	font-family: "Roboto Condensed", sans-serif;
+	font-size: 12px;
+	height:16px;
+	padding:0px 10px;
 }
 
 #menu-icon {

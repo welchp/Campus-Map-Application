@@ -52,14 +52,16 @@
 				<img src="images/logos/UC Santa Cruz Logo - White.png" id="ucsc-logo">
 				<h1 class="trailer-half phone-hide">Interactive Map</h1>
 				<div id="map-options">
-				    <div id="fieldsets" class="phone-hide">
-				    	<div>
+					<div id="fieldsets" class="phone-hide">
+						<div>
 							<fieldset id="building-label-selector" class="radio-group">
-							  <legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
-							  <input class="radio-group-input" type="radio" id="On" value ="on" name="building-label-toggle" />
-							  <label class="radio-group-label" for="On"><p>On</p></label>
-							  <input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
-							  <label class="radio-group-label" for="Off">Off</label>
+								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
+								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
+								<label class="radio-group-label" for="On">
+									<p>On</p>
+								</label>
+								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
+								<label class="radio-group-label" for="Off">Off</label>
 							</fieldset>
 						</div>
 						<div>
@@ -73,29 +75,26 @@
 								<label class="radio-group-label" for="hybrid">Hybrid</label>
 							</fieldset>
 						</div>
-				  </div>
-				  <i id="menu-icon" class="icon-ui-menu phone-show"></i>
+					</div>
+					<i id="menu-icon" class="icon-ui-menu phone-show"></i>
 				</div>
 			</div>
 		</div>
 		<header class="third-nav phone-hide">
 			<div class="third-nav-container">
-			  <div class="grid-container">
-				<nav class="break" role="navigation" aria-labelledby="thirdnav">
-				  	<div id="break">
-					  <a class="third-nav-link hvr-underline-from-left" href="home/"><i class="icon-ui-home"></i>PPDO Maps Home</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="icon-ui-printer"></i>Printable Maps</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="https://maps.google.com" target="_blank"><i class="icon-ui-directions"></i>Google Routing</a>
-					  <a class="third-nav-link hvr-underline-from-left" href="help/"><i class="icon-ui-support"></i>Help</a>
-					</div>
-				  	<div id="support-nav">
-					  
-					</div>
-				</nav>
-			  </div>
+				<div class="grid-container">
+					<nav class="break" role="navigation" aria-labelledby="thirdnav">
+						<div id="break" style="margin-right:auto;">
+							<a class="third-nav-link hvr-underline-from-left" href="home/"><i class="icon-ui-home"></i>PPDO Maps Home</a>
+							<a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="icon-ui-printer"></i>Printable Maps</a>
+							<a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a>
+							<a class="third-nav-link hvr-underline-from-left" href="https://maps.google.com" target="_blank"><i class="icon-ui-directions"></i>Google Routing</a>
+							<a class="third-nav-link hvr-underline-from-left" href="help/"><i class="icon-ui-support"></i>Help</a>
+						</div>
+					</nav>
+				</div>
 			</div>
-		  </header>
+		</header>
 		<div id="main-content">
 			<div id="side-nav" class="tablet-hide">
 				<aside class="side-nav" aria-role="complementary">
@@ -122,7 +121,7 @@
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">Emergency Phones</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">All-Gender Restrooms</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">Lactation Rooms</a>						
+						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">Lactation Rooms</a>
 					</nav>
 					<h4 class="side-nav-title" onclick="groupToggle(recreations)"><i class="fas fa-hiking"></i>Recreation</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -131,6 +130,10 @@
 						<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">Places of Interest</a>
 					</nav>
 				</aside>
+				<a href="mailto:maps@ucsc.edu" id="contact">
+					<i class="icon-ui-contact"></i>
+					Contact Map Administrator
+				</a>
 			</div>
 			<div id="main-wrapper">
 				<div id="viewDiv">
@@ -139,8 +142,7 @@
 		</div>
 	</div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
 
-</body>
-</html>
+</body></html>
