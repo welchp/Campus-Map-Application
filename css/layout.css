@@ -32,9 +32,10 @@ body {
 #viewDiv {
 	width:100%;
 	height:100%;
-	border:1px solid #EFEFEF;
+	border:1px solid #DCDCDC;
 	margin-right: auto;
 	margin-left: auto;
+	box-shadow: 0 0 8px rgba(0,0,0,0.12);
 }
 
 #header {
@@ -82,7 +83,8 @@ body {
 
 .panel-dark-blue {
 	padding:10px;
-	background-color:#01589D
+	background-color:#01589D;
+	border:none;
 }
 
 #ucsc-logo{
@@ -93,7 +95,6 @@ body {
 	font-family:"Oswald", sans-serif;
 	font-size: 24px;
 	font-weight: 200;
-	margin-left:20px;
 	margin-right: auto;
 }
 
