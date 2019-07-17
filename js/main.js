@@ -80,6 +80,7 @@ function setBuildingLabels() {
 		});
 	});
 }
+
 function setBasemap() {
   $(document).ready(function(){
 		var basemapSelector = $("input[type='radio'][name='basemap-selector']");
@@ -96,6 +97,7 @@ function setBasemap() {
 		})
   });
 }
+
 function switchBasemap(basemap){
   	console.log("view.map = " + basemap.title)
 	view.map = basemap
@@ -399,29 +401,6 @@ require([
         }
     };
     
-    //TESTING REFERENCE SCALE FOR POINT SYMBOLS
-    /*
-    var sizeVisVar = {
-        type: "size",
-        valueExpression: "$view.scale",
-        stops: [
-            {
-                value: 1128, 
-                size: 28
-            },{
-                value: 2256,
-                size: 24
-            },{
-                value: 4514,
-                size: 20
-            },{ 
-                value: 9028,
-                size: 14
-            }
-        ]};
-    
-    defaultMarker.visualVariables.push(sizeVisVar);
-    */
     
     //LABEL CLASSES
     var buildingsLabelClass = {
@@ -569,8 +548,12 @@ require([
         }
     };
     
-    //MAPS TO USE AS BASEMAPS
-    carto = new WebMap({
+	
+	
+    ///////    BASEMAPS     \\\\\\\
+    
+	
+	carto = new WebMap({
         portalItem: {
 		  	id:"795020303530467f8d096fca5f4d022c"
         }
@@ -599,7 +582,7 @@ require([
    
     
     /////////////    MAP VIEW    \\\\\\\\\\\\\
-    view = new MapView({
+	view = new MapView({
         container: "viewDiv",
         map: hybrid,
         zoom: 14,
@@ -613,8 +596,9 @@ require([
             }
         }
     })
-    
-    //////////     WIDGETS   \\\\\\\\\\\\\
+	
+	
+	////////////     WIDGETS      \\\\\\\\\\\\\
     view.ui.remove("attribution");
     
     homeBtn = new Home({
@@ -738,8 +722,8 @@ require([
     searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
     view.ui.add(searchWidget, {position: "top-right"});
     
-    
-    //LOAD ALL MAP LAYERS
+
+	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
         portalItem:{
             id:"9f17f4aed3554b15a189f89b13f36b58"
@@ -760,7 +744,8 @@ require([
         labelingInfo: [buildingsLabelClass]
     })
 	buildings_lyr.labelsVisible = false;	
-    colleges_lyr = new FeatureLayer({
+    
+	colleges_lyr = new FeatureLayer({
         portalItem:{
             id:"de8c23622c384eb6968a7e77d6ba68d9"
         },
@@ -946,68 +931,5 @@ require([
   	setBasemap();
   	setBuildingLabels();
     showLegend();
-	
-});
 
-function toggleBasemap() {
-        if (view.map == aerial_webmap) {
-            
-            view.map = webmap;
-            webmap.addMany([
-            	buildings_lyr,
-                parking_lyr,
-                bus_route_lyr,
-                zones_lyr,
-                libraries_lyr,
-                shuttles_lyr,
-                metro_bus_lyr,
-                cafes_lyr,
-                perks_lyr,
-                food_trucks_lyr,
-                bike_repair_lyr,
-                dining_halls_lyr,
-                bike_parking_lyr,
-                bike_repair_lyr,
-                genderinclusive_lyr,
-                emergency_phones_lyr,
-                gardens_lyr,
-                poi_lyr,
-                rec_lyr,
-            	colleges_lyr,
-            	labels_lyr
-            ]);
-        } else {
-            
-            view.map = aerial_webmap;
-            aerial_webmap.addMany([
-            	buildings_lyr,
-                parking_lyr,
-                bus_route_lyr,
-                zones_lyr,
-                libraries_lyr,
-                shuttles_lyr,
-                metro_bus_lyr,
-                cafes_lyr,
-                perks_lyr,
-                food_trucks_lyr,
-                bike_repair_lyr,
-                dining_halls_lyr,
-                bike_parking_lyr,
-                bike_repair_lyr,
-                genderinclusive_lyr,
-                emergency_phones_lyr,
-                gardens_lyr,
-                poi_lyr,
-                rec_lyr,
-            	colleges_lyr,
-            	labels_lyr
-            ]);
-        };
-}
-function toggleBuildingLabels() {
-    if (buildings_lyr.labelsVisible == true) {
-        buildings_lyr.labelsVisible = false;
-    } else {
-        buildings_lyr.labelsVisible = true;
-    }
-}   
+});

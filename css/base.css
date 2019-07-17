@@ -154,7 +154,6 @@ div#left-nav {
 #main-content {
 	padding:2px 0px 0px 30px;
 	max-height: 600px;
-	overflow:auto;
 }
 
 .page-title {

@@ -29,7 +29,7 @@ const map_cards = {
 		"thumb":"printable-maps-thumb.PNG"
     },
     "Detailed Directions":{
-        "href":"https://maps.ucsc.edu/detailed-directions",
+        "href":"/detailed-directions/index2.html",
         "target":"_blank",
 		"textContent":"Static collection of browser-based maps served in HTML format. Visit this page if you are looking for a web page with an area map alongside narrative directions.",
 		"thumb":"detailed-directions-thumb.PNG"
