@@ -219,8 +219,8 @@ nav > a {
   height: 2px;
   -webkit-transition-property: right;
   transition-property: right;
-  -webkit-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  -webkit-transition-duration: 0.1s;
+  transition-duration: 0.1s;
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
 }
