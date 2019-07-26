@@ -590,7 +590,7 @@ require([
 		layerViews:everyLayer,
         popup:{
             highlightEnabled: true,
-            dockEnabled: false,
+            dockEnabled: true,
             dockOptions:{
                 position: "bottom-right"
             }
@@ -734,7 +734,7 @@ require([
 			type: "simple",  // autocasts as new SimpleRenderer()
 			symbol: {
 			  type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
-			  color: null,
+			  color: [255,255,255,0.1],
 			  outline: {  // autocasts as new SimpleLineSymbol()
 				width: 0.5,
 				color: null
@@ -904,6 +904,23 @@ require([
 			document.getElementById("viewDiv").style.cursor = "default";
 		}
 	}
+
+	view.on("pointer-move", function (evt) {
+		var screenPoint = {
+			x: evt.x,
+			y: evt.y
+		};
+		
+		view.hitTest(screenPoint)
+			.then(function (response) {
+				if (response.results.length > 0) {
+					changeCursor(response);
+				} else {
+					changeCursor(response)
+				}
+		});
+	});
+	
 	view.when(function(){
 		console.log("adding layers...")
 		//hybrid.addMany(everyLayer)
