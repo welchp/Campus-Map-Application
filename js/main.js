@@ -605,7 +605,7 @@ require([
 	////////////     WIDGETS      \\\\\\\\\\\\\
 	
 	var basemapGallery = new BasemapGallery({
-	  view: view,
+	  view: view
 	});
 	
 	//view.ui.add(basemapGallery, {
