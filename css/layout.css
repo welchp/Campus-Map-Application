@@ -183,6 +183,12 @@ body {
 	font-size: 30px;
 }
 
+#mobile-menu {
+	display:none;
+	flex-direction: column;
+	overflow:auto;
+}
+
 #side-nav {
 	display:flex;
 	flex-direction: column;

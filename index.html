@@ -215,6 +215,107 @@
 				
 			</div>
 			<div id="main-wrapper">
+				<div id="mobile-menu">
+					<a href="mailto:maps@ucsc.edu" id="contact">
+						<i class="icon-ui-contact"></i>
+						Contact the Map Administrator
+					</a>
+					<aside class="side-nav" aria-role="complementary">
+						<h4 class="side-nav-title" onclick="groupToggle(foods)">
+							<i class="fas fa-utensils"></i>Food & Drink
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Restaurants and Cafes
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								The Perk Coffee Shops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								College Dining Halls
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Food Trucks
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
+							<i class="fas fa-bus"></i>Transportation
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Metro Bus and Shuttle Stops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Parking Lots
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Bike Repair
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Bike Parking
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(academics)">
+							<i class="fas fa-book"></i>Academics
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Colleges
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Libraries
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
+							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Emergency Phones
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								All-Gender Restrooms
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Lactation Rooms
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
+							<i class="fas fa-hiking"></i>Recreation
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span></h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Trails, Courts, & Athletic Facilities
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Campus Gardens
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Places of Interest
+							</a>
+						</nav>
+					</aside>
+				</div>
 				<div id="viewDiv">
 					<div id="contact-icon" class="phone-show">
 						CONTACT

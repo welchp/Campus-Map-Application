@@ -299,6 +299,7 @@ require([
     "esri/views/MapView",
     "esri/Basemap",
     "esri/WebMap",
+	"esri/widgets/BasemapGallery",
     "esri/layers/Layer",
     "esri/layers/FeatureLayer",
     "esri/widgets/Search",
@@ -318,6 +319,7 @@ require([
 		MapView,
 		Basemap,
 		WebMap,
+		BasemapGallery,
 		Layer,
 		FeatureLayer,
 		Search,
@@ -553,7 +555,7 @@ require([
 	
 	
     ///////    BASEMAPS     \\\\\\\
-    
+   
 	
 	carto = new WebMap({
         portalItem: {
@@ -601,6 +603,15 @@ require([
 	
 	
 	////////////     WIDGETS      \\\\\\\\\\\\\
+	
+	var basemapGallery = new BasemapGallery({
+	  view: view,
+	});
+	
+	//view.ui.add(basemapGallery, {
+	//  position: "bottom-right"
+	//});
+	
     view.ui.remove("attribution");
     
     homeBtn = new Home({
@@ -948,12 +959,14 @@ require([
 	var node = document.getElementById('menu-icon');
 
 	function action (event) {
-	  var viewD = document.getElementById('viewDiv'); 
-	  console.log(viewD)
+	  var viewD = document.getElementById('viewDiv');
+	  var mobile_menu = document.getElementById('mobile-menu');
 	  if (viewD.style.display == 'none'){
-		viewD.style.display = 'flex'	  
+		viewD.style.display = 'flex'
+		mobile_menu.style.display = 'none'
 	  } else {
 		viewD.style.display = 'none'
+		mobile_menu.style.display = 'flex'
 	  }
 	};
 
