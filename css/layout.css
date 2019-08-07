@@ -94,6 +94,18 @@ body {
 	color: #666;
 }
 
+#mobile-nav {
+	margin-bottom: 0px;
+}
+#mobile-nav-icon-div {
+	display:-webkit-box;
+	display:-ms-flexbox;
+	display:flex;
+	width:100%;
+	-ms-flex-pack: distribute;
+	justify-content: space-around;
+}
+
 .break {
 	display:flex;
 	margin:0px;
@@ -259,7 +271,11 @@ nav > a {
 
 @media only screen and (max-width: 480px) {
 	#main-grid {
-		grid-template-rows:60px auto;
+		grid-template-rows:60px 35px auto;
 	}
 	
+	.third-nav-link::before {
+		padding:0;
+		margin:0;
+	}
 }

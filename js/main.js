@@ -12,6 +12,7 @@ var stamen_webmap;
 var newspaper_webmap;
 
 var view;
+var viewD;
 var homeBtn;
 var app_popup;
 var searchWidget;
@@ -174,6 +175,7 @@ function turnOnExploreMode() {
         $(this).toggleClass('explore-mode-on');
     })
 }
+
 function changeVisibility(lyr){
     console.log("visible was: " + lyr.visible)
     if (lyr.visible == false){
@@ -330,7 +332,7 @@ require([
 		Query,
 		Collection
         ) {
-    
+	
     //POPUP
     var app_popup = new Popup({
         dockEnabled: true,
@@ -941,6 +943,21 @@ require([
             }, 2000);
         });
     });
+	
+	var click = calcite.click();
+	var node = document.getElementById('menu-icon');
+
+	function action (event) {
+	  var viewD = document.getElementById('viewDiv'); 
+	  console.log(viewD)
+	  if (viewD.style.display == 'none'){
+		viewD.style.display = 'flex'	  
+	  } else {
+		viewD.style.display = 'none'
+	  }
+	};
+
+	calcite.addEvent(node, click, action);
 	
 	indicateVisibility();
     toggleVisibility();
