@@ -972,11 +972,18 @@ require([
 
 	calcite.addEvent(node, click, action);
 	
+	function setZoom(){
+		if (window.innerWidth < 480) {
+			view.zoom = 13
+		}
+	}
+	
 	indicateVisibility();
     toggleVisibility();
     toggleMenu();
   	setBasemap();
   	setBuildingLabels();
     showLegend();
+	setZoom();
 
 });
