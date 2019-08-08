@@ -592,7 +592,7 @@ require([
 		layerViews:everyLayer,
         popup:{
             highlightEnabled: true,
-            dockEnabled: true,
+            dockEnabled: false,
             dockOptions:{
                 position: "bottom-right"
             }
@@ -626,6 +626,15 @@ require([
         view: view,
         maxSuggestions: 35,
         sources: [
+			{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
+            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS"],
+            displayField: "BUILDINGNAME",
+            exactMatch: false,
+            outFields: ["BUILDINGNAME", "ABBREVSHORT"],
+            name: "Buildings",
+            placeholder: "e.g. ISB or Humanities Lecture Hall",
+            },
         	{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
             searchFields: ["NUM", "Permit_Type"],
@@ -644,15 +653,6 @@ require([
             outFields: ["label_name", "STOPTYPE"],
             name: "BusStops",
             placeholder: "Search features..."
-            },
-        	{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS"],
-            displayField: "BUILDINGNAME",
-            exactMatch: false,
-            outFields: ["BUILDINGNAME", "ABBREVSHORT"],
-            name: "Buildings",
-            placeholder: "e.g. ISB or Humanities Lecture Hall",
             },
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/BicycleRepair/FeatureServer/0"},
