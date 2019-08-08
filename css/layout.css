@@ -223,6 +223,12 @@ body {
 }
 
 #menu-icon {
+	display:flex;
+	font-size: 30px;
+}
+
+#close-menu-icon {
+	display:none;
 	font-size: 30px;
 }
 

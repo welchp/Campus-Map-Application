@@ -299,7 +299,6 @@ require([
     "esri/views/MapView",
     "esri/Basemap",
     "esri/WebMap",
-	"esri/widgets/BasemapGallery",
     "esri/layers/Layer",
     "esri/layers/FeatureLayer",
     "esri/widgets/Search",
@@ -319,7 +318,6 @@ require([
 		MapView,
 		Basemap,
 		WebMap,
-		BasemapGallery,
 		Layer,
 		FeatureLayer,
 		Search,
@@ -604,9 +602,9 @@ require([
 	
 	////////////     WIDGETS      \\\\\\\\\\\\\
 	
-	var basemapGallery = new BasemapGallery({
-	  view: view
-	});
+	//var basemapGallery = new BasemapGallery({
+	//  view: view
+	//});
 	
 	//view.ui.add(basemapGallery, {
 	//  position: "bottom-right"
@@ -956,21 +954,28 @@ require([
     });
 	
 	var click = calcite.click();
-	var node = document.getElementById('menu-icon');
+	var node = document.getElementById('menu-icon-div');
 
-	function action (event) {
+	function toggleMobileMenu (event) {
 	  var viewD = document.getElementById('viewDiv');
 	  var mobile_menu = document.getElementById('mobile-menu');
+	  var menu_icon = document.getElementById('menu-icon');
+	  var close_menu_icon = document.getElementById('close-menu-icon');
+	  
 	  if (viewD.style.display == 'none'){
 		viewD.style.display = 'flex'
 		mobile_menu.style.display = 'none'
+		menu_icon.style.display = 'flex'
+		close_menu_icon.style.display = 'none'
 	  } else {
 		viewD.style.display = 'none'
 		mobile_menu.style.display = 'flex'
+		menu_icon.style.display = 'none'
+		close_menu_icon.style.display = 'flex'  
 	  }
 	};
 
-	calcite.addEvent(node, click, action);
+	calcite.addEvent(node, click, toggleMobileMenu);
 	
 	function setZoom(){
 		if (window.innerWidth < 480) {
