@@ -592,9 +592,9 @@ require([
 		layerViews:everyLayer,
         popup:{
             highlightEnabled: true,
-            dockEnabled: false,
+            dockEnabled: true,
             dockOptions:{
-                position: "bottom-right"
+                position: "bottom-center"
             }
         }
     })
