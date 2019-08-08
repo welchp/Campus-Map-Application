@@ -954,8 +954,7 @@ require([
     });
 	
 	var click = calcite.click();
-	var node = document.getElementById('menu-icon-div');
-
+	var menu_icon_node = document.getElementById('menu-icon-div');
 	function toggleMobileMenu (event) {
 	  var viewD = document.getElementById('viewDiv');
 	  var mobile_menu = document.getElementById('mobile-menu');
@@ -974,8 +973,20 @@ require([
 		close_menu_icon.style.display = 'flex'  
 	  }
 	};
-
-	calcite.addEvent(node, click, toggleMobileMenu);
+	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
+	
+	
+	var labels_icon_node = document.getElementById('labels-icon');
+	function toggleBuildingLabels (event) {
+	  if (buildings_lyr.labelsVisible == false){
+		  labels_icon_node.style.backgroundColor = '#01589d'
+	  	  buildings_lyr.labelsVisible = true
+	  } else {
+		  labels_icon_node.style.backgroundColor = 'transparent'
+	  	  buildings_lyr.labelsVisible = false
+	  }
+	};
+	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
 	function setZoom(){
 		if (window.innerWidth < 480) {
