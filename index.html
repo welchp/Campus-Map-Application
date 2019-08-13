@@ -37,10 +37,13 @@
 	<link rel="stylesheet" href="css/w3.css">
 	<!--link rel="stylesheet" href="css/app_styles.css"-->
 	<link rel="stylesheet" href="css/layout.css">
-
+	
+	<script src="js/calcite-web.min.js"></script>
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
 	<script src='js/main.js'></script>
+	
+	
 
 </head>
 
@@ -76,7 +79,10 @@
 							</fieldset>
 						</div>
 					</div>
-					<i id="menu-icon" class="icon-ui-menu phone-show"></i>
+					<div id="menu-icon-div">
+						<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -95,10 +101,23 @@
 				</div>
 			</div>
 		</header>
+		<header id="mobile-nav" class="third-nav phone-show">
+			<div class="third-nav-container">
+				<nav class="break" role="navigation" aria-labelledby="thirdnav">
+					<div id="mobile-nav-icon-div">
+						<a class="third-nav-link" href="home/"><i class="icon-ui-home"></i></a>
+						<a class="third-nav-link" href="printable-maps/index2.html" target="_blank"><i class="icon-ui-printer"></i></a>
+						<a class="third-nav-link" href="detailed-directions/index2.html" target="_blank"><i class="icon-ui-documentation"></i></a>
+						<a class="third-nav-link" href="https://maps.google.com" target="_blank"><i class="icon-ui-directions"></i></a>
+						<a class="third-nav-link" href="help/"><i class="icon-ui-support"></i></a>
+					</div>
+				</nav>
+			</div>
+		</header>
 		<div id="main-content">
 			<div id="side-nav" class="tablet-hide">
 				<a href="mailto:maps@ucsc.edu" id="contact">
-					<i class="icon-ui-contact"></i>
+					<i class="icon-ui-user"></i>
 					Contact the Map Administrator
 				</a>
 				<aside class="side-nav" aria-role="complementary">
@@ -199,9 +218,119 @@
 				
 			</div>
 			<div id="main-wrapper">
+				<div id="mobile-menu">
+					<a href="mailto:maps@ucsc.edu" id="contact">
+						<i class="icon-ui-user"></i>
+						Contact the Map Administrator
+					</a>
+					<aside class="side-nav" aria-role="complementary">
+						<h4 class="side-nav-title" onclick="groupToggle(foods)">
+							<i class="fas fa-utensils"></i>Food & Drink
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Restaurants and Cafes
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								The Perk Coffee Shops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								College Dining Halls
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Food Trucks
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
+							<i class="fas fa-bus"></i>Transportation
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Metro Bus and Shuttle Stops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Parking Lots
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Bike Repair
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Bike Parking
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(academics)">
+							<i class="fas fa-book"></i>Academics
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Colleges
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Libraries
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
+							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Emergency Phones
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								All-Gender Restrooms
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Lactation Rooms
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
+							<i class="fas fa-hiking"></i>Recreation
+							<span class="vis-indicator-all"><i class="icon-ui-plus-circled"></i></span></h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Trails, Courts, & Athletic Facilities
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Campus Gardens
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
+								<i class="icon-ui-radio-unchecked"></i>
+								Places of Interest
+							</a>
+						</nav>
+					</aside>
+				</div>
 				<div id="viewDiv">
-					<div id="contact-icon" class="phone-show">
-						CONTACT
+					<div id="map-options-footer" class="phone-show">
+						<div id="basemaps-icon" class="phone-show map-options-icon">
+							<i class="icon-ui-basemap"></i>Basemaps
+						</div>
+						<div id="labels-icon" class="phone-show map-options-icon" style="margin-right:auto">
+							<i class="icon-ui-labels"></i>Building Labels
+						</div>
+						<div id="contact-icon" class="phone-show map-options-icon">
+							<i class="icon-ui-user"></i>
+							<a href="mailto:maps@ucsc.edu">CONTACT</a>
+						</div>
 					</div>
 				</div>
 			</div>

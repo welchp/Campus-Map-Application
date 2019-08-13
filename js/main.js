@@ -12,6 +12,7 @@ var stamen_webmap;
 var newspaper_webmap;
 
 var view;
+var viewD;
 var homeBtn;
 var app_popup;
 var searchWidget;
@@ -174,6 +175,7 @@ function turnOnExploreMode() {
         $(this).toggleClass('explore-mode-on');
     })
 }
+
 function changeVisibility(lyr){
     console.log("visible was: " + lyr.visible)
     if (lyr.visible == false){
@@ -330,7 +332,7 @@ require([
 		Query,
 		Collection
         ) {
-    
+	
     //POPUP
     var app_popup = new Popup({
         dockEnabled: true,
@@ -551,7 +553,7 @@ require([
 	
 	
     ///////    BASEMAPS     \\\\\\\
-    
+   
 	
 	carto = new WebMap({
         portalItem: {
@@ -592,13 +594,22 @@ require([
             highlightEnabled: true,
             dockEnabled: true,
             dockOptions:{
-                position: "bottom-right"
+                position: "bottom-center"
             }
         }
     })
 	
 	
 	////////////     WIDGETS      \\\\\\\\\\\\\
+	
+	//var basemapGallery = new BasemapGallery({
+	//  view: view
+	//});
+	
+	//view.ui.add(basemapGallery, {
+	//  position: "bottom-right"
+	//});
+	
     view.ui.remove("attribution");
     
     homeBtn = new Home({
@@ -620,8 +631,11 @@ require([
             searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS"],
             displayField: "BUILDINGNAME",
             exactMatch: false,
+<<<<<<< HEAD
 			resultGraphicEnabled: true,
             outFields: ["BUILDINGNAME"],
+=======
+>>>>>>> development
             name: "Buildings",
             placeholder: "e.g. ISB or Humanities Lecture Hall",
             },
@@ -943,11 +957,53 @@ require([
         });
     });
 	
+	var click = calcite.click();
+	var menu_icon_node = document.getElementById('menu-icon-div');
+	function toggleMobileMenu (event) {
+	  var viewD = document.getElementById('viewDiv');
+	  var mobile_menu = document.getElementById('mobile-menu');
+	  var menu_icon = document.getElementById('menu-icon');
+	  var close_menu_icon = document.getElementById('close-menu-icon');
+	  
+	  if (viewD.style.display == 'none'){
+		viewD.style.display = 'flex'
+		mobile_menu.style.display = 'none'
+		menu_icon.style.display = 'flex'
+		close_menu_icon.style.display = 'none'
+	  } else {
+		viewD.style.display = 'none'
+		mobile_menu.style.display = 'flex'
+		menu_icon.style.display = 'none'
+		close_menu_icon.style.display = 'flex'  
+	  }
+	};
+	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
+	
+	
+	var labels_icon_node = document.getElementById('labels-icon');
+	function toggleBuildingLabels (event) {
+	  if (buildings_lyr.labelsVisible == false){
+		  labels_icon_node.style.backgroundColor = '#01589d'
+	  	  buildings_lyr.labelsVisible = true
+	  } else {
+		  labels_icon_node.style.backgroundColor = 'transparent'
+	  	  buildings_lyr.labelsVisible = false
+	  }
+	};
+	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
+	
+	function setZoom(){
+		if (window.innerWidth < 480) {
+			view.zoom = 13
+		}
+	}
+	
 	indicateVisibility();
     toggleVisibility();
     toggleMenu();
   	setBasemap();
   	setBuildingLabels();
     showLegend();
+	setZoom();
 
 });
