@@ -631,11 +631,8 @@ require([
             searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS"],
             displayField: "BUILDINGNAME",
             exactMatch: false,
-<<<<<<< HEAD
 			resultGraphicEnabled: true,
             outFields: ["BUILDINGNAME"],
-=======
->>>>>>> development
             name: "Buildings",
             placeholder: "e.g. ISB or Humanities Lecture Hall",
             },
