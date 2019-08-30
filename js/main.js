@@ -595,6 +595,7 @@ require([
             dockEnabled: true,
             dockOptions:{
                 position: "bottom-center",
+				buttonEnabled: false,
 				breakpoint: true,
             }
         }
