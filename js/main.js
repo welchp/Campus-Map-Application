@@ -589,18 +589,7 @@ require([
         map: hybrid,
         zoom: 14,
         center: [-122.068564,36.999662],
-		layerViews:everyLayer,
-        popup:{
-            highlightEnabled: true,
-            dockEnabled: true,
-            dockOptions: {
-              //set dock/undock button from on pop-up
-              buttonEnabled: false,
-              //ignore the default sizes that trigger responsive docking
-              breakpoint: false,
-			  position:"bottom-center"
-            }
-        }
+		layerViews:everyLayer
     })
 	
 	
