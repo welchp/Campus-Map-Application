@@ -593,10 +593,12 @@ require([
         popup:{
             highlightEnabled: true,
             dockEnabled: true,
-            dockOptions:{
-				buttonEnabled: false,
-				breakpoint: true,
-				position: "bottom-center"
+            dockOptions: {
+              //set dock/undock button from on pop-up
+              buttonEnabled: false,
+              //ignore the default sizes that trigger responsive docking
+              breakpoint: false,
+			  position:"bottom-center"
             }
         }
     })
