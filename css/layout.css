@@ -404,4 +404,8 @@ nav > a {
 	#contact {
 		margin-bottom:10px;
 	}
+	
+	.esri-popup__main-container {
+		width:100%;
+	}
 }
