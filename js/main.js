@@ -910,7 +910,7 @@ require([
 	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
 	function changeCursor(response){
-		if (response.results.length > 0 && response.results[0].graphic.layer.title == 'buildings_app'){
+		if (response.results.length > 0 && (response.results[0].graphic.layer.title == 'buildings_app' || response.results[0].graphic.layer.title == 'Parking Lots')){
 			document.getElementById("viewDiv").style.cursor = "pointer";
 		} else {
 			document.getElementById("viewDiv").style.cursor = "default";
