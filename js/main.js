@@ -589,7 +589,15 @@ require([
         map: hybrid,
         zoom: 14,
         center: [-122.068564,36.999662],
-		layerViews:everyLayer
+		layerViews:everyLayer,
+		popup:{
+            highlightEnabled: true,
+            dockEnabled: true,
+            dockOptions:{
+				buttonEnabled: false,
+                position: "bottom-center"
+            }
+        }
     })
 	
 	
