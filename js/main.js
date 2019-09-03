@@ -995,6 +995,14 @@ require([
 		}
 	}
 	
+	function loader() {
+		view.when(function() {
+			setTimeout(function() {
+				$(".loading").toggleClass('hidden')
+			}, 2000)
+		})
+	}
+	
 	indicateVisibility();
     toggleVisibility();
     toggleMenu();
@@ -1002,5 +1010,6 @@ require([
   	setBuildingLabels();
     showLegend();
 	setZoom();
+	loader();
 
 });
