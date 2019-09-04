@@ -420,7 +420,7 @@ require([
         },
         labelPlacement: "always-horizontal",
         labelExpressionInfo: {
-            expression: "$feature.ABBREVSHORT"
+            expression: "$feature.LABELNAME"
         }
     };
     var zonesLabelClass = {
@@ -629,7 +629,7 @@ require([
         sources: [
 			{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS"],
+            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "DEPARTMENTS", "ALIAS"],
             displayField: "BUILDINGNAME",
             exactMatch: false,
 			resultGraphicEnabled: true,
