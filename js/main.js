@@ -420,20 +420,20 @@ require([
         },
         labelPlacement: "always-horizontal",
         labelExpressionInfo: {
-            expression: "$feature.LABELNAME"
+            expression: "Upper($feature.LABELNAME)"
         }
     };
     var zonesLabelClass = {
         symbol: {
             type: "text",
-            color: [0,0,0,1.0],
-            haloColor: [255,255,255,1.0],
-            haloSize: 5,
+            color: [255,255,255,1.0],
+            haloColor: [0,0,0,0.6],
+            haloSize: 1,
             font: {
                 family: "Arial Unicode MS",
-                size: 16,
+                size: 14,
                 style:"normal",
-                weight: "normal"
+                weight: "bold"
             }
         },
         labelPlacement: "always-horizontal",
@@ -451,7 +451,7 @@ require([
                 family: "Arial Unicode MS",
                 size: 10,
                 style: "normal",
-                weight: "bold"
+                weight: "normal"
             }
         },
         labelPlacement: "always-horizontal",
@@ -575,14 +575,15 @@ require([
 	
 	hybrid = new WebMap({
         portalItem: {
-			id:"89f67154356949c8b147bfe0421482f2"
+			id:"62c4794e40e14c94a4bf3a7258f40878"
         }
     });
 	hybrid.when(function(hybrid) {
         hybrid.addMany(everyLayer)
     })
    
-    
+    //89f67154356949c8b147bfe0421482f2
+	
     /////////////    MAP VIEW    \\\\\\\\\\\\\
 	view = new MapView({
         container: "viewDiv",
