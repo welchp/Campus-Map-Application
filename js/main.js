@@ -627,7 +627,6 @@ require([
     searchWidget = new Search({
         view: view,
         maxSuggestions: 35,
-		resultGraphicEnabled: true,
         sources: [
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
