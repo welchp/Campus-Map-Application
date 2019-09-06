@@ -16,6 +16,15 @@ select {
 #main-content {
 }
 
+.banner-image {
+    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background.jpg);
+    width:100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:1.0;
+}
+
 #content {
 	display: flex;
 	flex-direction: row;
