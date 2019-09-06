@@ -627,6 +627,8 @@ require([
     searchWidget = new Search({
         view: view,
         maxSuggestions: 35,
+		container: "mobile-search-bar",
+		allPlaceholder: " Search for campus features",
         sources: [
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
@@ -717,8 +719,18 @@ require([
 	  searchWidget.clear();
 	  buildings_lyr.labelsVisible = true
 	  view.zoom = 19
+	  var viewD = document.getElementById('viewDiv');
+	  var mobile_menu = document.getElementById('mobile-menu');
+	  var menu_icon = document.getElementById('menu-icon');
+	  var close_menu_icon = document.getElementById('close-menu-icon');
+	  if (viewD.style.display == 'none'){
+		viewD.style.display = 'flex'
+		mobile_menu.style.display = 'none'
+		menu_icon.style.display = 'flex'
+		close_menu_icon.style.display = 'none'
+	  }
 	});
-    view.ui.add(searchWidget, {position: "top-right"});
+    //view.ui.add(searchWidget, {position: "top-right"});
     
 
 	//LOAD ALL MAP LAYERS
