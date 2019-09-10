@@ -776,7 +776,7 @@ require([
             id:"b255a3ac03bf4bda812305f105e6b65c"
         },
         visible: false,
-        labelingInfo:[foodLabelClass]
+        labelingInfo:[recLabelClass]
     })
     rec_lyr = new FeatureLayer({
         portalItem:{
