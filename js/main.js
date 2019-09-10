@@ -463,9 +463,9 @@ require([
     var metroLabelClass = {
         symbol: {
             type: "text",
-            color: [150,187,223],
-            haloColor: [0,0,0],
-            haloSize: 0.5,
+            color: [204,153,51],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
             font: {
                 family: "Arial Unicode MS",
                 size: 10,
@@ -481,9 +481,9 @@ require([
 	var shuttleLabelClass = {
         symbol: {
             type: "text",
-            color: [253,249,153],
-            haloColor: [0,0,0],
-            haloSize: 0.5,
+            color: [204,153,51],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
             font: {
                 family: "Arial Unicode MS",
                 size: 10,
@@ -838,7 +838,7 @@ require([
     })
     shuttles_lyr = new FeatureLayer({
         portalItem:{
-            id: "78d6428371d34521a4d7848163e8cae8"
+            id: "9684474d787e4b45b08d9bba098cf7c3"
         },
         visible: false,
         labelingInfo:[shuttleLabelClass],
@@ -846,7 +846,7 @@ require([
     })
     metro_bus_lyr = new FeatureLayer({
         portalItem:{
-            id: "78d6428371d34521a4d7848163e8cae8"
+            id: "9684474d787e4b45b08d9bba098cf7c3"
         },
         visible: false,
         labelingInfo:[metroLabelClass],
