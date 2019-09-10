@@ -475,7 +475,7 @@ require([
         },
         labelPlacement: "above-center",
         labelExpressionInfo: {
-            expression: "$feature.Name"
+            expression: "$feature.NAME"
         }
     };
 	var shuttleLabelClass = {
@@ -493,7 +493,7 @@ require([
         },
         labelPlacement: "above-center",
         labelExpressionInfo: {
-            expression: "$feature.Name"
+            expression: "$feature.NAME"
         }
     };
     var foodLabelClass = {
@@ -603,16 +603,7 @@ require([
     })
 	
 	
-	////////////     WIDGETS      \\\\\\\\\\\\\
-	
-	//var basemapGallery = new BasemapGallery({
-	//  view: view
-	//});
-	
-	//view.ui.add(basemapGallery, {
-	//  position: "bottom-right"
-	//});
-	
+	////////////     WIDGETS      \\\\\\\\\\\\\	
     view.ui.remove("attribution");
     
     homeBtn = new Home({
@@ -733,6 +724,9 @@ require([
 	  }
 	});
     view.ui.add(searchWidget, {position: "top-right"});
+	searchWidget.on("search-focus", function(event){
+	  console.log("Search input textbox is focused.");
+	});
 
 	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
