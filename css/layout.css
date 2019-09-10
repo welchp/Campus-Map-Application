@@ -171,7 +171,8 @@ body {
 }
 
 #mobile-search-bar {
-	width:100%
+	width:100%;
+	z-index: 800;
 }
 
 #mobile-search-bar input {
