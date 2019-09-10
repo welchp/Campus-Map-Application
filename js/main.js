@@ -16,6 +16,7 @@ var viewD;
 var homeBtn;
 var app_popup;
 var searchWidget;
+var searchWidget2;
 
 var params;
 var query;
@@ -629,7 +630,6 @@ require([
 	searchWidget = new Search({
         view: view,
         maxSuggestions: 35,
-		container: "mobile-search-bar",
 		allPlaceholder: " Search for campus features",
         sources: [
             {featureLayer: {
@@ -732,8 +732,7 @@ require([
 		close_menu_icon.style.display = 'none'
 	  }
 	});
-    //view.ui.add(searchWidget, {position: "top-right"});
-    
+    view.ui.add(searchWidget, {position: "top-right"});
 
 	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
@@ -994,6 +993,115 @@ require([
 	function setZoom(){
 		if (window.innerWidth < 480) {
 			view.zoom = 13
+			
+			view.ui.remove(searchWidget)
+			
+			searchWidget2 = new Search({
+				view: view,
+				maxSuggestions: 35,
+				container: "mobile-search-bar",
+				allPlaceholder: " Search for campus features",
+				sources: [
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
+					searchFields: ["NAME"],
+					displayField: "NAME",
+					exactMatch: false,
+					outFields: ["*"],
+					name: "Campus Colleges",
+					placeholder: "enter a campus college",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/ActiveConstruction/FeatureServer/0"},
+					searchFields: ["NAME"],
+					displayField: "NAME",
+					exactMatch: false,
+					outFields: ["NAME"],
+					name: "Campus Zones",
+					placeholder: "enter a campus zone",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
+					searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+					displayField: "BUILDINGNAME",
+					exactMatch: false,
+					outFields: ["BUILDINGNAME"],
+					name: "Buildings",
+					placeholder: "enter a building name or departments",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
+					searchFields: ["NUM", "Permit_Type"],
+					suggestionTemplate: "Parking Lot {NUM} for {NAME}",
+					displayField: "NUM",
+					exactMatch: false,
+					outFields: ["NAME", "NUM","Location","Permit_Type","Handicapped","Meters","Comments", "Paystations", "Paystation_Limit","Meter_Limit","Permit_Days","Permit_Period"],
+					name: "Parking Lots",
+					placeholder: "enter parking lot information"
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/BusStops/FeatureServer/0"},
+					searchFields: ["NAME", "STOPTYPE", "label_name"],
+					displayField: "label_name",
+					exactMatch: false,
+					outFields: ["label_name", "STOPTYPE"],
+					name: "BusStops",
+					placeholder: "enter transit stop name or type"
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/1"},
+					searchFields: ["Name"],
+					displayField: "Name",
+					exactMatch: false,
+					outFields: ["Name"],
+					name: "Cafes and Restaurants",
+					placeholder: "enter a caffe or restaurant",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/2"},
+					searchFields: ["Name"],
+					displayField: "Name",
+					exactMatch: false,
+					outFields: ["Name"],
+					name: "Dining Halls",
+					placeholder: "enter a dining hall location",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/3"},
+					searchFields: ["Name"],
+					displayField: "Name",
+					exactMatch: false,
+					outFields: ["Name"],
+					name: "Perk Coffee Houses",
+					placeholder: "enter a perk location",
+					},
+					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/4"},
+					searchFields: ["Name"],
+					displayField: "Name",
+					exactMatch: false,
+					outFields: ["Name"],
+					name: "Food Trucks",
+					placeholder: "enter a food truck name",
+					}        
+				]
+			});
+			searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
+			searchWidget.on("select-result", function(event){
+			  searchWidget.clear();
+			  buildings_lyr.labelsVisible = true
+			  view.zoom = 19
+			  var viewD = document.getElementById('viewDiv');
+			  var mobile_menu = document.getElementById('mobile-menu');
+			  var menu_icon = document.getElementById('menu-icon');
+			  var close_menu_icon = document.getElementById('close-menu-icon');
+			  if (viewD.style.display == 'none'){
+				viewD.style.display = 'flex'
+				mobile_menu.style.display = 'none'
+				menu_icon.style.display = 'flex'
+				close_menu_icon.style.display = 'none'
+			  }
+			});
 		}
 	}
 	
