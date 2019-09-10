@@ -281,11 +281,13 @@ body {
 
 #map-options-footer {
 	display:flex;
-	justify-content: flex-start;
-	width:96%;
+	flex-direction: row-reverse;
 	position: absolute;
-	bottom:6px;
-	left:6px;
+	min-height:15px;
+	max-height:25px;
+	width:100%;
+	min-width:286px;
+	box-shadow: none;
 }
 
 #menu-icon {

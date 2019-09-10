@@ -420,7 +420,7 @@ require([
         },
         labelPlacement: "always-horizontal",
         labelExpressionInfo: {
-            expression: "Upper($feature.LABELNAME)"
+            expression: "$feature.LABELNAME"
         }
     };
     var zonesLabelClass = {
@@ -516,7 +516,7 @@ require([
 	var academicsLabelClass = {
         symbol: {
             type: "text",
-            color: [59,83,148],
+            color: [102,0,204],
             haloColor: [255,255,255],
             haloSize: 1.0,
             font: {
@@ -624,7 +624,9 @@ require([
       });
     view.ui.add(locateBtn, {position: "top-left"});
     
-    searchWidget = new Search({
+	view.ui.add("map-options-footer", "top-right")
+    
+	searchWidget = new Search({
         view: view,
         maxSuggestions: 35,
 		container: "mobile-search-bar",
@@ -862,7 +864,7 @@ require([
             id: "2ccfa63e4d764460adcb1f4ea2aff61c"
         },
         visible: false,
-        labelingInfo:[recLabelClass],
+        labelingInfo:[recLabelClass]
     })
     genderinclusive_lyr = new FeatureLayer({
         portalItem:{
@@ -874,7 +876,9 @@ require([
         portalItem:{
             id: "38160cfa13ca4f83b555af4bb72e1205"
         },
-        visible: false
+        visible: false,
+		labelsVisible: true,
+		definitionExpression: "ADVERTISE = 'True'"
     })
     emergency_phones_lyr = new FeatureLayer({
         portalItem:{
