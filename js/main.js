@@ -1,3 +1,10 @@
+var visLayers;
+var clearbutton;
+
+var monitorClearAll;
+var setVisibilities;
+var allFalse; 
+
 var satellite;
 var carto;
 var hybrid;
@@ -1103,6 +1110,62 @@ require([
 			}, 2000)
 		})
 	}
+	
+	
+	view.on("pointer-move", function (evt) {
+		monitorClearAll()
+	});
+	
+	
+	//console.log("removing layers we don't want to watch")
+	visLayers = everyLayer.slice(1)
+	//console.log("identifying clearbutton in DOM")
+	clearbutton = document.getElementById("clear-all")
+	
+	var setVisibilities = function(){
+		//console.log("fetching visibility values for each layer")
+		let visibilities = visLayers.map(lyr => lyr.visible)
+		//console.log(visibilities)
+		return visibilities
+	}
+	
+	function allFalse(arr) {
+		if (arr.includes(true)) {
+			return false
+		} else {
+			return true
+		}
+	}
+	
+	function monitorClearAll() {
+		visibilities = setVisibilities()
+	
+		if (allFalse(visibilities)) {
+			//console.log("nothing is visibile. no button needed")
+			clearbutton.style.display = "none" 
+		} else {
+			//console.log("layers are visible. button added")
+			clearbutton.style.display = "grid"
+		}
+	}
+	
+	var clear_all_node = document.getElementById("clear-all");
+	function clearAll() {
+		clear_all_node.style.display = 'none'
+		visLayers.forEach(function(lyr){
+			lyr.visible = false	
+		})
+	};
+	calcite.addEvent(clear_all_node, click, clearAll);
+	
+	function watchVis(lyr) {
+		lyr.watch('visible', function(newValue, oldValue, property, object) {
+			console.log("new: ", newValue,
+				"<br>old: ", oldValue,
+				"<br>property: ", property)
+		})  
+	}
+	
 	
 	indicateVisibility();
     toggleVisibility();
