@@ -1,3 +1,10 @@
+var visLayers;
+var clearbutton;
+
+var monitorClearAll;
+var setVisibilities;
+var allFalse; 
+
 var satellite;
 var carto;
 var hybrid;
@@ -114,12 +121,6 @@ function isNotVisible(lyr){
   return lyr.visible == false
 }
 
-function indicateAll(){
-	//event handler
-	//when side-nav-title is clicked, get all children layers
-	//if one is checked, make all checked, else, make all unchecked
-}
-
 function groupToggle(layer_list) {	
   if (layer_list.some(isNotVisible)){
 	  layer_list.forEach(function(lyr) {
@@ -157,6 +158,7 @@ function toggleVisibility() {
         $(this).toggleClass('green');
     });
 };
+
 function toggleMenu() {
     $("#menu-icon-div").bind('click', function() {
         $("#mobile-menu").toggleClass("hidden")
@@ -198,6 +200,37 @@ function indicateVisibility() {
 			event.target.childNodes[1].className = "icon-ui-radio-unchecked"
 		} else {
 			event.target.childNodes[1].className = "icon-ui-radio-checked"
+		}
+	}, false);
+}
+
+function allLayersOn(side_nav_title) {
+	for (i=0; i < side_nav_title.nextElementSibling.children.length; i++) {
+		if (side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-radio-checked') {
+			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+			//pass
+		} else {
+			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+			return false
+		}
+	}
+	return true
+}
+
+function indicateAll() {
+	//event handler
+	//when side-nav-title is clicked, get all children layers
+	//if one is checked, make all checked, else, make all unchecked
+	document.addEventListener('click', function (event) {
+	if (!event.target.matches('.side-nav-title')) return;
+		if (allLayersOn(event.target)){
+			for (i=0; i < event.target.nextElementSibling.children.length; i++){
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-unchecked')
+			}
+		} else {
+			for (i=0; i < event.target.nextElementSibling.children.length; i++){
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-checked')
+			}
 		}
 	}, false);
 }
@@ -621,7 +654,7 @@ require([
 	searchWidget = new Search({
         view: view,
         maxSuggestions: 35,
-		allPlaceholder: " Search for campus features",
+		allPlaceholder: "Begin typing and select an option from the suggestions...",
         sources: [
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
@@ -724,9 +757,6 @@ require([
 	  }
 	});
     view.ui.add(searchWidget, {position: "top-right"});
-	searchWidget.on("search-focus", function(event){
-	  console.log("Search input textbox is focused.");
-	});
 
 	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
@@ -776,7 +806,7 @@ require([
             id:"b255a3ac03bf4bda812305f105e6b65c"
         },
         visible: false,
-        labelingInfo:[foodLabelClass]
+        labelingInfo:[recLabelClass]
     })
     rec_lyr = new FeatureLayer({
         portalItem:{
@@ -897,13 +927,17 @@ require([
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
-  	academics = [libraries_lyr]
+  	academics = [colleges_lyr, libraries_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
   	allLayers = [foods, transportations, academics, facilities, recreations] 
   	
 	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
+	
+	//---- FUNCTIONS --
+	
+	//All the logic for detecting mouse position and changing cursor to pointer on feature hover (only works for buildings and parking lots currently)
 	function changeCursor(response){
 		if (response.results.length > 0 && (response.results[0].graphic.layer.title == 'buildings_app' || response.results[0].graphic.layer.title == 'Parking Lots')){
 			document.getElementById("viewDiv").style.cursor = "pointer";
@@ -911,7 +945,6 @@ require([
 			document.getElementById("viewDiv").style.cursor = "default";
 		}
 	}
-
 	view.on("pointer-move", function (evt) {
 		var screenPoint = {
 			x: evt.x,
@@ -928,6 +961,7 @@ require([
 		});
 	});
 	
+	//URL params for buildings
 	view.when(function(){
 		console.log("adding layers...")
 		//hybrid.addMany(everyLayer)
@@ -949,6 +983,7 @@ require([
         });
     });
 	
+	//toggle menu icon and close icon on mobile
 	var click = calcite.click();
 	var menu_icon_node = document.getElementById('menu-icon-div');
 	function toggleMobileMenu (event) {
@@ -971,7 +1006,7 @@ require([
 	};
 	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
 	
-	
+	//toggle Building Labels on click of radio button
 	var labels_icon_node = document.getElementById('labels-icon');
 	function toggleBuildingLabels (event) {
 	  if (buildings_lyr.labelsVisible == false){
@@ -984,6 +1019,7 @@ require([
 	};
 	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
+	//Adjust zoom property of the view depending on Mobile or Desktop
 	function setZoom(){
 		if (window.innerWidth < 480) {
 			view.zoom = 13
@@ -1099,6 +1135,7 @@ require([
 		}
 	}
 	
+	//Loading spinner
 	function loader() {
 		view.when(function() {
 			setTimeout(function() {
@@ -1107,6 +1144,65 @@ require([
 		})
 	}
 	
+	//All the logic for 'Clear All' functionalty
+	view.on("pointer-move", function (evt) {
+		monitorClearAll()
+	});
+	visLayers = everyLayer.slice(1)
+	clearbutton = document.getElementById("clear-all")
+	var setVisibilities = function(){
+		let visibilities = visLayers.map(lyr => lyr.visible)
+		return visibilities
+	}
+	function allFalse(arr) {
+		if (arr.includes(true)) {
+			return false
+		} else {
+			return true
+		}
+	}
+	function monitorClearAll() {
+		visibilities = setVisibilities()
+	
+		if (allFalse(visibilities)) {
+			clearbutton.style.display = "none" 
+		} else {
+			clearbutton.style.display = "grid"
+		}
+	}
+	var clear_all_node = document.getElementById("clear-all");
+	function clearAll() {
+		clear_all_node.style.display = 'none'
+		visLayers.forEach(function(lyr){
+			lyr.visible = false	
+		})
+		var checked = document.querySelectorAll(".icon-ui-radio-checked")
+		checked.forEach(function(element){
+			element.setAttribute('class', 'icon-ui-radio-unchecked') 
+		})
+	};
+	calcite.addEvent(clear_all_node, click, clearAll);
+	
+	//Building Labels Toggle Watcher
+	function watchBuildingLabels() {
+		ON = document.getElementById("On")
+		OFF = document.getElementById("Off")
+		MOBILE = document.getElementById("labels-icon")
+		
+		buildings_lyr.watch('labelsVisible', function(newValue, oldValue, property, object) {
+			if (newValue == true) {
+				ON.checked = true
+				OFF.checked = false
+				MOBILE.style.backgroundColor = '#01589d'
+			} else {
+				ON.checked = false
+				OFF.checked = true
+				MOBILE.style.backgroundColor = 'transparent'
+			}
+		})  
+	}
+	
+	//FUNCTIONS TO RUN
 	indicateVisibility();
     toggleVisibility();
     toggleMenu();
@@ -1115,5 +1211,7 @@ require([
     showLegend();
 	setZoom();
 	loader();
+	indicateAll();
+	watchBuildingLabels();
 
 });
