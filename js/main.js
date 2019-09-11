@@ -927,13 +927,17 @@ require([
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
-  	academics = [libraries_lyr]
+  	academics = [colleges_lyr, libraries_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
   	allLayers = [foods, transportations, academics, facilities, recreations] 
   	
 	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
+	
+	//---- FUNCTIONS --
+	
+	//All the logic for detecting mouse position and changing cursor to pointer on feature hover (only works for buildings and parking lots currently)
 	function changeCursor(response){
 		if (response.results.length > 0 && (response.results[0].graphic.layer.title == 'buildings_app' || response.results[0].graphic.layer.title == 'Parking Lots')){
 			document.getElementById("viewDiv").style.cursor = "pointer";
@@ -941,7 +945,6 @@ require([
 			document.getElementById("viewDiv").style.cursor = "default";
 		}
 	}
-
 	view.on("pointer-move", function (evt) {
 		var screenPoint = {
 			x: evt.x,
@@ -958,6 +961,7 @@ require([
 		});
 	});
 	
+	//URL params for buildings
 	view.when(function(){
 		console.log("adding layers...")
 		//hybrid.addMany(everyLayer)
@@ -979,6 +983,7 @@ require([
         });
     });
 	
+	//toggle menu icon and close icon on mobile
 	var click = calcite.click();
 	var menu_icon_node = document.getElementById('menu-icon-div');
 	function toggleMobileMenu (event) {
@@ -1001,7 +1006,7 @@ require([
 	};
 	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
 	
-	
+	//toggle Building Labels on click of radio button
 	var labels_icon_node = document.getElementById('labels-icon');
 	function toggleBuildingLabels (event) {
 	  if (buildings_lyr.labelsVisible == false){
@@ -1014,6 +1019,7 @@ require([
 	};
 	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
+	//Adjust zoom property of the view depending on Mobile or Desktop
 	function setZoom(){
 		if (window.innerWidth < 480) {
 			view.zoom = 13
@@ -1129,6 +1135,7 @@ require([
 		}
 	}
 	
+	//Loading spinner
 	function loader() {
 		view.when(function() {
 			setTimeout(function() {
@@ -1137,22 +1144,16 @@ require([
 		})
 	}
 	
-	
-	
-	
 	//All the logic for 'Clear All' functionalty
 	view.on("pointer-move", function (evt) {
 		monitorClearAll()
 	});
-	
 	visLayers = everyLayer.slice(1)
 	clearbutton = document.getElementById("clear-all")
-	
 	var setVisibilities = function(){
 		let visibilities = visLayers.map(lyr => lyr.visible)
 		return visibilities
 	}
-	
 	function allFalse(arr) {
 		if (arr.includes(true)) {
 			return false
@@ -1160,7 +1161,6 @@ require([
 			return true
 		}
 	}
-	
 	function monitorClearAll() {
 		visibilities = setVisibilities()
 	
@@ -1170,7 +1170,6 @@ require([
 			clearbutton.style.display = "grid"
 		}
 	}
-	
 	var clear_all_node = document.getElementById("clear-all");
 	function clearAll() {
 		clear_all_node.style.display = 'none'
@@ -1184,19 +1183,23 @@ require([
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
-	
-	
-	
-	//starting to develop layer vis watcher
-	function watchVis(lyr) {
-		lyr.watch('visible', function(newValue, oldValue, property, object) {
-			if (newValue == 'visible') {
-				
+	//Building Labels Toggle Watcher
+	function watchBuildingLabels() {
+		ON = document.getElementById("On")
+		OFF = document.getElementById("Off")
+		
+		buildings_lyr.watch('labelsVisible', function(newValue, oldValue, property, object) {
+			if (newValue == true) {
+				ON.checked = true
+				OFF.checked = false
+			} else {
+				ON.checked = false
+				OFF.checked = true
 			}
 		})  
 	}
 	
-	
+	//FUNCTIONS TO RUN
 	indicateVisibility();
     toggleVisibility();
     toggleMenu();
@@ -1206,5 +1209,6 @@ require([
 	setZoom();
 	loader();
 	indicateAll();
+	watchBuildingLabels();
 
 });
