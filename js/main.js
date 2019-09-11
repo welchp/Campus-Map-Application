@@ -1155,16 +1155,22 @@ require([
 		visLayers.forEach(function(lyr){
 			lyr.visible = false	
 		})
+		var checked = document.querySelectorAll(".icon-ui-radio-checked")
+		checked.forEach(function(element){
+			element.setAttribute('class', 'icon-ui-radio-unchecked') 
+		})
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
 	function watchVis(lyr) {
 		lyr.watch('visible', function(newValue, oldValue, property, object) {
-			console.log("new: ", newValue,
-				"<br>old: ", oldValue,
-				"<br>property: ", property)
+			if (newValue == 'visible') {
+				
+			}
 		})  
 	}
+	
+	
 	
 	
 	indicateVisibility();
