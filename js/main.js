@@ -1187,14 +1187,17 @@ require([
 	function watchBuildingLabels() {
 		ON = document.getElementById("On")
 		OFF = document.getElementById("Off")
+		MOBILE = document.getElementById("labels-icon")
 		
 		buildings_lyr.watch('labelsVisible', function(newValue, oldValue, property, object) {
 			if (newValue == true) {
 				ON.checked = true
 				OFF.checked = false
+				MOBILE.style.backgroundColor = '#01589d'
 			} else {
 				ON.checked = false
 				OFF.checked = true
+				MOBILE.style.backgroundColor = 'transparent'
 			}
 		})  
 	}
