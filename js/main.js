@@ -121,12 +121,6 @@ function isNotVisible(lyr){
   return lyr.visible == false
 }
 
-function indicateAll(){
-	//event handler
-	//when side-nav-title is clicked, get all children layers
-	//if one is checked, make all checked, else, make all unchecked
-}
-
 function groupToggle(layer_list) {	
   if (layer_list.some(isNotVisible)){
 	  layer_list.forEach(function(lyr) {
@@ -164,6 +158,7 @@ function toggleVisibility() {
         $(this).toggleClass('green');
     });
 };
+
 function toggleMenu() {
     $("#menu-icon-div").bind('click', function() {
         $("#mobile-menu").toggleClass("hidden")
@@ -205,6 +200,37 @@ function indicateVisibility() {
 			event.target.childNodes[1].className = "icon-ui-radio-unchecked"
 		} else {
 			event.target.childNodes[1].className = "icon-ui-radio-checked"
+		}
+	}, false);
+}
+
+function allLayersOn(side_nav_title) {
+	for (i=0; i < side_nav_title.nextElementSibling.children.length; i++) {
+		if (side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-radio-checked') {
+			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+			//pass
+		} else {
+			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+			return false
+		}
+	}
+	return true
+}
+
+function indicateAll() {
+	//event handler
+	//when side-nav-title is clicked, get all children layers
+	//if one is checked, make all checked, else, make all unchecked
+	document.addEventListener('click', function (event) {
+	if (!event.target.matches('.side-nav-title')) return;
+		if (allLayersOn(event.target)){
+			for (i=0; i < event.target.nextElementSibling.children.length; i++){
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-unchecked')
+			}
+		} else {
+			for (i=0; i < event.target.nextElementSibling.children.length; i++){
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-checked')
+			}
 		}
 	}, false);
 }
@@ -1112,20 +1138,18 @@ require([
 	}
 	
 	
+	
+	
+	//All the logic for 'Clear All' functionalty
 	view.on("pointer-move", function (evt) {
 		monitorClearAll()
 	});
 	
-	
-	//console.log("removing layers we don't want to watch")
 	visLayers = everyLayer.slice(1)
-	//console.log("identifying clearbutton in DOM")
 	clearbutton = document.getElementById("clear-all")
 	
 	var setVisibilities = function(){
-		//console.log("fetching visibility values for each layer")
 		let visibilities = visLayers.map(lyr => lyr.visible)
-		//console.log(visibilities)
 		return visibilities
 	}
 	
@@ -1141,10 +1165,8 @@ require([
 		visibilities = setVisibilities()
 	
 		if (allFalse(visibilities)) {
-			//console.log("nothing is visibile. no button needed")
 			clearbutton.style.display = "none" 
 		} else {
-			//console.log("layers are visible. button added")
 			clearbutton.style.display = "grid"
 		}
 	}
@@ -1162,6 +1184,10 @@ require([
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
+	
+	
+	
+	//starting to develop layer vis watcher
 	function watchVis(lyr) {
 		lyr.watch('visible', function(newValue, oldValue, property, object) {
 			if (newValue == 'visible') {
@@ -1169,8 +1195,6 @@ require([
 			}
 		})  
 	}
-	
-	
 	
 	
 	indicateVisibility();
@@ -1181,5 +1205,6 @@ require([
     showLegend();
 	setZoom();
 	loader();
+	indicateAll();
 
 });
