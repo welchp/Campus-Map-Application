@@ -194,6 +194,14 @@ body {
 	box-shadow: none;
 }
 
+.esri-component esri-search esri-widget {
+	color:blue;
+}
+
+.esri-search {
+	width:450px;
+}
+
 .break {
 	display: -webkit-box;
 	display: -ms-flexbox;
