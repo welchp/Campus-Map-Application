@@ -1,22 +1,120 @@
+.menu-content a {
+	font-size: 16px;
+	font-weight: 400;
+	text-rendering: optimizeLegibility
+}
+
 #main-content {
-	display:flex;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
 
 .thumb {
-	border:1px solid #dcdcdc;
-	margin:10px;
-	min-height:200px;
-	max-height:200px;
-	min-width:200px;
-	max-width:200px;
+	border: 1px solid #dcdcdc;
+	margin: 10px;
+	min-height: 200px;
+	max-height: 200px;
+	min-width: 200px;
+	max-width: 200px;
 }
 
 .banner-image {
-    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background.jpg);
-    width:100%;
-    background-position:center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    opacity:1.0;
+	background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 1))), url(../images/map_background.jpg);
+	background: linear-gradient(to left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1)), url(../images/map_background.jpg);
+	width: 100%;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	opacity: 1.0;
+}
+
+#mega-header img {
+	height: 26px;
+}
+
+.campus-secondary {
+	text-indent: -10000px;
+	background: transparent url("../images/logos/UC Santa Cruz Logo - White.png") left top;
+	display: block;
+	width: 107px;
+	height: 26px;
+	margin-top: 2px;
+	z-index: 999;
+}
+
+@media only screen and (max-width: 1080px) {
+	#page-wrapper {
+		padding:0 10px
+	}
+	
+	#mega-header-content {
+		margin: 0 10px;
+		min-width: 0px;
+	}
+	
+	#column-wrapper {
+		grid-template-columns: 200px auto;
+	}
+	
+	
+}
+
+
+@media only screen and (max-width: 480px) {
+	* {
+		-webkit-box-sizing: border-box;
+		box-sizing: border-box;
+	}
+
+	#mega-header {
+		padding: 10px 16px 12px 16px;
+		margin-left: -16px;
+		margin-right: -16px;
+	}
+
+	#mega-header-content {
+		min-width: 0px;
+	}
+
+	#mega-header-nav {
+		display: none
+	}
+
+	body {
+		width: 100%;
+		overflow-x: hidden;
+	}
+
+	#page-wrapper {
+		padding: 10px;
+		min-width: 0px;
+	}
+
+	.menu-content,
+	#left-nav {
+		display: none
+	}
+
+	#column-wrapper {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		-ms-flex-direction: column;
+		flex-direction: column;
+		width: 100%;
+		grid-template: 1fr;
+	}
+
+	#main-content {
+		padding: 10px;
+		min-width: 0px;
+		max-width: 414px;
+		width: 100%;
+	}
+
 }
