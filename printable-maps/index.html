@@ -1,279 +1,305 @@
 <html>
 
 <head>
+
 	<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="Description" content="This page contains area maps of locations across campus. They are provided in PDF form for easy printing.">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="The official home page for the Physical Planning, Development & Operations department at the University of California, Santa Cruz. Check out the Quick Links section for our most frequently-requested services or browse through our department home pages!">
 
-	<link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">	
+	<title>UCSC | Physical Planning, Development & Operations</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Oswald' rel='stylesheet'>
 	<link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/css/calcite-web.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/printable-maps.css">
 	
-	<style>
-    	th, td {
-        	border-bottom: 1px solid #ddd;
-    	}
-
-    	tr:hover {
-        	background-color: #f5f5f5;
-    	}
-    
-    	body {
-     		padding:15px;
-    	}
-    
-    	.name {
-    		width:25%;
-    	}
-    
-    	.description {
-        	width:75%;
-    	}
-
-	</style>
+	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
+	<script src='../js/base.js'></script>
+	<script src='../js/printable-maps.js'></script>
 
 </head>
 
-<body data-gr-c-s-loaded="true">
-		<p>All maps are in Portable Document Format (PDF)* and&nbsp;suitable for printing.</p>
-		<p style="font-size:12px;"><em>* except the Coastal Science Campus, which is in GIF format</em></p>
-		
-		<h3>Overview Maps</h3>
-		
-		<table class="table" summary="PDF versions of campus maps">
-			<thead>
-				<tr>
-					<th class="name">Map</th>
-					<th class="description">Description</th>
-				</tr>
-			</thead>
-			<tbody>
-            	<tr>
-					<td><a href="Campus-Map-Poster.pdf">Campus Overview Poster</a></td>
-					<td>Color. Cartographic Product. <span style="font-size:11px;">[Updated September 2017]</span></td>
-				</tr>
-				<tr>
-					<td><a href="campus_map_B-W_12-16.pdf">Campus Overview</a></td>
-					<td>Black and White. <span style="font-size:11px;">[Updated Dec 2016]</span></td>
-				</tr>
-				<tr>
-					<td><a href="campus_map_color_11-16.pdf">Campus Overview</a></td>
-					<td>Color.<span style="font-size:11px;"> [Updated Nov 2016]</span></td>
-				</tr>
-				<tr>
-					<td><a href="parking-map-09182018.pdf">UCSC Parking</a></td>
-					<td>Color. Parking Lots and Facility Information. <span style="font-size:11px;">[Updated September 2018]</span></td>
-				</tr>
-				<tr>
-					<td><a href="UCSC_upper_campus_map.pdf">Upper Campus Map</a></td>
-					<td>Color. Trails and walking paths. <span style="font-size:11px;">[Updated April 2010]</span></td>
-				</tr>
-				<tr>
-					<td><a href="walking-map-072017.pdf">Central Campus Walking Map</a></td>
-					<td>Color. Campus regions and destinations with distance information. <span style="font-size:11px;">[Updated 2017]</span></td>
-				</tr>
-			</tbody>
-			<caption>&nbsp;</caption>
-		</table>
+<body>
+	<div id="mega-header">
+		<div id="mega-header-content">
+			<div id="mega-logo">
+				<img style="margin-right:auto" src="https://static.ucsc.edu/_responsive/images/logos/uc-santa-cruz-reverse.svg" style="width:107px">
+			</div>
+			<div id="mega-header-nav">
+			</div>
+		</div>
+	</div>
 
-		<h3>Detail Maps</h3>
+	<div id="page-wrapper">
 
-		<table class="table" summary="PDF versions of campus maps">
-			<thead>
-				<tr>
-					<th class="name">Map</th>
-					<th class="description">Description</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td><a href="Academic_Resources_Center.pdf">Academic Resource Center</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Arboretum.pdf">Arboretum</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="baobaob_room_5-15.pdf">Baobab Room</a></td>
-					<td>Color. Updated 5/2015. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Barn_G_12-17.pdf">Barn G</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Baskin_Engineering_6-18.pdf">Baskin Engineering Building</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="baytree_bookstore_map_05-16.pdf">Bay Tree Bookstore</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Clark_Kerr_Hall.pdf">Clark Kerr Hall</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Classroom_Unit.pdf">Classroom Unit</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="coastal_sciences_11-17.gif">Coastal Science Campus</a></td>
-					<td>Color.</td>
-				</tr>
-				<tr>
-					<td><a href="Colleges_9-10.pdf">Colleges Nine/Ten</a></td>
-					<td>Colleges Nine and Ten Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="Colleges_9-10_Multi.pdf">Colleges Nine/Ten Multipurpose Room</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Core_West_ComD_map_9-17.pdf">Core West Parking Structure</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="cowell_9-17.pdf">Cowell College</a></td>
-					<td>Cowell Facilities <span style="font-size:11px;">[Updated Sept 2017]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Cowell_Conference_Room.pdf">Cowell Conference Room</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Crown_College.pdf">Crown College</a></td>
-					<td>Crown Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="Crown_Merrill_Apts.pdf">Crown/Merrill Apartments</a></td>
-					<td>Crown/Merrill Facilities&nbsp;</td>
-				</tr>
-				<tr>
-					<td><a href="Digital_Arts_Research_Center.pdf">Digital Arts Research Center (DARC)</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="East_Field.pdf">East Field</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="East_Field_House.pdf">East Field House</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Elena_Baskin_Visual_Arts_Center.pdf">Elena Baskin Visual Arts Center</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Eloise_Pickard_Smith_Gallery.pdf">Eloise Pickard Smith Gallery</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Graduate_Student_Housing.pdf">Graduate Student Housing</a></td>
-					<td>Graduate Student Housing and Redwood Grove Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="Hahn_Student_Services.pdf">Hahn Student Services</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Humanities_and_Social_Sciences_Facility.pdf">Humanities and Social Sciences</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Clark_Kerr_Hall.pdf">Clark Kerr Hall</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Kresge_College_Aug_2015.pdf">Kresge College</a></td>
-					<td>Kresge Facilities.&nbsp;<span style="font-size:11px;">[Updated Sept 2015]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Kresge_Town_Hall.pdf">Kresge Town Hall</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="lactation_room_map_6-18.pdf">Lactation Rooms</a></td>
-					<td>Black and white. Includes room numbers.<span style="font-size:11px;">&nbsp;[Updated June 2018]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Lower_West_Field.pdf">Lower West Field</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Merrill_College010215.pdf">Merrill College</a></td>
-					<td>Merrill Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="merrill_cultural_center_5-15.pdf">Merrill Cultural Center</a></td>
-					<td>Color. Updated 5/2015. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Music_Center.pdf">Music Center</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Namast%C3%A9_Lounge.pdf">Namast&#233; Lounge</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Oakes_College.pdf">Oakes College</a></td>
-					<td>Oakes Facilities.&nbsp;<span style="font-size:11px;">[Updated Sept 2015]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Porter_College_2015.pdf">Porter College</a></td>
-					<td>Porter Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="quarry_plaza_map_05-16.pdf">Quarry Plaza</a></td>
-					<td>Quarry Plaza &nbsp;<span style="font-size:11px;">[Updated May 2016]</span></td>
-				</tr>
-				<tr>
-					<td><a href="rachel_carson_college_3-18.pdf">Rachel Carson College</a></td>
-					<td>Rachel Carson College &nbsp;<span style="font-size:11px;">[Updated March 2018]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Redwood_Grove_Apartments.pdf">Redwood Grove Apartments</a></td>
-					<td>Graduate Student Housing and Redwood Grove Facilities</td>
-				</tr>
-				<tr>
-					<td><a href="Science_And_Engineering_Library.pdf">Science and Engineering Library</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Sesnon_Art_Gallery.pdf">Sesnon Art Gallery</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="stevenson_9-17.pdf">Stevenson College</a></td>
-					<td>Stevenson Facilities <span style="font-size:11px;">[Updated Sept 2017]</span></td>
-				</tr>
-				<tr>
-					<td><a href="Theater_Arts_Center.pdf">Theater Arts Center</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="University_Center.pdf">University Center</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Upper_Quarry_Amphitheater.pdf">Upper Quarry Amphitheater</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="Wagstaff_Fireside_Lounge.pdf">Wagstaff Fireside Lounge</a></td>
-					<td>Color. Driving and parking instructions.</td>
-				</tr>
-				<tr>
-					<td><a href="west_field_house_map_03-16.pdf">West Field House</a></td>
-					<td>Color. Driving and parking instructions.&nbsp;<span style="font-size:11px;">[Updated March 2016]</span></td>
-				</tr>
-			</tbody>
-			<caption>&nbsp;</caption>
-		</table>
+		<span id="title-span" class="banner-image phone-hide">
+			<br>
+			<h1 id="page-title">Here is the Page Title</h1>
+			<p id="subtitle">Here is a brief but descriptive subtitle</p>
+		</span>
 
-<script src="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/js/calcite-web.min.js"></script>
+		<div id="column-wrapper">
+			<div id="left-nav">
+				<span class="side-nav-header">
+					<h5>
+					</h5>
+				</span>
 
-</body>
+				<div class="menu-content">
+				</div>
+			</div>
+			<div id="main-content" style="padding-right:10px;">
+				<h3 id="overview-maps">Overview Maps</h3>
+				<table class="table" summary="PDF versions of campus maps">
+					<thead>
+						<tr>
+							<th class="name">Map</th>
+							<th class="description">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="Campus-Map-Poster.pdf">Campus Overview Poster</a></td>
+							<td>Color. Cartographic Product. <span style="font-size:11px;">[Updated September 2017]</span></td>
+						</tr>
+						<tr>
+							<td><a href="campus_map_B-W_12-16.pdf">Campus Overview</a></td>
+							<td>Black and White. <span style="font-size:11px;">[Updated Dec 2016]</span></td>
+						</tr>
+						<tr>
+							<td><a href="campus_map_color_11-16.pdf">Campus Overview</a></td>
+							<td>Color.<span style="font-size:11px;"> [Updated Nov 2016]</span></td>
+						</tr>
+						<tr>
+							<td><a href="parking-map-09182018.pdf">UCSC Parking</a></td>
+							<td>Color. Parking Lots and Facility Information. <span style="font-size:11px;">[Updated September 2018]</span></td>
+						</tr>
+						<tr>
+							<td><a href="UCSC_upper_campus_map.pdf">Upper Campus Map</a></td>
+							<td>Color. Trails and walking paths. <span style="font-size:11px;">[Updated April 2010]</span></td>
+						</tr>
+						<tr>
+							<td><a href="walking-map-072017.pdf">Central Campus Walking Map</a></td>
+							<td>Color. Campus regions and destinations with distance information. <span style="font-size:11px;">[Updated 2017]</span></td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<h3 id="campus-college-facilities-maps">Campus College Facilities</h3>
+				<table class="table" summary="PDF versions of campus maps">
+					<thead>
+						<tr>
+							<th class="name">Map</th>
+							<th class="description">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="Colleges_9-10.pdf">Colleges Nine/Ten</a></td>
+							<td>Colleges Nine and Ten Facilities</td>
+						</tr>
+						<tr>
+							<td><a href="cowell_9-17.pdf">Cowell College</a></td>
+							<td>Cowell Facilities <span style="font-size:11px;">[Updated Sept 2017]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Crown_College.pdf">Crown College</a></td>
+							<td>Crown Facilities</td>
+						</tr>
+						<tr>
+							<td><a href="Kresge_College_Aug_2015.pdf">Kresge College</a></td>
+							<td>Kresge Facilities.&nbsp;<span style="font-size:11px;">[Updated Sept 2015]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Merrill_College010215.pdf">Merrill College</a></td>
+							<td>Merrill Facilities</td>
+						</tr>
+						<tr>
+							<td><a href="Oakes_College.pdf">Oakes College</a></td>
+							<td>Oakes Facilities.&nbsp;<span style="font-size:11px;">[Updated Sept 2015]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Porter_College_2015.pdf">Porter College</a></td>
+							<td>Porter Facilities</td>
+						</tr>
+						<tr>
+							<td><a href="rachel_carson_college_3-18.pdf">Rachel Carson College</a></td>
+							<td>Rachel Carson College &nbsp;<span style="font-size:11px;">[Updated March 2018]</span></td>
+						</tr>
+						<tr>
+							<td><a href="stevenson_9-17.pdf">Stevenson College</a></td>
+							<td>Stevenson Facilities <span style="font-size:11px;">[Updated Sept 2017]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Crown_Merrill_Apts.pdf">Crown/Merrill Apartments</a></td>
+							<td>Crown/Merrill Facilities&nbsp;</td>
+						</tr>
+						<tr>
+							<td><a href="Redwood_Grove_Apartments.pdf">Redwood Grove Apartments</a></td>
+							<td>Graduate Student Housing and Redwood Grove Facilities</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 id="driving-parking-maps">Driving & Parking</h3>
+
+				<table class="table" summary="PDF versions of campus maps">
+					<thead>
+						<tr>
+							<th class="name">Map</th>
+							<th class="description">Description</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="Academic_Resources_Center.pdf">Academic Resource Center</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Arboretum.pdf">Arboretum</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="baobaob_room_5-15.pdf">Baobab Room</a></td>
+							<td>Color. Updated 5/2015. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Barn_G_12-17.pdf">Barn G</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Baskin_Engineering_6-18.pdf">Baskin Engineering Building</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="baytree_bookstore_map_05-16.pdf">Bay Tree Bookstore</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Clark_Kerr_Hall.pdf">Clark Kerr Hall</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Classroom_Unit.pdf">Classroom Unit</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="coastal_sciences_11-17.gif">Coastal Science Campus</a></td>
+							<td>Color.</td>
+						</tr>
+						<tr>
+							<td><a href="Colleges_9-10_Multi.pdf">Colleges Nine/Ten Multipurpose Room</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Core_West_ComD_map_9-17.pdf">Core West Parking Structure</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Cowell_Conference_Room.pdf">Cowell Conference Room</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Digital_Arts_Research_Center.pdf">Digital Arts Research Center (DARC)</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="East_Field.pdf">East Field</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="East_Field_House.pdf">East Field House</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Elena_Baskin_Visual_Arts_Center.pdf">Elena Baskin Visual Arts Center</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Eloise_Pickard_Smith_Gallery.pdf">Eloise Pickard Smith Gallery</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Graduate_Student_Housing.pdf">Graduate Student Housing</a></td>
+							<td>Graduate Student Housing and Redwood Grove Facilities</td>
+						</tr>
+						<tr>
+							<td><a href="Hahn_Student_Services.pdf">Hahn Student Services</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Humanities_and_Social_Sciences_Facility.pdf">Humanities and Social Sciences</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Clark_Kerr_Hall.pdf">Clark Kerr Hall</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Kresge_Town_Hall.pdf">Kresge Town Hall</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="lactation_room_map_6-18.pdf">Lactation Rooms</a></td>
+							<td>Black and white. Includes room numbers.<span style="font-size:11px;">&nbsp;[Updated June 2018]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Lower_West_Field.pdf">Lower West Field</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="merrill_cultural_center_5-15.pdf">Merrill Cultural Center</a></td>
+							<td>Color. Updated 5/2015. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Music_Center.pdf">Music Center</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Namast%C3%A9_Lounge.pdf">Namast&#233; Lounge</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="quarry_plaza_map_05-16.pdf">Quarry Plaza</a></td>
+							<td>Quarry Plaza &nbsp;<span style="font-size:11px;">[Updated May 2016]</span></td>
+						</tr>
+						<tr>
+							<td><a href="Science_And_Engineering_Library.pdf">Science and Engineering Library</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Sesnon_Art_Gallery.pdf">Sesnon Art Gallery</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Theater_Arts_Center.pdf">Theater Arts Center</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="University_Center.pdf">University Center</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Upper_Quarry_Amphitheater.pdf">Upper Quarry Amphitheater</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="Wagstaff_Fireside_Lounge.pdf">Wagstaff Fireside Lounge</a></td>
+							<td>Color. Driving and parking instructions.</td>
+						</tr>
+						<tr>
+							<td><a href="west_field_house_map_03-16.pdf">West Field House</a></td>
+							<td>Color. Driving and parking instructions.&nbsp;<span style="font-size:11px;">[Updated March 2016]</span></td>
+						</tr>
+					</tbody>
+					<caption>&nbsp;</caption>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+</body></html>
