@@ -29,7 +29,7 @@ var params;
 var query;
 
 var foodLabelClass;
-var bldgLabelClass;
+var buildingsLabelClass;
 var zonesLabelClass;
 var parkingLabelClass;
 var metroLabelClass;
@@ -591,12 +591,13 @@ require([
 	
 	carto = new WebMap({
         portalItem: {
-		  	id:"795020303530467f8d096fca5f4d022c"
+		  	id:"09112c9e929a4f4588007f3791aac99e"
         }
     });
 	carto.when(function(carto) {
         carto.addMany(everyLayer)
     })
+	//795020303530467f8d096fca5f4d022c
 	
   	satellite = new WebMap({
         portalItem: {

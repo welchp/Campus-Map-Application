@@ -48,7 +48,7 @@ $(document).ready(function() {
 			}
 		}
 		var new_input = document.createElement("input")
-		new_input.setAttribute("placeholder", "Search UCSC")
+		new_input.setAttribute("placeholder", "Search this site")
 		mega_header.append(new_input)
 	}	
 

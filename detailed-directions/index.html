@@ -1,124 +1,25 @@
 <html>
-<head>
-	<link rel="stylesheet" href="https://js.arcgis.com/4.9/esri/css/main.css">	
-	<link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/css/calcite-web.min.css">
-	<style>
-        img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        html,body {
-            width:100%;
-            height:100%;
-            margin:0px;
-            padding:0px;
-            overflow:auto;
-        }
-        
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        
-        #header {
-            display: flex;
-            flex-direction: row;
-            align-items: space-between;
-            justify-content:flex-start;
-            width:100%;
-            height:60px;
-            min-height:60px;
-            background:#334760;
-            background:#003c6c;
-            background: whie;
-            overflow:hide;
-            z-index: 999;
-        }
-        
-        #header-content {
-            display:flex;
-            flex-direction: row;
-            align-items: center;
-            width:100%;
-            padding:10px 10px 10px 0px;
-            margin-left:20px;
-        }
 
-        #header-main {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-            margin-right: auto;
-        }
-        
-        #wrapper {
-            padding:20px;
-        }
-        
-        #main {
-            display: flex;
-            flex-direction: row;
-            justify-content: flex-start;
-            background-color:#efefef;
-            height:calc(100vh - 253px);
-        }
-        
-        #main > div {
-            box-shadow: 0px 2px 20px 1px rgba(0,0,0,0.15);
-            background-color:#efefef;
-        }
-                
-        #content {
-            display: flex;
-            flex-direction: row;
-            height:100%;
-            width:100%;
-            border:1px solid #666;
-            border-radius: 8px;
-            padding:20px;
-            overflow:auto;
-        }
-        
-        #select-div {
-            display:flex;
-            justify-content: center;
-        }
-        
-        select {
-            width:100%;
-            min-height:60px;
-            margin:0px 0px 16px 0px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.15);
-        }
-        
-        #desc {
-            height:100%;
-            width:75%;
-            overflow:auto;
-            margin-right:auto;
-        }
-        
-        #maps {
-            display:block;
-            left:auto;
-            right:auto;
-            height:100%;
-            width:25%;
-            overflow:auto;
-            margin-left:20px;
-        }
-        
-        #map-img {
-            display:block;
-            width:100%;
-            height:100%;
-        }
-        
-	</style>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="Description" content="The official home page for the Physical Planning, Development & Operations department at the University of California, Santa Cruz. Check out the Quick Links section for our most frequently-requested services or browse through our department home pages!">
+
+	<title>UCSC | Physical Planning, Development & Operations</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Oswald' rel='stylesheet'>
+	<link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/css/calcite-web.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/detailed-directions.css">
+	
+	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
+	<script src='../js/base.js'></script>
+	<script src='../js/detailed-directions.js'></script>
+	
+	<script>
         
         $(document).ready(function(){
             $("select.loc").change(function(){
@@ -129,58 +30,99 @@
         });
         
     </script>
+	
 </head>
+
 <body>
-    <div id="header">
-        <div id="header-content">
-            <div id="logo-div">
-                <a  href="https://www.ucsc.edu" title="University of California, Santa Cruz Homepage" target="_blank" rel="noopener">
-                    <img src="images/logos/primary_logo_with_seal_white.png" style="width:;height:25px">
-                </a>
-            </div>
-        </div>
-    </div>
-    <div id="wrapper">
-        <h3 class="page-title">Detailed Directions</h3>
-        <p>Select a location from the drop down menu to view detailed directions including transit options and parking information.</p>
-        <div id="select-div">
-            <select id="loc" class="loc" name="locations">
-                <option value="" selected disabled hidden>Select location</option>    
-                <option value="directions-uc-santa-cruz-campus.html">UCSC Main Campus</option>
-                <option value="directions-arboretum.html">Arboretum</option>
-                <option value="directions-baobab-lounge.html">Baobab Lounge</option>
-                <option value="directions-baskin-engineering-complex.html">Baskin Engineering Complex</option>
-                <option value="directions-baskin-visual-arts-center.html">Baskin Visual Arts Center</option>
-                <option value="directions-bay-tree-building.html">Bay Tree Building</option>
-                <option value="directions-classroom-unit.html">Classroom Unit</option>
-                <option value="directions-coastal-science-campus.html">Coastal Science Campus</option>
-                <option value="directions-cowell-conference-room.html">Cowell Conference Room</option>
-                <option value="directions-college-910-multi-purpose-room.html">College 9/10 Multipurpose</option>
-                <option value="directions-core-west-parking-structure.html">Core West Parking Structure</option>
-                <option value="directions-downtown-locations.html">Downtown Locations</option>
-                <option value="directions-east-field.html">East Field</option>
-                <option value="directions-east-field-house.html">East Field House</option>
-                <option value="directions-kerr-hall.html">Kerr Hall</option>
-                <option value="directions-kresge-town-hall.html">Kresge Town Hall</option>
-                <option value="directions-lick-observatory.html">Lick Observatory</option>
-                <option value="directions-lower-west-field.html">Lower West Field</option>
-                <option value="directions-mchenry-library.html">McHenry Library</option>
-                <option value="directions-merrill-cultural-center.html">Merrill Cultural Center</option>
-                <option value="directions-namaste-lounge.html">Namast&#233; Lounge</option>
-                <option value="directions-off-campus-locations.html">Off-campus Locations</option>
-                <option value="directions-quarry-amphitheater.html">Quarry Amphitheater</option>
-                <option value="directions-science-engineering-library.html">Science and Engineering Library</option>
-                <option value="directions-stevenson-fireside-lounge.html">Stevenson Fireside Lounge</option>
-                <option value="directions-ucsc-extension-silicon-valley.html">UCSC Extension Silicon Valley</option>
-                <option value="directions-uc-mbest-center.html">UC MBEST Center</option>
-                <option value="directions-university-center.html">University Center</option>
-                <option value="directions-west-field-house.html">West Field House</option>
-            </select>
-        </div>
-        <div id="main">
-            <div id="content">
-            </div>
-        </div>
-    </div>
-</body>
-</html>
+	<div id="mega-header">
+		<div id="mega-header-content">
+			<div id="mega-logo">
+				<img style="margin-right:auto" src="https://static.ucsc.edu/_responsive/images/logos/uc-santa-cruz-reverse.svg" style="width:107px">
+			</div>
+			<div id="mega-header-nav">
+			</div>
+		</div>
+	</div>
+
+	<div id="page-wrapper">
+		
+		<span id="mobile-title-span" class="banner-image phone-show">
+			<h1 id="page-title">Detailed Directions</h1>
+			<p id="subtitle">UCSC / Physical Planning, Development & Operations / Maps / Detailed Directions</p>
+		</span>
+
+		<span id="title-span" class="banner-image phone-hide">
+			<br>
+			<h1 id="page-title">Detailed Directions</h1>
+			<p id="subtitle">UCSC / Physical Planning, Development & Operations / Maps / Detailed Directions</p>
+		</span>
+
+		<div id="column-wrapper">
+			<div id="left-nav">
+				<div class="menu-content" style="margin-bottom:0px">
+					<span class="side-nav-header">
+						<h5>
+						</h5>
+					</span>
+					<a href="../home/">
+						<ul>Maps Homepage</ul>
+					</a>
+					<a href="../">
+						<ul>Interactive Campus Map</ul>
+					</a>
+				</div>
+				<span class="side-nav-header">
+					<h5>
+					</h5>
+				</span>
+
+				<div class="menu-content">
+					<a><ul>Contact</ul></a>
+				</div>
+			</div>
+			<div id="main-content" style="padding-right:10px;">
+				<p class="instructions">To get detailed directions, select a location from the drop down below.</p>
+				<div id="select-div">
+					<select id="loc" class="loc" name="locations">
+						<option value="" selected disabled hidden>Select location</option>    
+						<option value="directions-uc-santa-cruz-campus.html">UCSC Main Campus</option>
+						<option value="directions-arboretum.html">Arboretum</option>
+						<option value="directions-baobab-lounge.html">Baobab Lounge</option>
+						<option value="directions-baskin-engineering-complex.html">Baskin Engineering Complex</option>
+						<option value="directions-baskin-visual-arts-center.html">Baskin Visual Arts Center</option>
+						<option value="directions-bay-tree-building.html">Bay Tree Building</option>
+						<option value="directions-classroom-unit.html">Classroom Unit</option>
+						<option value="directions-coastal-science-campus.html">Coastal Science Campus</option>
+						<option value="directions-cowell-conference-room.html">Cowell Conference Room</option>
+						<option value="directions-college-910-multi-purpose-room.html">College 9/10 Multipurpose</option>
+						<option value="directions-core-west-parking-structure.html">Core West Parking Structure</option>
+						<option value="directions-downtown-locations.html">Downtown Locations</option>
+						<option value="directions-east-field.html">East Field</option>
+						<option value="directions-east-field-house.html">East Field House</option>
+						<option value="directions-kerr-hall.html">Kerr Hall</option>
+						<option value="directions-kresge-town-hall.html">Kresge Town Hall</option>
+						<option value="directions-lick-observatory.html">Lick Observatory</option>
+						<option value="directions-lower-west-field.html">Lower West Field</option>
+						<option value="directions-mchenry-library.html">McHenry Library</option>
+						<option value="directions-merrill-cultural-center.html">Merrill Cultural Center</option>
+						<option value="directions-namaste-lounge.html">Namast&#233; Lounge</option>
+						<option value="directions-off-campus-locations.html">Off-campus Locations</option>
+						<option value="directions-quarry-amphitheater.html">Quarry Amphitheater</option>
+						<option value="directions-science-engineering-library.html">Science and Engineering Library</option>
+						<option value="directions-stevenson-fireside-lounge.html">Stevenson Fireside Lounge</option>
+						<option value="directions-ucsc-extension-silicon-valley.html">UCSC Extension Silicon Valley</option>
+						<option value="directions-uc-mbest-center.html">UC MBEST Center</option>
+						<option value="directions-university-center.html">University Center</option>
+						<option value="directions-west-field-house.html">West Field House</option>
+					</select>
+				</div>
+				<div id="content">
+            	</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+</body></html>

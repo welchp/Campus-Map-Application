@@ -33,14 +33,12 @@ const printable_map_sections = {
     }
 };
 
-const webpage_title = "UCSC | PPDO | Printable Maps"
+const webpage_title = "UCSC | Printable Maps"
 const title = "Printable Maps"
 const subtitle = "UCSC / Physical Planning, Development & Operations / Maps / Printable Maps"
 
 $(document).ready(function() {
 	
-    buildPageTitle();
-	buildLeftNav2();
 	buildTitleDiv();
 
 	// WEBPAGE TITLE 
