@@ -66,6 +66,7 @@ var transportations = [];
 var academics = [];
 var facilities = [];
 var recreations = [];
+var buildings = [];
 var allLayers = [];
 var everyLayer = [];
 
@@ -931,7 +932,8 @@ require([
   	academics = [colleges_lyr, libraries_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
-  	allLayers = [foods, transportations, academics, facilities, recreations] 
+	buildings = [buildings_lyr]
+  	allLayers = [foods, transportations, academics, facilities, recreations, buildings] 
   	
 	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
