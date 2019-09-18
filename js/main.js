@@ -1014,7 +1014,7 @@ require([
 		  labels_icon_node.style.backgroundColor = '#01589d'
 	  	  buildings_lyr.labelsVisible = true
 	  } else {
-		  labels_icon_node.style.backgroundColor = 'transparent'
+		  labels_icon_node.style.backgroundColor = 'rgba(0,0,0,0.2)'
 	  	  buildings_lyr.labelsVisible = false
 	  }
 	};
@@ -1022,15 +1022,14 @@ require([
 	
 	//toggle basemaps on click of the button
 	var basemap_icon_node = document.getElementById('basemaps-icon');
-	
 	function toggleBasemap (event) {
-	  var basemap_text = document.getElementById('basemaps-icon').innerText;
+	  var basemap_text = document.getElementById('basemaps-icon');
 	  if (view.map == carto) {
 		  switchBasemap(hybrid)
-		  basemap_text = "Cartographic"
+		  basemap_text.childNodes[2].textContent = "Cartographic"
 	  } else {
 		  switchBasemap(carto)
-		  basemap_text = "Hybrid"
+		  basemap_text.childNodes[2].textContent = "Hybrid"
 	  }		
 	};
 	calcite.addEvent(basemap_icon_node, click, toggleBasemap);
@@ -1213,7 +1212,7 @@ require([
 			} else {
 				ON.checked = false
 				OFF.checked = true
-				MOBILE.style.backgroundColor = 'transparent'
+				MOBILE.style.backgroundColor = 'rgba(0,0,0,0.2)'
 			}
 		})  
 	}
