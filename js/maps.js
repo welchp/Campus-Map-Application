@@ -35,7 +35,6 @@ $(document).ready(function() {
 	
 	buildLeftNav();
 	buildMapCards();
-	buildTitleDiv();
 
 	// WEBPAGE TITLE 
 	function buildPageTitle() {
