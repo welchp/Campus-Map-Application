@@ -10,18 +10,18 @@ const left_nav_links = {
 };
 const map_cards = {
     "Interactive Campus Map":{
-        "href":"/index.html",
+        "href":"../index.html",
         "target":"_blank",
 		"textContent":"Use this map to pan and zoom around the UCSC main campus to find features, including dining options, coffee shops, restooms, hiking trails and more!",
 		"thumb":"interactive-map-thumb.PNG"
     },
     "Printable Area Maps":{ 
-        "href":"/printable-maps/index2.html",
+        "href":"../printable-maps/",
 		"textContent":"Static collection of printable maps served in PDF format. Visit this page if you are looking for a digital version of the campus map poster, other thematic campus-wide maps, like parking maps and walking maps, or area-specific maps, e.g. Oakes College or Lower Campus",
 		"thumb":"printable-maps-thumb.PNG"
     },
     "Detailed Directions":{
-        "href":"/detailed-directions/index2.html",
+        "href":"../detailed-directions/",
         "target":"_blank",
 		"textContent":"Static collection of browser-based maps served in HTML format. Visit this page if you are looking for a web page with an area map alongside narrative directions.",
 		"thumb":"detailed-directions-thumb.PNG"
