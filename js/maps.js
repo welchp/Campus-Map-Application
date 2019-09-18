@@ -1,10 +1,6 @@
 const left_nav_links = {
-    "About PPDO Maps":{
-        "href":"https://maps.ucsc.edu/about",
-        "target":"_blank"
-    },
-    "Map Products":{ 
-        "href":"https://maps.ucsc.edu",
+    "UCSC Homepage":{ 
+        "href":"https://ucsc.edu",
         "target":"_blank",
     },
     "PPDO Home":{
@@ -33,18 +29,6 @@ const map_cards = {
         "target":"_blank",
 		"textContent":"Static collection of browser-based maps served in HTML format. Visit this page if you are looking for a web page with an area map alongside narrative directions.",
 		"thumb":"detailed-directions-thumb.PNG"
-    },
-	"Active Construction":{
-        "href":"https://maps.ucsc.edu/nothereyet",
-        "target":"_blank",
-		"textContent":"Browser-based webmap showing active construction projects and their associated impacts to campus life.",
-		"thumb":"active-construction-thumb.PNG"
-    },
-    "Parking Locator":{
-        "href":"https://ucsc.maps.arcgis.com/apps/webappviewer/index.html?id=8367f9db865545e29e093fef910249ad",
-        "target":"_blank",
-		"textContent":"Browser-based webmap to help you find the nearest parking lots from anywhere on campus.",
-		"thumb":"parking-lot-thumb.PNG"
     }
 };
 const webpage_title = "UCSC | PPDO | Maps"
