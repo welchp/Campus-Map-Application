@@ -1020,6 +1020,21 @@ require([
 	};
 	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
+	//toggle basemaps on click of the button
+	var basemap_icon_node = document.getElementById('basemaps-icon');
+	
+	function toggleBasemap (event) {
+	  var basemap_text = document.getElementById('basemaps-icon').innerText;
+	  if (view.map == carto) {
+		  switchBasemap(hybrid)
+		  basemap_text = "Cartographic"
+	  } else {
+		  switchBasemap(carto)
+		  basemap_text = "Hybrid"
+	  }		
+	};
+	calcite.addEvent(basemap_icon_node, click, toggleBasemap);
+	
 	//Adjust zoom property of the view depending on Mobile or Desktop
 	function setZoom(){
 		if (window.innerWidth < 480) {
