@@ -278,6 +278,28 @@ p a {
     background-color:#da216d;
 }
 
+#contact,
+#contact:hover {
+	font-size:0.9em;
+	text-decoration: none;
+	width: 95%;
+	min-height:23px;
+	text-align: center;
+	color: white;
+	background-color: #AA1712;
+	background-color: #93c02d;
+	border-radius: 12px;
+	margin-bottom: 12px;
+	padding: 8px 2px;
+	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
+	-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+}
+
+#contact:hover {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03)
+}
 
 /*    MEDIA QUERIES    */
 

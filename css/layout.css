@@ -78,15 +78,16 @@ html, body {
 
 #survey {
 	text-decoration: none;
-	width: 100%;
-	padding: 4px;
+	width: 95%;
 	text-align: center;
 	color: white;
 	background-color: #AA1712;
 	background-color: #93c02d;
-	border-radius: 20px;
-	margin-bottom: 20px;
-	padding: 8px 0;
+	background-color: #13a5dc;
+	background-color: #f29813;
+	border-radius: 12px;
+	margin-bottom: 12px;
+	padding: 8px 2px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
 	-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
@@ -95,23 +96,28 @@ html, body {
 #contact,
 #contact:hover {
 	text-decoration: none;
-	width: 100%;
-	padding: 4px;
+	width: 95%;
+	min-height:23px;
 	text-align: center;
 	color: white;
 	background-color: #AA1712;
 	background-color: #93c02d;
-	border-radius: 20px;
-	margin-bottom: 20px;
-	padding: 8px 0;
+	border-radius: 12px;
+	margin-bottom: 12px;
+	padding: 8px 2px;
 	text-shadow: 0 1px 1px rgba(0, 0, 0, 0.6);
 	-webkit-box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 	box-shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
 }
 
 #contact:hover {
-	-webkit-transform: scale(1.01);
-	transform: scale(1.01)
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03)
+}
+
+#survey:hover {
+	-webkit-transform: scale(1.03);
+	transform: scale(1.03)
 }
 
 #main-grid {
@@ -329,7 +335,8 @@ html, body {
 #admin-div {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-gap:8px;
+	grid-gap: 4px;
+	margin: 10px;
 }
 
 #clear-all {

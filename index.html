@@ -22,11 +22,11 @@
 	
 
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="Description" content="The official interactive map of the University of California, Santa Cruz. Created and maintained by campus staff. Check back often for the latest and greatest content! Send an email to maps@ucsc.edu for questions, comments, or general opinions about your experience with the map.">
+	<meta name="Description" content="The official interactive webmap of the University of California, Santa Cruz- created and maintained by campus staff. Search for buildings, transit information, recreational opportunities and more! Check back often for the latest and greatest content. Send an email to maps@ucsc.edu for questions, comments, or general opinions about your experience with the map.">
 
 	<meta name="google-site-verification" content="-aFo-1oVHoMXc9RrXzD0S4gsiDvI4LWdV5FIxoVm8mo" />
 
-	<title>Campus Map | University of California, Santa Cruz</title>
+	<title>UCSC | Interactive Map</title>
 
 	<link href='https://fonts.googleapis.com/css?family=Oswald|Roboto+Condensed|Roboto|Questrial|Raleway' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Oswald:200,300&display=swap" rel="stylesheet">
@@ -111,7 +111,6 @@
 						<a class="third-nav-link" href="printable-maps/" target="_blank"><i class="icon-ui-printer"></i></a>
 						<a class="third-nav-link" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i></a>
 						<a class="third-nav-link" href="https://maps.google.com" target="_blank"><i class="icon-ui-directions"></i></a>
-						<a class="third-nav-link" href="help/"><i class="icon-ui-support"></i></a>
 					</div>
 				</nav>
 			</div>
@@ -123,13 +122,18 @@
 			<div id="side-nav" class="tablet-hide">
 				<a href="mailto:maps@ucsc.edu" id="contact">
 					<i class="icon-ui-user"></i>
-					Contact the Map Administrator
+					Contact the Maps Team
 				</a>
+				<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
+					<i class="icon-ui-authorize"></i>
+					Take A Survey
+				</a>
+				
 				<aside class="side-nav" aria-role="complementary">
 					<h4 class="side-nav-title" onclick="groupToggle(foods)">
 						<i class="fas fa-utensils"></i>Food & Drink
 						<span class="vis-indicator-all">
-							<img width="20px" src="https://drive.google.com/uc?export=view&id=1NcitSaQ8gGhpKcfCQtfQJNCY2G85_xKJ">
+							<img width="20px" src="images/icons/food_and_drink.png">
 						</span>
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -153,7 +157,7 @@
 					<h4 class="side-nav-title" onclick="groupToggle(transportations)">
 						<i class="fas fa-bus"></i>Transportation
 						<span class="vis-indicator-all">
-							<img width="20px" src="https://drive.google.com/uc?export=view&id=1GRYJPJceY0dpdOcH8rKLe7ITRlKJVfNA">
+							<img width="20px" src="images/icons/transportation.png">
 						</span>
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -177,7 +181,7 @@
 					<h4 class="side-nav-title" onclick="groupToggle(academics)">
 						<i class="fas fa-book"></i>Academics
 						<span class="vis-indicator-all">
-							<img width="20px" src="https://drive.google.com/uc?export=view&id=166fTm8U40fHtYWd769AdV50DfFw2QxdO">
+							<img width="20px" src="images/icons/academics.png">
 						</span>
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -193,7 +197,7 @@
 					<h4 class="side-nav-title" onclick="groupToggle(facilities)">
 						<i class="fas fa-life-ring"></i>Health, Safety & Facilities
 						<span class="vis-indicator-all">
-							<img width="20px" src="https://drive.google.com/uc?export=view&id=1YeL05nQJkBqS_6u4A3bn4ArPLmbC6l17">
+							<img width="20px" src="images/icons/health_safety_and_facilities.png">
 						</span>
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -213,7 +217,7 @@
 					<h4 class="side-nav-title" onclick="groupToggle(recreations)">
 						<i class="fas fa-hiking"></i>Recreation
 						<span class="vis-indicator-all">
-							<img width="20px" src="https://drive.google.com/uc?export=view&id=1DxhtbLuG2nLuRG1A9QJcLJKiMTmaf_P8">
+							<img width="20px" src="images/icons/recreation.png">
 						</span>
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
@@ -232,13 +236,14 @@
 					</nav>
 				</aside>
 				
+				
 			</div>
 			<div id="main-wrapper">
 				<div id="mobile-menu">
 					<div id="admin-div">
 						<a href="mailto:maps@ucsc.edu" id="contact">
 							<i class="icon-ui-user"></i>
-							Contact Map Admins
+							Contact Maps Team
 						</a>
 						<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
 							<i class="icon-ui-authorize"></i>
@@ -248,7 +253,7 @@
 					<aside class="side-nav" aria-role="complementary">
 						<h4 class="side-nav-title" onclick="groupToggle(foods)">
 							<i class="fas fa-utensils"></i>Food & Drink
-							<span class="vis-indicator-all"><img width="20px" src="https://drive.google.com/uc?export=view&id=1NcitSaQ8gGhpKcfCQtfQJNCY2G85_xKJ"></span>
+							<span class="vis-indicator-all"><img width="20px" src="images/icons/food_and_drink.png"></span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
@@ -271,7 +276,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
 							<i class="fas fa-bus"></i>Transportation
 							<span class="vis-indicator-all">
-								<img width="20px" src="https://drive.google.com/uc?export=view&id=1GRYJPJceY0dpdOcH8rKLe7ITRlKJVfNA">
+								<img width="20px" src="images/icons/transportation.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
@@ -295,7 +300,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(academics)">
 							<i class="fas fa-book"></i>Academics
 							<span class="vis-indicator-all">
-								<img width="20px" src="https://drive.google.com/uc?export=view&id=166fTm8U40fHtYWd769AdV50DfFw2QxdO">
+								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
@@ -311,7 +316,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
 							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
 							<span class="vis-indicator-all">
-								<img width="20px" src="https://drive.google.com/uc?export=view&id=1YeL05nQJkBqS_6u4A3bn4ArPLmbC6l17">
+								<img width="20px" src="images/icons/health_safety_and_facilities.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
@@ -331,7 +336,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
 							<i class="fas fa-hiking"></i>Recreation
 							<span class="vis-indicator-all">
-								<img width="20px" src="https://drive.google.com/uc?export=view&id=1DxhtbLuG2nLuRG1A9QJcLJKiMTmaf_P8">
+								<img width="20px" src="images/icons/recreation.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
@@ -352,10 +357,6 @@
 				</div>
 				<div id="viewDiv">
 					<div id="map-options-footer" class="phone-show">
-						<!--div id="contact-icon" class="phone-show map-options-icon">
-							<i class="icon-ui-user"></i>
-							<a href="mailto:maps@ucsc.edu">CONTACT</a>
-						</div-->
 						<div id="basemaps-icon" class="phone-show map-options-icon">
 							<i class="icon-ui-basemap"></i>Basemaps
 						</div>

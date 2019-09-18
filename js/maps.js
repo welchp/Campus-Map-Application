@@ -1,16 +1,12 @@
 const left_nav_links = {
-    "UCSC Homepage":{ 
-        "href":"https://ucsc.edu",
-        "target":"_blank",
-    },
-    "PPDO Home":{
+    "PPDO Homepage":{
         "href":"https://ppc.ucsc.edu",
         "target":"_blank"
     },
-	"Contact":{
-        "href":"mailto:maps@ucsc.edu",
-        "target":"_blank"
-    }
+	"UCSC Homepage":{ 
+        "href":"https://ucsc.edu",
+        "target":"_blank",
+    }    
 };
 const map_cards = {
     "Interactive Campus Map":{
@@ -37,7 +33,6 @@ const subtitle = "UCSC / Physical Planning, Development & Operations / Maps"
 
 $(document).ready(function() {
 	
-    buildPageTitle();
 	buildLeftNav();
 	buildMapCards();
 	buildTitleDiv();

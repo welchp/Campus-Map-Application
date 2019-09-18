@@ -21,8 +21,9 @@
 	flex-direction: row;
 	justify-content: flex-start;
 	height:114px;
-	padding:10px;
+	padding:20px;
     margin:0 0 30px 0;
+	border-radius: 12px;
 }
 
 .card:hover {
@@ -51,6 +52,8 @@
     background-repeat: no-repeat;
     background-size: cover;
 	box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 0 8px 0 rgba(0,0,0,0.1);
+	border:1px solid rgba(0,0,0,0.2);
+	border-radius: 8px;
 }
 
 #current-page {
