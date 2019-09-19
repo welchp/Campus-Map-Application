@@ -99,7 +99,6 @@ html, body {
 #contact:hover {
 	text-decoration: none;
 	width: 95%;
-	min-height:23px;
 	text-align: center;
 	color: white;
 	background-color: #AA1712;
