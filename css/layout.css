@@ -195,7 +195,12 @@ html, body {
 	display: flex;
 	width: 100%;
 	-ms-flex-pack: distribute;
-	justify-content: space-around;
+	justify-content: center;
+}
+
+#mobile-nav-icon-div > a {
+	margin:auto 20px;
+	box-shadow:0 0px 20px rgba(0,0,0,0.1);
 }
 
 #mobile-search-bar {
