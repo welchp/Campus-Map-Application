@@ -195,7 +195,11 @@ html, body {
 	display: flex;
 	width: 100%;
 	-ms-flex-pack: distribute;
-	justify-content: space-around;
+	justify-content: center;
+}
+
+#mobile-nav-icon-div > a {
+	margin:auto 20px;
 }
 
 #mobile-search-bar {
@@ -409,6 +413,7 @@ html, body {
 
 .side-nav {
 	width: 100%;
+	overflow:auto;
 }
 
 nav > a {}
