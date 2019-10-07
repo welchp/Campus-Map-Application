@@ -831,6 +831,7 @@ require([
         layerId:1,
         visible: false,
         labelingInfo:[foodLabelClass],
+		definitionExpression: "OBJECTID <> 7"
     })
     dining_halls_lyr = new FeatureLayer({
         portalItem:{
