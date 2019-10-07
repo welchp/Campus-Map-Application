@@ -37,6 +37,7 @@ var shuttleLabelClass;
 var academicsLabelClass;
 var recLabelClass;
 
+var recycling_lyr;
 var poi_lyr;
 var rec_lyr;
 var stops_lyr;
@@ -912,6 +913,12 @@ require([
         },
         visible: false
     })
+	recycling_lyr = new FeatureLayer({
+        portalItem:{
+            id: "da35d5945eca45f69a61fef3f4decf40"
+        },
+        visible: false
+    })
     bus_route_lyr = new FeatureLayer({
         portalItem:{
             id: "2280263859654b5e9902a17dc9a195f0"
@@ -931,12 +938,12 @@ require([
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
   	academics = [colleges_lyr, libraries_lyr]
-  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr]
+  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, academics, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
 	
 	//---- FUNCTIONS --
