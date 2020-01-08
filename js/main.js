@@ -34,9 +34,10 @@ var zonesLabelClass;
 var parkingLabelClass;
 var metroLabelClass;
 var shuttleLabelClass;
-var academicsLabelClass;
+var studentLifeLabelClass;
 var recLabelClass;
 
+var support_lyr;
 var recycling_lyr;
 var poi_lyr;
 var rec_lyr;
@@ -549,7 +550,25 @@ require([
             expression: "$feature.Name"
         }
     };
-	var academicsLabelClass = {
+	var studentLifeLabelClass = {
+        symbol: {
+            type: "text",
+            color: [102,0,204],
+            haloColor: [255,255,255],
+            haloSize: 1.0,
+            font: {
+                family: "Arial Unicode MS",
+                size: 10,
+                style: "normal",
+                weight: "bold"
+            }
+        },
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+            expression: "$feature.RESOURCE"
+        }
+    };
+	var libraryLabelClass = {
         symbol: {
             type: "text",
             color: [102,0,204],
@@ -823,7 +842,7 @@ require([
             id:"b82d703a18bc469392089b91b413a5f5"
         },
         visible: false,
-        labelingInfo:[academicsLabelClass]
+        labelingInfo:[libraryLabelClass]
     })
     cafes_lyr = new FeatureLayer({
         portalItem:{
@@ -933,17 +952,25 @@ require([
         labelingInfo:[foodLabelClass],
         definitionExpression: "CampusZoneType in ('Primary', 'Secondary')"
     })
+	support_lyr = new FeatureLayer({
+        portalItem:{
+            id: "d26202fa686645cb8a076f8c308436a4"
+        },
+        visible: false,
+        labelingInfo:[studentLifeLabelClass]
+    })
+	
     
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
-  	academics = [colleges_lyr, libraries_lyr]
+  	student_life = [colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
-  	allLayers = [foods, transportations, academics, facilities, recreations, buildings] 
+  	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr]
 	
 	
 	//---- FUNCTIONS --
