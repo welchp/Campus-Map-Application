@@ -705,6 +705,16 @@ require([
             name: "Buildings",
             placeholder: "enter a building name or departments",
             },
+			{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
+            searchFields: ["RESOURCE"],
+            suggestionTemplate: "{RESOURCE}",
+            displayField: "RESOURCE",
+            exactMatch: false,
+            outFields: ["*"],
+            name: "Student Support",
+            placeholder: "enter a student support program"
+            },
         	{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
             searchFields: ["NUM", "Permit_Type"],
@@ -731,7 +741,7 @@ require([
             exactMatch: false,
             outFields: ["Name"],
             name: "Cafes and Restaurants",
-            placeholder: "enter a caffe or restaurant",
+            placeholder: "enter a cafe or restaurant",
 			},
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/2"},
@@ -1112,6 +1122,16 @@ require([
 					placeholder: "enter a building name or departments",
 					},
 					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
+					searchFields: ["RESOURCE"],
+					suggestionTemplate: "{RESOURCE}",
+					displayField: "RESOURCE",
+					exactMatch: false,
+					outFields: ["*"],
+					name: "Student Support Programs",
+					placeholder: "enter a student support program"
+					},
+					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
 					searchFields: ["NUM", "Permit_Type"],
 					suggestionTemplate: "Parking Lot {NUM} for {NAME}",
@@ -1137,7 +1157,7 @@ require([
 					exactMatch: false,
 					outFields: ["Name"],
 					name: "Cafes and Restaurants",
-					placeholder: "enter a caffe or restaurant",
+					placeholder: "enter a cafe or restaurant",
 					},
 					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/2"},
