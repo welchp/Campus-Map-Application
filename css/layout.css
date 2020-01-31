@@ -405,8 +405,8 @@ html, body {
 	-ms-flex-align: center;
 	align-items: center;
 	padding: 10px 0px 10px 10px;
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 350px;
+	max-width: 350px;
 	margin-right: auto;
 	overflow: auto;
 }
@@ -416,14 +416,13 @@ html, body {
 	overflow:auto;
 }
 
-nav > a {}
-
 .side-nav-title {
 	width: 100%;
 	background-color: #01589D;
 	color: white;
-	border-left: 2px solid #01589D;
 	padding: 4px;
+	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+	z-index: 9;
 	position: relative;
 	font-family: "Roboto Condensed", sans-serif;
 }
