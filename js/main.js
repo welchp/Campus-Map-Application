@@ -238,98 +238,6 @@ function indicateAll() {
 	}, false);
 }
 
-//Drop down functions
-function showMobileAmenities() {
-    var x = document.getElementById("mobile-amenities");
-        if (x.style.display == "") {
-            x.style.display = "flex";
-        } else { 
-            x.style.display = "";
-        }
-}
-function showMobileTransportation() {
-    var x = document.getElementById("mobile-transportation");
-        if (x.style.display == "") {
-            x.style.display = "flex";
-        } else { 
-            x.style.display = "";
-        }
-}
-function showMobileSafety() {
-    var x = document.getElementById("mobile-safety");
-        if (x.style.display == "") {
-            x.style.display = "flex";
-        } else { 
-            x.style.display = "";
-        }
-}
-function showMobileAcademics() {
-    var x = document.getElementById("mobile-academics");
-        if (x.style.display == "") {
-            x.style.display = "flex";
-        } else { 
-            x.style.display = "";
-        }
-}
-function showMobileRecreation() {
-    var x = document.getElementById("mobile-recreation");
-        if (x.style.display == "") {
-            x.style.display = "flex";
-        } else { 
-            x.style.display = "";
-        }
-}
-
-//Extra Functions
-function showIcon() {
-    var x = document.getElementById("connectivity-list");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else { 
-            x.className = x.className.replace(" w3-show", "");
-        }
-}
-function highlightAmenities() {
-    var x = document.getElementById("amenities");
-        if (x.style.borderBottom == "") {
-            x.style.borderBottom = "1px solid #5E84A0";
-        } else { 
-            x.style.borderBottom = "";
-        }
-}
-function highlightTransportation() {
-    var x = document.getElementById("transportation");
-        if (x.style.borderBottom == "") {
-            x.style.borderBottom = "1px solid #5E84A0";
-        } else { 
-            x.style.borderBottom = "";
-        }
-}
-function highlightSafety() {
-    var x = document.getElementById("safety");
-        if (x.style.borderBottom == "") {
-            x.style.borderBottom = "1px solid #5E84A0";
-        } else { 
-            x.style.borderBottom = "";
-        }
-}
-function highlightAcademics() {
-    var x = document.getElementById("academics");
-        if (x.style.borderBottom == "") {
-            x.style.borderBottom = "1px solid #5E84A0";
-        } else { 
-            x.style.borderBottom = "";
-        }
-}
-function highlightRecreation() {
-    var x = document.getElementById("recreation");
-        if (x.style.borderBottom == "") {
-            x.style.borderBottom = "1px solid #5E84A0";
-        } else { 
-            x.style.borderBottom = "";
-        }
-}
-
 require([
     "esri/config",
     "esri/Map",
@@ -774,7 +682,7 @@ require([
     });
     searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 	searchWidget.on("select-result", function(event){
-	  searchWidget.clear();
+	  //searchWidget.clear();
 	  buildings_lyr.labelsVisible = true
 	  view.zoom = 19
 	  var viewD = document.getElementById('viewDiv');
