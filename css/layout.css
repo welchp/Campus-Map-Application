@@ -229,6 +229,14 @@ html, body {
 	width:450px;
 }
 
+.esri-popup__header {
+	box-shadow: 0 0 6px rgba(0,0,0,0.1);
+}
+
+.esri-feature__content-element:last-child {
+	padding-top:20px;
+}
+
 .break {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -484,6 +492,8 @@ html, body {
 .hidden {
 	display: none;
 }
+
+
 
 /* Absolute Center Spinner */
 .loading {
