@@ -233,7 +233,8 @@ html, body {
 	box-shadow: 0 0 6px rgba(0,0,0,0.1);
 }
 
-.esri-feature__content-element:last-child {
+.esri-feature__content-element:last-child,
+.esri-search-result-renderer__more-results-item {
 	padding-top:20px;
 }
 
