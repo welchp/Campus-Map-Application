@@ -1182,6 +1182,31 @@ require([
 		})  
 	}
 	
+	
+	
+	var b = document.querySelector('legend')
+	var ac = document.querySelectorAll('nav')[6]
+	var cont = document.createElement('div')
+	cont.textContent = ''
+	cont.style.cssText = "display:flex;flex-direction:column;overflow:auto;max-height:150px;padding:20px;font-size:12px;font-family:Roboto"
+	
+	b.addEventListener("click", function(){
+		if (cont.textContent == ''){
+			buildings_lyr.queryFeatures().then(function(results){
+				for (i = 0; i < results.features.length+1; i++) {
+					//console.log(results.features[i].attributes["BUILDINGNAME"]);
+					var bldg = document.createElement('p')
+					bldg.textContent = results.features[i].attributes["BUILDINGNAME"]
+					cont.appendChild(bldg)    
+				}
+			})
+			ac.appendChild(cont)
+		} else {
+			cont.textContent = ''
+			ac.removeChild(cont)
+		}
+	})
+	
 	//FUNCTIONS TO RUN
 	indicateVisibility();
     toggleVisibility();
