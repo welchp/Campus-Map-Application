@@ -350,6 +350,7 @@ html, body {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-gap: 4px;
+	display:flex;
 	margin: 10px;
 }
 
@@ -399,6 +400,15 @@ html, body {
 	overflow: auto;
 }
 
+.icon-ui-radio-unchecked, .icon-ui-checkbox-unchecked  {
+	font-size: 12px;
+	opacity: 0.3;
+}
+
+.icon-ui-radio-checked, .icon-ui-checkbox-checked {
+	font-size: 12px;
+}
+
 #side-nav {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -429,11 +439,13 @@ html, body {
 	width: 100%;
 	background-color: #01589D;
 	color: white;
-	padding: 4px;
-	box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+	padding: 5px;
+	box-shadow: 0 0 2px rgba(0,0,0,0.1);
 	z-index: 9;
 	position: relative;
 	font-family: "Roboto Condensed", sans-serif;
+	border-left:1px solid #ededed;
+	border-right:1px solid #ededed;
 }
 
 .side-nav-title:hover {
