@@ -199,17 +199,17 @@ function indicateVisibility() {
 	document.addEventListener('click', function (event) {
 	// If the clicked element doesn't have the right selector, bail
 	if (!event.target.matches('.side-nav-link')) return;
-		if (event.target.childNodes[1].className == "icon-ui-radio-checked") {
-			event.target.childNodes[1].className = "icon-ui-radio-unchecked"
+		if (event.target.childNodes[1].className == "icon-ui-checkbox-checked") {
+			event.target.childNodes[1].className = "icon-ui-checkbox-unchecked"
 		} else {
-			event.target.childNodes[1].className = "icon-ui-radio-checked"
+			event.target.childNodes[1].className = "icon-ui-checkbox-checked"
 		}
 	}, false);
 }
 
 function allLayersOn(side_nav_title) {
 	for (i=0; i < side_nav_title.nextElementSibling.children.length; i++) {
-		if (side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-radio-checked') {
+		if (side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-checkbox-checked') {
 			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
 			//pass
 		} else {
@@ -228,11 +228,11 @@ function indicateAll() {
 	if (!event.target.matches('.side-nav-title')) return;
 		if (allLayersOn(event.target)){
 			for (i=0; i < event.target.nextElementSibling.children.length; i++){
-				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-unchecked')
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-checkbox-unchecked')
 			}
 		} else {
 			for (i=0; i < event.target.nextElementSibling.children.length; i++){
-				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-radio-checked')
+				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-checkbox-checked')
 			}
 		}
 	}, false);
@@ -520,13 +520,12 @@ require([
 	
 	carto = new WebMap({
         portalItem: {
-		  	id:"09112c9e929a4f4588007f3791aac99e"
+		  	id:"33ea4550c8144e66847d902e4766c2f7"
         }
     });
 	carto.when(function(carto) {
         carto.addMany(everyLayer)
     })
-	//795020303530467f8d096fca5f4d022c
 	
   	satellite = new WebMap({
         portalItem: {
@@ -545,15 +544,13 @@ require([
 	hybrid.when(function(hybrid) {
         hybrid.addMany(everyLayer)
     })
-   
-    //89f67154356949c8b147bfe0421482f2
-	
+   		
     /////////////    MAP VIEW    \\\\\\\\\\\\\
 	view = new MapView({
         container: "viewDiv",
-        map: hybrid,
+        map: carto,
         zoom: 14,
-        center: [-122.068564,36.999662],
+        center: [-122.06131130682165, 36.99009898893463],
 		layerViews:everyLayer,
 		popup:{
             highlightEnabled: true,
@@ -1156,9 +1153,9 @@ require([
 		visLayers.forEach(function(lyr){
 			lyr.visible = false	
 		})
-		var checked = document.querySelectorAll(".icon-ui-radio-checked")
+		var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
 		checked.forEach(function(element){
-			element.setAttribute('class', 'icon-ui-radio-unchecked') 
+			element.setAttribute('class', 'icon-ui-checkbox-unchecked') 
 		})
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
@@ -1181,7 +1178,7 @@ require([
 			}
 		})  
 	}
-	
+		
 	//FUNCTIONS TO RUN
 	indicateVisibility();
     toggleVisibility();

@@ -42,7 +42,7 @@
 	<script src="js/calcite-web.min.js"></script>
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
-	<script src='js/main.js'></script>
+	
 	
 	
 
@@ -75,9 +75,9 @@
 								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
 								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
 								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" />
+								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
 								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" checked />
+								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
 								<label class="radio-group-label" for="hybrid">Hybrid</label>
 							</fieldset>
 						</div>
@@ -136,19 +136,19 @@
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Restaurants and Cafes
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							The Perk Coffee Shops
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							College Dining Halls
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Food Trucks
 						</a>
 					</nav>
@@ -160,19 +160,19 @@
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Metro Bus and Shuttle Stops
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Parking Lots
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Bike Repair
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Bike Parking
 						</a>
 					</nav>
@@ -184,15 +184,15 @@
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Colleges
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Libraries
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Student Support Services
 						</a>
 					</nav>
@@ -204,19 +204,19 @@
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Emergency Phones
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							All-Gender Restrooms
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Lactation Rooms
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Recycling
 						</a>
 					</nav>
@@ -228,15 +228,15 @@
 					</h4>
 					<nav role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Trails, Courts, & Athletic Facilities
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Campus Gardens
 						</a>
 						<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
-							<i class="icon-ui-radio-unchecked"></i>
+							<i class="icon-ui-checkbox-unchecked"></i>
 							Places of Interest
 						</a>
 					</nav>
@@ -263,19 +263,19 @@
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Restaurants and Cafes
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								The Perk Coffee Shops
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								College Dining Halls
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Food Trucks
 							</a>
 						</nav>
@@ -287,19 +287,19 @@
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Metro Bus and Shuttle Stops
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Parking Lots
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Bike Repair
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Bike Parking
 							</a>
 						</nav>
@@ -311,15 +311,15 @@
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Colleges
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Libraries
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Student Support Services
 							</a>
 						</nav>
@@ -331,19 +331,19 @@
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Emergency Phones
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								All-Gender Restrooms
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Lactation Rooms
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Recycling
 							</a>
 						</nav>
@@ -355,15 +355,15 @@
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Trails, Courts, & Athletic Facilities
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Campus Gardens
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
-								<i class="icon-ui-radio-unchecked"></i>
+								<i class="icon-ui-checkbox-unchecked"></i>
 								Places of Interest
 							</a>
 						</nav>
@@ -386,7 +386,8 @@
 			</div>
 		</div>
 	</div>
-
+	
+	<script src='js/main.js'></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
