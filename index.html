@@ -60,6 +60,53 @@
 				<div id="map-options">
 					<div id="fieldsets" class="phone-hide">
 						<div>
+							<fieldset id="basemap-selector" class="radio-group">
+								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
+								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
+								<label class="radio-group-label" for="satellite">Satellite</label>
+								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
+								<label class="radio-group-label" for="carto">Carto</label>
+								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
+								<label class="radio-group-label" for="hybrid">Hybrid</label>
+							</fieldset>
+						</div>
+						<div>
+							<fieldset id="building-label-selector" class="radio-group">
+								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
+								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
+								<label class="radio-group-label" for="On">
+									<p>On</p>
+								</label>
+								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
+								<label class="radio-group-label" for="Off">Off</label>
+							</fieldset>
+						</div>
+						
+					</div>
+					<div id="menu-icon-div">
+						<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+					</div>
+				</div>
+			</div>
+		</div>
+		<header class="third-nav phone-hide">
+			<div class="third-nav-container">
+				<div class="grid-container">
+					<nav class="break" role="navigation" aria-labelledby="thirdnav">
+						<div id="break" style="margin-right:auto;">
+							<ul id="nav-list">
+								<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
+								<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
+								<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div id="map-options">
+					<div id="fieldsets" class="phone-hide">
+						<div>
 							<fieldset id="building-label-selector" class="radio-group">
 								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
 								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
@@ -87,20 +134,7 @@
 						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
 					</div>
 				</div>
-			</div>
-		</div>
-		<header class="third-nav phone-hide">
-			<div class="third-nav-container">
-				<div class="grid-container">
-					<nav class="break" role="navigation" aria-labelledby="thirdnav">
-						<div id="break" style="margin-right:auto;">
-							<a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a>
-							<a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a>
-							<a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a>
-						</div>
-					</nav>
-				</div>
-			</div>
+			
 		</header>
 		<header id="mobile-nav" class="third-nav phone-show">
 			<div class="third-nav-container">
@@ -114,19 +148,12 @@
 			</div>
 		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
-			
+				
 		</header>
 		<div id="main-content">
 			<div id="side-nav" class="tablet-hide">
-				<a href="mailto:maps@ucsc.edu" id="contact">
-					<i class="icon-ui-user"></i>
-					Contact the Maps Team
-				</a>
-				<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
-					<i class="icon-ui-authorize"></i>
-					Take A Survey
-				</a>
-				
+				<img src="images/logos/UC Santa Cruz Logo - Blue RGB.png" id="ucsc-logo">
+				<p>MAP LAYERS</p>				
 				<aside class="side-nav" aria-role="complementary">
 					<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
 						<i class="fas fa-utensils"></i>Food & Drink
@@ -134,7 +161,7 @@
 							<img width="20px" src="images/icons/food_and_drink.png">
 						</span>
 					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
+					<nav class="hidden" role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 							<i class="icon-ui-checkbox-unchecked"></i>
 							Restaurants and Cafes
@@ -158,7 +185,7 @@
 							<img width="20px" src="images/icons/transportation.png">
 						</span>
 					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
+					<nav class="hidden" role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 							<i class="icon-ui-checkbox-unchecked"></i>
 							Metro Bus and Shuttle Stops
@@ -182,7 +209,7 @@
 							<img width="20px" src="images/icons/academics.png">
 						</span>
 					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
+					<nav class="hidden" role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
 							<i class="icon-ui-checkbox-unchecked"></i>
 							Colleges
@@ -202,7 +229,7 @@
 							<img width="20px" src="images/icons/health_safety_and_facilities.png">
 						</span>
 					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
+					<nav class="hidden" role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 							<i class="icon-ui-checkbox-unchecked"></i>
 							Emergency Phones
@@ -226,7 +253,7 @@
 							<img width="20px" src="images/icons/recreation.png">
 						</span>
 					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
+					<nav class="hidden" role="navigation" aria-labelledby="sidenav">
 						<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
 							<i class="icon-ui-checkbox-unchecked"></i>
 							Trails, Courts, & Athletic Facilities
@@ -240,7 +267,17 @@
 							Places of Interest
 						</a>
 					</nav>
+					<div id="admin-div">
+						<div id="buttons">
+							<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
+								<i class="icon-ui-user"></i>
+								Contact the Maps Team
+							</a>
+						</div>
+					</div>
+					
 				</aside>
+				
 				
 				
 			</div>

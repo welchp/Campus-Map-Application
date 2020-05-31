@@ -1,3 +1,5 @@
+document.cookie = 'cross-site-cookie=bar; SameSite=lax; Secure';
+
 var visLayers;
 var clearbutton;
 
@@ -125,15 +127,16 @@ function isNotVisible(lyr){
 }
 
 function groupToggle(layer_list) {	
-  if (layer_list.some(isNotVisible)){
-	  layer_list.forEach(function(lyr) {
-	      lyr.visible = true
-	  })
-  } else {
-	  layer_list.forEach(function(lyr) {
-	  	  lyr.visible = false
-  	  })
-  }
+  //if (layer_list.some(isNotVisible)){
+  //	  layer_list.forEach(function(lyr) {
+  //	      lyr.visible = true
+  //	  })
+  //} else {
+  //	  layer_list.forEach(function(lyr) {
+  //	  	  lyr.visible = false
+  //	  })
+  //}
+  console.log("")
 }
 
 function showLegend() {
@@ -193,6 +196,21 @@ function changeVisibility(lyr){
         lyr.visible = false;
     }
     console.log("visible is: " + lyr.visible)
+}
+
+function expandableMenus() {
+	document.addEventListener('click', function (event) {
+	// If the clicked element doesn't have the right selector, bail
+	if (!event.target.matches('.side-nav-title')) return;
+		var menu = event.target.nextElementSibling
+		if (menu.classList.contains("hidden")) {
+			menu.classList.remove("hidden")
+			menu.classList.add("showing")
+		} else {
+			menu.classList.add("hidden")
+			menu.classList.remove("showing")
+		}
+	}, false);
 }
 
 function indicateVisibility() {
@@ -552,6 +570,12 @@ require([
         zoom: 14,
         center: [-122.06131130682165, 36.99009898893463],
 		layerViews:everyLayer,
+		highlightOptions:{
+			color:"#01589D",
+			haloOpacity:0,
+			fillOpacity:0.5,
+			
+		},
 		popup:{
             highlightEnabled: true,
             dockEnabled: true,
@@ -898,6 +922,21 @@ require([
 			document.getElementById("viewDiv").style.cursor = "default";
 		}
 	}
+	function addHighlight(response) {
+		if (highlight){
+			highlight.remove()
+		}
+		var graphic = response.results.filter(function (result) {
+			return result.graphic.layer === buildings_lyr;
+		})[0].graphic;
+		
+		
+		view.whenLayerView(graphic.layer).then(function (layerView) {
+			highlight = layerView.highlight(graphic);
+		});
+	}
+	
+	var highlight;
 	view.on("pointer-move", function (evt) {
 		var screenPoint = {
 			x: evt.x,
@@ -908,10 +947,15 @@ require([
 			.then(function (response) {
 				if (response.results.length > 0) {
 					changeCursor(response);
+					addHighlight(response);
 				} else {
-					changeCursor(response)
+					changeCursor(response);
+					highlight.remove();
 				}
 		});
+		
+		monitorClearAll();
+	
 	});
 	
 	//URL params for buildings
@@ -1122,9 +1166,6 @@ require([
 	}
 	
 	//All the logic for 'Clear All' functionalty
-	view.on("pointer-move", function (evt) {
-		monitorClearAll()
-	});
 	visLayers = everyLayer.slice(1)
 	clearbutton = document.getElementById("clear-all")
 	var setVisibilities = function(){
@@ -1178,7 +1219,13 @@ require([
 			}
 		})  
 	}
-		
+	
+	view.on("click", function(event){
+			view.popup.open({
+	   			collapsed:true
+	  		});
+	});
+	
 	//FUNCTIONS TO RUN
 	indicateVisibility();
     toggleVisibility();
@@ -1190,5 +1237,5 @@ require([
 	loader();
 	indicateAll();
 	watchBuildingLabels();
-
+	expandableMenus();
 });
