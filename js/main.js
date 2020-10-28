@@ -538,7 +538,8 @@ require([
 	
 	carto = new WebMap({
         portalItem: {
-		  	id:"33ea4550c8144e66847d902e4766c2f7"
+		  	/*id:"33ea4550c8144e66847d902e4766c2f7"*/
+			id:"18080bba8698419189787f091f43a2dc"
         }
     });
 	carto.when(function(carto) {
@@ -556,7 +557,8 @@ require([
 	
 	hybrid = new WebMap({
         portalItem: {
-			id:"62c4794e40e14c94a4bf3a7258f40878"
+			/*id:"62c4794e40e14c94a4bf3a7258f40878"*/
+			id:"18080bba8698419189787f091f43a2dc"
         }
     });
 	hybrid.when(function(hybrid) {
@@ -571,9 +573,9 @@ require([
         center: [-122.06131130682165, 36.99009898893463],
 		layerViews:everyLayer,
 		highlightOptions:{
-			color:"#01589D",
-			haloOpacity:0,
-			fillOpacity:0.5,
+			color:"#FDC007",
+			haloOpacity:0.8,
+			fillOpacity:0.4,
 			
 		},
 		popup:{
