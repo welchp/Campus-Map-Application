@@ -371,14 +371,14 @@ require([
     var buildingsLabelClass = {
         symbol: {
             type: "text",
-            color: "white",
-            haloColor: [0, 0, 0, 1.0],
-            haloSize: 0.75,
+            color: "black",
+            haloColor: [255,255,255, 0.6],
+            haloSize: 1,
             font: {
-                family: "Arial Unicode MS",
+                family: "Roboto",
                 size: 9,
                 style:"normal",
-                weight: "bold"
+                weight: "medium"
             }
         },
         labelPlacement: "always-horizontal",
@@ -539,7 +539,7 @@ require([
 	carto = new WebMap({
         portalItem: {
 		  	/*id:"33ea4550c8144e66847d902e4766c2f7"*/
-			id:"18080bba8698419189787f091f43a2dc"
+			id:"63dc1cef50884f0a841129c198823ecb"
         }
     });
 	carto.when(function(carto) {

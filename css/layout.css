@@ -124,7 +124,7 @@ html, body {
 #main-grid {
 	display: grid;
 	height: 100vh;
-	grid-template-rows: 60px auto;
+	grid-template-rows: auto;
 	grid-template-columns: auto;
 }
 
@@ -176,8 +176,6 @@ html, body {
 	flex-direction: row-reverse;
 	align-items: center;
 	justify-content: flex-end;
-	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
 	padding:0;
 	background-color: #fff3c;
 }
@@ -204,8 +202,6 @@ html, body {
 	height:40.25px;
 	padding:0;
 	margin:0;
-	background-image: linear-gradient(270deg, rgba(255,255,255,0.3), 1%, white);
-	background-color: #01589D;
 }
 
 #nav-list {
@@ -230,6 +226,7 @@ nav {
 aside {
 	display:flex;
 	flex-direction: column;
+	margin-top:40px;
 }
 
 #buttons {
@@ -373,10 +370,6 @@ aside {
 	border: none;
 }
 
-#ucsc-logo {
-	height: 60px;
-}
-
 .trailer-half {
 	font-size: 24px;
 	font-weight: 200;
@@ -394,7 +387,11 @@ aside {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	margin-right:auto;
+}
+
+#map-options > * {
+	margin-top:20px;
+	margin-bottom:0px;
 }
 
 .map-options-icon {
@@ -410,6 +407,7 @@ aside {
 	justify-content: center;
 	min-width: 450px;
 	max-width: 450px;
+	margin-top:20px;
 }
 
 #fieldsets .radio-group {
@@ -431,6 +429,15 @@ aside {
 	font-size: 12px;
 	height: 16px;
 	padding: 0px 10px;
+	color:gray;
+}
+
+.radio-group-input:checked + .radio-group-label {
+	background-color: #003c6c;
+	border: 1px solid #003c6c;
+	color: white;
+	margin-right: 0;
+	margin-left: 0;
 }
 
 #map-options-footer {
@@ -528,6 +535,7 @@ aside {
 	max-width: 450px;
 	margin-right: auto;
 	overflow: auto;
+	overflow-x: hidden;
 }
 
 .side-nav {
@@ -540,7 +548,7 @@ aside {
 	width: 100%;
 	background-colo: #01589D;
 	color: white;
-	color:#01589D;
+	color:#003c6c;
 	padding: 5px;
 	box-shadow: 0 0 2px rgba(0,0,0,0.1);
 	z-index: 9;
@@ -562,7 +570,18 @@ aside {
 }
 
 .side-nav-link:hover {
-	background-color: #fff3cd;
+	background-color: #ededed;
+}
+
+#map-options {
+	height:100%;
+	width:100%;
+	margin-top:40px;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border:1px solid #ededed;
 }
 
 .vis-indicator-all {
