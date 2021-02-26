@@ -83,10 +83,6 @@
 						</div>
 						
 					</div>
-					<div id="menu-icon-div">
-						<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -129,70 +125,23 @@
 							</fieldset>
 						</div>
 					</div>
-					<div id="menu-icon-div">
-						<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
-					</div>
 				</div>
-			
-		</header>
-		<header id="mobile-nav" class="third-nav phone-show">
-			<div class="third-nav-container">
-				<nav class="break" role="navigation" aria-labelledby="thirdnav">
-					<div id="mobile-nav-icon-div">
-						<a class="third-nav-link" title="PPDO Maps Team Homepage" href="home/"><i class="far fa-building" style="margin-right:8px"></i>HOME</a>
-						<a class="third-nav-link" title="PDF Maps for Printing" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>PDF</a>
-						<a class="third-nav-link" title="Driving and Parking Directions in your Web Browser" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>HTML</a>
-					</div>
-				</nav>
-			</div>
 		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
 				
 		</header>
 		<div id="main-content">
-			<div id="side-nav" class="tablet-hide">
-				<img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo">
-				<div class="third-nav-container">
-					<div class="grid-container">
-						<nav class="break" role="navigation" aria-labelledby="thirdnav">
-							<div id="break" style="margin-right:auto;">
-								<ul id="nav-list">
-									<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
-									<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
-									<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
-								</ul>
-							</div>
-						</nav>
-					</div>
+			<div id="side-bar" class="tablet-hide">
+				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
+				<div id="navigation">
+					<ul id="nav-list">
+						<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
+						<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
+						<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
+					</ul>
 				</div>
 				
-				<div id="map-options">
-					<h3>MAP OPTIONS</h3>
-					<div id="fieldsets" class="phone-hide">
-						<div>
-							<fieldset id="building-label-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
-								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
-								<label class="radio-group-label" for="On">
-									<p>On</p>
-								</label>
-								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
-								<label class="radio-group-label" for="Off">Off</label>
-							</fieldset>
-						</div>
-						<div>
-							<fieldset id="basemap-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
-								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
-								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
-								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
-								<label class="radio-group-label" for="hybrid">Hybrid</label>
-							</fieldset>
-						</div>
-					</div>
+				<div id="layer-list">
 					
 					<aside class="side-nav" aria-role="complementary">
 						<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
@@ -310,8 +259,37 @@
 						
 
 					</aside>
+					
 				</div>
+				<div id="map-options">
+						<h3>MAP OPTIONS</h3>
+						<div id="fieldsets" class="phone-hide">
+							<div>
+								<fieldset id="building-label-selector" class="radio-group">
+									<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
+									<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
+									<label class="radio-group-label" for="On">
+										<p>On</p>
+									</label>
+									<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
+									<label class="radio-group-label" for="Off">Off</label>
+								</fieldset>
+							</div>
+							<div>
+								<fieldset id="basemap-selector" class="radio-group">
+									<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
+									<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
+									<label class="radio-group-label" for="satellite">Satellite</label>
+									<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
+									<label class="radio-group-label" for="carto">Carto</label>
+									<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
+									<label class="radio-group-label" for="hybrid">Hybrid</label>
+								</fieldset>
+							</div>
+						</div>
+					</div>
 				<div id="admin-div">
+					
 					<div id="buttons">
 						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
 							<i class="icon-ui-user"></i>
@@ -319,9 +297,6 @@
 						</a>
 					</div>
 				</div>
-				
-				
-				
 			</div>
 			<div id="main-wrapper">
 				<div id="mobile-menu">
@@ -464,6 +439,23 @@
 				</div>
 			</div>
 		</div>
+		<header id="mobile-nav" class="third-nav phone-show">
+			<div class="third-nav-container">
+				<nav class="break" role="navigation" aria-labelledby="thirdnav">
+					<div id="mobile-nav-icon-div">
+						<ul id="nav-list">
+							<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
+							<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
+							<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
+						</ul>
+					</div>
+				</nav>
+			</div>
+			<div id="menu-icon-div">
+				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+			</div>
+		</header>
 	</div>
 	
 	<script src='js/main.js'></script>

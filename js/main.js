@@ -629,7 +629,7 @@ require([
         	},
 			{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS", "CAANNUMBER"],
             displayField: "BUILDINGNAME",
             exactMatch: false,
             outFields: ["BUILDINGNAME"],
@@ -1162,7 +1162,8 @@ require([
 	function loader() {
 		view.when(function() {
 			setTimeout(function() {
-				$(".loading").toggleClass('hidden')
+				var loadingIcon = document.querySelector(".loading")
+				loadingIcon.classList.add("hidden")
 			}, 2000)
 		})
 	}
