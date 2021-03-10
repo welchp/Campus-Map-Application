@@ -570,7 +570,7 @@ require([
         container: "viewDiv",
         map: carto,
         zoom: 14,
-        center: [-122.06131130682165, 36.99009898893463],
+        center: [-122.061864, 37.000111],
 		layerViews:everyLayer,
 		highlightOptions:{
 			color:"#FDC007",
@@ -706,7 +706,7 @@ require([
     searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 	searchWidget.on("select-result", function(event){
 	  //searchWidget.clear();
-	  buildings_lyr.labelsVisible = true
+	  //buildings_lyr.labelsVisible = true
 	  view.zoom = 19
 	  var viewD = document.getElementById('viewDiv');
 	  var mobile_menu = document.getElementById('mobile-menu');
@@ -976,7 +976,7 @@ require([
                 view.goTo(results.extent).then(function(){
 	            	var newZoom = view.zoom - 2.5
     	            view.zoom = newZoom
-                	toggleBuildingLabels()
+                	//toggleBuildingLabels()
                 })
             }, 2000);
         });
@@ -1035,7 +1035,7 @@ require([
 	//Adjust zoom property of the view depending on Mobile or Desktop
 	function setZoom(){
 		if (window.innerWidth < 480) {
-			view.zoom = 13
+			view.zoom = 14
 			
 			view.ui.remove(searchWidget)
 			
@@ -1142,7 +1142,7 @@ require([
 			searchWidget2.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 			searchWidget2.on("select-result", function(event){
 			  searchWidget2.clear();
-			  buildings_lyr.labelsVisible = true
+			  //buildings_lyr.labelsVisible = true
 			  view.zoom = 19
 			  var viewD = document.getElementById('viewDiv');
 			  var mobile_menu = document.getElementById('mobile-menu');
@@ -1204,6 +1204,10 @@ require([
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
+  
+    // Can probably delete the function below
+    //***
+  
 	//Building Labels Toggle Watcher
 	function watchBuildingLabels() {
 		ON = document.getElementById("On")
@@ -1231,14 +1235,14 @@ require([
 	
 	//FUNCTIONS TO RUN
 	indicateVisibility();
-    toggleVisibility();
-    toggleMenu();
+    //toggleVisibility();
+    //toggleMenu();
   	setBasemap();
-  	setBuildingLabels();
-    showLegend();
+  	//setBuildingLabels();
+    //showLegend();
 	setZoom();
 	loader();
 	indicateAll();
-	watchBuildingLabels();
+	//watchBuildingLabels();
 	expandableMenus();
 });

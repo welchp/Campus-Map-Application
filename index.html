@@ -92,9 +92,24 @@
 					<nav class="break" role="navigation" aria-labelledby="thirdnav">
 						<div id="break" style="margin-right:auto;">
 							<ul id="nav-list">
-								<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
-								<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
-								<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="home/">
+											<div class="icon-box"><i class="far fa-building"></i></div>
+											<p>Maps Home</p>
+										</a></div>
+								</li>
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+											<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+											<p>Printable Maps</p>
+										</a></div>
+								</li>
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+											<div class="icon-box"><i class="far fa-file-alt"></i></div>
+											<p>Detailed Directions</p>
+										</a></div>
+								</li>
 							</ul>
 						</div>
 					</nav>
@@ -135,9 +150,24 @@
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
 				<div id="navigation">
 					<ul id="nav-list">
-						<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
-						<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
-						<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="home/">
+									<div class="icon-box"><i class="far fa-building"></i></div>
+									<p>Maps Home</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+									<p>Printable Maps</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-alt"></i></div>
+									<p>Detailed Directions</p>
+								</a></div>
+						</li>
 					</ul>
 				</div>
 				
@@ -301,6 +331,7 @@
 			<div id="main-wrapper">
 				<div id="mobile-menu">
 					<div id="admin-div">
+						
 						<a href="mailto:maps@ucsc.edu" id="contact">
 							<i class="icon-ui-user"></i>
 							Contact Maps Team
@@ -424,11 +455,12 @@
 					</aside>
 				</div>
 				<div id="viewDiv">
+				    
 					<div id="map-options-footer" class="phone-show">
 						<div id="basemaps-icon" class="phone-show map-options-icon">
 							<i class="icon-ui-basemap"></i>Cartographic
 						</div>
-						<div id="labels-icon" class="phone-show map-options-icon">
+						<div id="labels-icon" class="phone-show map-options-icon phone-hide">
 							<i class="icon-ui-labels"></i>Building Labels
 						</div>
 					</div>
@@ -440,20 +472,35 @@
 			</div>
 		</div>
 		<header id="mobile-nav" class="third-nav phone-show">
+			<div id="menu-icon-div">
+				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+			</div>
 			<div class="third-nav-container">
 				<nav class="break" role="navigation" aria-labelledby="thirdnav">
 					<div id="mobile-nav-icon-div">
 						<ul id="nav-list">
-							<li><a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a></li>
-							<li><a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a></li>
-							<li><a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a></li>
-						</ul>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="home/">
+									<div class="icon-box"><i class="far fa-building"></i></div>
+									<p>Maps Home</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+									<p>Printable Maps</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-alt"></i></div>
+									<p>Detailed Directions</p>
+								</a></div>
+						</li>
+					</ul>
 					</div>
 				</nav>
-			</div>
-			<div id="menu-icon-div">
-				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
 			</div>
 		</header>
 	</div>
