@@ -143,7 +143,15 @@
 				</div>
 		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
-				
+			<div id="menu-icon-div">
+				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+			</div>
+			<div id="map-options-footer" class="phone-show">
+				<div id="basemaps-icon" class="phone-show map-options-icon">
+					<i class="icon-ui-basemap"></i>Cartographic
+				</div>
+			</div>
 		</header>
 		<div id="main-content">
 			<div id="side-bar" class="tablet-hide">
@@ -180,7 +188,7 @@
 								<img width="20px" src="images/icons/food_and_drink.png">
 							</span>
 						</h4>
-						<nav class="hidden" role="navigation" aria-labelledby="sidenav">
+						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Restaurants and Cafes
@@ -204,7 +212,7 @@
 								<img width="20px" src="images/icons/transportation.png">
 							</span>
 						</h4>
-						<nav class="hidden" role="navigation" aria-labelledby="sidenav">
+						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Metro Bus and Shuttle Stops
@@ -228,7 +236,7 @@
 								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
-						<nav class="hidden" role="navigation" aria-labelledby="sidenav">
+						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Colleges
@@ -248,7 +256,7 @@
 								<img width="20px" src="images/icons/health_safety_and_facilities.png">
 							</span>
 						</h4>
-						<nav class="hidden" role="navigation" aria-labelledby="sidenav">
+						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Emergency Phones
@@ -272,7 +280,7 @@
 								<img width="20px" src="images/icons/recreation.png">
 							</span>
 						</h4>
-						<nav class="hidden" role="navigation" aria-labelledby="sidenav">
+						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Trails, Courts, & Athletic Facilities
@@ -291,7 +299,7 @@
 					</aside>
 					
 				</div>
-				<div id="map-options">
+				<div id="map-options" style="display: none">
 						<h3>MAP OPTIONS</h3>
 						<div id="fieldsets" class="phone-hide">
 							<div>
@@ -331,16 +339,14 @@
 			<div id="main-wrapper">
 				<div id="mobile-menu">
 					<div id="admin-div">
-						
-						<a href="mailto:maps@ucsc.edu" id="contact">
+					
+					<div id="buttons">
+						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
 							<i class="icon-ui-user"></i>
-							Contact Maps Team
-						</a>
-						<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
-							<i class="icon-ui-authorize"></i>
-							Take A Survey
+							Contact the Maps Team
 						</a>
 					</div>
+				</div>
 					<aside class="side-nav" aria-role="complementary">
 						<h4 class="side-nav-title" onclick="groupToggle(foods)">
 							<i class="fas fa-utensils"></i>Food & Drink
@@ -455,15 +461,6 @@
 					</aside>
 				</div>
 				<div id="viewDiv">
-				    
-					<div id="map-options-footer" class="phone-show">
-						<div id="basemaps-icon" class="phone-show map-options-icon">
-							<i class="icon-ui-basemap"></i>Cartographic
-						</div>
-						<div id="labels-icon" class="phone-show map-options-icon phone-hide">
-							<i class="icon-ui-labels"></i>Building Labels
-						</div>
-					</div>
 					<div id="clear-all">
 						<span style="font-size: 20px">X</span>
 						<span>Clear Layers</span>
@@ -472,10 +469,7 @@
 			</div>
 		</div>
 		<header id="mobile-nav" class="third-nav phone-show">
-			<div id="menu-icon-div">
-				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
-			</div>
+			
 			<div class="third-nav-container">
 				<nav class="break" role="navigation" aria-labelledby="thirdnav">
 					<div id="mobile-nav-icon-div">

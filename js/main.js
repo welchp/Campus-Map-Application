@@ -127,15 +127,15 @@ function isNotVisible(lyr){
 }
 
 function groupToggle(layer_list) {	
-  //if (layer_list.some(isNotVisible)){
-  //	  layer_list.forEach(function(lyr) {
-  //	      lyr.visible = true
-  //	  })
-  //} else {
-  //	  layer_list.forEach(function(lyr) {
-  //	  	  lyr.visible = false
-  //	  })
-  //}
+  if (layer_list.some(isNotVisible)){
+  	  layer_list.forEach(function(lyr) {
+  	      lyr.visible = true
+  	  })
+  } else {
+  	  layer_list.forEach(function(lyr) {
+  	  	  lyr.visible = false
+  	  })
+  }
   console.log("")
 }
 
@@ -1006,7 +1006,7 @@ require([
 	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
 	
 	//toggle Building Labels on click of radio button
-	var labels_icon_node = document.getElementById('labels-icon');
+	//var labels_icon_node = document.getElementById('labels-icon');
 	function toggleBuildingLabels (event) {
 	  if (buildings_lyr.labelsVisible == false){
 		  labels_icon_node.style.backgroundColor = '#01589d'
@@ -1016,7 +1016,7 @@ require([
 	  	  buildings_lyr.labelsVisible = false
 	  }
 	};
-	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
+	//calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
 	//toggle basemaps on click of the button
 	var basemap_icon_node = document.getElementById('basemaps-icon');
@@ -1244,5 +1244,5 @@ require([
 	loader();
 	indicateAll();
 	//watchBuildingLabels();
-	expandableMenus();
+	//expandableMenus();
 });
