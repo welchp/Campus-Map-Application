@@ -571,12 +571,15 @@ aside {
 	overflow: auto;
 }
 
-.icon-ui-radio-unchecked, .icon-ui-checkbox-unchecked  {
-	font-size: 12px;
-	opacity: 0.3;
+.icon-ui-checkbox-unchecked {
+	color:white;
 }
 
-.icon-ui-radio-checked, .icon-ui-checkbox-checked {
+.icon-ui-checkbox-checked {
+	color:#003c6c;
+}
+
+.icon-ui-radio-unchecked, .icon-ui-checkbox-unchecked, .icon-ui-radio-checked, .icon-ui-checkbox-checked  {
 	font-size: 12px;
 }
 
@@ -642,7 +645,6 @@ aside {
 }
 
 .side-nav-link:hover {
-	background-color: #ededed;
 }
 
 #map-options {
@@ -914,7 +916,10 @@ aside {
 	}
 }
 
-@media only screen and (max-width: 860px) {}
+@media only screen and (max-height: 900px) {
+	#layer-list {
+		max-height:350px;
+	}
 
 
 @media only screen and (max-width: 480px) {
