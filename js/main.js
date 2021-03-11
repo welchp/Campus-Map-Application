@@ -1,3 +1,5 @@
+document.cookie = 'cross-site-cookie=bar; SameSite=lax; Secure';
+
 var visLayers;
 var clearbutton;
 
@@ -126,14 +128,15 @@ function isNotVisible(lyr){
 
 function groupToggle(layer_list) {	
   if (layer_list.some(isNotVisible)){
-	  layer_list.forEach(function(lyr) {
-	      lyr.visible = true
-	  })
+  	  layer_list.forEach(function(lyr) {
+  	      lyr.visible = true
+  	  })
   } else {
-	  layer_list.forEach(function(lyr) {
-	  	  lyr.visible = false
+  	  layer_list.forEach(function(lyr) {
+  	  	  lyr.visible = false
   	  })
   }
+  console.log("")
 }
 
 function showLegend() {
@@ -195,7 +198,23 @@ function changeVisibility(lyr){
     console.log("visible is: " + lyr.visible)
 }
 
+function expandableMenus() {
+	document.addEventListener('click', function (event) {
+	// If the clicked element doesn't have the right selector, bail
+	if (!event.target.matches('.side-nav-title')) return;
+		var menu = event.target.nextElementSibling
+		if (menu.classList.contains("hidden")) {
+			menu.classList.remove("hidden")
+			menu.classList.add("showing")
+		} else {
+			menu.classList.add("hidden")
+			menu.classList.remove("showing")
+		}
+	}, false);
+}
+
 function indicateVisibility() {
+	
 	document.addEventListener('click', function (event) {
 	// If the clicked element doesn't have the right selector, bail
 	if (!event.target.matches('.side-nav-link')) return;
@@ -353,14 +372,14 @@ require([
     var buildingsLabelClass = {
         symbol: {
             type: "text",
-            color: "white",
-            haloColor: [0, 0, 0, 1.0],
-            haloSize: 0.75,
+            color: "black",
+            haloColor: [255,255,255, 0.6],
+            haloSize: 1,
             font: {
-                family: "Arial Unicode MS",
+                family: "Roboto",
                 size: 9,
                 style:"normal",
-                weight: "bold"
+                weight: "medium"
             }
         },
         labelPlacement: "always-horizontal",
@@ -520,7 +539,8 @@ require([
 	
 	carto = new WebMap({
         portalItem: {
-		  	id:"33ea4550c8144e66847d902e4766c2f7"
+		  	/*id:"33ea4550c8144e66847d902e4766c2f7"*/
+			id:"63dc1cef50884f0a841129c198823ecb"
         }
     });
 	carto.when(function(carto) {
@@ -538,7 +558,8 @@ require([
 	
 	hybrid = new WebMap({
         portalItem: {
-			id:"62c4794e40e14c94a4bf3a7258f40878"
+			/*id:"62c4794e40e14c94a4bf3a7258f40878"*/
+			id:"18080bba8698419189787f091f43a2dc"
         }
     });
 	hybrid.when(function(hybrid) {
@@ -550,8 +571,14 @@ require([
         container: "viewDiv",
         map: carto,
         zoom: 14,
-        center: [-122.06131130682165, 36.99009898893463],
+        center: [-122.061864, 37.000111],
 		layerViews:everyLayer,
+		highlightOptions:{
+			color:"#FDC007",
+			haloOpacity:0.8,
+			fillOpacity:0.4,
+			
+		},
 		popup:{
             highlightEnabled: true,
             dockEnabled: true,
@@ -603,7 +630,7 @@ require([
         	},
 			{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS", "CAANNUMBER"],
             displayField: "BUILDINGNAME",
             exactMatch: false,
             outFields: ["BUILDINGNAME"],
@@ -680,7 +707,7 @@ require([
     searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 	searchWidget.on("select-result", function(event){
 	  //searchWidget.clear();
-	  buildings_lyr.labelsVisible = true
+	  //buildings_lyr.labelsVisible = true
 	  view.zoom = 19
 	  var viewD = document.getElementById('viewDiv');
 	  var mobile_menu = document.getElementById('mobile-menu');
@@ -898,6 +925,21 @@ require([
 			document.getElementById("viewDiv").style.cursor = "default";
 		}
 	}
+	function addHighlight(response) {
+		if (highlight){
+			highlight.remove()
+		}
+		var graphic = response.results.filter(function (result) {
+			return result.graphic.layer === buildings_lyr;
+		})[0].graphic;
+		
+		
+		view.whenLayerView(graphic.layer).then(function (layerView) {
+			highlight = layerView.highlight(graphic);
+		});
+	}
+	
+	var highlight;
 	view.on("pointer-move", function (evt) {
 		var screenPoint = {
 			x: evt.x,
@@ -908,10 +950,15 @@ require([
 			.then(function (response) {
 				if (response.results.length > 0) {
 					changeCursor(response);
+					addHighlight(response);
 				} else {
-					changeCursor(response)
+					changeCursor(response);
+					highlight.remove();
 				}
 		});
+		
+		monitorClearAll();
+	
 	});
 	
 	//URL params for buildings
@@ -930,7 +977,7 @@ require([
                 view.goTo(results.extent).then(function(){
 	            	var newZoom = view.zoom - 2.5
     	            view.zoom = newZoom
-                	toggleBuildingLabels()
+                	//toggleBuildingLabels()
                 })
             }, 2000);
         });
@@ -960,7 +1007,7 @@ require([
 	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
 	
 	//toggle Building Labels on click of radio button
-	var labels_icon_node = document.getElementById('labels-icon');
+	//var labels_icon_node = document.getElementById('labels-icon');
 	function toggleBuildingLabels (event) {
 	  if (buildings_lyr.labelsVisible == false){
 		  labels_icon_node.style.backgroundColor = '#01589d'
@@ -970,7 +1017,7 @@ require([
 	  	  buildings_lyr.labelsVisible = false
 	  }
 	};
-	calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
+	//calcite.addEvent(labels_icon_node, click, toggleBuildingLabels);
 	
 	//toggle basemaps on click of the button
 	var basemap_icon_node = document.getElementById('basemaps-icon');
@@ -989,7 +1036,7 @@ require([
 	//Adjust zoom property of the view depending on Mobile or Desktop
 	function setZoom(){
 		if (window.innerWidth < 480) {
-			view.zoom = 13
+			view.zoom = 14
 			
 			view.ui.remove(searchWidget)
 			
@@ -1096,7 +1143,7 @@ require([
 			searchWidget2.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 			searchWidget2.on("select-result", function(event){
 			  searchWidget2.clear();
-			  buildings_lyr.labelsVisible = true
+			  //buildings_lyr.labelsVisible = true
 			  view.zoom = 19
 			  var viewD = document.getElementById('viewDiv');
 			  var mobile_menu = document.getElementById('mobile-menu');
@@ -1116,15 +1163,13 @@ require([
 	function loader() {
 		view.when(function() {
 			setTimeout(function() {
-				$(".loading").toggleClass('hidden')
+				var loadingIcon = document.querySelector(".loading")
+				loadingIcon.classList.add("hidden")
 			}, 2000)
 		})
 	}
 	
 	//All the logic for 'Clear All' functionalty
-	view.on("pointer-move", function (evt) {
-		monitorClearAll()
-	});
 	visLayers = everyLayer.slice(1)
 	clearbutton = document.getElementById("clear-all")
 	var setVisibilities = function(){
@@ -1160,6 +1205,10 @@ require([
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
+  
+    // Can probably delete the function below
+    //***
+  
 	//Building Labels Toggle Watcher
 	function watchBuildingLabels() {
 		ON = document.getElementById("On")
@@ -1178,17 +1227,23 @@ require([
 			}
 		})  
 	}
-		
+	
+	view.on("click", function(event){
+			view.popup.open({
+	   			collapsed:true
+	  		});
+	});
+	
 	//FUNCTIONS TO RUN
 	indicateVisibility();
-    toggleVisibility();
-    toggleMenu();
+    //toggleVisibility();
+    //toggleMenu();
   	setBasemap();
-  	setBuildingLabels();
-    showLegend();
+  	//setBuildingLabels();
+    //showLegend();
 	setZoom();
 	loader();
 	indicateAll();
-	watchBuildingLabels();
-
+	//watchBuildingLabels();
+	//expandableMenus();
 });

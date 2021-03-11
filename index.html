@@ -60,6 +60,64 @@
 				<div id="map-options">
 					<div id="fieldsets" class="phone-hide">
 						<div>
+							<fieldset id="basemap-selector" class="radio-group">
+								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
+								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
+								<label class="radio-group-label" for="satellite">Satellite</label>
+								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
+								<label class="radio-group-label" for="carto">Carto</label>
+								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
+								<label class="radio-group-label" for="hybrid">Hybrid</label>
+							</fieldset>
+						</div>
+						<div>
+							<fieldset id="building-label-selector" class="radio-group">
+								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
+								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
+								<label class="radio-group-label" for="On">
+									<p>On</p>
+								</label>
+								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
+								<label class="radio-group-label" for="Off">Off</label>
+							</fieldset>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<header class="third-nav phone-hide hidden">
+			<div class="third-nav-container">
+				<div class="grid-container">
+					<nav class="break" role="navigation" aria-labelledby="thirdnav">
+						<div id="break" style="margin-right:auto;">
+							<ul id="nav-list">
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="home/">
+											<div class="icon-box"><i class="far fa-building"></i></div>
+											<p>Maps Home</p>
+										</a></div>
+								</li>
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+											<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+											<p>Printable Maps</p>
+										</a></div>
+								</li>
+								<li>
+									<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+											<div class="icon-box"><i class="far fa-file-alt"></i></div>
+											<p>Detailed Directions</p>
+										</a></div>
+								</li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</div>
+			<div id="map-options">
+					<div id="fieldsets" class="phone-hide">
+						<div>
 							<fieldset id="building-label-selector" class="radio-group">
 								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
 								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
@@ -82,180 +140,213 @@
 							</fieldset>
 						</div>
 					</div>
-					<div id="menu-icon-div">
-						<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-						<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
-					</div>
 				</div>
-			</div>
-		</div>
-		<header class="third-nav phone-hide">
-			<div class="third-nav-container">
-				<div class="grid-container">
-					<nav class="break" role="navigation" aria-labelledby="thirdnav">
-						<div id="break" style="margin-right:auto;">
-							<a class="third-nav-link hvr-underline-from-left" href="home/"><i class="far fa-building" style="margin-right:8px"></i>Maps Home</a>
-							<a class="third-nav-link hvr-underline-from-left" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>Printable Maps</a>
-							<a class="third-nav-link hvr-underline-from-left" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>Detailed Directions</a>
-						</div>
-					</nav>
-				</div>
-			</div>
-		</header>
-		<header id="mobile-nav" class="third-nav phone-show">
-			<div class="third-nav-container">
-				<nav class="break" role="navigation" aria-labelledby="thirdnav">
-					<div id="mobile-nav-icon-div">
-						<a class="third-nav-link" title="PPDO Maps Team Homepage" href="home/"><i class="far fa-building" style="margin-right:8px"></i>HOME</a>
-						<a class="third-nav-link" title="PDF Maps for Printing" href="printable-maps/" target="_blank"><i class="far fa-file-pdf" style="margin-right:8px"></i>PDF</a>
-						<a class="third-nav-link" title="Driving and Parking Directions in your Web Browser" href="detailed-directions/" target="_blank"><i class="icon-ui-documentation"></i>HTML</a>
-					</div>
-				</nav>
-			</div>
 		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
-			
+			<div id="menu-icon-div">
+				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
+				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+			</div>
+			<div id="map-options-footer" class="phone-show">
+				<div id="basemaps-icon" class="phone-show map-options-icon">
+					<i class="icon-ui-basemap"></i>Cartographic
+				</div>
+			</div>
 		</header>
 		<div id="main-content">
-			<div id="side-nav" class="tablet-hide">
-				<a href="mailto:maps@ucsc.edu" id="contact">
-					<i class="icon-ui-user"></i>
-					Contact the Maps Team
-				</a>
-				<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
-					<i class="icon-ui-authorize"></i>
-					Take A Survey
-				</a>
+			<div id="side-bar" class="tablet-hide">
+				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
+				<div id="navigation">
+					<ul id="nav-list">
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="home/">
+									<div class="icon-box"><i class="far fa-building"></i></div>
+									<p>Maps Home</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+									<p>Printable Maps</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-alt"></i></div>
+									<p>Detailed Directions</p>
+								</a></div>
+						</li>
+					</ul>
+				</div>
 				
-				<aside class="side-nav" aria-role="complementary">
-					<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
-						<i class="fas fa-utensils"></i>Food & Drink
-						<span class="vis-indicator-all">
-							<img width="20px" src="images/icons/food_and_drink.png">
-						</span>
-					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Restaurants and Cafes
+				<div id="layer-list">
+					
+					<aside class="side-nav" aria-role="complementary">
+						<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
+							<i class="fas fa-utensils"></i>Food & Drink
+							<span class="vis-indicator-all">
+								<img width="20px" src="images/icons/food_and_drink.png">
+							</span>
+						</h4>
+						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Restaurants and Cafes
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								The Perk Coffee Shops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								College Dining Halls
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Food Trucks
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
+							<i class="fas fa-bus"></i>Transportation
+							<span class="vis-indicator-all">
+								<img width="20px" src="images/icons/transportation.png">
+							</span>
+						</h4>
+						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Metro Bus and Shuttle Stops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Parking Lots
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Bike Repair
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Bike Parking
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(student_life)">
+							<i class="fas fa-book"></i>Student Life
+							<span class="vis-indicator-all">
+								<img width="20px" src="images/icons/academics.png">
+							</span>
+						</h4>
+						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Colleges
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Libraries
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Student Support Services
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
+							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
+							<span class="vis-indicator-all">
+								<img width="20px" src="images/icons/health_safety_and_facilities.png">
+							</span>
+						</h4>
+						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Emergency Phones
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								All-Gender Restrooms
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Lactation Rooms
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Recycling
+							</a>
+						</nav>
+						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
+							<i class="fas fa-hiking"></i>Recreation
+							<span class="vis-indicator-all">
+								<img width="20px" src="images/icons/recreation.png">
+							</span>
+						</h4>
+						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Trails, Courts, & Athletic Facilities
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Campus Gardens
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Places of Interest
+							</a>
+						</nav>
+						
+
+					</aside>
+					
+				</div>
+				<div id="map-options" style="display: none">
+						<h3>MAP OPTIONS</h3>
+						<div id="fieldsets" class="phone-hide">
+							<div>
+								<fieldset id="building-label-selector" class="radio-group">
+									<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
+									<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
+									<label class="radio-group-label" for="On">
+										<p>On</p>
+									</label>
+									<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
+									<label class="radio-group-label" for="Off">Off</label>
+								</fieldset>
+							</div>
+							<div>
+								<fieldset id="basemap-selector" class="radio-group">
+									<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
+									<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
+									<label class="radio-group-label" for="satellite">Satellite</label>
+									<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
+									<label class="radio-group-label" for="carto">Carto</label>
+									<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
+									<label class="radio-group-label" for="hybrid">Hybrid</label>
+								</fieldset>
+							</div>
+						</div>
+					</div>
+				<div id="admin-div">
+					
+					<div id="buttons">
+						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
+							<i class="icon-ui-user"></i>
+							Contact the Maps Team
 						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							The Perk Coffee Shops
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							College Dining Halls
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Food Trucks
-						</a>
-					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(transportations)">
-						<i class="fas fa-bus"></i>Transportation
-						<span class="vis-indicator-all">
-							<img width="20px" src="images/icons/transportation.png">
-						</span>
-					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Metro Bus and Shuttle Stops
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Parking Lots
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Bike Repair
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Bike Parking
-						</a>
-					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(student_life)">
-						<i class="fas fa-book"></i>Student Life
-						<span class="vis-indicator-all">
-							<img width="20px" src="images/icons/academics.png">
-						</span>
-					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Colleges
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Libraries
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Student Support Services
-						</a>
-					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(facilities)">
-						<i class="fas fa-life-ring"></i>Health, Safety & Facilities
-						<span class="vis-indicator-all">
-							<img width="20px" src="images/icons/health_safety_and_facilities.png">
-						</span>
-					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Emergency Phones
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							All-Gender Restrooms
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Lactation Rooms
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Recycling
-						</a>
-					</nav>
-					<h4 class="side-nav-title" onclick="groupToggle(recreations)">
-						<i class="fas fa-hiking"></i>Recreation
-						<span class="vis-indicator-all">
-							<img width="20px" src="images/icons/recreation.png">
-						</span>
-					</h4>
-					<nav role="navigation" aria-labelledby="sidenav">
-						<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Trails, Courts, & Athletic Facilities
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Campus Gardens
-						</a>
-						<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
-							<i class="icon-ui-checkbox-unchecked"></i>
-							Places of Interest
-						</a>
-					</nav>
-				</aside>
-				
-				
+					</div>
+				</div>
 			</div>
 			<div id="main-wrapper">
 				<div id="mobile-menu">
 					<div id="admin-div">
-						<a href="mailto:maps@ucsc.edu" id="contact">
+					
+					<div id="buttons">
+						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
 							<i class="icon-ui-user"></i>
-							Contact Maps Team
-						</a>
-						<a href="https://forms.gle/bGn4v1S8eoBJki7p9" id="survey">
-							<i class="icon-ui-authorize"></i>
-							Take A Survey
+							Contact the Maps Team
 						</a>
 					</div>
+				</div>
 					<aside class="side-nav" aria-role="complementary">
 						<h4 class="side-nav-title" onclick="groupToggle(foods)">
 							<i class="fas fa-utensils"></i>Food & Drink
@@ -370,14 +461,6 @@
 					</aside>
 				</div>
 				<div id="viewDiv">
-					<div id="map-options-footer" class="phone-show">
-						<div id="basemaps-icon" class="phone-show map-options-icon">
-							<i class="icon-ui-basemap"></i>Cartographic
-						</div>
-						<div id="labels-icon" class="phone-show map-options-icon">
-							<i class="icon-ui-labels"></i>Building Labels
-						</div>
-					</div>
 					<div id="clear-all">
 						<span style="font-size: 20px">X</span>
 						<span>Clear Layers</span>
@@ -385,6 +468,35 @@
 				</div>
 			</div>
 		</div>
+		<header id="mobile-nav" class="third-nav phone-show">
+			
+			<div class="third-nav-container">
+				<nav class="break" role="navigation" aria-labelledby="thirdnav">
+					<div id="mobile-nav-icon-div">
+						<ul id="nav-list">
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="home/">
+									<div class="icon-box"><i class="far fa-building"></i></div>
+									<p>Maps Home</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+									<p>Printable Maps</p>
+								</a></div>
+						</li>
+						<li>
+							<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
+									<div class="icon-box"><i class="far fa-file-alt"></i></div>
+									<p>Detailed Directions</p>
+								</a></div>
+						</li>
+					</ul>
+					</div>
+				</nav>
+			</div>
+		</header>
 	</div>
 	
 	<script src='js/main.js'></script>
