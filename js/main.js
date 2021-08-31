@@ -629,14 +629,14 @@ require([
             placeholder: "enter a campus zone",
         	},
 			{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-            searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS", "CAANNUMBER"],
-            displayField: "BUILDINGNAME",
-            exactMatch: false,
-            outFields: ["BUILDINGNAME"],
-            name: "Buildings",
-            placeholder: "enter a building name or departments",
-            },
+				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities/FeatureServer/0"},
+			searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+			displayField: "BUILDINGNAME",
+			exactMatch: false,
+			outFields: ["BUILDINGNAME"],
+			name: "Buildings",
+			placeholder: "enter a building name or departments",
+			},
 			{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
             searchFields: ["RESOURCE"],
@@ -725,9 +725,9 @@ require([
 	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
         portalItem:{
-            id:"9f17f4aed3554b15a189f89b13f36b58"
+            id:"444f951ecbc1471186c0b069448d39fe"
         },
-        definitionExpression: "OBJECTID not in (703)",
+        definitionExpression: "HIDE not in (1)",
         visible: true,
 	  	renderer: {
 			type: "simple",  // autocasts as new SimpleRenderer()
@@ -919,7 +919,7 @@ require([
 	
 	//All the logic for detecting mouse position and changing cursor to pointer on feature hover (only works for buildings and parking lots currently)
 	function changeCursor(response){
-		if (response.results.length > 0 && (response.results[0].graphic.layer.title == 'buildings_app' || response.results[0].graphic.layer.title == 'Parking Lots')){
+		if (response.results.length > 0 && (response.results[0].graphic.layer.title == 'facilities_public' || response.results[0].graphic.layer.title == 'Parking Lots')){
 			document.getElementById("viewDiv").style.cursor = "pointer";
 		} else {
 			document.getElementById("viewDiv").style.cursor = "default";
@@ -968,8 +968,9 @@ require([
 		console.log("parsing URL for params...")
         u = document.URL
         params = urlUtils.urlToObject(u);
+		console.log(params.query.ASSETNUM)
         query = new Query();
-        query.where = "BUILDINGNAME = '" + params.query.building + "'";
+        query.where = "ASSETNUM = '" + params.query.ASSETNUM + "'";
         query.returnGeometry = true;
         console.log(query.where)
         buildings_lyr.queryExtent(query).then(function(results){
@@ -1065,8 +1066,8 @@ require([
 					placeholder: "enter a campus zone",
 					},
 					{featureLayer: {
-						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/buildings_app/FeatureServer/0"},
-					searchFields: ["BUILDINGNAME", "ABBREVSHORT", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities_public/FeatureServer/0"},
+					searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
 					displayField: "BUILDINGNAME",
 					exactMatch: false,
 					outFields: ["BUILDINGNAME"],
