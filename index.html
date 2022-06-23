@@ -43,13 +43,108 @@
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
 	
+	<style>
+		
+		.modal {
+		  visibility: hidden;
+		  opacity: 0;
+		  position: absolute;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  left: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  background: rgba(77, 77, 77, .7);
+		  transition: all .4s;
+		  z-index:9999
+		}
+
+		.modal:target {
+		  visibility: visible;
+		  opacity: 1;
+		}
+
+		.modal__content {
+		  border-radius: 4px;
+		  position: relative;
+		  max-width: 90%;
+		  max-height:90%;
+		  height:500px;
+		  width:66%;
+		  background: #fff;
+		  padding: 1em 2em;
+		}
+
+		.modal__footer {
+		  text-align: right;
+		  a {
+			color: #585858;
+		  }
+		  i {
+			color: #d02d2c;
+		  }
+		}
+		.modal__close {
+		  position: absolute;
+		  top: 10px;
+		  right: 10px;
+		  color: #585858;
+		  text-decoration: none;
+		}
+		
+		#map-help-btn {
+			padding:8px 16px;
+			background-color: darkgoldenrod;
+			color:white;
+			
+		}
+		
+		#layer-list::-webkit-scrollbar {
+			width: 12px;
+			background-color: #eff1f5;
+		}
+
+		#layer-list::-webkit-scrollbar-track{
+			border-radius: 3px;
+			background-color: transparent;
+		}
+
+		#layer-list::-webkit-scrollbar-thumb{
+			border-radius:5px;
+			background-color:#515769;
+			border:2px solid #eff1f5
+		}
+	</style>
 	
 	
 
 </head>
 
 <body>
-		
+	<div id="demo-modal" class="modal">
+		<div class="modal__content">
+			<h1>Interactive Map Help</h1>
+
+			<p>
+				Here is an awesome description of map features and instructions. 
+			</p>
+			<ul><p>
+				<li>Use the search box and select from the auto-suggested results</li>
+				<li>Change the basemap by clicking this button</li>
+				<li>Contact the Maps team</li>
+				</p>
+			</ul>
+
+			<div class="modal__footer">
+				Made with <i class="fa fa-heart"></i>, by <a href="https://twitter.com/denicmarko" target="_blank">@pawelch</a>
+			</div>
+
+			<a href="#" class="modal__close">&times;</a>
+		</div>
+	</div>
+	
 	<div class="loading"></div>
 	
   	<div id="main-grid">
@@ -333,6 +428,8 @@
 							<i class="icon-ui-user"></i>
 							Contact the Maps Team
 						</a>
+						<a class="hide" href="#demo-modal" id="map-help-btn">Interactive Map Help</a>
+						
 					</div>
 				</div>
 			</div>
@@ -345,6 +442,7 @@
 							<i class="icon-ui-user"></i>
 							Contact the Maps Team
 						</a>
+						
 					</div>
 				</div>
 					<aside class="side-nav" aria-role="complementary">
