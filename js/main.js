@@ -575,7 +575,7 @@ require([
         center: [-122.061864, 37.000111],
 		layerViews:everyLayer,
 		highlightOptions:{
-			color:"#FDC007",
+			color:"#003c63",
 			haloOpacity:0.8,
 			fillOpacity:0.4,
 			

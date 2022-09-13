@@ -58,7 +58,7 @@
 		  justify-content: center;
 		  background: rgba(77, 77, 77, .7);
 		  transition: all .4s;
-		  z-index:9999
+		  z-index:9999;
 		}
 
 		.modal:target {
@@ -67,7 +67,7 @@
 		}
 
 		.modal__content {
-		  border-radius: 4px;
+		  border-radius: 6px;
 		  position: relative;
 		  max-width: 90%;
 		  max-height:90%;
@@ -75,6 +75,7 @@
 		  width:66%;
 		  background: #fff;
 		  padding: 1em 2em;
+		  overflow: auto;
 		}
 
 		.modal__footer {
@@ -94,13 +95,31 @@
 		  text-decoration: none;
 		}
 		
+		.modal a {
+			color:#336389;
+			font-weight: 500;
+		}
+		
+		.modal h1, h2, h3, h4 {
+			color:#336389;
+			font-weight: 600;
+		}
+		
+		.modal h1 {
+			background-color:#336389;
+			border:1px solid #999;
+			color:white;
+			padding:10px;
+			box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
+		}
+		
 		#map-help-btn {
 			padding:8px 16px;
 			background-color: darkgoldenrod;
 			color:white;
 			
 		}
-		
+
 		#layer-list::-webkit-scrollbar {
 			width: 12px;
 			background-color: #eff1f5;
@@ -116,9 +135,15 @@
 			background-color:#515769;
 			border:2px solid #eff1f5
 		}
+		
+		aside.side-nav > h4 > span > img:nth-child(1) {
+		}
+		
+		aside.side-nav > nav > a > img {
+			margin-right: 6px;
+		}
+		
 	</style>
-	
-	
 
 </head>
 
@@ -128,17 +153,50 @@
 			<h1>Interactive Map Help</h1>
 
 			<p>
-				Here is an awesome description of map features and instructions. 
+				Tips and tricks to get the most out of this map.
 			</p>
+			<hr>
+			<h2>
+				Map Layers
+			</h2>
 			<ul><p>
-				<li>Use the search box and select from the auto-suggested results</li>
-				<li>Change the basemap by clicking this button</li>
-				<li>Contact the Maps team</li>
+				<li>Layers are grouped into related categories. Click the group title to turn on/off all layers in that group.</li>
+				<li>When any layers are turned on, the bottom left corner of the map will display a button to turn off all visible layers with one click.</li>
+				<li>A check-marked box will appear before any visible layers.</li>
+			</p>
+				
+			</ul>
+			<hr>
+			<h2>
+				Map Tools
+			</h2>
+			<h3>The Search Bar</h3>
+			<ul><p>
+				<li>We're working on improving the search bar functionality. </li>
+				<li>For now, the best way to search for a facility or parking lot is to begin typing your search terms in the search bar and select an option from the suggestions that appear.</li>
+				<li>This will pan and zoom the map to your selection. From there, you can clear the search bar and click the feature to view any associated information in the pop-up.</li>
+			</p>
+				
+			</ul>
+			<h3>Location</h3>
+				<ul><p>
+				<li>Tap the crosshairs icon in the upper left hand of the map to drop a pin at your current location</li>
+				<li>For directions to a facility</li>
+			</p>
+				
+			</ul>
+			<h3>The Pop-Up Window</h3>
+			<ul>
+				<p>
+					<li>Building popups contain a few additional features.</li>
+					<li>The Asset Number is in the upper left corner of the pop-up title, along with the facility name</li>
+					<li>Tap the 'Get Directions' link to load Google Maps directions starting from your currnt location.</li>
+					<li>Use the url under 'Share Building Location via Webmap' to load the webmap panned and zoomed to a particular building.</li>
 				</p>
 			</ul>
-
+			<hr>
 			<div class="modal__footer">
-				Made with <i class="fa fa-heart"></i>, by <a href="https://twitter.com/denicmarko" target="_blank">@pawelch</a>
+				Feel free to reach out to the developers at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
 			</div>
 
 			<a href="#" class="modal__close">&times;</a>
@@ -286,19 +344,19 @@
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Restaurants and Cafes
+								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								The Perk Coffee Shops
+								<img src="https://img.icons8.com/small/16/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								College Dining Halls
+								<img src="https://img.icons8.com/small/16/CC3535/empty-tray.png"/>College Dining Halls
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Food Trucks
+								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
@@ -310,39 +368,43 @@
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Metro Bus and Shuttle Stops
+								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Metro Bus and Shuttle Stops
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Parking Lots
+								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Bike Repair
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Repair
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Bike Parking
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(student_life)">
-							<i class="fas fa-book"></i>Student Life
+							<i class="fas fa-book"></i>Campus Life
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/6301CB/engineer.png"/>Construction Impacts
+							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Colleges
+								<img src="https://img.icons8.com/small/16/6301CB/building.png"/>Colleges
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Libraries
+								<img src="https://img.icons8.com/small/16/6301CB/library.png"/>Libraries
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Student Support Services
+								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
@@ -352,25 +414,21 @@
 							</span>
 						</h4>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								Construction Impacts
-							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Emergency Phones
+								<img src="https://img.icons8.com/small/16/339999/phone.png"/>Emergency Phones
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								All-Gender Restrooms
+								<img src="https://img.icons8.com/small/16/339999/toilet-bowl.png"/>All-Gender Restrooms
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Lactation Rooms
+								<img src="https://img.icons8.com/small/16/339999/breastfeeding.png"/>Lactation Rooms
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Recycling
+								<img src="https://img.icons8.com/small/16/339999/recycling.png"/>Recycling
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
@@ -382,15 +440,15 @@
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Trails, Courts, & Athletic Facilities
+								<img src="https://img.icons8.com/small/16/34CC02/walking.png"/>Trails, Courts, & Athletic Facilities
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Campus Gardens
+								<img src="https://img.icons8.com/small/16/34CC02/leaf.png"/>Campus Gardens
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								Places of Interest
+								<img src="https://img.icons8.com/small/16/34CC02/information.png"/>Places of Interest
 							</a>
 						</nav>
 						
@@ -428,12 +486,11 @@
 				<div id="admin-div">
 					
 					<div id="buttons">
-						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
+						<a href="mailto:maps@ucsc.edu">
 							<i class="icon-ui-user"></i>
 							Contact the Maps Team
 						</a>
-						<a class="hide" href="#demo-modal" id="map-help-btn">Interactive Map Help</a>
-						
+						<a href="#demo-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>						
 					</div>
 				</div>
 			</div>
@@ -441,18 +498,23 @@
 				<div id="mobile-menu">
 					<div id="admin-div">
 					
-					<div id="buttons">
-						<a href="mailto:maps@ucsc.edu" class="hvr-rectangle-out">
-							<i class="icon-ui-user"></i>
-							Contact the Maps Team
-						</a>
-						
+						<div id="buttons">
+							<a href="mailto:maps@ucsc.edu">
+								<i class="icon-ui-user"></i>
+								Contact the Maps Team
+							</a>
+							<a class="hide" href="#demo-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>
+
+						</div>
+					
 					</div>
-				</div>
 					<aside class="side-nav" aria-role="complementary">
 						<h4 class="side-nav-title" onclick="groupToggle(foods)">
-							<i class="fas fa-utensils"></i>Food & Drink
-							<span class="vis-indicator-all"><img width="20px" src="images/icons/food_and_drink.png"></span>
+							<i class="fas fa-utensils"></i>
+							Food & Drink
+							<span class="vis-indicator-all">
+							<img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>
+							<img width="20px" src="images/icons/food_and_drink.png"></span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
@@ -475,6 +537,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
 							<i class="fas fa-bus"></i>Transportation
 							<span class="vis-indicator-all">
+								<img src="https://img.icons8.com/small/24/CB972F/bus.png"/>
 								<img width="20px" src="images/icons/transportation.png">
 							</span>
 						</h4>
@@ -497,12 +560,17 @@
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(student_life)">
-							<i class="fas fa-book"></i>Student Life
+							<i class="fas fa-book"></i>Campus Life
 							<span class="vis-indicator-all">
+								<img src="https://img.icons8.com/small/24/6301CB/students.png"/>
 								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								Construction Impacts
+							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Colleges
@@ -519,14 +587,11 @@
 						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
 							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
 							<span class="vis-indicator-all">
+								<img src="https://img.icons8.com/small/24/339999/building.png"/>
 								<img width="20px" src="images/icons/health_safety_and_facilities.png">
 							</span>
 						</h4>
 						<nav role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								Construction Impacts
-							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								Emergency Phones
@@ -547,6 +612,7 @@
 						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
 							<i class="fas fa-hiking"></i>Recreation
 							<span class="vis-indicator-all">
+								<img src="https://img.icons8.com/small/16/34CC02/walking.png"/>
 								<img width="20px" src="images/icons/recreation.png">
 							</span>
 						</h4>
