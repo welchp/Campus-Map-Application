@@ -480,30 +480,30 @@ aside {
 }
 
 #clear-all {
-	display:none;
-	grid-template-columns: 30% auto;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	min-height: 15px;
-	max-height: 25px;
-	bottom:10px;
-	left:10px;
-	min-height:40px;
-	ma-height:40px;
-	width:60px;
-	background-color: rgba(0,0,0,0.5);
-	border: 1px solid white;
-	color: white;
-	font-size: 12px;
-	border-radius: 4px;
-	padding: 4px;
-	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
-	line-height: 1.2em;
-	cursor:pointer;
+	display: none;
+    grid-template-columns: 30% auto;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    min-height: 15px;
+    max-height: 25px;
+    bottom: 10px;
+    left: 10px;
+    min-height: 40px;
+    ma-height: 40px;
+    width: 60px;
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid white;
+    color: white;
+    font-size: 12px;
+    border-radius: 4px;
+    padding: 4px;
+    -webkit-box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+    box-shadow: 0 3px 6px rgb(0 0 0 / 30%);
+    text-shadow: 0 1px 2px rgb(0 0 0 / 60%);
+    line-height: 1.2em;
+    cursor: pointer;
 }
 
 .nav-box {
@@ -526,9 +526,9 @@ aside {
 }
 
 #menu-icon-div {
-	z-index: 999;
+	z-index: 998;
 	position: absolute;
-	bottom:-165px;
+	top:220px;
 	right:15px;
 }
 
@@ -546,6 +546,29 @@ aside {
 	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+#clear-layers-icon {
+	display:none;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	bottom: 10px;
+    left: 10px;
+	background-color:rgba(0,0,0,0.7);
+	color:#fff;
+	border:2px solid rgba(255,255,255,0.7);
+    border-radius:100%;
+	padding: 10px 6px 10px 11px;
+	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+	cursor:pointer;
+}
+
+#clear-layers-icon > img {
+	transform: translateX(-11%)
 }
 
 #close-menu-icon {

@@ -1180,7 +1180,7 @@ require([
 	
 	//All the logic for 'Clear All' functionalty
 	visLayers = everyLayer.slice(1)
-	clearbutton = document.getElementById("clear-all")
+	clearbutton = document.getElementById("clear-layers-icon")
 	var setVisibilities = function(){
 		let visibilities = visLayers.map(lyr => lyr.visible)
 		return visibilities
@@ -1198,10 +1198,10 @@ require([
 		if (allFalse(visibilities)) {
 			clearbutton.style.display = "none" 
 		} else {
-			clearbutton.style.display = "grid"
+			clearbutton.style.display = "flex"
 		}
 	}
-	var clear_all_node = document.getElementById("clear-all");
+	var clear_all_node = document.getElementById("clear-layers-icon");
 	function clearAll() {
 		clear_all_node.style.display = 'none'
 		visLayers.forEach(function(lyr){
