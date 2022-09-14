@@ -45,75 +45,6 @@
 	
 	<style>
 		
-		.modal {
-		  visibility: hidden;
-		  opacity: 0;
-		  position: absolute;
-		  top: 0;
-		  right: 0;
-		  bottom: 0;
-		  left: 0;
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		  background: rgba(77, 77, 77, .7);
-		  transition: all .4s;
-		  z-index:9999;
-		}
-
-		.modal:target {
-		  visibility: visible;
-		  opacity: 1;
-		}
-
-		.modal__content {
-		  border-radius: 6px;
-		  position: relative;
-		  max-width: 90%;
-		  max-height:90%;
-		  height:500px;
-		  width:66%;
-		  background: #fff;
-		  padding: 1em 2em;
-		  overflow: auto;
-		}
-
-		.modal__footer {
-		  text-align: right;
-		  a {
-			color: #585858;
-		  }
-		  i {
-			color: #d02d2c;
-		  }
-		}
-		.modal__close {
-		  position: absolute;
-		  font-size: 3em;
-		  top: 0px;
-		  right: 30px;
-		  color: #585858;
-		  text-decoration: none;
-		}
-		
-		.modal a {
-			color:#336389;
-			font-weight: 500;
-		}
-		
-		.modal h1, h2, h3, h4 {
-			color:#336389;
-			font-weight: 600;
-		}
-		
-		.modal h1 {
-			background-color:#336389;
-			border:1px solid #999;
-			color:white;
-			padding:10px;
-			box-shadow: -2px 2px 4px rgba(0,0,0,0.2);
-		}
-		
 		#map-help-btn {
 			padding:8px 16px;
 			background-color: darkgoldenrod;
@@ -198,7 +129,7 @@
 			</ul>
 			<hr>
 			<div class="modal__footer">
-				Feel free to reach out to the developers at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
+				Feel free to reach out to the maps team at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
 			</div>
 
 			<a href="#" class="modal__close">&times;</a>
@@ -392,7 +323,7 @@
 							</span>
 						</h4>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
+							<a href="#" class="hide side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/6301CB/engineer.png"/>Construction Impacts
 							</a>
@@ -566,7 +497,7 @@
 							</span>
 						</h4>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
+							<a href="#" class="hide side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/6301CB/engineer.png"/>Construction Impacts
 							</a>
@@ -632,6 +563,12 @@
 				<div id="viewDiv">
 					<div id="clear-layers-icon">
 						<i id="clear-layers-icon" class="icon-ui phone-show"></i><img src="https://img.icons8.com/ios-glyphs/22/ffffff/hide.png"/>
+					</div>
+					<div id="help-icon">
+						<a href="#demo-modal">
+							<i class="icon-ui phone-show"></i>
+							<img src="https://img.icons8.com/small/22/ffffff/help.png"/>
+						</a>
 					</div>
 				</div>
 			</div>
