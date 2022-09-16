@@ -277,6 +277,7 @@ require([
 	"esri/core/urlUtils",
 	"esri/tasks/support/Query",
 	"esri/core/Collection",
+	"esri/tasks/QueryTask",
     "dojo/domReady!"], function(
         esriConfig, 
 		Map,
@@ -295,7 +296,8 @@ require([
 		watchUtils,
 		urlUtils,
 		Query,
-		Collection
+		Collection,
+		QueryTask
         ) {
 	
     //POPUP
@@ -1243,7 +1245,24 @@ require([
 	  		});
 	});
 	
+	function getBuildings() {
+		var buildings_url = buildings_lyr.url
+		var queryTask = new QueryTask({
+			url: buildings_url
+		  });
+		var query = buildings_lyr.createQuery();
+		query.where = "1=1";
+		query.outFields = ["*"];
+		buildings_lyr.queryFeatures(query)
+			.then(function(results){			
+				console.log(results.features.attributes);
+			
+				return results.features.attributes
+			});
+		};
+
 	//FUNCTIONS TO RUN
+	temp = getBuildings()
 	indicateVisibility();
     //toggleVisibility();
     //toggleMenu();
