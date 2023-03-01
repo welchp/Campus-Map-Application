@@ -43,6 +43,24 @@
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
 	
+	<script>
+		function filterBuildings() {
+				input = document.getElementById("bldg-search");
+				textFilter = input.value.toUpperCase();
+				all_bldgs = document.getElementById("bldg-list");
+				bldg_list = all_bldgs.getElementsByClassName("bldg");
+				for (i = 0; i < bldg_list.length; i++) {
+					ps = bldg_list[i].getElementsByTagName("p")[0];
+					txtValue = ps.textContent || ps.innerText;
+					if (txtValue.toUpperCase().indexOf(textFilter) > -1) {
+						bldg_list[i].style.display = "";
+					} else {
+						bldg_list[i].style.display = "none";
+					}
+				}
+			}
+	</script>
+	
 	<style>
 		
 		#map-help-btn {
@@ -75,12 +93,41 @@
 			margin-right: 6px;
 		}
 		
+		#bldg-list {
+			display:flex;
+			flex-direction: column;
+			padding:1em;
+			gap:20px
+		}
+		
+		.bldg {
+			padding:10px 20px;
+			border:1px solid #ededed;
+			box-shadow: -1px 2px 0px rgba(0,0,0,0.15)
+		}
+		
+		.bldg > p {
+			margin-bottom:0
+		}
+		
+		.nametag {
+			font-size: 1.4em;
+			color: #336389;
+		}
+		
+		.caan {
+		}
+		
+		.depts {
+			font-size: 0.8em
+		}
+		
 	</style>
 
 </head>
 
 <body>
-	<div id="demo-modal" class="modal">
+	<div id="help-modal" class="modal">
 		<div class="modal__content">
 		<br><br>
 			<h1>Interactive Map Help</h1>
@@ -145,6 +192,25 @@
 				</p>
 			</ul>
 			<hr>
+			<div class="modal__footer">
+				Feel free to reach out to the maps team at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
+			</div>
+
+			<a href="#" class="modal__close">&times;</a>
+		</div>
+	</div>
+	
+	<div id="bldg-modal" class="modal">
+		<div class="modal__content">
+		<br><br>
+			<h1>Campus Buildings</h1>
+			<div class="modal__footer">
+				Feel free to reach out to the maps team at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
+			</div>
+			<hr>
+			<input id="bldg-search" onkeyup="filterBuildings()" placeholder="Filter by building keyword" title="searchbar" type="text">
+			<div id="bldg-list">
+			</div>
 			<div class="modal__footer">
 				Feel free to reach out to the maps team at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
 			</div>
@@ -258,6 +324,7 @@
 		</header>
 		<div id="main-content">
 			<div id="side-bar" class="tablet-hide">
+				<!--a href="#bldg-modal"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a-->
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
 				<div id="navigation">
 					<ul id="nav-list">
@@ -440,7 +507,7 @@
 							<i class="icon-ui-user"></i>
 							Contact the Maps Team
 						</a>
-						<a href="#demo-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>						
+						<a href="#help-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>						
 					</div>
 				</div>
 			</div>
@@ -453,7 +520,7 @@
 								<i class="icon-ui-user"></i>
 								Contact the Maps Team
 							</a>
-							<a class="hide" href="#demo-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>
+							<a class="hide" href="#help-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>
 
 						</div>
 					
@@ -582,7 +649,7 @@
 						<i id="clear-layers-icon" class="icon-ui phone-show"></i><img src="https://img.icons8.com/ios-glyphs/22/ffffff/hide.png"/>
 					</div>
 					<div id="help-icon">
-						<a href="#demo-modal">
+						<a href="#help-modal">
 							<i class="icon-ui phone-show"></i>
 							<img src="https://img.icons8.com/small/22/ffffff/help.png"/>
 						</a>

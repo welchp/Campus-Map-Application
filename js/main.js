@@ -57,6 +57,7 @@ var metro_bus_lyr;
 var buildings_lyr;
 var libraries_lyr;
 var bus_route_lyr;
+var ada_spaces_lyr;
 var food_trucks_lyr;
 var bike_repair_lyr;
 var dining_halls_lyr;
@@ -824,7 +825,11 @@ require([
     })
     bike_parking_lyr = new FeatureLayer({
         portalItem:{
+			//this id is for the ada_spaces_lyr
+			//swap the ids to demo the lyr
+			//id:"1cc88e563dff47398dda9cd7100c7448"
             id: "0e9e0292dce44979a933cb7ca825a740"
+			
         },
         visible: false
     })
@@ -889,6 +894,14 @@ require([
         },
         visible: false,
     })
+	ada_spaces_lyr = new FeatureLayer({
+        portalItem:{
+			id:"1cc88e563dff47398dda9cd7100c7448"
+        },
+        visible: false,
+    })
+	
+	
 	labels_lyr = new FeatureLayer({
         portalItem:{
             id: "a3bb6a92e1ff46ac82beea01c05f9673"
@@ -917,12 +930,12 @@ require([
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
   	student_life = [colleges_lyr, libraries_lyr, support_lyr]
-  	facilities = [construction_impacts_lyr, emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr]
+  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr]
 	
 	
 	//---- FUNCTIONS --
@@ -1245,24 +1258,69 @@ require([
 	  		});
 	});
 	
-	function getBuildings() {
-		var buildings_url = buildings_lyr.url
-		var queryTask = new QueryTask({
-			url: buildings_url
-		  });
-		var query = buildings_lyr.createQuery();
-		query.where = "1=1";
-		query.outFields = ["*"];
-		buildings_lyr.queryFeatures(query)
-			.then(function(results){			
-				console.log(results.features.attributes);
-			
-				return results.features.attributes
-			});
-		};
+	function getBuildingList() {
+		buildings_lyr.queryFeatures().then(function(results){
+		bldg_list = results.features
+		bldg_list.forEach(function(bldg){
+			//console.log(bldg.attributes["BUILDINGNAME"])
+			//console.log(bldg.attributes)
+			makeBldgCard(bldg)
+			})
+		});
+	}
+	
+	
+	function makeBldgCard(bldg){
+		var name = bldg.attributes["BUILDINGNAME"]
+		var caan = bldg.attributes["ASSETNUM"]
+		var depts = bldg.attributes["DEPARTMENTS"]
+		var alias = bldg.attributes["ADDRESS"]
+		//console.log(name)
+		//console.log(caan)
+		//console.log(depts)
+		console.log(alias)
+		//var all_attributes = [name, caan, depts]
 
+		var d = document.createElement("div")
+		d.className = "bldg"
+
+		var nametag = document.createElement("p")
+		nametag.className = "nametag"
+		nametag.textContent = name
+		d.appendChild(nametag)
+
+		var caantag = document.createElement("p")
+		caantag.className = "caan"
+		caantag.textContent = caan
+		d.appendChild(caantag)
+
+		var aliases = document.createElement("p")
+		aliases.textContent = "alias: " + alias
+		d.appendChild(aliases)
+
+		var depts_list = document.createElement("p")
+		depts_list.className = "depts"
+		depts_list.textContent = "departments: " + depts
+		d.appendChild(depts_list)
+
+		//for (i = 1; i < all_attributes.length-1; i++){
+		//	var p = document.createElement("p")
+		//	p.textContent = all_attributes[i]
+		//	d.appendChild(p)
+		//}
+
+
+		bldg_list_div.appendChild(d)
+
+		return d
+	}
+	
+	
+	var  bldg_list_div = document.getElementById("bldg-list")
+	
 	//FUNCTIONS TO RUN
-	temp = getBuildings()
+	//filterBuildings();
+	getBuildingList();
 	indicateVisibility();
     //toggleVisibility();
     //toggleMenu();
