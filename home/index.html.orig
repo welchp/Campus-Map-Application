@@ -1,0 +1,152 @@
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-131157910-1"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+
+		function gtag() {
+			dataLayer.push(arguments);
+		}
+		gtag('js', new Date());
+
+		gtag('config', 'UA-131157910-1');
+	</script>
+	<meta name="google-site-verification" content="-aFo-1oVHoMXc9RrXzD0S4gsiDvI4LWdV5FIxoVm8mo" />
+	<meta name="Description" content="The home page for UCSC Physical Planning, Development & Operations Maps">
+
+	<title>UCSC | Maps Home</title>
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed|Oswald' rel='stylesheet'>
+	<link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/patterns.esri.com/files/calcite-web/1.1.0/css/calcite-web.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="../css/base.css">
+	<link rel="stylesheet" href="../css/maps.css">
+	
+	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
+	<script src='../js/base.js'></script>
+	<script src='../js/maps.js'></script>
+	<style>
+		div {
+			border:1px sold black;
+		}
+		
+		#news {
+			padding:4px;
+			width:98%;
+			font-size: 0.8em
+		}
+		
+		.news-block {
+<<<<<<< HEAD
+			border: 1px solid rgba(0,0,0,0.2);
+			background-color: rgba(242,240,228, 0.3);
+			background-color: #D9DDC4;
+			border-radius: 8px;
+			padding:8px;
+			margin:8px 0px;
+=======
+			background-color: #e1ecf4;
+			padding:10px;
+			box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+			margin:8px;
+>>>>>>> building-list
+		}
+		
+		.news-block p {
+			margin:0;
+			color:#006aad;
+		}
+				
+		#intro h3 {
+			color:#01589D;
+		}
+		
+		#intro p {
+			font-size:14px;
+		}
+		
+	</style>
+
+</head>
+
+<body>
+	<div id="mega-header">
+		<div id="mega-header-content">
+			<div id="mega-logo">
+				<img style="margin-right:auto" src="https://static.ucsc.edu/_responsive/images/logos/uc-santa-cruz-reverse.svg" style="width:107px">
+			</div>
+			<div id="mega-header-nav">
+			</div>
+		</div>
+	</div>
+
+	<div id="page-wrapper">
+		
+		<span id="mobile-title-span" class="banner-image phone-show">
+			<h1 id="page-title">Maps Home</h1>
+			<p id="subtitle">UCSC / Physical Planning, Development &amp; Operations / Maps</p>
+		</span>
+		
+		<span id="title-span" class="banner-image phone-hide">
+			<br>
+			<h1 id="page-title">Maps Home</h1>
+			<p id="subtitle">UCSC / Physical Planning, Development &amp; Operations / Maps</p>
+		</span>
+
+		<div id="column-wrapper">
+			<div id="left-nav" class="phone-hide">
+				<a href="mailto:maps@ucsc.edu" id="contact">
+					<i class="icon-ui-user"></i>
+					Contact the Maps Team
+				</a>
+				<div class="menu-content">
+					<span class="side-nav-header">
+						<h5>
+						</h5>
+					</span>
+				</div>
+				
+				<div id="news">
+					<div class="news-block">
+<<<<<<< HEAD
+						<p><strong>09.15.2022</strong></p>Campus Maps Release v4.0<br>
+					</div>
+					<div class="news-block">
+						<p><strong>03.11.2021</strong></p>Campus Maps Release v3.0<br>
+=======
+						<span><strong>09.14.2022</strong><br>Campus Maps Release v2.2</span><br>
+>>>>>>> building-list
+					</div>
+					<div class="news-block">
+						<span><strong>03.11.2021</strong><br>Campus Maps Release v2.1</span><br>
+					</div>
+					<div class="news-block">
+						<span><strong>04.04.2020</strong><br>Campus Maps Release v2.0</span><br>
+					</div>
+					<div class="news-block">
+						<span><strong>09.17.2019</strong><br>Campus Maps Release v1.0</span><br>
+					</div>					
+				</div>
+
+			</div>
+			<div id="main-content">
+				<div id="intro">
+					<p>The UC Santa Cruz campus is extremely unique among its sibling UC institutions. The central campus begins where the meadows and the forest meet, and it extends north into the forested lands. At the center is the academic and service “core” of institutionally scaled buildings -- libraries, lecture halls, laboratories and other research facilities, art studios and performance venues, bookstore and student activity buildings -- surrounded on three sides by smaller scale clusters of residential colleges and housing. The campus’s Physical Design Framework encourages concentrated development in both the core and the colleges in order to leave as much land as possible in its natural state, avoid sprawl, and support pedestrian movement. As a result, it can be quite a challenge to understand how the campus is laid out, and more specifically, where you can find certain resources.<br><br>
+					The following map resources are offered to help you make sense of this wonderful but complex campus.
+				</div>
+				<div id="cards">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+
+</body></html>
