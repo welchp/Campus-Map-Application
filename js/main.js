@@ -279,6 +279,7 @@ require([
 	"esri/tasks/support/Query",
 	"esri/core/Collection",
 	"esri/tasks/QueryTask",
+	"esri/widgets/BasemapGallery",
     "dojo/domReady!"], function(
         esriConfig, 
 		Map,
@@ -298,7 +299,8 @@ require([
 		urlUtils,
 		Query,
 		Collection,
-		QueryTask
+		QueryTask,
+		BasemapGallery
         ) {
 	
     //POPUP
@@ -595,7 +597,16 @@ require([
 	
 	
 	////////////     WIDGETS      \\\\\\\\\\\\\	
-    view.ui.remove("attribution");
+    
+	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
+	//let basemapGallery = new BasemapGallery({
+	//  view: view,
+	//  position: "bottom-right",
+	//  container: "side-bar"
+	//});
+	
+	
+	view.ui.remove("attribution");
     
     homeBtn = new Home({
         view: view
