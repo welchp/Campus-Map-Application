@@ -1,5 +1,5 @@
 .banner-image {
-    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background.jpg);
+    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background2.PNG);
     width:100%;
     background-position:center;
     background-repeat: no-repeat;
@@ -39,7 +39,7 @@
 }
 
 .card-title {
-	color:#01589d;
+	color:#336389;
 }
 
 .thumb {
