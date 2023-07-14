@@ -12,7 +12,7 @@ const map_cards = {
     "Interactive Campus Map":{
         "href":"../index.html",
         "target":"_blank",
-		"textContent":"Use this browser-based map to pan and zoom around the UCSC main campus to find features like dining options, buildings, hiking trails and more!",
+		"textContent":"Use this browser-based map to pan and zoom around the UCSC Main campus, Coastal Science campus, and Westside Research Park to find features like dining options, buildings, or parking.",
 		"thumb":"interactive-map-thumb.PNG"
     },
     "Printable Maps":{ 
