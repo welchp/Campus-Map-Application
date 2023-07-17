@@ -22,17 +22,12 @@
 }
 
 .banner-image {
-	background: -webkit-gradient(linear, right top, left top, from(rgba(255, 255, 255, 0.3)), to(rgba(255, 255, 255, 1))), url(../images/map_background.jpg);
-	background: linear-gradient(to left, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 1)), url(../images/map_background.jpg);
-	width: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	opacity: 1.0;
-}
-
-#mega-header img {
-	height: 26px;
+    background: linear-gradient(to left, rgba(255,255,255,0.3) 0%, rgba(255,255,255,1)), url(../images/map_background2.PNG);
+    width:100%;
+    background-position:center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity:1.0;
 }
 
 @media only screen and (max-width: 1080px) {
