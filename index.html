@@ -377,16 +377,25 @@
 				<div id="layer-list">
 					
 					<aside class="side-nav" aria-role="complementary">
-						<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
-							<i class="fas fa-utensils"></i>Food & Drink
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/food_and_drink.png">
-							</span>
-						</h4>
-						
+						<div class="ac">
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+									<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
+									</div>
+									<div class="layer-info">
+									<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
+									</div>
+								</div>
+							</article>
+						</div>
 						<style>
+							.ac-label {
+								font-weight: 500;
+							}
+							
 							.layer-info {
-								display:none;
+								display:noe;
 								background-color: #fff;
 								border:1px solid #ededed;
 								padding:1em 2em
@@ -399,12 +408,20 @@
 						</style>
 						
 						<nav role="navigation" aria-labelledby="sidenav">
-							<div class="layer-info">
-								<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
+							<div class="ac">
+								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/> <label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining Information</label>
+								<article class="ac-text">
+									<div>
+										<div class="layer-info">
+										<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
+										</div>
+										<div class="layer-info">
+										<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
+										</div>
+									</div>
+								</article>
 							</div>
-							<div class="layer-info">
-								<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
-							</div>
+							
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
@@ -419,7 +436,7 @@
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks
+								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
@@ -593,7 +610,7 @@
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks
+								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
 						</nav>
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
