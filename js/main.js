@@ -1119,8 +1119,9 @@ require([
 					searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
 					displayField: "BUILDINGNAME",
 					exactMatch: false,
-					outFields: ["BUILDINGNAME"],
+					outFields: ["*"],
 					name: "Buildings",
+					popupTemplate: ptemplate,
 					placeholder: "enter a building name or departments",
 					},
 					{featureLayer: {
