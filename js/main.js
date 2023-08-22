@@ -280,6 +280,8 @@ require([
 	"esri/core/Collection",
 	"esri/tasks/QueryTask",
 	"esri/widgets/BasemapGallery",
+	"esri/widgets/Bookmarks",
+	"esri/widgets/Expand",
     "dojo/domReady!"], function(
         esriConfig, 
 		Map,
@@ -300,7 +302,9 @@ require([
 		Query,
 		Collection,
 		QueryTask,
-		BasemapGallery
+		BasemapGallery,
+		Bookmarks,
+		Expand
         ) {
 	
     //POPUP
@@ -828,6 +832,16 @@ require([
 	//  container: "side-bar"
 	//});
 	
+	const bookmarks = new Bookmarks({
+		view: view
+	});
+
+	const bkExpand = new Expand({
+		view: view,
+		content: bookmarks,
+		expanded: true
+	})
+	view.ui.add(bkExpand, "bottom-left");
 	
 	view.ui.remove("attribution");
     

@@ -651,7 +651,25 @@
 						</div>
 					
 					</div>
+					
 					<aside class="side-nav" aria-role="complementary">
+						<style>
+							.ac-label {
+								font-weight: 500;
+							}
+							
+							.layer-info {
+								display:noe;
+								background-color: #fff;
+								border:1px solid #ededed;
+								padding:1em 2em
+							}
+							
+							.layer-info p {
+								color:#444;
+								font-size:0.9em
+							}
+						</style>
 						<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
 							<i class="fas fa-utensils"></i>Food & Drink
 							<span class="vis-indicator-all">
@@ -724,12 +742,24 @@
 								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
+						<h4 class="side-nav-title hide" onclick="groupToggle(facilities)">
 							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/health_safety_and_facilities.png">
 							</span>
 						</h4>
+						
+						<div data-brackets-id="2262" class="ac">
+							<input data-brackets-id="2263" class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)"> <label data-brackets-id="2264" class="ac-label" for="facilities"><i data-brackets-id="2265" class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
+							<article data-brackets-id="2266" class="ac-text">
+								<div data-brackets-id="2267" class="">
+									<div data-brackets-id="2268" class="layer-info">
+										<p data-brackets-id="2269">Need help getting building information?<br data-brackets-id="2270">Use our - <a data-brackets-id="2271" href="#bldg-modal">Building Locator Tool</a></p>
+									</div>
+								</div>
+							</article>
+						</div>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
