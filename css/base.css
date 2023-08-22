@@ -135,10 +135,10 @@ div#left-nav {
 	display:flex;
 	align-items: center;
 	width:100%;
-	padding: 4px;
-    color:#f1f1f1;
+	color:#f1f1f1;
     background-color:#336389;
 	margin-left:-2px;
+	max-height:6px;
 }
 
 .side-nav-header h5 {

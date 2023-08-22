@@ -310,6 +310,13 @@ require([
             position: "bottom-right"
         }
     });
+	
+	var ptemplate = {
+		title: "{ASSETNUM} - {BUILDINGNAME}",
+		// Four fields are used in this template. The value of the selected feature will be
+		// inserted in the location of each field name below
+		content: "<br><span style='font-size: small;'>{ADDRESS}</span><br /><span style='font-size: small;'>{CITY}, </span><span style='font-size: small;'>{STATE}, </span><span style='font-size: small;'>{expression/expr0}  <br /> </span><a href='https://www.google.com/maps/dir/?api=1&amp;origin=&amp;destination={LATITUDE},{LONGITUDE}' rel='nofollow ugc' target='_blank'><br /><img height='18px' src='https://drive.google.com/uc?export=view&amp;id=1Fff8J55VDW0062m2IOi9_-gM8audIcpR' style='margin-right:6px' width='18px' />Get Directions</a><br /><br /><img height='18px' src='https://drive.google.com/uc?export=view&amp;id=1iOMvcbmxIyoyc0IkEaMo6lSdVjHZ0Zyn' style='margin-right:6px' width='18px' />Share Building Location via Webmap:<br /><a href='{BUILDINGURL}' rel='nofollow ugc' target='_blank'>{BUILDINGURL}<br /></a><br /><hr /><br /><font size='2'>DEPARTMENTS<br />{DEPARTMENTS}<br /><br />CATEGORY<br />{PRIMARYUSE}  <br /> <br />CONSTRUCTION YEAR<br />{CONSTRUCTIONYEAR}</font><br /> <br /><font size='3'><br /></font>"
+	};
     
     //FEATURE RENDERERS
     var defaultMarker = {
@@ -414,14 +421,14 @@ require([
     var parkingLabelClass = {
         symbol: {
             type: "text",
-            color: "white",
-            haloColor: [0, 0, 0, 1.0],
-            haloSize: 0.85,
+            color: [30,30,30],
+            haloColor: [255,255,255],
+            haloSize: 1.5,
             font: {
-                family: "Arial Unicode MS",
+                family: "Arial Unicode MS Bold",
                 size: 10,
                 style: "normal",
-                weight: "normal"
+                weight: "bold"
             }
         },
         labelPlacement: "always-horizontal",
@@ -586,6 +593,7 @@ require([
 			
 		},
 		popup:{
+			defaultPopupTemplateEnabled: true,
             highlightEnabled: true,
             dockEnabled: true,
             dockOptions:{
@@ -596,146 +604,7 @@ require([
     })
 	
 	
-	////////////     WIDGETS      \\\\\\\\\\\\\	
-    
-	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
-	//let basemapGallery = new BasemapGallery({
-	//  view: view,
-	//  position: "bottom-right",
-	//  container: "side-bar"
-	//});
 	
-	
-	view.ui.remove("attribution");
-    
-    homeBtn = new Home({
-        view: view
-    })
-    view.ui.add(homeBtn, "top-left")
-    
-    var locateBtn = new Locate({
-        view: view
-      });
-    view.ui.add(locateBtn, {position: "top-left"});
-    
-	view.ui.add("map-options-footer", "top-right")
-    
-	searchWidget = new Search({
-        view: view,
-        maxSuggestions: 35,
-		allPlaceholder: "Begin typing and select an option from the suggestions...",
-        sources: [
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
-            searchFields: ["NAME"],
-            displayField: "NAME",
-            exactMatch: false,
-            outFields: ["*"],
-            name: "Campus Colleges",
-            placeholder: "enter a campus college",
-        	},
-			{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/ActiveConstruction/FeatureServer/0"},
-            searchFields: ["NAME"],
-            displayField: "NAME",
-            exactMatch: false,
-            outFields: ["NAME"],
-            name: "Campus Zones",
-            placeholder: "enter a campus zone",
-        	},
-			{featureLayer: {
-				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities/FeatureServer/0"},
-			searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
-			displayField: "BUILDINGNAME",
-			exactMatch: false,
-			outFields: ["BUILDINGNAME"],
-			name: "Buildings",
-			placeholder: "enter a building name or departments",
-			},
-			{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
-            searchFields: ["RESOURCE"],
-            suggestionTemplate: "{RESOURCE}",
-            displayField: "RESOURCE",
-            exactMatch: false,
-            outFields: ["*"],
-            name: "Student Support",
-            placeholder: "enter a student support program"
-            },
-        	{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
-            searchFields: ["NUM", "Permit_Type"],
-            suggestionTemplate: "Parking Lot {NUM} for {NAME}",
-            displayField: "NUM",
-            exactMatch: false,
-            outFields: ["NAME", "NUM","Location","Permit_Type","Handicapped","Meters","Comments", "Paystations", "Paystation_Limit","Meter_Limit","Permit_Days","Permit_Period"],
-            name: "Parking Lots",
-            placeholder: "enter parking lot information"
-            },
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/BusStops/FeatureServer/0"},
-            searchFields: ["NAME", "STOPTYPE", "label_name"],
-            displayField: "label_name",
-            exactMatch: false,
-            outFields: ["label_name", "STOPTYPE"],
-            name: "BusStops",
-            placeholder: "enter transit stop name or type"
-            },
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/1"},
-            searchFields: ["Name"],
-            displayField: "Name",
-            exactMatch: false,
-            outFields: ["Name"],
-            name: "Cafes and Restaurants",
-            placeholder: "enter a cafe or restaurant",
-			},
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/2"},
-            searchFields: ["Name"],
-            displayField: "Name",
-            exactMatch: false,
-            outFields: ["Name"],
-            name: "Dining Halls",
-            placeholder: "enter a dining hall location",
-        	},
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/3"},
-            searchFields: ["Name"],
-            displayField: "Name",
-            exactMatch: false,
-            outFields: ["Name"],
-            name: "Perk Coffee Houses",
-            placeholder: "enter a perk location",
-			},
-            {featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/4"},
-            searchFields: ["Name"],
-            displayField: "Name",
-            exactMatch: false,
-            outFields: ["Name"],
-            name: "Food Trucks",
-            placeholder: "enter a food truck name",
-        	}        
-        ]
-    });
-    searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
-	searchWidget.on("select-result", function(event){
-	  //searchWidget.clear();
-	  //buildings_lyr.labelsVisible = true
-	  view.zoom = 19
-	  var viewD = document.getElementById('viewDiv');
-	  var mobile_menu = document.getElementById('mobile-menu');
-	  var menu_icon = document.getElementById('menu-icon');
-	  var close_menu_icon = document.getElementById('close-menu-icon');
-	  if (viewD.style.display == 'none'){
-		viewD.style.display = 'flex'
-		mobile_menu.style.display = 'none'
-		menu_icon.style.display = 'flex'
-		close_menu_icon.style.display = 'none'
-	  }
-	});
-    view.ui.add(searchWidget, {position: "top-right"});
 
 	//LOAD ALL MAP LAYERS
 	buildings_lyr = new FeatureLayer({
@@ -947,6 +816,152 @@ require([
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
 	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr]
+	
+	
+	
+	////////////     WIDGETS      \\\\\\\\\\\\\	
+    
+	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
+	//let basemapGallery = new BasemapGallery({
+	//  view: view,
+	//  position: "bottom-right",
+	//  container: "side-bar"
+	//});
+	
+	
+	view.ui.remove("attribution");
+    
+    homeBtn = new Home({
+        view: view
+    })
+    view.ui.add(homeBtn, "top-left")
+    
+    var locateBtn = new Locate({
+        view: view
+      });
+    view.ui.add(locateBtn, {position: "top-left"});
+    
+	view.ui.add("map-options-footer", "top-right")
+    
+	searchWidget = new Search({
+        view: view,
+        maxSuggestions: 10,
+		allPlaceholder: "Begin typing and select an option from the suggestions...",
+        sources: [
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
+            searchFields: ["NAME"],
+            displayField: "NAME",
+            exactMatch: false,
+            outFields: ["*"],
+            name: "Campus Colleges",
+            placeholder: "enter a campus college",
+        	},
+			{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/ActiveConstruction/FeatureServer/0"},
+            searchFields: ["NAME"],
+            displayField: "NAME",
+            exactMatch: false,
+            outFields: ["NAME"],
+            name: "Campus Zones",
+            placeholder: "enter a campus zone",
+        	},
+			{featureLayer: {
+				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities/FeatureServer/0"},
+			searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
+			displayField: "BUILDINGNAME",
+			exactMatch: false,
+			outFields: ["*"],
+			name: "Buildings",
+			popupTemplate: ptemplate,
+			placeholder: "enter a building name or departments",
+			},
+			{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
+            searchFields: ["RESOURCE"],
+            suggestionTemplate: "{RESOURCE}",
+            displayField: "RESOURCE",
+            exactMatch: false,
+            outFields: ["*"],
+            name: "Student Support",
+            placeholder: "enter a student support program"
+            },
+        	{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
+            searchFields: ["NUM", "Permit_Type"],
+            suggestionTemplate: "Parking Lot {NUM} - {NAME}",
+            displayField: "NUM",
+            exactMatch: false,
+            outFields: ["NAME", "NUM","Location","Permit_Type","Handicapped","Meters","Comments", "Paystations", "Paystation_Limit","Meter_Limit","Permit_Days","Permit_Period"],
+            name: "Parking Lots",
+            placeholder: "enter parking lot information"
+            },
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/BusStops/FeatureServer/0"},
+            searchFields: ["NAME", "STOPTYPE", "label_name"],
+            displayField: "label_name",
+            exactMatch: false,
+            outFields: ["label_name", "STOPTYPE"],
+            name: "BusStops",
+            placeholder: "enter transit stop name or type"
+            },
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/1"},
+            searchFields: ["Name"],
+            displayField: "Name",
+            exactMatch: false,
+            outFields: ["Name"],
+            name: "Cafes and Restaurants",
+            placeholder: "enter a cafe or restaurant",
+			},
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/2"},
+            searchFields: ["Name"],
+            displayField: "Name",
+            exactMatch: false,
+            outFields: ["Name"],
+            name: "Dining Halls",
+            placeholder: "enter a dining hall location",
+        	},
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/3"},
+            searchFields: ["Name"],
+            displayField: "Name",
+            exactMatch: false,
+            outFields: ["Name"],
+            name: "Perk Coffee Houses",
+            placeholder: "enter a perk location",
+			},
+            {featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Dining/FeatureServer/4"},
+            searchFields: ["Name"],
+            displayField: "Name",
+            exactMatch: false,
+            outFields: ["Name"],
+            name: "Food Trucks",
+            placeholder: "enter a food truck name",
+        	}        
+        ]
+    });
+    searchWidget.includeDefaultSources = false //remove ArcGIS World Geocoding Service
+	
+	searchWidget.on("select-result", function(event){
+	  //searchWidget.clear();
+	  //buildings_lyr.labelsVisible = true
+	  view.zoom = 19
+	  var viewD = document.getElementById('viewDiv');
+	  var mobile_menu = document.getElementById('mobile-menu');
+	  var menu_icon = document.getElementById('menu-icon');
+	  var close_menu_icon = document.getElementById('close-menu-icon');
+	  if (viewD.style.display == 'none'){
+		viewD.style.display = 'flex'
+		mobile_menu.style.display = 'none'
+		menu_icon.style.display = 'flex'
+		close_menu_icon.style.display = 'none'
+	  }
+	});
+    view.ui.add(searchWidget, {position: "top-right"});
+	
 	
 	
 	//---- FUNCTIONS --
@@ -1285,11 +1300,12 @@ require([
 		var name = bldg.attributes["BUILDINGNAME"]
 		var caan = bldg.attributes["ASSETNUM"]
 		var depts = bldg.attributes["DEPARTMENTS"]
-		var alias = bldg.attributes["ADDRESS"]
+		var address = bldg.attributes["ADDRESS"]
+		var alias = bldg.attributes["ALIAS"]
 		//console.log(name)
 		//console.log(caan)
 		//console.log(depts)
-		console.log(alias)
+		//console.log(alias)
 		//var all_attributes = [name, caan, depts]
 
 		var d = document.createElement("div")
@@ -1302,12 +1318,16 @@ require([
 
 		var caantag = document.createElement("p")
 		caantag.className = "caan"
-		caantag.textContent = caan
+		caantag.textContent = "caan#: " + caan
 		d.appendChild(caantag)
 
-		var aliases = document.createElement("p")
-		aliases.textContent = "alias: " + alias
-		d.appendChild(aliases)
+		var addresstag = document.createElement("p")
+		addresstag.textContent = "address: " + address
+		d.appendChild(addresstag)
+		
+		var aliastag = document.createElement("p")
+		aliastag.textContent = "alias: " + alias
+		//d.appendChild(aliastag)
 
 		var depts_list = document.createElement("p")
 		depts_list.className = "depts"

@@ -227,7 +227,6 @@
 	<div id="bldg-modal" class="modal">
 		<a href="#" class="modal__close">&times;</a>
 		<div class="modal__content">
-		<br><br>
 			<h1>Campus Buildings</h1>
 			<div class="modal__footer">
 				Feel free to reach out to the maps team at <a href="https://mailto:maps@ucsc.edu" target="_blank">maps@ucsc.edu</a>.
@@ -377,7 +376,7 @@
 				<div id="layer-list">
 					
 					<aside class="side-nav" aria-role="complementary">
-						<div class="ac">
+						<!--div class="ac">
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -388,7 +387,7 @@
 									</div>
 								</div>
 							</article>
-						</div>
+						</div-->
 						<style>
 							.ac-label {
 								font-weight: 500;
@@ -409,7 +408,8 @@
 						
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/> <label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining Information</label>
+								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/>
+								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining Information</label>
 								<article class="ac-text">
 									<div>
 										<div class="layer-info">
@@ -439,12 +439,30 @@
 								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
+						
+						<h4 class="side-nav-title hide" onclick="groupToggle(transportations)">
 							<i class="fas fa-bus"></i>Transportation
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/transportation.png">
 							</span>
 						</h4>
+						
+						<nav role="navigation" aria-labelledby="sidenav">
+						<div class="ac">
+							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation"><i class="fas fa-bus"></i>Transportation</label>
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+										<p>Learn more about transportation on campus - <a href="https://taps.ucsc.edu">Transportation and Parking Services website</a></p>
+									</div>
+									<div class="layer-info">
+										<p>Visit the <a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>, for information about where your vehicle is right now and when it will arrive at your stop</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						</nav>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -463,12 +481,28 @@
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(student_life)">
+						
+						
+						<h4 class="side-nav-title hide" onclick="groupToggle(student_life)">
 							<i class="fas fa-book"></i>Campus Life
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
+						
+						
+						<div class="ac">
+							<input class="ac-input" id="student_life" name="student_life" type="checkbox" onclick="groupToggle(student_life)" /> 
+							<label class="ac-label" for="student_life"><i class="fas fa-book"></i>Campus Life</label>
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+										<p>Learn more about Student Support programs available on campus - <a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a></p>
+									</div>
+								</div>
+							</article>
+						</div>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="hide side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -487,12 +521,25 @@
 								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(facilities)">
+						
+						<h4 class="side-nav-title hide" onclick="groupToggle(facilities)">
 							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/health_safety_and_facilities.png">
 							</span>
 						</h4>
+						
+						<div class="ac">
+							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities"><i class="fas fa-life-ring"></i>Health, Safety & Facilities</label>
+							<article class="ac-text">
+								<div class="">
+									<div class="layer-info">
+										<p>Need help getting building information?<br>Use our - <a href="#bldg-modal">Building Locator Tool</a></p>
+									</div>
+								</div>
+							</article>
+						</div>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -511,12 +558,28 @@
 								<img src="https://img.icons8.com/small/16/339999/recycling.png"/>Recycling
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
+						
+						<h4 class="side-nav-title hide" onclick="groupToggle(recreations)">
 							<i class="fas fa-hiking"></i>Recreation
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/recreation.png">
 							</span>
 						</h4>
+						
+						<div class="ac">
+							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><i class="fas fa-hiking"></i>Recreation</label>
+							<article class="ac-text">
+								<div class="hide">
+									<div class="layer-info">
+										<p>Learn more about transportation on campus - <a href="https://taps.ucsc.edu">Transportation and Parking Services website</a></p>
+									</div>
+									<div class="layer-info">
+										<p>Visit the <a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>, for information about where your vehicle is right now and when it will arrive at your stop</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>

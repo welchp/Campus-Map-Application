@@ -430,10 +430,12 @@ aside {
 	-webkit-box-align: center;
 	-ms-flex-align: center;
 	align-items: center;
-	border: 1px solid rgba(0, 0, 0, 0.3);
-	border-radius: 4px;
+	border: 1px solid #EFEFEF;
+	border:non;
+	border-radius: 0px;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
-
+	
 #fieldsets {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -766,6 +768,7 @@ aside {
     color: #003c6c;
     border: 1px solid whiteSmoke;
     transition: background-color .15s ease-in-out;
+	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
 .ac-input:checked+label,
@@ -806,6 +809,7 @@ aside {
     opacity: 0;
     height: 0;
     margin-bottom: .5em;
+	margin-bottom: 0;
     transition: opacity .5s ease-in-out;
     overflow: hidden;
 }
