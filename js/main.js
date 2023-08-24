@@ -615,7 +615,7 @@ require([
         portalItem:{
             id:"444f951ecbc1471186c0b069448d39fe"
         },
-        definitionExpression: "HIDE not in (1)",
+        definitionExpression: "HIDE not in (1,-1)",
         visible: true,
 	  	renderer: {
 			type: "simple",  // autocasts as new SimpleRenderer()
