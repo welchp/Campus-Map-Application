@@ -832,14 +832,14 @@ require([
 	//  container: "side-bar"
 	//});
 	
-	const bookmarks = new Bookmarks({
+	var bookmarks = new Bookmarks({
 		view: view
 	});
 
-	const bkExpand = new Expand({
+	var bkExpand = new Expand({
 		view: view,
 		content: bookmarks,
-		expanded: true
+		expanded: false
 	})
 	view.ui.add(bkExpand, "bottom-left");
 	

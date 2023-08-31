@@ -394,7 +394,6 @@
 							}
 							
 							.layer-info {
-								display:noe;
 								background-color: #fff;
 								border:1px solid #ededed;
 								padding:1em 2em
@@ -409,7 +408,7 @@
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
 								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/>
-								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining Information</label>
+								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining</label>
 								<article class="ac-text">
 									<div>
 										<div class="layer-info">
@@ -662,7 +661,6 @@
 							}
 							
 							.layer-info {
-								display:noe;
 								background-color: #fff;
 								border:1px solid #ededed;
 								padding:1em 2em
@@ -697,6 +695,44 @@
 								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
 						</nav>
+						
+						
+						<nav role="navigation" aria-labelledby="sidenav">
+							<div class="ac">
+								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/>
+								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining</label>
+								<article class="ac-text">
+									<div>
+										<div class="layer-info">
+										<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
+										</div>
+										<div class="layer-info">
+										<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
+										</div>
+									</div>
+								</article>
+							</div>
+							
+							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CC3535/empty-tray.png"/>College Dining Halls
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
+							</a>
+						</nav>
+						
+						
+						
 						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
 							<i class="fas fa-bus"></i>Transportation
 							<span class="vis-indicator-all">
@@ -748,21 +784,20 @@
 							</span>
 						</h4>
 						
-						<div data-brackets-id="2262" class="ac">
-							<input data-brackets-id="2263" class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)"> <label data-brackets-id="2264" class="ac-label" for="facilities"><i data-brackets-id="2265" class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
-							<article data-brackets-id="2266" class="ac-text">
-								<div data-brackets-id="2267" class="">
-									<div data-brackets-id="2268" class="layer-info">
-										<p data-brackets-id="2269">Need help getting building information?<br data-brackets-id="2270">Use our - <a data-brackets-id="2271" href="#bldg-modal">Building Locator Tool</a></p>
-									</div>
-									<div class="layer-info">
-										<p>Learn more about Active Projects and their construction impacts - <a href="https://ppdo.ucsc.edu/construction/construction-maintenance-schedule.html">Active Projects List</a></p>
-									</div>
-								</div>
-							</article>
-						</div>
-						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<div class="ac">
+								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" onclick="groupToggle(facilities)"> <label class="ac-label" for="facilities-m"><i class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
+								<article class="ac-text">
+									<div class="">
+										<div class="layer-info">
+											<p>Need help getting building information?<br>Use our - <a href="#bldg-modal">Building Locator Tool</a></p>
+										</div>
+										<div class="layer-info">
+											<p>Learn more about Active Projects and their construction impacts - <a href="https://ppdo.ucsc.edu/construction/construction-maintenance-schedule.html">Active Projects List</a></p>
+										</div>
+									</div>
+								</article>
+							</div>
 							<a href="#" class="hide side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/339999/engineer.png"/>Construction Impacts
