@@ -592,12 +592,9 @@
 						<div class="ac">
 							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><i class="fas fa-hiking"></i>Recreation</label>
 							<article class="ac-text">
-								<div class="hide">
+								<div>
 									<div class="layer-info">
-										<p>Learn more about transportation on campus - <a href="https://taps.ucsc.edu">Transportation and Parking Services website</a></p>
-									</div>
-									<div class="layer-info">
-										<p>Visit the <a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>, for information about where your vehicle is right now and when it will arrive at your stop</p>
+										<p>Learn more about recreation opportunities on campus - <a href="https://recreation.ucsc.edu/">Athletics and Recreation website</a></p>
 									</div>
 								</div>
 							</article>
@@ -845,7 +842,7 @@
 									</div>
 								</article>
 							</div>
-							<a href="#" class="hide side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/339999/engineer.png"/>Construction Impacts
 							</a>
@@ -866,12 +863,24 @@
 								<img src="https://img.icons8.com/small/16/339999/recycling.png"/>Recycling
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(recreations)">
+						<h4 class="hide side-nav-title" onclick="groupToggle(recreations)">
 							<i class="fas fa-hiking"></i>Recreation
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/recreation.png">
 							</span>
 						</h4>
+						
+						<div class="ac">
+							<input class="ac-input" id="recreation-m" name="recreation-m" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation-m"><i class="fas fa-hiking"></i>Recreation</label>
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+										<p>Learn more about recreation opportunities on campus - <a href="https://recreation.ucsc.edu/">Athletics and Recreation website</a></p>
+									</div>
+								</div>
+							</article>
+						</div>
+						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>

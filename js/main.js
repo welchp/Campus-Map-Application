@@ -326,7 +326,7 @@ require([
 	
 	constructionpopuptemplate = {
 		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel}</span>{Project}",
-		content:"<div><br><p style='font-size:0.8em'>{website}</p><p style='padding:2em;border:1px solid #ededed'>{Description}<br><br><span style='font-size:0.8em'>Estimated Completion | {EndDate}</span></p></div>"
+		content:"<div><br><p style='font-size:0.8em'><a href='{website}'>Project Website</a></p><p style='padding:2em;border:1px solid #ededed'>{Description}<br><br><span style='font-size:0.8em'>Estimated Completion | {EndDate}</span></p></div>"
 	}
     
     //FEATURE RENDERERS
