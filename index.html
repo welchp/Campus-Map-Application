@@ -146,6 +146,27 @@
 			text-decoration: underline
 		}
 		
+		.impact-level {
+			margin-right:0.8em;
+			border-radius:3px;
+			padding:0.12em 0.4em;
+			color:white;
+			background-color:#ededed;
+			font-weight:500
+		}
+		
+		.Low {
+			background-color:#EDD72F
+		}
+		
+		.Medium {
+			background-color:#E3BB2D
+		}
+		
+		.High {
+			background-color:#D66865
+		}
+		
 	</style>
 
 </head>
@@ -407,8 +428,8 @@
 						
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/>
-								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining</label>
+								<input class="ac-input" id="dining-m" name="dining-m" type="checkbox" onclick="groupToggle(foods)"/>
+								<label class="ac-label" for="dining-m"><i class="fas fa-utensils"></i>Dining</label>
 								<article class="ac-text">
 									<div>
 										<div class="layer-info">
@@ -671,13 +692,13 @@
 								font-size:0.9em
 							}
 						</style>
-						<h4 class="side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
+						<h4 class="hide side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
 							<i class="fas fa-utensils"></i>Food & Drink
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/food_and_drink.png">
 							</span>
 						</h4>
-						<nav role="navigation" aria-labelledby="sidenav">
+						<nav class="hide" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
@@ -733,12 +754,26 @@
 						
 						
 						
-						<h4 class="side-nav-title" onclick="groupToggle(transportations)">
+						<h4 class="hide side-nav-title" onclick="groupToggle(transportations)">
 							<i class="fas fa-bus"></i>Transportation
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/transportation.png">
 							</span>
 						</h4>
+						
+						<div class="ac">
+							<input class="ac-input" id="transportation-m" name="transportation-m" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation-m"><i class="fas fa-bus"></i>Transportation</label>
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+										<p>Learn more about transportation on campus - <a href="https://taps.ucsc.edu">Transportation and Parking Services website</a></p>
+									</div>
+									<div class="layer-info">
+										<p>Visit the <a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>, for information about where your vehicle is right now and when it will arrive at your stop</p>
+									</div>
+								</div>
+							</article>
+						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -757,12 +792,24 @@
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
 						</nav>
-						<h4 class="side-nav-title" onclick="groupToggle(student_life)">
+						<h4 class="side-nav-title hide" onclick="groupToggle(student_life)">
 							<i class="fas fa-book"></i>Campus Life
 							<span class="vis-indicator-all">
 								<img width="20px" src="images/icons/academics.png">
 							</span>
 						</h4>
+						
+						<div class="ac">
+							<input class="ac-input" id="student_life-m" name="student_life-m" type="checkbox" onclick="groupToggle(student_life)" /> 
+							<label class="ac-label" for="student_life-m"><i class="fas fa-book"></i>Campus Life</label>
+							<article class="ac-text">
+								<div>
+									<div class="layer-info">
+										<p>Learn more about Student Support programs available on campus - <a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a></p>
+									</div>
+								</div>
+							</article>
+						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>

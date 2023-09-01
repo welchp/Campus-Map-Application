@@ -26,6 +26,7 @@ var homeBtn;
 var app_popup;
 var searchWidget;
 var searchWidget2;
+var basemapGallery;
 
 var params;
 var query;
@@ -82,6 +83,9 @@ var greenMarker;
 var yellowMarker;
 var defaultMarker;
 var lightBlueMarker;
+
+var ptemplate;
+var constructionpopuptemplate;
 
 function setBuildingLabels() {
 	$(document).ready(function(){
@@ -315,12 +319,15 @@ require([
         }
     });
 	
-	var ptemplate = {
+	ptemplate = {
 		title: "{ASSETNUM} - {BUILDINGNAME}",
-		// Four fields are used in this template. The value of the selected feature will be
-		// inserted in the location of each field name below
 		content: "<br><span style='font-size: small;'>{ADDRESS}</span><br /><span style='font-size: small;'>{CITY}, </span><span style='font-size: small;'>{STATE}, </span><span style='font-size: small;'>{expression/expr0}  <br /> </span><a href='https://www.google.com/maps/dir/?api=1&amp;origin=&amp;destination={LATITUDE},{LONGITUDE}' rel='nofollow ugc' target='_blank'><br /><img height='18px' src='https://drive.google.com/uc?export=view&amp;id=1Fff8J55VDW0062m2IOi9_-gM8audIcpR' style='margin-right:6px' width='18px' />Get Directions</a><br /><br /><img height='18px' src='https://drive.google.com/uc?export=view&amp;id=1iOMvcbmxIyoyc0IkEaMo6lSdVjHZ0Zyn' style='margin-right:6px' width='18px' />Share Building Location via Webmap:<br /><a href='{BUILDINGURL}' rel='nofollow ugc' target='_blank'>{BUILDINGURL}<br /></a><br /><hr /><br /><font size='2'>DEPARTMENTS<br />{DEPARTMENTS}<br /><br />CATEGORY<br />{PRIMARYUSE}  <br /> <br />CONSTRUCTION YEAR<br />{CONSTRUCTIONYEAR}</font><br /> <br /><font size='3'><br /></font>"
 	};
+	
+	constructionpopuptemplate = {
+		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel}</span>{Project}",
+		content:"<div><br><p style='font-size:0.8em'>{website}</p><p style='padding:2em;border:1px solid #ededed'>{Description}<br><br><span style='font-size:0.8em'>Estimated Completion | {EndDate}</span></p></div>"
+	}
     
     //FEATURE RENDERERS
     var defaultMarker = {
@@ -591,9 +598,9 @@ require([
         center: [-122.061864, 37.000111],
 		layerViews:everyLayer,
 		highlightOptions:{
-			color:"#003c63",
-			haloOpacity:0.8,
-			fillOpacity:0.4,
+			color:"#336389",
+			haloOpacity:1,
+			fillOpacity:0,
 			
 		},
 		popup:{
@@ -623,12 +630,12 @@ require([
 			  type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
 			  color: [255,255,255,0.1],
 			  outline: {  // autocasts as new SimpleLineSymbol()
-				width: 0.5,
+				width: 1,
 				color: null
 			  }
 			}
 		  },
-        labelingInfo: [buildingsLabelClass]
+        labelingInfo: [buildingsLabelClass],
     })
 	buildings_lyr.labelsVisible = false;	
     
@@ -806,7 +813,8 @@ require([
         portalItem:{
             id: "10cbef23c58042c7ac2b1cbd3312d0ee"
         },
-        visible: false
+        visible: false,
+		popupTemplate: constructionpopuptemplate
     })
 	
     
@@ -826,11 +834,20 @@ require([
 	////////////     WIDGETS      \\\\\\\\\\\\\	
     
 	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
-	//let basemapGallery = new BasemapGallery({
-	//  view: view,
-	//  position: "bottom-right",
-	//  container: "side-bar"
-	//});
+	var basemapGallery = new BasemapGallery({
+	  view: view,
+	  source: [Basemap.fromId("satellite"), Basemap.fromId("gray-vector")],
+	  expanded: false
+	  //position: "bottom-right",
+	  //container: "side-bar"
+	});
+	
+	var bmExpand = new Expand({
+		view: view,
+		expandTooltip:"Change the Basemap",
+		content: basemapGallery,
+		expanded: false
+	})
 	
 	var bookmarks = new Bookmarks({
 		view: view
@@ -838,10 +855,10 @@ require([
 
 	var bkExpand = new Expand({
 		view: view,
+		expandTooltip:"Pan to Additional Sites",
 		content: bookmarks,
 		expanded: false
 	})
-	view.ui.add(bkExpand, "bottom-left");
 	
 	view.ui.remove("attribution");
     
@@ -854,6 +871,10 @@ require([
         view: view
       });
     view.ui.add(locateBtn, {position: "top-left"});
+	
+	view.ui.add(bmExpand, "top-left");
+	
+	view.ui.add(bkExpand, "top-left");
     
 	view.ui.add("map-options-footer", "top-right")
     
@@ -1333,11 +1354,11 @@ require([
 
 		var caantag = document.createElement("p")
 		caantag.className = "caan"
-		caantag.textContent = "caan#: " + caan
+		caantag.textContent = "CAAN NUMBER: " + caan
 		d.appendChild(caantag)
 
 		var addresstag = document.createElement("p")
-		addresstag.textContent = "address: " + address
+		addresstag.textContent = "ADDRESS: " + address
 		d.appendChild(addresstag)
 		
 		var aliastag = document.createElement("p")
@@ -1346,7 +1367,7 @@ require([
 
 		var depts_list = document.createElement("p")
 		depts_list.className = "depts"
-		depts_list.textContent = "departments: " + depts
+		depts_list.textContent = "DEPARTMENTS: " + depts
 		d.appendChild(depts_list)
 
 		//for (i = 1; i < all_attributes.length-1; i++){
