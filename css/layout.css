@@ -581,7 +581,7 @@ aside {
 	position: absolute;
 	top: 70px;
 	right: 14px;
-	background-color: #985f32;
+	background-color: #C89933;
 	color: #fff;
 	border: 2px solid rgba(255, 255, 255, 0.7);
 	border-radius: 100%;
@@ -1150,7 +1150,7 @@ aside {
 	font-size: 1.5em;
 	text-decoration: none;
 	border-radius: 100%;
-	background: #985f32;
+	background: #C89933;
 	padding: 0 0.5em;
 	box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
 	transform: translate(0.75em, 0);
@@ -1176,7 +1176,7 @@ h4 {
 }
 
 .modal h1 {
-	background-color: #985f32;
+	background-color: #C89933;
 	border: 1px solid #999;
 	color: white;
 	padding: 10px;
