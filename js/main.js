@@ -11,6 +11,7 @@ var satellite;
 var carto;
 var hybrid;
 
+var custombasemap;
 var map;
 var webmap;
 var aerial_webmap;
@@ -40,6 +41,7 @@ var shuttleLabelClass;
 var studentLifeLabelClass;
 var recLabelClass;
 
+var vtpk_lyr;
 var construction_impacts_lyr;
 var support_lyr;
 var recycling_lyr;
@@ -559,7 +561,12 @@ require([
 	
 	
     ///////    BASEMAPS     \\\\\\\
-   
+    custombasemap = new Basemap({
+    	//baseLayers: [vtpk_lyr],
+    	title: "No Basemap",
+    	id: "No Basemap", 
+		thumbnailUrl:"/images/ucsc-basemap.PNG"
+    });
 	
 	carto = new WebMap({
         portalItem: {
@@ -618,6 +625,19 @@ require([
 	
 
 	//LOAD ALL MAP LAYERS
+	var handle = view.map.watch("basemap.title", function (newValue, oldValue, property, object) {
+		if (newValue == "Imagery") {
+			view.map.layers.items[0].visible = false;
+			console.log("IMAGERY")
+		} else {
+			view.map.layers.items[0].visible = true;
+		}
+		//console.log("New value: ", newValue, // The new value of the property
+		//	"<br>Old value: ", oldValue, // The previous value of the changed property
+		//	"<br>Watched property: ", property, // In this example this value will always be //"basemap.title"
+		//	"<br>Watched object: ", object); // In this example this value will always be the map object
+	});
+	
 	buildings_lyr = new FeatureLayer({
         portalItem:{
             id:"444f951ecbc1471186c0b069448d39fe"
@@ -836,7 +856,7 @@ require([
 	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
 	var basemapGallery = new BasemapGallery({
 	  view: view,
-	  source: [Basemap.fromId("satellite"), Basemap.fromId("gray-vector")],
+	  source: [Basemap.fromId("satellite"), Basemap.fromId("gray-vector"), custombasemap],
 	  expanded: false
 	  //position: "bottom-right",
 	  //container: "side-bar"
