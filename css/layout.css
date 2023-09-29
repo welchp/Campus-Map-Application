@@ -1250,5 +1250,13 @@ h4 {
 			width: 100%;
 			padding: 0.5em 1em
 		}
+		
+		#buttons {
+			margin-bottom:0px
+		}
+		
+		.news-block {
+			margin:10px 0
+		}
 
 	}
