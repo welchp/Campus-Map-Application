@@ -782,11 +782,12 @@ require([
     })
 	lactation_lyr = new FeatureLayer({
         portalItem:{
-            id: "38160cfa13ca4f83b555af4bb72e1205"
+            //id: "38160cfa13ca4f83b555af4bb72e1205"
+			id:"ba2a80f2ee6046c98b2371d4bc3f3d1c"
         },
-        visible: false,
-		labelsVisible: true,
-		definitionExpression: "ADVERTISE = 'True'"
+        visible: false
+		//labelsVisible: true,
+		//definitionExpression: "ADVERTISE = 'True'"
     })
     emergency_phones_lyr = new FeatureLayer({
         portalItem:{
