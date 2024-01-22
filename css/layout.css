@@ -1211,7 +1211,12 @@ h4 {
 	text-decoration: underline
 }
 
-@media only screen and (max-height: 900px) {
+.pdf-modal-content {
+	height:100%;
+	width:33%;
+}
+
+@media only screen and (max-height: 930px) {
 	#layer-list {
 		max-height: 350px;
 	}
@@ -1267,6 +1272,11 @@ h4 {
 		#nav-list > li,
 		.nav-box {
 			height: 100%;
+		}
+		
+		.pdf-modal-content {
+			height:auto;
+			width:90%;
 		}
 
 	}
