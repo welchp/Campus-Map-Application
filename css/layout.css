@@ -1216,7 +1216,7 @@ h4 {
 	width:33%;
 }
 
-@media only screen and (max-height: 930px) {
+@media only screen and (max-height: 900px) {
 	#layer-list {
 		max-height: 350px;
 	}
