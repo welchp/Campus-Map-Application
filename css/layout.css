@@ -683,7 +683,7 @@ aside {
 
 .side-nav-title {
 	width: 100%;
-	background-colo: #01589D;
+	background-color: #01589D;
 	color: white;
 	color: #666;
 	padding: 5px;
@@ -754,10 +754,25 @@ aside {
 	color: yellowgreen;
 }
 
+.vis {
+	position:absolute;
+	height:50%;
+	top:20%;
+	right:2.5em;
+	color:#999;
+}
+
 /* accordions */
 .container {
     max-width: 40em;
     margin: 10px auto;
+}
+
+.ac {
+	position:relative;
+	width:100%;
+	display:flex;
+	flex-direction: column
 }
 
 .ac-label {

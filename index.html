@@ -19,8 +19,6 @@
 
 	<link rel="shortcut icon" type="image/x-icon" href="./favicon.ico" />
 
-	
-
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="Description" content="The official interactive webmap of the University of California, Santa Cruz- created and maintained by campus staff. Search for buildings, transit information, recreational opportunities and more! Check back often for the latest and greatest content. Send an email to maps@ucsc.edu for questions, comments, or general opinions about your experience with the map.">
 
@@ -42,6 +40,11 @@
 	<script src="js/calcite-web.min.js"></script>
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
+	
+	<!-- NEW  -->
+	<script type="module" src="https://js.arcgis.com/calcite-components/2.11.1/calcite.esm.js"></script>
+	<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.11.1/calcite.css" />
+	
 	
 	<script>
 		function filterBuildings() {
@@ -436,7 +439,11 @@
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
 								<input class="ac-input" id="dining-m" name="dining-m" type="checkbox" onclick="groupToggle(foods)"/>
-								<label class="ac-label" for="dining-m"><i class="fas fa-utensils"></i>Dining</label>
+								<label class="ac-label" for="dining-m">
+								<i class="fas fa-utensils"></i>
+								Dining
+								<calcite-icon class="vis" icon="view-hide"></calcite-icon>
+								</label>
 								<article class="ac-text">
 									<div>
 										<div class="layer-info">
@@ -450,7 +457,8 @@
 							</div>
 							
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
+								<calcite-icon icon="square"></calcite-icon>
+								
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
@@ -476,7 +484,8 @@
 						
 						<nav role="navigation" aria-labelledby="sidenav">
 						<div class="ac">
-							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation"><i class="fas fa-bus"></i>Transportation</label>
+							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation"><i class="fas fa-bus"></i>Transportation
+							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -520,7 +529,8 @@
 						
 						<div class="ac">
 							<input class="ac-input" id="student_life" name="student_life" type="checkbox" onclick="groupToggle(student_life)" /> 
-							<label class="ac-label" for="student_life"><i class="fas fa-book"></i>Campus Life</label>
+							<label class="ac-label" for="student_life"><i class="fas fa-book"></i>Campus Life
+							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -553,7 +563,8 @@
 						</h4>
 						
 						<div class="ac">
-							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities"><i class="fas fa-life-ring"></i>Health, Safety & Facilities</label>
+							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities"><i class="fas fa-life-ring"></i>Health, Safety & Facilities
+							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div class="">
 									<div class="layer-info">
@@ -602,7 +613,8 @@
 						</h4>
 						
 						<div class="ac">
-							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><i class="fas fa-hiking"></i>Recreation</label>
+							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><i class="fas fa-hiking"></i>Recreation
+							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">

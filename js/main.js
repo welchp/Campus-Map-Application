@@ -222,6 +222,21 @@ function expandableMenus() {
 	}, false);
 }
 
+function eyeballVis() {
+	
+	document.addEventListener('click', function (event) {
+	// If the clicked element doesn't have the right selector, bail
+	if (!event.target.matches('.vis')) return;
+		if (event.target.icon == "view-hide") {
+			event.target.icon = "view-visible"
+			event.target.style.color = "#003c6c"
+		} else {
+			event.target.icon = "view-hide"
+			event.target.style.color = "#999"
+		}
+	}, false);
+}
+
 function indicateVisibility() {
 	
 	document.addEventListener('click', function (event) {
@@ -1425,7 +1440,8 @@ require([
     //showLegend();
 	setZoom();
 	loader();
-	indicateAll();
+	//indicateAll();
 	//watchBuildingLabels();
 	//expandableMenus();
+	eyeballVis();
 });
