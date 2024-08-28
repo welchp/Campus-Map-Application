@@ -226,7 +226,8 @@ function eyeballVis() {
 	
 	document.addEventListener('click', function (event) {
 	// If the clicked element doesn't have the right selector, bail
-	if (!event.target.matches('.vis')) return;
+	if (!event.target.matches('#dining-eyeball')) return;
+		groupToggle(foods)
 		if (event.target.icon == "view-hide") {
 			event.target.icon = "view-visible"
 			event.target.style.color = "#003c6c"
@@ -241,22 +242,22 @@ function indicateVisibility() {
 	
 	document.addEventListener('click', function (event) {
 	// If the clicked element doesn't have the right selector, bail
-	if (!event.target.matches('.side-nav-link')) return;
-		if (event.target.childNodes[1].className == "icon-ui-checkbox-checked") {
-			event.target.childNodes[1].className = "icon-ui-checkbox-unchecked"
+	if (!event.target.matches('.vis-check')) return;
+		if (event.target.children[0].icon == "square") {
+			event.target.children[0].icon = "check-square-f"
 		} else {
-			event.target.childNodes[1].className = "icon-ui-checkbox-checked"
+			event.target.children[0].icon = "square"
 		}
 	}, false);
 }
 
-function allLayersOn(side_nav_title) {
-	for (i=0; i < side_nav_title.nextElementSibling.children.length; i++) {
-		if (side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-checkbox-checked') {
-			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+function allLayersOn(element) {
+	for (i=0; i < element.nextElementSibling.children.length; i++) {
+		if (element.nextElementSibling.children[i].children[0].getAttribute('class') == 'icon-ui-checkbox-checked') {
+			console.log(element.nextElementSibling.children[i].children[0].getAttribute('class'))
 			//pass
 		} else {
-			console.log(side_nav_title.nextElementSibling.children[i].children[0].getAttribute('class'))
+			console.log(element.nextElementSibling.children[i].children[0].getAttribute('class'))
 			return false
 		}
 	}
@@ -268,7 +269,7 @@ function indicateAll() {
 	//when side-nav-title is clicked, get all children layers
 	//if one is checked, make all checked, else, make all unchecked
 	document.addEventListener('click', function (event) {
-	if (!event.target.matches('.side-nav-title')) return;
+	if (!event.target.matches('#dining-eyeball')) return;
 		if (allLayersOn(event.target)){
 			for (i=0; i < event.target.nextElementSibling.children.length; i++){
 				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-checkbox-unchecked')

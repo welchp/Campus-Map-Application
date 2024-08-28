@@ -40,10 +40,14 @@
 	<script src="js/calcite-web.min.js"></script>
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
+	<!--script src="https://js.arcgis.com/4.30/"></script-->
+	<script src="js/ucsc-map-layers.js"></script>
 	
 	<!-- NEW  -->
 	<script type="module" src="https://js.arcgis.com/calcite-components/2.11.1/calcite.esm.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.11.1/calcite.css" />
+
+	<link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css">
 	
 	
 	<script>
@@ -381,23 +385,24 @@
 			<div id="side-bar" class="tablet-hide">
 				<!--a href="#bldg-modal"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a-->
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
-				<div id="navigation">
+				<div style="border-top:1px solid #ededed" id="navigation">
 					<ul id="nav-list">
 						<li>
 							<div class="nav-box"><a class="third-nav-link" href="home/">
-									<div class="icon-box"><i class="far fa-building"></i></div>
+									<!--div class="icon-box"><i class="far fa-building"></i></div-->
+									<div class="icon-box"><calcite-icon icon="home" scale="l"></calcite-icon></div>
 									<p>Maps Home</p>
 								</a></div>
 						</li>
 						<li>
 							<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
-									<div class="icon-box"><i class="far fa-file-pdf"></i></div>
+									<div class="icon-box"><div class="icon-box"><calcite-icon icon="print" scale="l"></calcite-icon></div></div>
 									<p>Printable Maps</p>
 								</a></div>
 						</li>
 						<li>
 							<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
-									<div class="icon-box"><i class="far fa-file-alt"></i></div>
+									<div class="icon-box"><div class="icon-box"><calcite-icon icon="map" scale="l"></calcite-icon></div></div>
 									<p>Detailed Directions</p>
 								</a></div>
 						</li>
@@ -406,7 +411,7 @@
 				
 				<div id="layer-list">
 					
-					<aside class="side-nav" aria-role="complementary">
+					<aside style="display:none" class="side-nav" aria-role="complementary">
 						<!--div class="ac">
 							<article class="ac-text">
 								<div>
@@ -457,7 +462,7 @@
 							</div>
 							
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<calcite-icon icon="square"></calcite-icon>
+								<calcite-icon scale="s" icon="square" class="vis-check"></calcite-icon>
 								
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
 							</a>
@@ -642,6 +647,30 @@
 
 					</aside>
 					
+					<ul id="toc-list">
+						<li class="toc-layer toc-layer-group">
+						<input id="dining-group-toggle" class="vis-toggle eyeball" type="checkbox" onclick="groupToggle(foods)" value="Dining">
+						<calcite-icon id="dining-eyeball" class="vis" icon="view-hide"></calcite-icon>
+						<label class= "toc-layer toc-layer-label" for="dining-group-toggle">
+							<img src="https://img.icons8.com/small/16/CC3535/restaurant.png" />
+							Dining
+						</label>
+						</li>
+						<li class="toc-layer vis-check">
+							<input id="cafes-toggle" class="vis-toggle" type="checkbox" onclick="changeVisibility(cafes_lyr)" value="Restaurants">
+							<label class= "toc-layer toc-layer-label" for="cafes-toggle">
+								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png" />
+								Restaurants & Cafes
+							</label>
+						</li>
+						<li class="toc-layer vis-check">
+							<input id="perks-toggle" class="vis-toggle" type="checkbox" onclick="changeVisibility(perks_lyr)" value="perk">
+							<label class= "toc-layer toc-layer-label" for="perks-toggle">
+								<img src="https://img.icons8.com/small/16/CC3535/coffee-to-go.png" />
+								The Perk Coffee Shops
+							</label>
+						</li>
+					</ul>
 				</div>
 				<div id="map-options" style="display: none">
 						<h3>MAP OPTIONS</h3>
@@ -984,7 +1013,7 @@
 		</header>
 	</div>
 	
-	<script src='js/main.js'></script>
+	<script src="js/main.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
