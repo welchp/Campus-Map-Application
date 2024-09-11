@@ -661,7 +661,7 @@ aside {
 	-ms-flex-align: center;
 	align-items: center;
 	padding: 10px 10px 10px 10px;
-	min-width: 450px;
+	min-width: 200px;
 	max-width: 450px;
 	margin-right: auto;
 	overflow: auto;
@@ -759,6 +759,7 @@ aside {
 
 .vis {
 	color:#999;
+	display:none;
 }
 
 /* accordions */
@@ -1143,7 +1144,6 @@ aside {
 	max-width: 80%;
 	max-height: 90%;
 	height: 800px;
-	width: 66%;
 	background: #fff;
 	padding: 1em;
 	overflow: auto;
@@ -1226,8 +1226,6 @@ h4 {
 }
 
 .pdf-modal-content {
-	height:100%;
-	width:33%;
 }
 
 #toc-list {
@@ -1278,7 +1276,7 @@ h4 {
 	display:none
 }
 
-@media only screen and (max-height: 900px) {
+@media only screen and (max-height: 933px) {
 	#layer-list {
 		max-height: 350px;
 	}

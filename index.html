@@ -41,7 +41,6 @@
 	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
 	<script src="https://js.arcgis.com/4.9/"></script>
 	<!--script src="https://js.arcgis.com/4.30/"></script-->
-	<script src="js/ucsc-map-layers.js"></script>
 	
 	<!-- NEW  -->
 	<script type="module" src="https://js.arcgis.com/calcite-components/2.11.1/calcite.esm.js"></script>
@@ -274,7 +273,7 @@
 	<div id="announcement-modal" class="modal">
 		<a href="#" class="modal__close">&times;</a>
 		<div class="modal__content pdf-modal-content">
-			<embed src=".\images\PDF\20240109_UCSC Outreach Materials_Flyer.pdf" height="100%" width="100%">
+			<embed src="https://dining.ucsc.edu/eat/images/dining-map-04-2024.jpg" height="100%" width="100%">
 		</div>
 	</div>
 	
@@ -372,8 +371,8 @@
 		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
 			<div id="menu-icon-div">
-				<i id="menu-icon" class="icon-ui-layer-list phone-show"></i>
-				<i id="close-menu-icon" class="icon-ui-close phone-show"></i>
+				<i id="menu-icon" class="icon-ui-layer-list desktop-hide"></i>
+				<i id="close-menu-icon" class="icon-ui-close desktop-hide"></i>
 			</div>
 			<div id="map-options-footer" class="phone-show hide">
 				<div id="basemaps-icon" class="phone-show map-options-icon">
@@ -382,7 +381,7 @@
 			</div>
 		</header>
 		<div id="main-content">
-			<div id="side-bar" class="tablet-hide">
+			<div id="side-bar" class="phone-hide">
 				<!--a href="#bldg-modal"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a-->
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
 				<div style="border-top:1px solid #ededed" id="navigation">
@@ -411,7 +410,7 @@
 				
 				<div id="layer-list">
 					
-					<aside style="display:none" class="side-nav" aria-role="complementary">
+					<aside class="side-nav" aria-role="complementary">
 						<!--div class="ac">
 							<article class="ac-text">
 								<div>
@@ -453,7 +452,17 @@
 									<div>
 										<div class="layer-info">
 										<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
+										<br />
+										<p>
+											<a href="#announcement-modal">
+												<img src="https://img.icons8.com/small/16/003c6c/image.png"/>
+												Dining Locations Map
+											</a>
+										</p>
 										</div>
+										
+										https://dining.ucsc.edu/eat/index.html#images1
+										
 										<div class="layer-info">
 										<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
 										</div>
@@ -513,6 +522,10 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
 							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
+							</a>						
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Repair
@@ -647,7 +660,7 @@
 
 					</aside>
 					
-					<ul id="toc-list">
+					<ul style="display:none" id="toc-list">
 						<li class="toc-layer toc-layer-group">
 						<input id="dining-group-toggle" class="vis-toggle eyeball" type="checkbox" onclick="groupToggle(foods)" value="Dining">
 						<calcite-icon id="dining-eyeball" class="vis" icon="view-hide"></calcite-icon>
@@ -847,6 +860,10 @@
 							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>

@@ -70,6 +70,7 @@ var emergency_phones_lyr;
 var lactation_lyr;
 var pdf_extents_lyr;
 var buildingsLayerView;
+var bikeshare_lyr;
 
 var foods = [];
 var transportations = [];
@@ -263,15 +264,15 @@ function allLayersOn(element) {
 	}
 	return true
 }
-
+//THIS POINT
 function indicateAll() {
 	//event handler
 	//when side-nav-title is clicked, get all children layers
 	//if one is checked, make all checked, else, make all unchecked
 	document.addEventListener('click', function (event) {
 	if (!event.target.matches('#dining-eyeball')) return;
-		if (allLayersOn(event.target)){
-			for (i=0; i < event.target.nextElementSibling.children.length; i++){
+		if (allLayersOn(foods)){
+			for (i=0; i < foods.length; i++){
 				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-checkbox-unchecked')
 			}
 		} else {
@@ -862,17 +863,23 @@ require([
         visible: false
     })
 	
+	bikeshare_lyr = new FeatureLayer({
+		portalItem:{
+			id:"73416e80912c4541b83268040c98cd42",
+		},
+			visible: false
+	})
     
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
-  	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bike_parking_lyr, bike_repair_lyr]
+  	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr]
   	student_life = [colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [construction_impacts_lyr, emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr]
 	
 	
 	
@@ -1341,16 +1348,17 @@ require([
     //***
   
 	//Building Labels Toggle Watcher
-	function watchBuildingLabels() {
+	function watchLayerVisibility() {
 		ON = document.getElementById("On")
 		OFF = document.getElementById("Off")
 		MOBILE = document.getElementById("labels-icon")
 		
-		buildings_lyr.watch('labelsVisible', function(newValue, oldValue, property, object) {
+		cafes_lyr.watch('visible', function(newValue, oldValue, property, object) {
 			if (newValue == true) {
-				ON.checked = true
-				OFF.checked = false
-				MOBILE.style.backgroundColor = '#01589d'
+				//ON.checked = true
+				//OFF.checked = false
+				//MOBILE.style.backgroundColor = '#01589d'
+				//cafes_lyr.
 			} else {
 				ON.checked = false
 				OFF.checked = true

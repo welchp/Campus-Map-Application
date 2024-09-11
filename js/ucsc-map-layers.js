@@ -1,7 +1,14 @@
+var __variables = {
+	"group_input_class": "vis-toggle eyeball",
+	"single_input_class": "vis-toggle",
+	"group_class": "toc-layer toc-layer-group",
+	"single_class": "toc-layer vis-check"
+}
+
 var layer_config = {
 	"1": {
 		"input_id":"dining-group-toggle",
-		"input_class":"vis-toggle eyeball",
+		"input_class":__variables["group_input_class"],
 		"input_onclick":"groupToggle(foods)",
 		"input_value":"Dining",
 		"calcite_icon_id":"dining-eyeball",
@@ -14,7 +21,7 @@ var layer_config = {
 	},
 	"2": {
 		"input_id":"cafes-toggle",
-		"input_class":"vis-toggle",
+		"input_class":__variables["single_input_class"],
 		"input_onclick":"changeVisibility(cafes_lyr)",
 		"input_value":"Restaurants",
 		"calcite_icon_id":"",
@@ -27,7 +34,7 @@ var layer_config = {
 	},
 	"3": {
 		"input_id":"perks-toggle",
-		"input_class":"vis-toggle",
+		"input_class":__variables["single_input_class"],
 		"input_onclick":"changeVisibility(perks_lyr)",
 		"input_value":"Perks",
 		"calcite_icon_id":"",
@@ -37,6 +44,45 @@ var layer_config = {
 		"group": "Dining",
 		"type": "single",
 		"class":"toc-layer vis-check"
+	},
+	"4": {
+		"input_id":"dining-halls-toggle",
+		"input_class":__variables["single_input_class"],
+		"input_onclick":"changeVisibility(dining_lyr)",
+		"input_value":"Dining Halls",
+		"calcite_icon_id":"",
+		"label_for":"dining-toggle",
+		"img_src":"https://img.icons8.com/small/16/CC3535/empty-tray.png",
+		"text": "Residential Dining Halls",
+		"group": "Dining",
+		"type": "single",
+		"class":"toc-layer vis-check"
+	},
+	"5": {
+		"input_id":"food-trucks-toggle",
+		"input_class":__variables["single_input_class"],
+		"input_onclick":"changeVisibility(foodtrucks_lyr)",
+		"input_value":"Food Trucks",
+		"calcite_icon_id":"",
+		"label_for":"food-trucks-toggle",
+		"img_src":"https://img.icons8.com/small/16/CC3535/food-truck.png",
+		"text": "Food Trucks & Pop-ups",
+		"group": "Dining",
+		"type": "single",
+		"class":"toc-layer vis-check"
+	},
+	"6": {
+		"input_id":"transportation-group-toggle",
+		"input_class":__variables["group_input_class"],
+		"input_onclick":"groupToggle(transportations)",
+		"input_value":"transportations",
+		"calcite_icon_id":"dining-eyeball",
+		"label_for":"transport-toggle",
+		"img_src":"https://img.icons8.com/small/16/CC3535/transportation.png",
+		"text": "Transportation",
+		"group": "",
+		"type": "group",
+		"class":"toc-layer toc-layer-group"
 	}
 };
 
@@ -178,5 +224,5 @@ function buildMapCards() {
 //})
 
 document.addEventListener("DOMContentLoaded", function() {
- 	buildLayerTOC();
+ 	//buildLayerTOC();
 });
