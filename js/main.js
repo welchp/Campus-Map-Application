@@ -935,6 +935,16 @@ require([
         maxSuggestions: 10,
 		allPlaceholder: "Begin typing and select an option from the suggestions...",
         sources: [
+			{featureLayer: {
+                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
+            searchFields: ["RESOURCE"],
+            suggestionTemplate: "{RESOURCE}",
+            displayField: "RESOURCE",
+            exactMatch: false,
+            outFields: ["*"],
+            name: "Student Support",
+            placeholder: "enter a student support program"
+            },
             {featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
             searchFields: ["NAME"],
@@ -963,16 +973,6 @@ require([
 			popupTemplate: ptemplate,
 			placeholder: "enter a building name or departments",
 			},
-			{featureLayer: {
-                url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
-            searchFields: ["RESOURCE"],
-            suggestionTemplate: "{RESOURCE}",
-            displayField: "RESOURCE",
-            exactMatch: false,
-            outFields: ["*"],
-            name: "Student Support",
-            placeholder: "enter a student support program"
-            },
         	{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
             searchFields: ["NUM", "Permit_Type"],
@@ -1184,6 +1184,16 @@ require([
 				allPlaceholder: " Search for campus features",
 				sources: [
 					{featureLayer: {
+						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
+					searchFields: ["RESOURCE"],
+					suggestionTemplate: "{RESOURCE}",
+					displayField: "RESOURCE",
+					exactMatch: false,
+					outFields: ["*"],
+					name: "Student Support Programs",
+					placeholder: "enter a student support program"
+					},
+					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/colleges/FeatureServer/0"},
 					searchFields: ["NAME"],
 					displayField: "NAME",
@@ -1210,16 +1220,6 @@ require([
 					name: "Buildings",
 					popupTemplate: ptemplate,
 					placeholder: "enter a building name or departments",
-					},
-					{featureLayer: {
-						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
-					searchFields: ["RESOURCE"],
-					suggestionTemplate: "{RESOURCE}",
-					displayField: "RESOURCE",
-					exactMatch: false,
-					outFields: ["*"],
-					name: "Student Support Programs",
-					placeholder: "enter a student support program"
 					},
 					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
