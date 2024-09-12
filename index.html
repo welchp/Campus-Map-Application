@@ -384,7 +384,7 @@
 			<div id="side-bar" class="phone-hide">
 				<!--a href="#bldg-modal"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a-->
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
-				<div style="border-top:1px solid #ededed" id="navigation">
+				<div id="navigation">
 					<ul id="nav-list">
 						<li>
 							<div class="nav-box"><a class="third-nav-link" href="home/">
@@ -514,23 +514,23 @@
 						</nav>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
+							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Metro Bus and Shuttle Stops
+								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Transit Stops and Routes
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
 							</a>						
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
+							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Repair
 							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
+							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
@@ -853,23 +853,23 @@
 							</article>
 						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Metro Bus and Shuttle Stops
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
-							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
 							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
+							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Transit Stops and Routes
+							</a>
+							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
+								<i class="icon-ui-checkbox-unchecked"></i>
+								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
+							</a>						
+							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Repair
 							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
+							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
