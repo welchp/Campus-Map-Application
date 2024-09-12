@@ -140,7 +140,7 @@ body {
 
 #main-grid {
 	display: grid;
-	height: 100%;
+	height: 100dvh;
 	grid-template-rows: auto;
 	grid-template-columns: auto;
 }
