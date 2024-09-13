@@ -1449,7 +1449,7 @@ require([
     //showLegend();
 	setZoom();
 	loader();
-	//indicateAll();
+	indicateAll();
 	//watchBuildingLabels();
 	//expandableMenus();
 	eyeballVis();

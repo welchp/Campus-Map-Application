@@ -280,95 +280,6 @@
 	<div class="loading"></div>
 	
   	<div id="main-grid">
-		<div id="header">
-			<div id="nav" class="panel-dark-blue">
-				<img src="images/logos/UC Santa Cruz Logo - White.png" id="ucsc-logo">
-				<h1 class="trailer-half phone-hide">Interactive Map</h1>
-				<div id="map-options">
-					<div id="fieldsets" class="phone-hide">
-						<div>
-							<fieldset id="basemap-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
-								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
-								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
-								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
-								<label class="radio-group-label" for="hybrid">Hybrid</label>
-							</fieldset>
-						</div>
-						<div>
-							<fieldset id="building-label-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
-								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
-								<label class="radio-group-label" for="On">
-									<p>On</p>
-								</label>
-								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
-								<label class="radio-group-label" for="Off">Off</label>
-							</fieldset>
-						</div>
-						
-					</div>
-				</div>
-			</div>
-		</div>
-		<header class="third-nav phone-hide hidden">
-			<div class="third-nav-container">
-				<div class="grid-container">
-					<nav class="break" role="navigation" aria-labelledby="thirdnav">
-						<div id="break" style="margin-right:auto;">
-							<ul id="nav-list">
-								<li>
-									<div class="nav-box"><a class="third-nav-link" href="home/">
-											<div class="icon-box"><i class="far fa-building"></i></div>
-											<p>Maps Home</p>
-										</a></div>
-								</li>
-								<li>
-									<div class="nav-box"><a class="third-nav-link" href="printable-maps/" target="_blank">
-											<div class="icon-box"><i class="far fa-file-pdf"></i></div>
-											<p>Printable Maps</p>
-										</a></div>
-								</li>
-								<li>
-									<div class="nav-box"><a class="third-nav-link" href="detailed-directions/" target="_blank">
-											<div class="icon-box"><i class="far fa-file-alt"></i></div>
-											<p>Detailed Directions</p>
-										</a></div>
-								</li>
-							</ul>
-						</div>
-					</nav>
-				</div>
-			</div>
-			<div id="map-options">
-					<div id="fieldsets" class="phone-hide">
-						<div>
-							<fieldset id="building-label-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-labels"></i>Building Labels</legend>
-								<input class="radio-group-input" type="radio" id="On" value="on" name="building-label-toggle" />
-								<label class="radio-group-label" for="On">
-									<p>On</p>
-								</label>
-								<input class="radio-group-input" type="radio" id="Off" value="off" name="building-label-toggle" checked />
-								<label class="radio-group-label" for="Off">Off</label>
-							</fieldset>
-						</div>
-						<div>
-							<fieldset id="basemap-selector" class="radio-group">
-								<legend class="radio-group-title"><i class="icon-ui-basemap"></i>Choose your basemap</legend>
-								<input class="radio-group-input" type="radio" id="satellite" value="satellite" name="basemap-selector">
-								<label class="radio-group-label" for="satellite">Satellite</label>
-								<input class="radio-group-input" type="radio" id="carto" value="carto" name="basemap-selector" checked />
-								<label class="radio-group-label" for="carto">Carto</label>
-								<input class="radio-group-input" type="radio" id="hybrid" value="hybrid" name="basemap-selector" />
-								<label class="radio-group-label" for="hybrid">Hybrid</label>
-							</fieldset>
-						</div>
-					</div>
-				</div>
-		</header>
 		<header id="mobile-search-bar" class="third-nav phone-show">
 			<div id="menu-icon-div">
 				<i id="menu-icon" class="icon-ui-layer-list desktop-hide"></i>
@@ -388,7 +299,6 @@
 					<ul id="nav-list">
 						<li>
 							<div class="nav-box"><a class="third-nav-link" href="home/">
-									<!--div class="icon-box"><i class="far fa-building"></i></div-->
 									<div class="icon-box"><calcite-icon icon="home" scale="l"></calcite-icon></div>
 									<p>Maps Home</p>
 								</a></div>
@@ -411,18 +321,6 @@
 				<div id="layer-list">
 					
 					<aside class="side-nav" aria-role="complementary">
-						<!--div class="ac">
-							<article class="ac-text">
-								<div>
-									<div class="layer-info">
-									<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
-									</div>
-									<div class="layer-info">
-									<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
-									</div>
-								</div>
-							</article>
-						</div-->
 						<style>
 							.ac-label {
 								font-weight: 500;
@@ -444,7 +342,8 @@
 							<div class="ac">
 								<input class="ac-input" id="dining-m" name="dining-m" type="checkbox" onclick="groupToggle(foods)"/>
 								<label class="ac-label" for="dining-m">
-								<i class="fas fa-utensils"></i>
+								
+								<img width="24" height="24" src="https://img.icons8.com/material/24/hamburger--v1.png" alt="hamburger--v1"/>
 								Dining
 								<calcite-icon class="vis" icon="view-hide"></calcite-icon>
 								</label>
@@ -471,8 +370,7 @@
 							</div>
 							
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<calcite-icon scale="s" icon="square" class="vis-check"></calcite-icon>
-								
+								<i class="icon-ui-checkbox-unchecked"></i>				
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
@@ -487,18 +385,11 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
-						</nav>
-						
-						<h4 class="side-nav-title hide" onclick="groupToggle(transportations)">
-							<i class="fas fa-bus"></i>Transportation
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/transportation.png">
-							</span>
-						</h4>
-						
+						</nav>						
 						<nav role="navigation" aria-labelledby="sidenav">
 						<div class="ac">
-							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation"><i class="fas fa-bus"></i>Transportation
+							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation">
+							<img width="24" height="24" src="https://img.icons8.com/material/24/bus2--v1.png" alt="bus2--v1"/>Transportation
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
@@ -516,7 +407,7 @@
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
+								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations <span class="new-tag">NEW</span>
 							</a>
 							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -534,20 +425,10 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
-						</nav>
-						
-						
-						<h4 class="side-nav-title hide" onclick="groupToggle(student_life)">
-							<i class="fas fa-book"></i>Campus Life
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/academics.png">
-							</span>
-						</h4>
-						
-						
+						</nav>						
 						<div class="ac">
 							<input class="ac-input" id="student_life" name="student_life" type="checkbox" onclick="groupToggle(student_life)" /> 
-							<label class="ac-label" for="student_life"><i class="fas fa-book"></i>Campus Life
+							<label class="ac-label" for="student_life"><img width="24" height="24" src="https://img.icons8.com/material/24/book--v3.png" alt="book--v3"/>Campus Life
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
@@ -571,17 +452,10 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
 							</a>
-						</nav>
-						
-						<h4 class="side-nav-title hide" onclick="groupToggle(facilities)">
-							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/health_safety_and_facilities.png">
-							</span>
-						</h4>
-						
+						</nav>						
 						<div class="ac">
-							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities"><i class="fas fa-life-ring"></i>Health, Safety & Facilities
+							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities">
+							<img width="24" height="24" src="https://img.icons8.com/material/24/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety & Facilities
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div class="">
@@ -621,17 +495,9 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/339999/pdf.png"/>Printable Maps
 							</a>
-						</nav>
-						
-						<h4 class="side-nav-title hide" onclick="groupToggle(recreations)">
-							<i class="fas fa-hiking"></i>Recreation
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/recreation.png">
-							</span>
-						</h4>
-						
+						</nav>						
 						<div class="ac">
-							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><i class="fas fa-hiking"></i>Recreation
+							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><img width="24" height="24" src="https://img.icons8.com/material/24/trampoline-park.png" alt="trampoline-park"/>Recreation
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
