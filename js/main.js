@@ -1442,7 +1442,7 @@ require([
 	//filterBuildings();
 	getBuildingList();
 	indicateVisibility();
-    //toggleVisibility();
+    toggleVisibility();
     //toggleMenu();
   	setBasemap();
   	//setBuildingLabels();

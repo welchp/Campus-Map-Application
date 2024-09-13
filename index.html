@@ -340,10 +340,10 @@
 						
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="dining-m" name="dining-m" type="checkbox" onclick="groupToggle(foods)"/>
+								<input class="ac-input" id="dining-m" name="dining-m" type="checkbox" />
 								<label class="ac-label" for="dining-m">
 								
-								<img width="24" height="24" src="https://img.icons8.com/material/24/hamburger--v1.png" alt="hamburger--v1"/>
+								<img width="24" height="24" src="https://img.icons8.com/material/24/CC3535/hamburger--v1.png" alt="hamburger--v1"/>
 								Dining
 								<calcite-icon class="vis" icon="view-hide"></calcite-icon>
 								</label>
@@ -359,9 +359,7 @@
 											</a>
 										</p>
 										</div>
-										
-										https://dining.ucsc.edu/eat/index.html#images1
-										
+																				
 										<div class="layer-info">
 										<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
 										</div>
@@ -369,6 +367,7 @@
 								</article>
 							</div>
 							
+							<div class="hide">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>				
 								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
@@ -381,15 +380,34 @@
 								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CC3535/empty-tray.png"/>College Dining Halls
 							</a>
+							
 							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
 								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
 							</a>
+							</div>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>Restaurants and Cafes
+							  <input type="checkbox" onclick="changeVisibility(cafes_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
+							  <input type="checkbox" onclick="changeVisibility(perks_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/empty-tray.png"/>College Dining Halls
+							  <input type="checkbox" onclick="changeVisibility(dining_halls_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/food-truck.png"/>Food Trucks and pop-ups
+							  <input type="checkbox" onclick="changeVisibility(food_trucks_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
 						</nav>						
 						<nav role="navigation" aria-labelledby="sidenav">
 						<div class="ac">
-							<input class="ac-input" id="transportation" name="transportation" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation">
-							<img width="24" height="24" src="https://img.icons8.com/material/24/bus2--v1.png" alt="bus2--v1"/>Transportation
+							<input class="ac-input" id="transportation" name="transportation" type="checkbox" /> <label class="ac-label" for="transportation">
+							<img width="24" height="24" src="https://img.icons8.com/material/24/CB972F/bus2--v1.png" alt="bus2--v1"/>Transportation
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
@@ -427,8 +445,8 @@
 							</a>
 						</nav>						
 						<div class="ac">
-							<input class="ac-input" id="student_life" name="student_life" type="checkbox" onclick="groupToggle(student_life)" /> 
-							<label class="ac-label" for="student_life"><img width="24" height="24" src="https://img.icons8.com/material/24/book--v3.png" alt="book--v3"/>Campus Life
+							<input class="ac-input" id="student_life" name="student_life" type="checkbox" /> 
+							<label class="ac-label" for="student_life"><img width="24" height="24" src="https://img.icons8.com/material/24/6301CB/book--v3.png" alt="book--v3"/>Campus Life
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
@@ -454,8 +472,8 @@
 							</a>
 						</nav>						
 						<div class="ac">
-							<input class="ac-input" id="facilities" name="facilities" type="checkbox" onclick="groupToggle(facilities)" /> <label class="ac-label" for="facilities">
-							<img width="24" height="24" src="https://img.icons8.com/material/24/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety & Facilities
+							<input class="ac-input" id="facilities" name="facilities" type="checkbox" /> <label class="ac-label" for="facilities">
+							<img width="24" height="24" src="https://img.icons8.com/material/24/339999/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety & Facilities
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div class="">
@@ -497,7 +515,7 @@
 							</a>
 						</nav>						
 						<div class="ac">
-							<input class="ac-input" id="recreation" name="recreation" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation"><img width="24" height="24" src="https://img.icons8.com/material/24/trampoline-park.png" alt="trampoline-park"/>Recreation
+							<input class="ac-input" id="recreation" name="recreation" type="checkbox" /> <label class="ac-label" for="recreation"><img width="24" height="24" src="https://img.icons8.com/material/24/34CC02/trampoline-park.png" alt="trampoline-park"/>Recreation
 							<calcite-icon class="vis" icon="view-hide"></calcite-icon></label>
 							<article class="ac-text">
 								<div>
@@ -528,7 +546,7 @@
 					
 					<ul style="display:none" id="toc-list">
 						<li class="toc-layer toc-layer-group">
-						<input id="dining-group-toggle" class="vis-toggle eyeball" type="checkbox" onclick="groupToggle(foods)" value="Dining">
+						<input id="dining-group-toggle" class="vis-toggle eyeball" type="checkbox" value="Dining">
 						<calcite-icon id="dining-eyeball" class="vis" icon="view-hide"></calcite-icon>
 						<label class= "toc-layer toc-layer-label" for="dining-group-toggle">
 							<img src="https://img.icons8.com/small/16/CC3535/restaurant.png" />
@@ -636,12 +654,7 @@
 								font-size:0.9em
 							}
 						</style>
-						<h4 class="hide side-nav-title top" onclick="groupToggle(foods)" data-tooltip="Turn on all layers in this group" data-position="top">
-							<i class="fas fa-utensils"></i>Food & Drink
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/food_and_drink.png">
-							</span>
-						</h4>
+
 						<nav class="hide" role="navigation" aria-labelledby="sidenav">
 							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
 								<i class="icon-ui-checkbox-unchecked"></i>
@@ -664,7 +677,7 @@
 						
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="dining" name="dining" type="checkbox" onclick="groupToggle(foods)"/>
+								<input class="ac-input" id="dining" name="dining" type="checkbox" />
 								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining</label>
 								<article class="ac-text">
 									<div>
@@ -696,17 +709,8 @@
 							</a>
 						</nav>
 						
-						
-						
-						<h4 class="hide side-nav-title" onclick="groupToggle(transportations)">
-							<i class="fas fa-bus"></i>Transportation
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/transportation.png">
-							</span>
-						</h4>
-						
 						<div class="ac">
-							<input class="ac-input" id="transportation-m" name="transportation-m" type="checkbox" onclick="groupToggle(transportations)" /> <label class="ac-label" for="transportation-m"><i class="fas fa-bus"></i>Transportation</label>
+							<input class="ac-input" id="transportation-m" name="transportation-m" type="checkbox" /> <label class="ac-label" for="transportation-m"><i class="fas fa-bus"></i>Transportation</label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -740,15 +744,9 @@
 								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
 							</a>
 						</nav>
-						<h4 class="side-nav-title hide" onclick="groupToggle(student_life)">
-							<i class="fas fa-book"></i>Campus Life
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/academics.png">
-							</span>
-						</h4>
 						
 						<div class="ac">
-							<input class="ac-input" id="student_life-m" name="student_life-m" type="checkbox" onclick="groupToggle(student_life)" /> 
+							<input class="ac-input" id="student_life-m" name="student_life-m" type="checkbox" /> 
 							<label class="ac-label" for="student_life-m"><i class="fas fa-book"></i>Campus Life</label>
 							<article class="ac-text">
 								<div>
@@ -772,16 +770,10 @@
 								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
 							</a>
 						</nav>
-						<h4 class="side-nav-title hide" onclick="groupToggle(facilities)">
-							<i class="fas fa-life-ring"></i>Health, Safety & Facilities
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/health_safety_and_facilities.png">
-							</span>
-						</h4>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" onclick="groupToggle(facilities)"> <label class="ac-label" for="facilities-m"><i class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
+								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" /> <label class="ac-label" for="facilities-m"><i class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
 								<article class="ac-text">
 									<div class="">
 										<div class="layer-info">
@@ -818,15 +810,9 @@
 								<img src="https://img.icons8.com/small/16/339999/pdf.png"/>Printable Map Extents
 							</a>
 						</nav>
-						<h4 class="hide side-nav-title" onclick="groupToggle(recreations)">
-							<i class="fas fa-hiking"></i>Recreation
-							<span class="vis-indicator-all">
-								<img width="20px" src="images/icons/recreation.png">
-							</span>
-						</h4>
-						
+
 						<div class="ac">
-							<input class="ac-input" id="recreation-m" name="recreation-m" type="checkbox" onclick="groupToggle(recreations)" /> <label class="ac-label" for="recreation-m"><i class="fas fa-hiking"></i>Recreation</label>
+							<input class="ac-input" id="recreation-m" name="recreation-m" type="checkbox" /> <label class="ac-label" for="recreation-m"><i class="fas fa-hiking"></i>Recreation</label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
