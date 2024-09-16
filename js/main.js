@@ -1336,16 +1336,21 @@ require([
 			clearbutton.style.display = "flex"
 		}
 	}
+	
 	var clear_all_node = document.getElementById("clear-layers-icon");
 	function clearAll() {
 		clear_all_node.style.display = 'none'
+		console.log("turning layers off...")
 		visLayers.forEach(function(lyr){
 			lyr.visible = false	
 		})
+		console.log("done.")
 		
+		console.log("unchecking all boxes...")
 		document.querySelectorAll("input[type='checkbox']:checked").forEach((element) => {
 			element.click();
 		});
+		console.log("done.")
 		
 		/*var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
 		checked.forEach(function(element){
