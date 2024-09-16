@@ -149,6 +149,12 @@ function groupToggle(layer_list) {
   console.log("")
 }
 
+function clearAllLayers() {
+	allLayers.forEach(function(lyr){
+		lyr.visible = false
+	})
+}
+
 function showLegend() {
     $('#legend-button').bind('click', function(){
         $('.legend').toggleClass('hidden');
@@ -1336,10 +1342,15 @@ require([
 		visLayers.forEach(function(lyr){
 			lyr.visible = false	
 		})
-		var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
+		
+		document.querySelectorAll("input[type='checkbox']:checked").forEach((element) => {
+			element.click();
+		});
+		
+		/*var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
 		checked.forEach(function(element){
 			element.setAttribute('class', 'icon-ui-checkbox-unchecked') 
-		})
+		})*/
 	};
 	calcite.addEvent(clear_all_node, click, clearAll);
 	
