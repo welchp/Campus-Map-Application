@@ -347,7 +347,7 @@ aside {
 	box-shadow: none;
 }
 
-.esri-search {
+.esri-search__input {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
 	height: 33px;
 	width: 450px;

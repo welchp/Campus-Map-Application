@@ -276,7 +276,7 @@ function indicateAll() {
 	//when side-nav-title is clicked, get all children layers
 	//if one is checked, make all checked, else, make all unchecked
 	document.addEventListener('click', function (event) {
-	if (!event.target.matches('#dining-eyeball')) return;
+	if (!event.target.matches('#clear-layers-icon')) return;
 		if (allLayersOn(foods)){
 			for (i=0; i < foods.length; i++){
 				event.target.nextElementSibling.children[i].children[0].setAttribute('class','icon-ui-checkbox-unchecked')
@@ -1099,7 +1099,7 @@ require([
 				}
 		});
 		
-		monitorClearAll();
+		//monitorClearAll();
 	
 	});
 	
@@ -1338,7 +1338,7 @@ require([
 	}
 	
 	var clear_all_node = document.getElementById("clear-layers-icon");
-	function clearAll() {
+	function clearAll(visLayers) {
 		clear_all_node.style.display = 'none'
 		console.log("turning layers off...")
 		visLayers.forEach(function(lyr){
@@ -1347,7 +1347,8 @@ require([
 		console.log("done.")
 		
 		console.log("unchecking all boxes...")
-		document.querySelectorAll("input[type='checkbox']:checked").forEach((element) => {
+		var boxes = document.querySelectorAll(".container input[type='checkbox']:checked")
+		boxes.forEach((element) => {
 			element.click();
 		});
 		console.log("done.")
@@ -1357,7 +1358,7 @@ require([
 			element.setAttribute('class', 'icon-ui-checkbox-unchecked') 
 		})*/
 	};
-	calcite.addEvent(clear_all_node, click, clearAll);
+	//calcite.addEvent(clear_all_node, click, clearAll(visLayers));
 	
   
     // Can probably delete the function below
@@ -1374,11 +1375,12 @@ require([
 				//ON.checked = true
 				//OFF.checked = false
 				//MOBILE.style.backgroundColor = '#01589d'
-				//cafes_lyr.
+				//cafes_lyr.visible = true
 			} else {
-				ON.checked = false
-				OFF.checked = true
-				MOBILE.style.backgroundColor = 'rgba(0,0,0,0.2)'
+				cafes_lyr.visible = false
+				//ON.checked = false
+				//OFF.checked = true
+				//MOBILE.style.backgroundColor = 'rgba(0,0,0,0.2)'
 			}
 		})  
 	}
@@ -1457,16 +1459,17 @@ require([
 	//FUNCTIONS TO RUN
 	//filterBuildings();
 	getBuildingList();
-	indicateVisibility();
-    toggleVisibility();
+	//indicateVisibility();
+    //toggleVisibility();
     //toggleMenu();
   	setBasemap();
   	//setBuildingLabels();
     //showLegend();
 	setZoom();
 	loader();
-	indicateAll();
+	//indicateAll();
 	//watchBuildingLabels();
 	//expandableMenus();
-	eyeballVis();
+	//eyeballVis();
+	//watchLayerVisibility();	
 });
