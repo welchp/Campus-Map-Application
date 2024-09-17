@@ -137,9 +137,7 @@
 		.layer-info {
 			background-color: #d8e3f0;
 			background-color: #F2F0E4;
-			padding:10px;
 			box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-			margin:8px;
 		}
 		
 		.layer-info p {
@@ -329,7 +327,7 @@
 							.layer-info {
 								background-color: #fff;
 								border:1px solid #ededed;
-								padding:1em 2em
+								padding:0.5em 1em
 							}
 							
 							.layer-info p {
@@ -349,42 +347,27 @@
 								</label>
 								<article class="ac-text">
 									<div>
-										<div class="layer-info">
-										<p>Learn more about food and drink options - <a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a></p>
-										<br />
-										<p>
-											<a href="#announcement-modal">
-												<img src="https://img.icons8.com/small/16/003c6c/image.png"/>
-												Dining Locations Map
-											</a>
-										</p>
-										</div>
+									<div class="layer-info">
+										<a href="#announcement-modal">
+											<img src="https://img.icons8.com/small/16/003c6c/image.png"/>
+											Dining Locations Map
+										</a>
+									</div>
+									
+									<div class="layer-info">
+										<a href="https://dining.ucsc.edu/eat/index.html">On-Campus Locations, Hours & Menus</a>
+										<p>Learn more about food and drink options</p>
+									</div>
 																				
 										<div class="layer-info">
-										<p>Visit the <a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>, for information about Cafes, Food Trucks and Pop-Ups</p>
+											<a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>
+											<p>information about Cafes, Food Trucks and Pop-Ups</p>
 										</div>
 									</div>
 								</article>
 							</div>
 							
-							<div class="hide">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>				
-								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/empty-tray.png"/>College Dining Halls
-							</a>
 							
-							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
-							</a>
-							</div>
 							
 							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>Restaurants and Cafes
 							  <input type="checkbox" onclick="changeVisibility(cafes_lyr)">
@@ -706,10 +689,14 @@
 							border: 1px solid lightgray;
 						}
 
-						#announcements p {}
+						#announcements p {
+							font-size:15px
+						}
 					</style>
-					<div id="announcements" class="news-block hide">
-						<p><strong>PPDO is hiring a GIS Analyst!</strong><br><a href="https://careerspub.universityofcalifornia.edu/psp/ucsc/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?Page=HRS_APP_JBPST&Action=U&FOCUS=Applicant&SiteId=11&JobOpeningId=66801&PostingSeq=1" target="_blank"> View the job posting</a> for more information and feel free to share with anyone who might be a good fit.</p>
+					<div id="announcements" class="news-block">
+						<p><strong>Welcome back slugs!</strong><br>
+						<a href="https://taps.ucsc.edu/parking/event-parking/move-in-students.html" target="_blank">Get information about Fall 2024 Move-in</a>
+						</p>
 					</div>
 				</div>
 				
@@ -728,8 +715,10 @@
 						</div>
 					
 					</div>
-					<div id="announcements" class="news-block hide">
-						<p><strong>PPDO is hiring a GIS Analyst!</strong><br><a href="https://careerspub.universityofcalifornia.edu/psp/ucsc/EMPLOYEE/HRMS/c/HRS_HRAM.HRS_APP_SCHJOB.GBL?Page=HRS_APP_JBPST&Action=U&FOCUS=Applicant&SiteId=11&JobOpeningId=66801&PostingSeq=1" target="_blank"> View the job posting</a> for more information and feel free to share with anyone who might be a good fit.</p>
+					<div id="announcements" class="news-block">
+						<p><strong>Welcome back slugs!</strong><br>
+						<a href="https://taps.ucsc.edu/parking/event-parking/move-in-students.html" target="_blank">Get information about Fall 2024 Move-in</a>
+						</p>
 					</div>
 					<aside class="side-nav" aria-role="complementary">
 						<style>

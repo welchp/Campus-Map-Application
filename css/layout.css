@@ -452,46 +452,6 @@ aside {
 	border-radius: 0px;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
-	
-#fieldsets {
-	display: -webkit-box;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: center;
-	-ms-flex-pack: center;
-	justify-content: center;
-	min-width: 450px;
-	max-width: 450px;
-	margin-top: 10px;
-}
-
-#fieldsets .radio-group {
-	margin: 0px 15px;
-}
-
-.radio-group-title {
-	font-family: "Roboto";
-	font-size: 14px;
-}
-
-.radio-group-input {
-	height: 8px;
-	margin: 0px;
-}
-
-.radio-group-label {
-	font-family: "Roboto", sans-serif;
-	font-size: 14px;
-	height: 18px;
-	padding: 0px 10px;
-	color: gray;
-}
-
-.radio-group-input:checked + .radio-group-label {
-	background-color: #003c6c;
-	border: 1px solid #003c6c;
-	color: white;
-}
 
 #admin-div {
 	display: flex;
@@ -707,6 +667,7 @@ aside {
 	z-index: 9;
 	position: relative;
 	font-family: "Roboto", sans-serif;
+	font-size:15px;
 	border-left: 1px solid #ededed;
 	border-right: 1px solid #ededed;
 }
@@ -898,15 +859,6 @@ aside {
 .link-box a:visited {
     color: #003c6c;
 }
-
-.side-nav {
-	
-}
-
-.ac-label {	
-	font-size: 0.9em;
-}
-
 
 /*START*/
 
@@ -1421,6 +1373,10 @@ h4 {
 			height: 100%;
 			width: 100%;
 			padding: 0.5em 1em
+		}
+		
+		.esri-search__input {
+			width:100%;
 		}
 		
 		#buttons {
