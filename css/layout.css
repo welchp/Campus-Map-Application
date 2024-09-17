@@ -15,6 +15,7 @@ body {
 	--dark-blue:#003c6c;
 	--gold:#fdc007;
 	--smooth-blue:#336389;
+	--light-blue:#d8e3f0;
 	--hot-red:#ffcdb2;
 }
 
@@ -505,7 +506,8 @@ aside {
 }
 
 .nav-box:hover {
-	border: 1px solid #ededed;
+	bordr: 1px solid #ededed;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
 #menu-icon-div {
@@ -648,7 +650,7 @@ aside {
 }
 
 #side-bar > * {
-	margin: 5px;
+	argin: 5px;
 }
 
 .side-nav {
@@ -753,7 +755,7 @@ aside {
     font-weight: 700;
     position: relative;
     padding: 0.5em 1em;
-    margin-bottom: .5em;
+    margin-bottom: 0;
     display: block;
     cursor: pointer;
     background-color: whiteSmoke;
@@ -1257,13 +1259,13 @@ h4 {
 
 .news-block {
 	background-color: #d8e3f0;
-	background-color: F2F0E4;
+	background-color:#ededed;
 	padding: 10px;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-	margin: 8px;
+	margin: 1em;
 	width:100%;
 	font-size: 0.8em;
-	border-radius:0.5em;
+	border-radius:0.25em;
 }
 
 .news-block p {
@@ -1327,13 +1329,12 @@ h4 {
 
 .new-tag {
 	padding:0.25em 0.5em;
-	background-color: #222;
-	color:#fff;
-	border-radius: 0.25em;
+	background-color: var(--light-blue);
+	color:#222;
+	border-radius: 0.5em;
 	font-size: 0.7em;
 	font-weight: 500;
 	margin-left: 10px;
-	box-shadow: 1px 1px 2px rgba(0,0,0,0.15)
 }
 
 @media only screen and (max-height: 933px) {
