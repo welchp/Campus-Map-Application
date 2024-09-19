@@ -687,16 +687,35 @@
 						#announcements {
 							height: 100%;
 							width: 100%;
+							position:relative;
 						}
 
 						#announcements p {
-							font-size:15px
+							font-size:15px;
+							line-height: 1.5em;
+						}
+						
+						#announcements img {
+							height:2em;
+							position:absolute;
+							top:0;
+							bottom:0;
+							margin:auto;
+							right:1em;
+						}
+						
+						#announcements a, #announcements a:visited {
+							color:var(--smooth-blue)
 						}
 					</style>
 					<div id="announcements" class="news-block">
 						<p><strong>Welcome back slugs!</strong><br>
-						<a href="https://taps.ucsc.edu/parking/event-parking/move-in-students.html" target="_blank">Get information about Fall 2024 Move-in</a>
+						<a href="https://taps.ucsc.edu/pdf/move-in-impacts-2024-sept-19-22.pdf" target="_blank">View the Traffic Impact Map</a>
 						</p>
+						<p>
+							<a href="https://taps.ucsc.edu/parking/event-parking/move-in-students.html" target="_blank">Fall 2024 Move-in Info for <strong>Students</strong></a>
+						</p>
+						<p><img src="https://taps.ucsc.edu/images/taps-logo-rgb.png" alt="TAPS logo"></p>
 					</div>
 				</div>
 				
@@ -761,7 +780,10 @@
 						<nav role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
 								<input class="ac-input" id="dining" name="dining" type="checkbox" />
-								<label class="ac-label" for="dining"><i class="fas fa-utensils"></i>Dining</label>
+								<label class="ac-label" for="dining">
+									<img width="24" height="24" src="https://img.icons8.com/material/24/CC3535/hamburger--v1.png" alt="hamburger--v1"/>
+									Dining
+								</label>
 								<article class="ac-text">
 									<div>
 										<div class="layer-info">
@@ -793,7 +815,7 @@
 						</nav>
 						
 						<div class="ac">
-							<input class="ac-input" id="transportation-m" name="transportation-m" type="checkbox" /> <label class="ac-label" for="transportation-m"><i class="fas fa-bus"></i>Transportation</label>
+							<input class="ac-input" id="transportation-m" name="transportation-m" type="checkbox" /> <label class="ac-label" for="transportation-m"><img width="24" height="24" src="https://img.icons8.com/material/24/CB972F/bus2--v1.png" alt="bus2--v1"/>Transportation</label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -830,7 +852,7 @@
 						
 						<div class="ac">
 							<input class="ac-input" id="student_life-m" name="student_life-m" type="checkbox" /> 
-							<label class="ac-label" for="student_life-m"><i class="fas fa-book"></i>Campus Life</label>
+							<label class="ac-label" for="student_life-m"><img width="24" height="24" src="https://img.icons8.com/material/24/6301CB/book--v3.png" alt="book--v3"/>Campus Life</label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
@@ -856,7 +878,7 @@
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
-								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" /> <label class="ac-label" for="facilities-m"><i class="fas fa-life-ring" aria-hidden="true"></i>Health, Safety &amp; Facilities</label>
+								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" /> <label class="ac-label" for="facilities-m"><img width="24" height="24" src="https://img.icons8.com/material/24/339999/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety &amp; Facilities</label>
 								<article class="ac-text">
 									<div class="">
 										<div class="layer-info">
@@ -895,7 +917,7 @@
 						</nav>
 
 						<div class="ac">
-							<input class="ac-input" id="recreation-m" name="recreation-m" type="checkbox" /> <label class="ac-label" for="recreation-m"><i class="fas fa-hiking"></i>Recreation</label>
+							<input class="ac-input" id="recreation-m" name="recreation-m" type="checkbox" /> <label class="ac-label" for="recreation-m"><img width="24" height="24" src="https://img.icons8.com/material/24/34CC02/trampoline-park.png" alt="trampoline-park"/>Recreation</label>
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
