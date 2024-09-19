@@ -38,7 +38,7 @@
 	<link rel="stylesheet" href="css/layout.css">
 	
 	<script src="js/calcite-web.min.js"></script>
-	<script src="https://kit.fontawesome.com/f0e3873b42.js"></script>
+	
 	<script src="https://js.arcgis.com/4.9/"></script>
 	<!--script src="https://js.arcgis.com/4.30/"></script-->
 	
@@ -722,6 +722,7 @@
 							Move-in Info for <strong><a href="https://taps.ucsc.edu/parking/event-parking/move-in-students.html" target="_blank">Students</a> | <a href="https://taps.ucsc.edu/parking/event-parking/move-in-employees.html" target="_blank">Employees</a></strong>
 						</p>
 						<p><img src="https://taps.ucsc.edu/images/taps-logo-rgb.png" alt="TAPS logo"></p>
+						<p style="display:none"><img src="https://mediafiles.ucsc.edu/ppc/logos/ppdo-logo.png" alt="PPDO logo"></p>
 					</div>
 				</div>
 				
@@ -816,22 +817,22 @@
 								</article>
 							</div>
 							
-							<a href="#" class="side-nav-link" onclick="changeVisibility(cafes_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/restaurant.png"/>Restaurants and Cafes
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(perks_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(dining_halls_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/empty-tray.png"/>College Dining Halls
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(food_trucks_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CC3535/food-truck.png"/>Food Trucks and pop-ups
-							</a>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>Restaurants and Cafes
+							  <input type="checkbox" onclick="changeVisibility(cafes_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
+							  <input type="checkbox" onclick="changeVisibility(perks_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/empty-tray.png"/>College Dining Halls
+							  <input type="checkbox" onclick="changeVisibility(dining_halls_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/food-truck.png"/>Food Trucks and pop-ups
+							  <input type="checkbox" onclick="changeVisibility(food_trucks_lyr)">
+							  <span class="checkmark"></span>
+							</label>
 						</nav>
 						
 						<div class="ac">
@@ -839,35 +840,37 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<p>Learn more about transportation on campus - <a href="https://taps.ucsc.edu">Transportation and Parking Services website</a></p>
+										<a href="https://taps.ucsc.edu">Transportation and Parking Services website</a>
+										<p>Learn more about transportation on campus</p>
 									</div>
 									<div class="layer-info">
-										<p>Visit the <a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>, for information about where your vehicle is right now and when it will arrive at your stop</p>
+										<a href="https://rt.scmetro.org/home">Santa Cruz METRO Real Time</a>
+										<p>information about where your vehicle is right now and when it will arrive at your stop</p>
 									</div>
 								</div>
 							</article>
 						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(bikeshare_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>BCycle  Dock Locations
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bus-stop.png"/>Transit Stops and Routes
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(parking_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/car.png"/>Parking Lots
-							</a>						
-							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_repair_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Repair
-							</a>
-							<a class="hidden" href="#" class="side-nav-link" onclick="changeVisibility(bike_parking_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/CB972F/bicycle.png"/>Bike Parking
-							</a>
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>BCycle Dock Locations <span class="new-tag">NEW</span>
+							  <input type="checkbox" onclick="changeVisibility(bikeshare_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/food-truck.png"/>Transit Stops and Routes
+							  <input type="checkbox" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png"/>Parking Lots
+							  <input type="checkbox" onclick="changeVisibility(parking_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Parking
+							  <input type="checkbox" onclick="changeVisibility(bike_parking_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Repair FixIt Stations
+							  <input type="checkbox" onclick="changeVisibility(bike_repair_lyr)">
+							  <span class="checkmark"></span>
+							</label>
 						</nav>
 						
 						<div class="ac">
@@ -876,64 +879,73 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<p>Learn more about Student Support programs available on campus - <a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a></p>
+										<a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a>
+										<p>Learn more about Student Support programs available on campus</p>
 									</div>
 								</div>
 							</article>
 						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(colleges_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/6301CB/building.png"/>Colleges
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(libraries_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/6301CB/library.png"/>Libraries
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(support_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/6301CB/service.png"/>Student Support Services
-							</a>
+							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png"/>Colleges
+							  <input type="checkbox" onclick="changeVisibility(colleges_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/library.png"/>Libraries
+							  <input type="checkbox" onclick="changeVisibility(libraries_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/service.png"/>Student Support Services
+							  <input type="checkbox" onclick="changeVisibility(support_lyr)">
+							  <span class="checkmark"></span>
+							</label>
 						</nav>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							<div class="ac">
 								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" /> <label class="ac-label" for="facilities-m"><img width="24" height="24" src="https://img.icons8.com/material/24/339999/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety &amp; Facilities</label>
 								<article class="ac-text">
-									<div class="">
-										<div class="layer-info">
-											<p>Need help getting building information?<br>Use our - <a href="#bldg-modal">Building Lookup Tool</a></p>
-										</div>
-										<div class="layer-info">
-											<p>Learn more about Active Projects and their construction impacts - <a href="https://ppdo.ucsc.edu/construction/construction-maintenance-schedule.html">Active Projects List</a></p>
-										</div>
+								<div class="">
+									<div class="layer-info">
+										<a href="#bldg-modal">Building Lookup Tool</a>
+										<p>Get building names, addresses, and CAANs</p>
 									</div>
-								</article>
+									<div class="layer-info">
+										<a href="https://ppdo.ucsc.edu/construction/construction-maintenance-schedule.html">Active Projects List</a>
+										<p>Learn more about PPDO Projects and their construction impacts</p>
+									</div>
+								</div>
+							</article>
 							</div>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(construction_impacts_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/engineer.png"/>Construction Impacts
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(emergency_phones_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/phone.png"/>Emergency Phones
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(genderinclusive_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/toilet-bowl.png"/>All-Gender Restrooms
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(lactation_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/breastfeeding.png"/>Lactation Rooms
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(recycling_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/recycling.png"/>Recycling
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(pdf_extents_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/339999/pdf.png"/>Printable Map Extents
-							</a>
+							<label class="container">
+						  		<img src="https://img.icons8.com/small/24/339999/engineer.png"/>Construction Impacts
+							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
+							  	<span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png"/>Emergency Blue Light Phones
+							  <input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/339999/toilet-bowl.png"/>All-Gender Restrooms
+							  <input type="checkbox" onclick="changeVisibility(genderinclusive_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/339999/breastfeeding.png"/>Lactation Spaces
+							  <input type="checkbox" onclick="changeVisibility(lactation_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/339999/recycling.png"/>Recycling Locations
+							  <input type="checkbox" onclick="changeVisibility(recycling_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/339999/pdf.png"/>Printable Map Extents
+							  <input type="checkbox" onclick="changeVisibility(pdf_extents_lyr)">
+							  <span class="checkmark"></span>
+							</label>
 						</nav>
 
 						<div class="ac">
@@ -941,25 +953,28 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<p>Learn more about recreation opportunities on campus - <a href="https://recreation.ucsc.edu/">Athletics and Recreation website</a></p>
+										<a href="https://recreation.ucsc.edu/">Athletics and Recreation website</a>
+										<p>Learn more about recreation opportunities on campus</p>
 									</div>
 								</div>
 							</article>
 						</div>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<a href="#" class="side-nav-link" onclick="changeVisibility(rec_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/34CC02/walking.png"/>Trails, Courts, & Athletic Facilities
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(gardens_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/34CC02/leaf.png"/>Campus Gardens
-							</a>
-							<a href="#" class="side-nav-link" onclick="changeVisibility(poi_lyr)">
-								<i class="icon-ui-checkbox-unchecked"></i>
-								<img src="https://img.icons8.com/small/16/34CC02/information.png"/>Places of Interest
-							</a>
+							<label class="container"><img src="https://img.icons8.com/small/24/34CC02/walking.png"/>Trails, Courts and Atheltic Facilities
+							  <input type="checkbox" onclick="changeVisibility(rec_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/34CC02/leaf.png"/>Garden Spaces
+							  <input type="checkbox" onclick="changeVisibility(gardens_lyr)">
+							  <span class="checkmark"></span>
+							</label>
+							
+							<label class="container"><img src="https://img.icons8.com/small/24/34CC02/information.png"/>Places of Interest
+							  <input type="checkbox" onclick="changeVisibility(poi_lyr)">
+							  <span class="checkmark"></span>
+							</label>
 						</nav>
 					</aside>
 				</div>
