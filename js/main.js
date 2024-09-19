@@ -1286,7 +1286,7 @@ require([
 			});
 			searchWidget2.includeDefaultSources = false //remove ArcGIS World Geocoding Service
 			searchWidget2.on("select-result", function(event){
-			  searchWidget2.clear();
+			  //searchWidget2.clear();
 			  //buildings_lyr.labelsVisible = true
 			  view.zoom = 19
 			  var viewD = document.getElementById('viewDiv');
