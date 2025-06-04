@@ -1,4 +1,3 @@
-						</p>
 <!DOCTYPE html>
 <html>
     
@@ -48,31 +47,6 @@
 	<link rel="stylesheet" type="text/css" href="https://js.arcgis.com/calcite-components/2.11.1/calcite.css" />
 
 	<!--link rel="stylesheet" href="https://js.arcgis.com/4.30/esri/themes/light/main.css"-->
-	
-	<script type="text/plain" id="related-living-rooms-arcade">
-		var living_room_locations = FeatureSetByPortalItem(Portal('https://www.arcgis.com'),
-			"7629354550954496beaeba2b962b70f7", 4, ['*'], false)
-
-		Console(Count(living_room_locations))
-		var ASSETNUM = $feature.ASSETNUM
-
-		var filterStatement = "NEARESTFACILITY = '" + ASSETNUM + "'"
-		Console(filterStatement)
-
-		var relatedData = Filter(living_room_locations, "NEARESTFACILITY = '7115'")
-
-		// Build the pop-up string by iterating through all related features
-		var popupString = '<b>'
-		for (var f in relatedData) {
-
-			popupString += DefaultValue(f.Location, 'no living room name listed ') + "</b>" + TextFormatting.NewLine +
-				"Hours: " + DefaultValue(f.Hours, 'no hours listed') + TextFormatting.NewLine +
-				"Space Type: " + DefaultValue(f.Can_Be_Used_For, 'no space type listed') + TextFormatting.NewLine +
-				"Access: " + f.Public__Private_Rooms
-		}
-
-		DefaultValue(popupString, 'ERRORS. EVERYHWERE.')
-	</script>
 	
 	<script>
 		function filterBuildings() {
@@ -489,7 +463,7 @@
 							  <input type="checkbox" onclick="changeVisibility(support_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/room.png"/>Student Spaces
+							<label style="display:none" class="container"><img src="https://img.icons8.com/small/24/6301CB/room.png"/>Student Spaces
 							  <input type="checkbox" onclick="changeVisibility(student_spaces_lyr)">
 							  <span class="checkmark"></span>
 							</label>
@@ -547,7 +521,7 @@
 							  <span class="checkmark"></span>
 							</label>
 							
-							<label class="container"><img src="https://img.icons8.com/external-outline-agus-raharjo/24/339999/external-accessible-disability-outline-agus-raharjo-2.png"/>Accessible Paths and Doors
+							<label style="display:none" class="container"><img src="https://img.icons8.com/external-outline-agus-raharjo/24/339999/external-accessible-disability-outline-agus-raharjo-2.png"/>Accessibility Related Information
 							  <input type="checkbox" onclick="changeVisibility(accessible_doors_lyr);changeVisibility(accessible_paths_lyr);changeVisibility(accessible_info_lyr)">
 							  <span class="checkmark"></span>
 							</label>

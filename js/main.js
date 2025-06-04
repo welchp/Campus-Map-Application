@@ -315,6 +315,7 @@ require([
 	"esri/widgets/BasemapGallery",
 	"esri/widgets/Bookmarks",
 	"esri/widgets/Expand",
+	"esri/widgets/Legend",
     "dojo/domReady!"], function(
         esriConfig, 
 		Map,
@@ -337,7 +338,8 @@ require([
 		QueryTask,
 		BasemapGallery,
 		Bookmarks,
-		Expand
+		Expand,
+		Legend
         ) {
 	
     //POPUP
@@ -357,27 +359,6 @@ require([
 		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel}</span>{Project}",
 		content:"<div><br><p style='font-size:0.8em'><a href='{website}'>Project Website</a></p><p style='padding:2em;border:1px solid #ededed'>{Description}<br><br><span style='font-size:0.8em'>Estimated Completion | {EndDate}</span></p></div>"
 	}
-	
-	arcadeExpressionInfos = [
-			{
-				name: "related-living-rooms-arcade",
-				title: "Living Rooms",
-				// defined in separate script element
-				expression: document.getElementById("related-living-rooms-arcade").text
-		  }]
-	
-	livingroomspopuptemplate = {
-		title:"TESTING",
-		content: [
-		  {
-			type: "text",
-			text:
-			  "{expression/related-living-rooms-arcade}"
-		  }],
-		expressionInfos: arcadeExpressionInfos
-		
-	}
-	
 	
 	   
     //FEATURE RENDERERS
@@ -700,7 +681,7 @@ require([
 			  color: [255,255,255,0.1],
 			  outline: {  // autocasts as new SimpleLineSymbol()
 				width: 1,
-				color: null
+				color: [0,0,0,0.1]
 			  }
 			}
 		  },
@@ -881,7 +862,7 @@ require([
 	
 	construction_impacts_lyr = new FeatureLayer({
         portalItem:{
-            id: "10cbef23c58042c7ac2b1cbd3312d0ee"
+            id: "be114a225f1e4b56b106963ed48bc470"
         },
         visible: false,
 		popupTemplate: constructionpopuptemplate
@@ -945,6 +926,16 @@ require([
 	
 	////////////     WIDGETS      \\\\\\\\\\\\\	
     
+	/*
+	let legend = new Legend({
+	  view: view,
+	  layerInfos: [{
+		  layer: buildings_lyr,
+		  title: "Campus Facilities"
+	  }]
+	});
+	*/
+	
 	//This works. but need to dial in the functionality. e.g. if basemap != Light Gray then turn off the tile layer, click here to select basemap, which basemaps are shown?
 	var basemapGallery = new BasemapGallery({
 	  view: view,
@@ -990,6 +981,8 @@ require([
     
 	view.ui.add("map-options-footer", "top-right")
     
+	//view.ui.add(legend, "bottom-right");
+	
 	searchWidget = new Search({
         view: view,
         maxSuggestions: 10,
