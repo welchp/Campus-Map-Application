@@ -357,7 +357,7 @@ require([
 	
 	constructionpopuptemplate = {
 		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel}</span>{Project}",
-		content:"<div><br><p style='font-size:0.8em'><a href='{website}'>Project Website</a></p><p style='padding:2em;border:1px solid #ededed'>{Description}<br><br><span style='font-size:0.8em'>Estimated Completion | {EndDate}</span></p></div>"
+		content:"<div><br><p>Start Date: {StartDate}</p><p>Projected End Date: {EndDate}</p><p style='padding:2em;border:1px solid #ededed'>{Description}</p></div>"
 	}
 	
 	   
@@ -891,8 +891,7 @@ require([
 	
 	accessible_doors_lyr = new FeatureLayer({
 		portalItem:{
-			//id:"bbfc05dc36cd4c7eb84ef3fdf00760fb",
-			id:"b4127a74278e4fc587d7850a28e23dc3",
+			id:"bbfc05dc36cd4c7eb84ef3fdf00760fb"
 		},
 			visible: false
 	})
