@@ -476,7 +476,7 @@ require([
         },
         labelPlacement: "always-horizontal",
         labelExpressionInfo: {
-            expression: "'LOT# ' + $feature.NUM"
+            expression: "'LOT# ' + $feature.LOT"
         }
     };
     var metroLabelClass = {
@@ -704,11 +704,12 @@ require([
     })
     parking_lyr = new FeatureLayer({
         portalItem:{
-            id: "f795b2c9af644ac190cec4d72b767041"
+            //id: "f795b2c9af644ac190cec4d72b767041"
+			id:"01ed9d62518e41dcbef07bfd6b989d85"
         },
         visible: false,
-        labelingInfo:[parkingLabelClass],
-        definitionExpression: "NUMBER is not null"
+        labelingInfo:[parkingLabelClass]
+        //definitionExpression: "NUMBER is not null"
     })
     poi_lyr = new FeatureLayer({
         portalItem:{
