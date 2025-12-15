@@ -1010,7 +1010,7 @@ require([
             placeholder: "enter a campus zone",
         	},
 			{featureLayer: {
-				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities/FeatureServer/0"},
+				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/facilities_public/FeatureServer/0"},
 			searchFields: ["ASSETNUM", "BUILDINGNAME", "ALIAS", "LABELNAME", "DEPARTMENTS"],
 			displayField: "BUILDINGNAME",
 			exactMatch: false,
