@@ -97,17 +97,17 @@ var ptemplate;
 var constructionpopuptemplate;
 
 function setBuildingLabels() {
-	$(document).ready(function(){
-		var buildingLabelsVisible = $("input[type='radio'][name='building-label-toggle']");
-		buildingLabelsVisible.click(function(){
-			var radioValue = $("input[type='radio'][name='building-label-toggle']:checked").val();
-			if(radioValue == 'on'){
-			    buildings_lyr.labelsVisible = true;
-			} else {
-				buildings_lyr.labelsVisible = false;
-			}
-		});
-	});
+	document.addEventListener('click', function (event) {
+	// If the clicked element doesn't have the right selector, bail
+	console.log(event.target)
+	if (!event.target.matches('#label-toggle')) return;
+		console.log("hit")
+		if (buildings_lyr.labelsVisible == false) {
+			buildings_lyr.labelsVisible = true;
+		} else {
+			buildings_lyr.labelsVisible = false;
+		}
+	}, false);
 }
 
 function setBasemap() {
@@ -448,14 +448,14 @@ require([
     var zonesLabelClass = {
         symbol: {
             type: "text",
-            color: [255,255,255,1.0],
-            haloColor: [0,0,0,0.6],
-            haloSize: 1,
+            color: [0,0,0,1.0],
+            haloColor: [255,255,255,0.6],
+            haloSize: 10,
             font: {
-                family: "Arial Unicode MS",
-                size: 14,
+                family: "Roboto",
+                size: 10,
                 style:"normal",
-                weight: "bold"
+                weight: "medium"
             }
         },
         labelPlacement: "always-horizontal",
@@ -682,7 +682,7 @@ require([
 			  type: "simple-fill",  // autocasts as new SimpleMarkerSymbol()
 			  color: [255,255,255,0.1],
 			  outline: {  // autocasts as new SimpleLineSymbol()
-				width: 1,
+				width: 0.5,
 				color: [0,0,0,0.1]
 			  }
 			}
@@ -767,12 +767,9 @@ require([
         visible: false,
         labelingInfo:[foodLabelClass]
     })
-    bike_parking_lyr = new FeatureLayer({
+    ada_spaces_lyr = new FeatureLayer({
         portalItem:{
-			//this id is for the ada_spaces_lyr
-			//swap the ids to demo the lyr
-			//id:"1cc88e563dff47398dda9cd7100c7448"
-            id: "0e9e0292dce44979a933cb7ca825a740"
+            id: "1cc88e563dff47398dda9cd7100c7448"
 			
         },
         visible: false
@@ -916,14 +913,14 @@ require([
 
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
-  	transportations = [shuttles_lyr, metro_bus_lyr, bus_route_lyr, parking_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr]
-  	student_life = [classrooms_lyr, colleges_lyr, libraries_lyr, support_lyr, student_spaces_lyr]
-  	facilities = [construction_impacts_lyr, emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr, accessible_doors_lyr, accessible_paths_lyr, accessible_info_lyr]
+  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr,bike_repair_lyr, ada_spaces_lyr]
+  	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr, student_spaces_lyr]
+  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr, accessible_doors_lyr, accessible_paths_lyr, accessible_info_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, student_spaces_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr, accessible_paths_lyr, accessible_doors_lyr, accessible_info_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, student_spaces_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr, ada_spaces_lyr]
 	
 	
 	
@@ -1513,7 +1510,7 @@ require([
     //toggleVisibility();
     //toggleMenu();
   	setBasemap();
-  	//setBuildingLabels();
+  	setBuildingLabels();
     //showLegend();
 	setZoom();
 	loader();

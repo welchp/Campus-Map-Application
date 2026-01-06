@@ -169,6 +169,56 @@
 		.High {
 			background-color:#D66865
 		}
+
+		.toggle {
+			cursor: pointer;
+			display: inline-block;
+		}
+		.toggle-switch {
+			display: inline-block;
+			background: #ccc;
+			border-radius: 16px;
+			width: 58px;
+			height: 22px;
+			position: relative;
+			vertical-align: middle;
+			transition: background 0.25s;
+			&:before,
+			&:after {
+				content: "";
+			}
+			&:before {
+				display: block;
+				background: linear-gradient(to bottom, #fff 0%,#eee 100%);
+				border-radius: 50%;
+				box-shadow: 0 0 0 1px rgba(0,0,0,0.25);
+				width: 14px;
+				height: 14px;
+				position: absolute;
+				top: 4px;
+				left: 4px;
+				transition: left 0.25s;
+			}
+			.toggle:hover &:before {
+				background: linear-gradient(to bottom, #fff 0%,#fff 100%);
+				box-shadow: 0 0 0 1px rgba(0,0,0,0.5);
+			}
+			.toggle-checkbox:checked + & {
+				background:#336389;
+				&:before {
+					left: 40px;
+				}
+			}
+		}
+		.toggle-checkbox {
+			position: absolute;
+			visibility: hidden;
+		}
+		.toggle-label {
+			margin-left: 5px;
+			position: relative;
+			top: 2px;
+		}
 		
 	</style>
 
@@ -181,7 +231,7 @@
 			<h1>Interactive Map Help</h1>
 
 			<p>
-				Tips and tricks to get the most out of this map.
+				Here's a couple pointers to help you get the most out of this web map.
 			</p>
 			<hr>
 			<h2>
@@ -189,13 +239,9 @@
 			</h2>
 			<ul>
 			<p>
-				<li>Layers are grouped into related categories. Click the group title to turn on/off all layers in that group.
-				<p>ex: <img src="images/layer-group-title.PNG" alt="Layer Group Title"></p>
-				</li>
-				<li>A check-marked box will appear before any visible layers.</li>
-				<li>When any layers are turned on, the 'clear layers' icon will appear in the upper right corner. Tap it to turn off all visible layers with a single click.
-				<p>ex: <img style="height:3em" src="images/clear-layers.PNG" alt="Layer Group Title"></p>
-				</li>
+				<li>Layers are grouped into related categories. Some layer groups have additional information available. Click the layer group to view additional links and details about the group.</li>
+				<li>Click any layer to turn it on or off. When on, the check box will be marked.</li>
+				<li>Some layers may take a few moments to load, depending on your internet connection and the amount of data in the layer.</li>
 			</p>
 				
 			</ul>
@@ -204,12 +250,12 @@
 				Map Tools
 			</h2>
 			<h3>The Search Bar</h3>
-			We're working on improving the search bar functionality. Thanks for you patience.
+			We're working on improving the search bar functionality.
 			<ul><p>
 				<li>For now, the best way to search for a facility or parking lot is to begin typing your search terms in the search bar and select an option from the suggestions that appear.</li>
 				<li>This will pan and zoom the map to your selection. From there, you can clear the search bar and click the feature to view any associated information in the pop-up.</li>
 				<li>You don't need to search for the official building name to locate a facility. We have tried to include aliases and common searches to return facilities as well.
-				<p>ex: search for parking permits to return the West Entrance Kiosk</p>
+				<li>example: search for police to return the Emergency Response Center (ERC).</li>
 				</li>
 				</p>
 			</ul>
@@ -315,6 +361,13 @@
 					</ul>
 				</div>
 				
+				<div>
+					<label class="toggle">
+						<input class="toggle-checkbox" type="checkbox">
+						<div id="label-toggle" class="toggle-switch"></div>
+						<span class="toggle-label">Building Labels</span>
+					</label>
+				</div>
 				
 				<div id="layer-list">
 					
@@ -355,7 +408,7 @@
 																				
 										<div class="layer-info">
 											<a href="https://financial.ucsc.edu/Pages/Food_Trucks.aspx">UCSC Food Finder</a>
-											<p>information about Cafes, Food Trucks and Pop-Ups</p>
+											<p>information about Cafes, Food Trucks, and Food Stands</p>
 										</div>
 									</div>
 								</article>
@@ -363,15 +416,15 @@
 							
 							
 							
-							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>Restaurants and Cafes
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/restaurant.png"/>Restaurants, Cafes, & Markets
 							  <input type="checkbox" onclick="changeVisibility(cafes_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/coffee-to-go.png"/>The Perk Coffee Shops
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/coffee-to-go.png"/>Perk Coffee Bars
 							  <input type="checkbox" onclick="changeVisibility(perks_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/empty-tray.png"/>College Dining Halls
+							<label class="container"><img src="https://img.icons8.com/small/24/CC3535/empty-tray.png"/>Dining Halls
 							  <input type="checkbox" onclick="changeVisibility(dining_halls_lyr)">
 							  <span class="checkmark"></span>
 							</label>
@@ -402,25 +455,16 @@
 						</nav>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-														
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>BCycle Dock Locations <!--span class="new-tag">NEW</span-->
-							  <input type="checkbox" onclick="changeVisibility(bikeshare_lyr)">
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>BCycle Docks and Bicycle Repair
+							  <input type="checkbox" onclick="changeVisibility(bikeshare_lyr);changeVisibility(bike_repair_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/food-truck.png"/>Transit Stops and Routes
-							  <input type="checkbox" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/food-truck.png"/>SC Metro and Campus Shuttle Stops
+							  <input type="checkbox" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png"/>Parking Lots
-							  <input type="checkbox" onclick="changeVisibility(parking_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Parking
-							  <input type="checkbox" onclick="changeVisibility(bike_parking_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Repair FixIt Stations
-							  <input type="checkbox" onclick="changeVisibility(bike_repair_lyr)">
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png"/>Parking Lots, ADA spaces, & EV Chargers
+							  <input type="checkbox" onclick="changeVisibility(parking_lyr);changeVisibility(ada_spaces_lyr)">
 							  <span class="checkmark"></span>
 							</label>
 						</nav>		
@@ -439,15 +483,24 @@
 										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
 										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
 									</div>
+									<div class="layer-info">
+										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
+										<p>Learn more about PPDO Projects and their construction impacts</p>
+									</div>
 								</div>
 							</article>
 						</div>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 							
-							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/classroom.png"/>Classrooms
+							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/classroom.png"/>Classrooms<span class="new-tag">NEW</span>
 							  <input type="checkbox" onclick="changeVisibility(classrooms_lyr)">
 							  <span class="checkmark"></span>
+							</label>
+							<label class="container">
+						  		<img src="https://img.icons8.com/small/24/6301CB/engineer.png"/>Construction Impacts
+							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
+							  	<span class="checkmark"></span>
 							</label>
 							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png"/>Colleges
 							  <input type="checkbox" onclick="changeVisibility(colleges_lyr)">
@@ -478,27 +531,12 @@
 										<a href="#bldg-modal">Building Lookup Tool</a>
 										<p>Get building names, addresses, and CAANs</p>
 									</div>
-									<div class="layer-info">
-										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
-										<p>Learn more about PPDO Projects and their construction impacts</p>
-									</div>
 								</div>
 							</article>
 						</div>
 						
 						<nav class="" role="navigation" aria-labelledby="sidenav">
 														
-							<label class="container">
-						  		<img src="https://img.icons8.com/small/24/339999/engineer.png"/>Construction Impacts
-							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
-							  	<span class="checkmark"></span>
-							</label>
-
-							<label class="container"><img src="https://img.icons8.com/ios-filled/24/339999/accessibility2.png"/>Accessible Routes and Information
-							  <input type="checkbox" onclick="changeVisibility(accessible_doors_lyr);changeVisibility(accessible_paths_lyr);changeVisibility(accessible_info_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
 							<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png"/>Emergency Blue Light Phones
 							  <input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
 							  <span class="checkmark"></span>
@@ -751,24 +789,16 @@
 							</article>
 						</div>
 						<nav class="" role="navigation" aria-labelledby="sidenav">
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>BCycle Dock Locations <span class="new-tag">NEW</span>
-							  <input type="checkbox" onclick="changeVisibility(bikeshare_lyr)">
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>BCycle Docks and Bicycle Repair<span class="new-tag">NEW</span>
+							  <input type="checkbox" onclick="changeVisibility(bikeshare_lyr);changeVisibility(bike_repair_lyr)">
 							  <span class="checkmark"></span>
 							</label>
 							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/food-truck.png"/>Transit Stops and Routes
-							  <input type="checkbox" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr);changeVisibility(bus_route_lyr)">
+							  <input type="checkbox" onclick="changeVisibility(shuttles_lyr);changeVisibility(metro_bus_lyr)">
 							  <span class="checkmark"></span>
 							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png"/>Parking Lots
+							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png"/>Parking Lots, ADA spaces, & EV Chargers
 							  <input type="checkbox" onclick="changeVisibility(parking_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Parking
-							  <input type="checkbox" onclick="changeVisibility(bike_parking_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							<label class="container"><img src="https://img.icons8.com/small/24/CB972F/bicycle.png"/>Bike Repair FixIt Stations
-							  <input type="checkbox" onclick="changeVisibility(bike_repair_lyr)">
 							  <span class="checkmark"></span>
 							</label>
 						</nav>
@@ -786,6 +816,10 @@
 										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
 										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
 									</div>
+									<div class="layer-info">
+										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
+										<p>Learn more about PPDO Projects and their construction impacts</p>
+									</div>
 								</div>
 							</article>
 						</div>
@@ -793,6 +827,11 @@
 							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/classroom.png"/>Classrooms
 							  <input type="checkbox" onclick="changeVisibility(classrooms_lyr)">
 							  <span class="checkmark"></span>
+							</label>
+							<label class="container">
+						  		<img src="https://img.icons8.com/small/24/339999/engineer.png"/>Construction Impacts
+							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
+							  	<span class="checkmark"></span>
 							</label>
 							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png"/>Colleges
 							  <input type="checkbox" onclick="changeVisibility(colleges_lyr)">
@@ -817,24 +856,9 @@
 										<a href="#bldg-modal">Building Lookup Tool</a>
 										<p>Get building names, addresses, and CAANs</p>
 									</div>
-									<div class="layer-info">
-										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
-										<p>Learn more about PPDO Projects and their construction impacts</p>
-									</div>
 								</div>
 							</article>
-							</div>
-							<label class="container">
-						  		<img src="https://img.icons8.com/small/24/339999/engineer.png"/>Construction Impacts
-							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
-							  	<span class="checkmark"></span>
-							</label>
-
-							<label class="container"><img src="https://img.icons8.com/ios-filled/24/339999/accessibility2.png"/>Accessible Routes and Information
-							  <input type="checkbox" onclick="changeVisibility(accessible_doors_lyr);changeVisibility(accessible_paths_lyr);changeVisibility(accessible_info_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
+							</div>						
 							<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png"/>Emergency Blue Light Phones
 							  <input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
 							  <span class="checkmark"></span>
