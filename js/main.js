@@ -71,11 +71,8 @@ var lactation_lyr;
 var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
-var student_spaces_lyr;
-var accessible_doors_lyr;
-var accessible_paths_lyr;
-var accessible_info_lyr;
 var classrooms_lyr;
+var ada_spaces_lyr;
 
 var foods = [];
 var transportations = [];
@@ -99,9 +96,7 @@ var constructionpopuptemplate;
 function setBuildingLabels() {
 	document.addEventListener('click', function (event) {
 	// If the clicked element doesn't have the right selector, bail
-	console.log(event.target)
 	if (!event.target.matches('#label-toggle')) return;
-		console.log("hit")
 		if (buildings_lyr.labelsVisible == false) {
 			buildings_lyr.labelsVisible = true;
 		} else {
@@ -437,7 +432,7 @@ require([
                 family: "Roboto",
                 size: 9,
                 style:"normal",
-                weight: "medium"
+                weight: "normal"
             }
         },
         labelPlacement: "always-horizontal",
@@ -452,10 +447,10 @@ require([
             haloColor: [255,255,255,0.6],
             haloSize: 10,
             font: {
-                family: "Roboto",
+                family: "Arial",
                 size: 10,
                 style:"normal",
-                weight: "medium"
+                weight: "bold"
             }
         },
         labelPlacement: "always-horizontal",
@@ -470,7 +465,7 @@ require([
             haloColor: [255,255,255],
             haloSize: 1.5,
             font: {
-                family: "Arial Unicode MS Bold",
+                family: "Roboto",
                 size: 10,
                 style: "normal",
                 weight: "bold"
@@ -637,7 +632,7 @@ require([
         center: [-122.061864, 37.000111],
 		layerViews:everyLayer,
 		highlightOptions:{
-			color:"#336389",
+			color:"#E5D99F",
 			haloOpacity:1,
 			fillOpacity:0,
 			
@@ -870,57 +865,29 @@ require([
 	
 	bikeshare_lyr = new FeatureLayer({
 		portalItem:{
-			id:"73416e80912c4541b83268040c98cd42",
+			id:"73416e80912c4541b83268040c98cd42"
 		},
-			visible: false
+		visible: false
 	})
 	
-	student_spaces_lyr = new FeatureLayer({
+	classrooms_lyr = new FeatureLayer({
 		portalItem:{
-			id:"7629354550954496beaeba2b962b70f7",
-		},
-			visible: false
-	})
-	
-	accessible_doors_lyr = new FeatureLayer({
-		portalItem:{
-			id:"bbfc05dc36cd4c7eb84ef3fdf00760fb"
+			id:"2b8bd80d6f684a0d956d0fe41908e88c"
 		},
 		visible: false,
 		symbol:defaultMarker
 	})
-	
-	accessible_paths_lyr = new FeatureLayer({
-		portalItem:{
-			id:"45684938e8ff447696b719b41b612793",
-		},
-			visible: false
-	})
-	
-	accessible_info_lyr = new FeatureLayer({
-		portalItem:{
-			id:"2e63891fb2de4c8cbe9bec6dec467aca",
-		},
-			visible: false
-	})
-
-	classrooms_lyr = new FeatureLayer({
-		portalItem:{
-			id:"2b8bd80d6f684a0d956d0fe41908e88c",
-		},
-			visible: false
-	})
 
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
-  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr,bike_repair_lyr, ada_spaces_lyr]
-  	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr, student_spaces_lyr]
-  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr, accessible_doors_lyr, accessible_paths_lyr, accessible_info_lyr]
+  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr, ada_spaces_lyr]
+  	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
+  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, student_spaces_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr, ada_spaces_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr, ada_spaces_lyr]
 	
 	
 	
