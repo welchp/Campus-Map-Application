@@ -72,7 +72,6 @@ var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
 var classrooms_lyr;
-var ada_spaces_lyr;
 
 var foods = [];
 var transportations = [];
@@ -92,6 +91,26 @@ var lightBlueMarker;
 
 var ptemplate;
 var constructionpopuptemplate;
+var bldgcards;
+
+function clickBuildingFromLookupTool() {
+	var bldgcards = document.querySelectorAll('.bldg');
+
+	bldgcards.forEach(function (card) {
+		card.addEventListener('click', function (event) {
+			console.log("clicked a building card")
+
+			// If the clicked element doesn't have the right selector, bail
+			if (!event.target.matches('.bldg')) return;
+			console.log(event.target)
+			if (buildings_lyr.labelsVisible == false) {
+				buildings_lyr.labelsVisible = true;
+			} else {
+				buildings_lyr.labelsVisible = false;
+			}
+		}, false);
+	});
+}
 
 function setBuildingLabels() {
 	document.addEventListener('click', function (event) {
@@ -425,9 +444,9 @@ require([
     var buildingsLabelClass = {
         symbol: {
             type: "text",
-            color: "black",
-            haloColor: [255,255,255, 0.6],
-            haloSize: 1,
+            color: [0,0,0,0.6],
+            haloColor: [255,255,255, 1],
+            haloSize: 6,
             font: {
                 family: "Roboto",
                 size: 9,
@@ -880,14 +899,14 @@ require([
 
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
-  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr, ada_spaces_lyr]
+  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr]
   	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_parking_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr, ada_spaces_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
 	
 	
 	
@@ -952,6 +971,7 @@ require([
 	
 	searchWidget = new Search({
         view: view,
+		container: "map-options",
         maxSuggestions: 10,
 		allPlaceholder: "Begin typing and select an option from the suggestions...",
         sources: [
@@ -1067,7 +1087,7 @@ require([
 		close_menu_icon.style.display = 'none'
 	  }
 	});
-    view.ui.add(searchWidget, {position: "top-right"});
+    //view.ui.add(searchWidget, {position: "top-right"});
 	
 	
 	
@@ -1422,7 +1442,7 @@ require([
 		var caan = bldg.attributes["ASSETNUM"]
 		var depts = bldg.attributes["DEPARTMENTS"]
 		var address = bldg.attributes["ADDRESS"]
-		var alias = bldg.attributes["ALIAS"]
+		var alias = bldg.attributes["BUILDINGURL"]
 		//console.log(name)
 		//console.log(caan)
 		//console.log(depts)
@@ -1432,22 +1452,25 @@ require([
 		var d = document.createElement("div")
 		d.className = "bldg"
 
+		var bldglink = document.createElement("a")
+		bldglink.href = alias
 		var nametag = document.createElement("p")
 		nametag.className = "nametag"
-		nametag.textContent = name
-		d.appendChild(nametag)
+		nametag.textContent = name + " (" + caan + ")"
+		bldglink.appendChild(nametag)
+		d.appendChild(bldglink)
 
 		var caantag = document.createElement("p")
 		caantag.className = "caan"
 		caantag.textContent = "CAAN NUMBER: " + caan
-		d.appendChild(caantag)
+		//d.appendChild(caantag)
 
 		var addresstag = document.createElement("p")
 		addresstag.textContent = "ADDRESS: " + address
 		d.appendChild(addresstag)
 		
 		var aliastag = document.createElement("p")
-		aliastag.textContent = "alias: " + alias
+		aliastag.textContent = "SHARE: " + alias
 		//d.appendChild(aliastag)
 
 		var depts_list = document.createElement("p")
@@ -1485,5 +1508,6 @@ require([
 	//watchBuildingLabels();
 	//expandableMenus();
 	//eyeballVis();
-	//watchLayerVisibility();	
+	//watchLayerVisibility();
+	clickBuildingFromLookupTool();
 });
