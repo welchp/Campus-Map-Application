@@ -653,8 +653,7 @@ require([
 		highlightOptions:{
 			color:"#E5D99F",
 			haloOpacity:1,
-			fillOpacity:0,
-			
+			fillOpacity:0			
 		},
 		popup:{
 			defaultPopupTemplateEnabled: true,
