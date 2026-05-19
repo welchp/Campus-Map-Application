@@ -1369,6 +1369,16 @@ require([
 			clearbutton.style.display = "flex"
 		}
 	}
+
+	var building_labels_node = document.getElementById("building-labels-toggle");
+	function toggleBuildingLabels() {
+		if (buildings_lyr.labelsVisible == true) {
+			buildings_lyr.labelsVisible = false;
+		 } else {
+			buildings_lyr.labelsVisible = true;
+		 } 
+	}
+	calcite.addEvent(building_labels_node, click, toggleBuildingLabels);
 	
 	var clear_all_node = document.getElementById("clear-layers-icon");
 	function clearAll(visLayers) {
