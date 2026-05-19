@@ -958,6 +958,7 @@ require([
     var locateBtn = new Locate({
         view: view
       });
+
     view.ui.add(locateBtn, {position: "top-left"});
 	
 	view.ui.add(bmExpand, "top-left");
@@ -1014,7 +1015,7 @@ require([
 			},
         	{featureLayer: {
                 url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Parking_Lots/FeatureServer/0"},
-            searchFields: ["NUM", "Permit_Type"],
+            searchFields: ["NUM", "Permit_Type","NAME"],
             suggestionTemplate: "Parking Lot {NUM} - {NAME}",
             displayField: "NUM",
             exactMatch: false,

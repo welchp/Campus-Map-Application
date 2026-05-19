@@ -551,7 +551,7 @@ aside {
 	cursor: pointer;
 }
 
-.map-toggle-btn {
+.mp-toggle-btn {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -576,13 +576,83 @@ aside {
 	text-transform: uppercase;
 }
 
+/* Container styling optimized for mobile touch targets */
+.map-toggle-btn {
+  /* Positioning context for overlaying on a map */
+  position: absolute;
+  bottom: 12px;
+  right: 14px;
+  z-index: 1000; /* Ensure it sits above map layers */
+
+  /* Flexbox for mobile layout alignment */
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  /* Sizing & Padding (Min 48px height for mobile tap targets) */
+  height: 48px;
+  padding: 0 16px;
+  border-radius: 24px;
+  
+  /* Contrast & Visibility Over Maps */
+  background: rgba(20, 24, 33, 0.75); /* Dark base contrast for pale maps */
+  backdrop-filter: blur(8px); /* Blurs complex satellite imagery behind it */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* Subtle light border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(0, 0, 0, 0.2); /* Double shadow for depth over any background */
+  
+  /* Typography */
+  color: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.1px;
+  
+  /* Reset button styles */
+  cursor: pointer;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Icon styling */
+.toggle-icon {
+  width: 18px;
+  height: 18px;
+  color: #38bdf8; /* Bright sky-blue accent color to stand out */
+  flex-shrink: 0;
+}
+
+/* Text wrapper */
+.toggle-text {
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5); /* Ensures text readability */
+}
+
+/* Mobile Active/Tap State */
+.map-toggle-btn:active {
+  background: rgba(20, 24, 33, 0.9);
+  transform: scale(0.97);
+}
+
+/* Optional: If you want an 'Off' state toggled via JavaScript class */
+.map-toggle-btn.is-off {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1e293b;
+  border-color: rgba(0, 0, 0, 0.1);
+}
+.map-toggle-btn.is-off .toggle-icon {
+  color: #64748b;
+}
+
 #help-icon {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	top: 70px;
+	bottom: 70px;
 	right: 14px;
 	background-color: #C89933;
 	color: #fff;
