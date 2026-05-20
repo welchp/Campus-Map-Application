@@ -228,6 +228,7 @@
 		#toggle-div {
 			display:flex;
 			justify-content: center;
+			display:none;
 		}
 
 		.esri-icon-search {
@@ -242,7 +243,7 @@
 	<div id="help-modal" class="modal">
 		<a href="#" class="modal__close">&times;</a>
 		<div class="modal__content">
-			<h1>Interactive Map Help</h1>
+			<h1>Campus Map Help</h1>
 
 			<p>
 				Here's a couple pointers to help you get the most out of this web map.
@@ -351,7 +352,7 @@
 		<div id="main-content">
 			<div id="side-bar" class="phone-hide">
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
-				<h1 style="transform:translateY(-20px);font-size:20px">Interactive Map</h1>
+				<h1 class="main-title">Campus Map</h1>
 				<div style="width:100%">
 					<div id="toggle-div">
 						<label class="toggle">
@@ -643,19 +644,29 @@
 							color:var(--smooth-blue)
 						}
 					</style>
-					<div id="announcements" class="news-block">
-						<p><strong>Classrooms Layer added to the map!</strong><br>
-						<p>
-							Find UCSC classrooms by enabling the "Classrooms" layer under the "Campus Life" section in the layer list.
-						</p>
+					<div id="announcements">
+						<div class="banner-container news-block">
+							<div class="app-banner">
+								<span class="banner-badge">New</span>
+								
+								<p class="banner-message">Classrooms layer added to the map.</p>
+								
+								<button class="banner-close-btn" aria-label="Dismiss announcement">
+								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+									<line x1="18" y1="6" x2="6" y2="18"></line>
+									<line x1="6" y1="6" x2="18" y2="18"></line>
+								</svg>
+								</button>
+							</div>
+						</div>						
 					</div>
 				</div>
 				
 			</div>
 			<div id="main-wrapper">
 				<div id="mobile-menu">
-					<div id="admin-div">
-					
+					<div id="mobile-admin-div">
+						<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="mobile-campus-logo"></a>
 						<div id="buttons">
 							<a href="mailto:maps@ucsc.edu">
 								<i class="icon-ui-user"></i>

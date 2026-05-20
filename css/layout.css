@@ -231,9 +231,20 @@ body {
 }
 
 #side-bar > a > img {
-	min-width: 250px;
-	max-width: 250px;
+	min-width: 125px;
+	max-width: 144px;
 	margin-bottom: 0
+}
+
+#mobile-campus-logo {
+	
+}
+
+.main-title {
+	text-transform: uppercase;
+    color: #6a6a6a;
+	transform:translateY(-20px);
+	font-size:20px;
 }
 
 #navigation {
@@ -387,6 +398,11 @@ aside {
 	padding-top: 20px;
 }
 
+.esri-input.esri-search__input::placeholder {
+  color: #6a6a6a;
+  opacity: 0.7;
+}
+
 .break {
 	display: -webkit-box;
 	display: -ms-flexbox;
@@ -460,6 +476,20 @@ aside {
 	justify-content: center;
 	margin-top: auto;
 	width: 100%;
+}
+
+#mobile-admin-div {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: start;
+	margin-top: auto;
+	width: 100%;
+}
+
+#mobile-campus-logo {
+	width:100px;
+	margin-right:1rem;
 }
 
 #clear-all {
@@ -781,13 +811,14 @@ aside {
 
 #map-options {
 	width: 100%;
+	padding:0 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	border: 1px solid #c3c3c3;
 	background-color: #f8f8f8;
 	margin-bottom:2rem;
+	box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.2);
 }
 
 #map-options > h3,
@@ -1350,8 +1381,6 @@ h4 {
 }
 
 .news-block {
-	background-color: #d8e3f0;
-	background-color:#ededed;
 	padding: 10px;
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 	margin: 1em;
@@ -1428,6 +1457,82 @@ h4 {
 	font-weight: 500;
 	margin-left: 10px;
 }
+
+/* Layout container for positioning on your white layout */
+.banner-container {
+  padding: 16px;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+/* The Banner Component */
+.app-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 16px; /* Slightly tighter radius than the pills for visual hierarchy */
+  
+  /* Minimal solid styling for flat white backgrounds */
+  background: #1e293b; /* Deep slate solid background */
+  border: 1px solid #334155;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); /* Soft, clean shadow */
+}
+
+/* "New" or status badge */
+.banner-badge {
+  background: rgba(56, 189, 248, 0.15); /* Muted version of your accent blue */
+  color: #38bdf8; /* Your signature sky-blue accent */
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 8px;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+/* Banner text */
+.banner-message {
+  flex: 1;
+  margin: 0;
+  color: #f8fafc;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Dismiss/X Button */
+.banner-close-btn {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #94a3b8; /* Muted slate gray */
+  border-radius: 50%;
+  transition: color 0.2s, background-color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+  display:none;
+}
+
+.banner-close-btn:active {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.banner-close-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
 
 @media only screen and (max-height: 933px) {
 	#layer-list {
