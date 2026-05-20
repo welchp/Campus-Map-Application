@@ -1019,7 +1019,9 @@ aside {
   left: 10px;
   height: 15px;
   width: 15px;
-  background-color: #efefef;
+  background-color: #F3EFEB;
+  box-shadow: -1px 1px 1px 1px rgba(0,0,0,0.2);
+  border-radius: 100%;
 }
 
 /* On mouse-over, add a grey background color */
