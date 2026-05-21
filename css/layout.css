@@ -17,6 +17,9 @@ body {
 	--smooth-blue:#336389;
 	--light-blue:#d8e3f0;
 	--hot-red:#ffcdb2;
+	--shadow1: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	--shadow2: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
 }
 
 #break a,
@@ -57,7 +60,7 @@ body {
 	padding: 4px;
 	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
 	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #basemaps-icon {
@@ -99,8 +102,8 @@ body {
 	border-radius: 4px;
 	padding: 4px;
 	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.5);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+	box-shadow: var(--shadow1);
+	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 #survey {
@@ -296,8 +299,8 @@ aside {
 	justify-content: center;
 	background-color: #336389;
 	color: #fff;
-	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.12);
+	-webkit-box-shadow: var(--shadow1);
+	box-shadow: var(--shadow1);
 	height: 100%;
 	border-radius: 4px;
 }
@@ -358,6 +361,10 @@ aside {
 	box-shadow: none;
 }
 
+input {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
 .esri-search__input {
 	border-top: 1px solid rgba(0, 0, 0, 0.05);
 	height: 33px;
@@ -365,7 +372,7 @@ aside {
 }
 
 .esri-popup__header {
-	box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
+	box-shadow: var(--shadow1);
 }
 
 .esri-popup__header-title {
@@ -401,6 +408,45 @@ aside {
 .esri-input.esri-search__input::placeholder {
   color: #6a6a6a;
   opacity: 0.7;
+}
+
+.esri-search__container .esri-search__input, .esri-search__container .esri-widget--button {
+	border-radius:0px;
+	height:48px;
+}
+
+.esri-search__submit-button .esri-widget--button {
+	border-radius:12px;
+}
+
+.esri-search__container .esri-search__sources-button {
+	height:48px;
+	border-top-left-radius:1em;
+	border-bottom-left-radius:1em;
+}
+
+.esri-search__container .esri-search__submit-button {
+	height:48px;
+	border-top-right-radius:1em;
+	border-bottom-right-radius:1em;
+	border:1px solid #efefef;
+}
+
+.esri-search__container {
+	width:100%;
+	border-radius:1em;
+}
+
+.esri-search__submit-button {
+	background-color:var(--smooth-blue);
+}
+
+.esri-search__sources-button .esri-widget--button:first-child {
+	border:2px solid black;
+}
+
+#map-options {
+	border-radius:1em;
 }
 
 .break {
@@ -581,30 +627,6 @@ aside {
 	cursor: pointer;
 }
 
-.mp-toggle-btn {
-	display: flex;
-	flex-direction: row;
-	justify-content: center;
-	align-items: center;
-	position: absolute;
-	top: 125px;
-	right: 14px;
-	background-color: rgba(0, 0, 0, 0.6);
-	color: #fff;
-	border: 2px solid rgba(255, 255, 255, 0.7);
-	border-radius: 100%;
-	padding: 10px 6px 10px 11px;
-	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
-	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-	cursor: pointer;
-	height: 44px;
-	min-width: 44px;
-	max-width: 44px;
-	font-size:0.57em;
-	font-weight:600;
-	text-transform: uppercase;
-}
 
 /* Container styling optimized for mobile touch targets */
 .map-toggle-btn {
@@ -644,6 +666,19 @@ aside {
   outline: none;
   -webkit-tap-highlight-color: transparent;
   transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.map-toggle-btn.help {
+  bottom: 70px;
+  right: 14px;
+  background: var(--gold); /* Dark base contrast for pale maps */
+  backdrop-filter: blur(8px); /* Blurs complex satellite imagery behind it */
+  -webkit-backdrop-filter: blur(8px);
+  border: 1.5px solid rgba(255, 255, 255, 0.25); /* Subtle light border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+              0 0 0 1px rgba(0, 0, 0, 0.2); /* Double shadow for depth over any background */
+
+  color: #222;
 }
 
 /* Icon styling */
@@ -765,7 +800,7 @@ aside {
 	margin-right: auto;
 	overflow: auto;
 	overflow-x: hidden;
-	-webkit-box-shadow: 0 10px 8px rgba(0, 0, 0, 0.12);
+	-webkit-box-shadow: var(--shadow1);
 	z-index: 999;
 }
 
@@ -811,14 +846,13 @@ aside {
 
 #map-options {
 	width: 100%;
-	padding:0 1em;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	background-color: #f8f8f8;
 	margin-bottom:2rem;
-	box-shadow: -2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+	box-shadow: var(--shadow1)
 }
 
 #map-options > h3,
@@ -889,7 +923,7 @@ aside {
 
 .ac-input:checked+label,
 .ac-label:hover {
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow1);
 }
 
 .ac-label:after,
@@ -975,7 +1009,7 @@ aside {
 }
 
 .link-box:hover {
-    box-shadow: -4px 4px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--shadow1);
     background-color: #b5b5b5;
 }
 
@@ -1020,8 +1054,8 @@ aside {
   height: 15px;
   width: 15px;
   background-color: #F3EFEB;
-  box-shadow: -1px 1px 1px 1px rgba(0,0,0,0.2);
-  border-radius: 100%;
+  box-shadow: var(--shadow1);
+  border-radius: 20%;
 }
 
 /* On mouse-over, add a grey background color */
@@ -1061,92 +1095,6 @@ aside {
 /*END*/
 
 
-/* H O V E R */
-.hvr-underline-from-left {
-	display: inline-block;
-	vertical-align: middle;
-	-webkit-transform: perspective(1px) translateZ(0);
-	transform: perspective(1px) translateZ(0);
-	-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	position: relative;
-	overflow: hidden;
-}
-
-.hvr-underline-from-left:before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	left: 0;
-	right: 100%;
-	bottom: 0;
-	background: #f29813;
-	height: 2px;
-	-webkit-transition-property: right;
-	transition-property: right;
-	-webkit-transition-duration: 0.1s;
-	transition-duration: 0.1s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-}
-
-.hvr-underline-from-left:hover:before,
-.hvr-underline-from-left:focus:before,
-.hvr-underline-from-left:active:before {
-	right: 0;
-}
-
-.hvr-underline-from-left:hover {
-	text-decoration: none;
-}
-
-
-/* Rectangle Out */
-.hvr-rectangle-out {
-	display: inline-block;
-	vertical-align: middle;
-	-webkit-transform: perspective(1px) translateZ(0);
-	transform: perspective(1px) translateZ(0);
-	box-shadow: 0 0 1px rgba(0, 0, 0, 0);
-	position: relative;
-	-webkit-transition-property: color;
-	transition-property: color;
-	-webkit-transition-duration: 0.1s;
-	transition-duration: 0.1s;
-}
-
-.hvr-rectangle-out:before {
-	content: "";
-	position: absolute;
-	z-index: -1;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	background: #01589D;
-	-webkit-transform: scale(0);
-	transform: scale(0);
-	-webkit-transition-property: transform;
-	transition-property: transform;
-	-webkit-transition-duration: 0.1s;
-	transition-duration: 0.1s;
-	-webkit-transition-timing-function: ease-out;
-	transition-timing-function: ease-out;
-}
-
-.hvr-rectangle-out:hover,
-.hvr-rectangle-out:focus,
-.hvr-rectangle-out:active {
-	color: white;
-}
-
-.hvr-rectangle-out:hover:before,
-.hvr-rectangle-out:focus:before,
-.hvr-rectangle-out:active:before {
-	-webkit-transform: scale(1);
-	transform: scale(1);
-}
-
 
 .hidden {
 	display: none;
@@ -1160,9 +1108,6 @@ aside {
 .showing {
 	display: block;
 }
-
-
-
 
 
 /* Absolute Center Spinner */
@@ -1384,7 +1329,6 @@ h4 {
 
 .news-block {
 	padding: 10px;
-	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 	margin: 1em;
 	width:100%;
 	font-size: 0.8em;
@@ -1478,15 +1422,16 @@ h4 {
   border-radius: 16px; /* Slightly tighter radius than the pills for visual hierarchy */
   
   /* Minimal solid styling for flat white backgrounds */
-  background: #1e293b; /* Deep slate solid background */
-  border: 1px solid #334155;
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15); /* Soft, clean shadow */
+  background: #f3f1e5; /* Deep slate solid background */
+  border: 1px solid tan;
+  box-shadow: 0 4px 4px rgba(15, 23, 42, 0.15); /* Soft, clean shadow */
 }
 
 /* "New" or status badge */
 .banner-badge {
-  background: rgba(56, 189, 248, 0.15); /* Muted version of your accent blue */
-  color: #38bdf8; /* Your signature sky-blue accent */
+  border:1px solid tan;
+  background:#fff;
+  color: var(--smooth-blue); /* Your signature sky-blue accent */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 11px;
   font-weight: 700;
@@ -1501,7 +1446,7 @@ h4 {
 .banner-message {
   flex: 1;
   margin: 0;
-  color: #f8fafc;
+  color: var(--smooth-blue);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   font-size: 14px;
   font-weight: 500;
