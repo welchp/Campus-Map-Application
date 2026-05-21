@@ -329,10 +329,6 @@
 	
   	<div id="main-grid">
 		<header id="mobile-search-bar" class="third-nav phone-show">
-			<div id="menu-icon-div">
-				<i id="menu-icon" class="icon-ui-layer-list desktop-hide"></i>
-				<i id="close-menu-icon" class="icon-ui-close desktop-hide"></i>
-			</div>
 			<div id="map-options-footer" class="phone-show hide">
 				<div id="basemaps-icon" class="phone-show map-options-icon">
 					<i class="icon-ui-basemap"></i>Cartographic
@@ -653,18 +649,12 @@
 			</div>
 			<div id="main-wrapper">
 				<div id="mobile-menu">
+					<button id="close-menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
+						<img src="https://img.icons8.com/?size=20&id=R8PWwzNXLnaX&format=png&color=FFFFFF"/>
+						<span class="toggle-text">Close</span>
+					</button>
 					<div id="mobile-admin-div">
 						<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="mobile-campus-logo"></a>
-						<div id="buttons">
-							<a href="mailto:maps@ucsc.edu">
-								<i class="icon-ui-user"></i>
-								Contact the Maps Team
-							</a>
-							<a class="hide" href="#help-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>
-
-						</div>
-						
-						
 					</div>
 					<div id="announcements" class="news-block hide">
 						<p><strong>Welcome back slugs!</strong><br>
@@ -1046,6 +1036,10 @@
 						<button id="menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
 							<img src="https://img.icons8.com/?size=20&id=36389&format=png&color=FFFFFF"/>
 							<span class="toggle-text">Menu</span>
+						</button>
+						<button id="close-menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
+							<img src="https://img.icons8.com/?size=20&id=36389&format=png&color=FFFFFF"/>
+							<span class="toggle-text">X Close</span>
 						</button>
 						<button id="labels-btn" class="map-toggle-btn" aria-label="Toggle building labels">
 							<svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

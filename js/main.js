@@ -1153,12 +1153,12 @@ require([
 	
 	//toggle menu icon and close icon on mobile
 	var click = calcite.click();
-	var menu_icon_node = document.getElementById('menu-icon-div');
+	var menu_icon_node = document.getElementById('menu-btn');
 	function toggleMobileMenu (event) {
 	  var viewD = document.getElementById('viewDiv');
 	  var mobile_menu = document.getElementById('mobile-menu');
-	  var menu_icon = document.getElementById('menu-icon');
-	  var close_menu_icon = document.getElementById('close-menu-icon');
+	  var menu_icon = document.getElementById('menu-btn');
+	  var close_menu_icon = document.getElementById('close-menu-btn');
 	  
 	  if (viewD.style.display == 'none'){
 		viewD.style.display = 'flex'
@@ -1172,7 +1172,9 @@ require([
 		close_menu_icon.style.display = 'flex'  
 	  }
 	};
+	var close_menu_icon_node = document.getElementById('close-menu-btn');
 	calcite.addEvent(menu_icon_node, click, toggleMobileMenu);
+	calcite.addEvent(close_menu_icon_node, click, toggleMobileMenu);
 	
 	//toggle Building Labels on click of radio button
 	//var labels_icon_node = document.getElementById('labels-icon');

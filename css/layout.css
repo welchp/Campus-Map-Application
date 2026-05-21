@@ -239,10 +239,6 @@ body {
 	margin-bottom: 0
 }
 
-#mobile-campus-logo {
-	
-}
-
 .main-title {
 	text-transform: uppercase;
     color: #6a6a6a;
@@ -363,6 +359,10 @@ aside {
 
 input {
   transition: box-shadow 0.2s ease-in-out;
+}
+
+#mobile-menu,#viewDiv {
+	transition: box-shadow 1s ease-in-out;
 }
 
 .esri-search__input {
@@ -536,8 +536,7 @@ input {
 }
 
 #mobile-campus-logo {
-	width:100px;
-	margin-right:1rem;
+	width:200px;
 }
 
 #clear-all {
@@ -635,7 +634,6 @@ input {
 	left:0;
 	width:100%;
 	padding:8px;
-	border:1px solid black;
 	display:flex;
 	justify-content: space-between;
 	align-items:center;
@@ -691,11 +689,20 @@ input {
 }
 
 #labels-btn {
-	position:relative
+	position:relative;
+	background-color: #fff;
+	color:black;
 }
 
 #menu-btn {
-	position:relative
+	position:relative;
+	z-index:calc(infinite);
+}
+
+#close-menu-btn {
+	display:none;
+	position: absolute;
+
 }
 
 #help-btn {
@@ -762,9 +769,10 @@ input {
 #close-menu-icon {
 	display: none;
 	font-size: 1.2em;
-	position: absolute;
-	top: -142px;
-	right: 0px;
+	position:absolute;
+	bottom:-16px;
+	left:50%;
+	translate:-50% -50%;
 	background-color: rgba(0, 60, 108, 0.8);
 	color: #fff;
 	border: 2px solid rgba(255, 255, 255, 0.7);
@@ -1569,6 +1577,21 @@ h4 {
 		.pdf-modal-content {
 			height:auto;
 			width:90%;
+		}
+
+		#menu-btn {
+			position:absolute;
+			bottom:-16px;
+			left:50%;
+			translate:-50% -50%;
+			margin-right:calc(100dvh)
+		}
+
+		#close-menu-btn {
+			position:absolute;
+			bottom:48px;
+			left:50%;
+			translate:-50% -50%;
 		}
 
 	}
