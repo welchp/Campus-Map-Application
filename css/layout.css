@@ -528,14 +528,14 @@ input {
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	justify-content: start;
+	justify-content: center;
 	margin-top: auto;
 	width: 100%;
 }
 
 #mobile-campus-logo {
-	width:100px;
-	margin-right:1rem;
+	width:200px;
+	margin:auto
 }
 
 #clear-all {
@@ -588,8 +588,8 @@ input {
 #menu-icon-div {
 	z-index: 998;
 	position: absolute;
-	top: 220px;
-	right: 15px;
+	top: calc(100dvh);
+	left: 50px;
 }
 
 #menu-icon {
@@ -632,8 +632,6 @@ input {
 .map-toggle-btn {
   /* Positioning context for overlaying on a map */
   position: absolute;
-  bottom: 12px;
-  right: 14px;
   z-index: 1000; /* Ensure it sits above map layers */
 
   /* Flexbox for mobile layout alignment */
@@ -668,9 +666,14 @@ input {
   transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
-.map-toggle-btn.help {
+#labels-btn.map-toggle-btn {
+	bottom:12px;
+	right:14px;
+}
+
+#help-btn.map-toggle-btn {
   bottom: 70px;
-  right: 14px;
+  left: 14px;
   background: var(--gold); /* Dark base contrast for pale maps */
   backdrop-filter: blur(8px); /* Blurs complex satellite imagery behind it */
   -webkit-backdrop-filter: blur(8px);
@@ -679,6 +682,12 @@ input {
               0 0 0 1px rgba(0, 0, 0, 0.2); /* Double shadow for depth over any background */
 
   color: #222;
+}
+
+#menu-btn.map-toggle-btn {
+  width:12px;
+  bottom: 70px;
+  right: 14px;
 }
 
 /* Icon styling */
@@ -717,15 +726,12 @@ input {
 	justify-content: center;
 	align-items: center;
 	position: absolute;
-	bottom: 70px;
-	right: 14px;
 	background-color: #C89933;
 	color: #fff;
 	border: 2px solid rgba(255, 255, 255, 0.7);
-	border-radius: 100%;
 	padding: 10px 6px 10px 11px;
 	-webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
+	box-shadow: var(--shadow1);
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
 }
