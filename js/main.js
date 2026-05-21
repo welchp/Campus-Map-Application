@@ -1362,7 +1362,7 @@ require([
 		}
 	}
 
-	var building_labels_node = document.getElementById("building-labels-toggle");
+	var building_labels_node = document.getElementById("labels-btn");
 	function toggleBuildingLabels() {
 		if (buildings_lyr.labelsVisible == true) {
 			buildings_lyr.labelsVisible = false;

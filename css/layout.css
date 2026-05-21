@@ -429,6 +429,8 @@ input {
 	height:48px;
 	border-top-right-radius:1em;
 	border-bottom-right-radius:1em;
+	border-top-left-radius:1em;
+	border-bottom-left-radius:1em;
 	border:1px solid #efefef;
 }
 
@@ -627,13 +629,22 @@ input {
 	cursor: pointer;
 }
 
+#bottom-button-container {
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	padding:8px;
+	border:1px solid black;
+	display:flex;
+	justify-content: space-between;
+	align-items:center;
+}
 
 /* Container styling optimized for mobile touch targets */
 .map-toggle-btn {
   /* Positioning context for overlaying on a map */
-  position: absolute;
-  bottom: 12px;
-  right: 14px;
+  position: relative;
   z-index: 1000; /* Ensure it sits above map layers */
 
   /* Flexbox for mobile layout alignment */
@@ -669,8 +680,6 @@ input {
 }
 
 .map-toggle-btn.help {
-  bottom: 70px;
-  right: 14px;
   background: var(--gold); /* Dark base contrast for pale maps */
   backdrop-filter: blur(8px); /* Blurs complex satellite imagery behind it */
   -webkit-backdrop-filter: blur(8px);
@@ -679,6 +688,18 @@ input {
               0 0 0 1px rgba(0, 0, 0, 0.2); /* Double shadow for depth over any background */
 
   color: #222;
+}
+
+#labels-btn {
+	position:relative
+}
+
+#menu-btn {
+	position:relative
+}
+
+#help-btn {
+	position:relative
 }
 
 /* Icon styling */
@@ -1402,6 +1423,7 @@ h4 {
 	font-size: 0.7em;
 	font-weight: 500;
 	margin-left: 10px;
+	box-shadow: var(--shadow1);
 }
 
 /* Layout container for positioning on your white layout */
@@ -1440,6 +1462,7 @@ h4 {
   padding: 4px 8px;
   border-radius: 8px;
   flex-shrink: 0;
+  box-shadow: var(--shadow1);
 }
 
 /* Banner text */
