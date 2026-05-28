@@ -72,7 +72,6 @@ var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
 var classrooms_lyr;
-var ucsc_facilities_lyr;
 
 var foods = [];
 var transportations = [];
@@ -683,16 +682,10 @@ require([
 		//	"<br>Watched property: ", property, // In this example this value will always be //"basemap.title"
 		//	"<br>Watched object: ", object); // In this example this value will always be the map object
 	});
-
-	buildings_lyr = new FeatureLayer({
-		portalItem:{
-			id:"444f951ecbc1471186c0b069448d39fe"
-		}
-	})
 	
-	ucsc_facilities_lyr = new FeatureLayer({
+	buildings_lyr = new FeatureLayer({
         portalItem:{
-            id:"77a4b71f688b4d9bb0e12e23cab57923"
+            id:"444f951ecbc1471186c0b069448d39fe"
         },
         definitionExpression: "HIDE not in (1,-1)",
         visible: true,
@@ -909,10 +902,10 @@ require([
   	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
-	buildings = [buildings_lyr, ucsc_facilities_lyr]
+	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [ucsc_facilities_lyr, buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
+	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
 	
 	
 	
