@@ -442,7 +442,7 @@
 									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png" />Parking Lots, ADA spaces, & EV
 										Chargers
-										<input type="checkbox" onclick="changeVisibility(parking_lyr);changeVisibility(ada_spaces_lyr)">
+										<input type="checkbox" onclick="changeVisibility(parking_lyr);changeVisibility(ada_spaces_lyr);changeVisibility(ev_charging_lyr)">
 										<span class="checkmark"></span>
 									</label>
 								</nav>	
@@ -620,7 +620,7 @@
 							<i class="icon-ui-user"></i>
 							Contact the Maps Team
 						</a>
-						<a href="#help-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/ffffff/help.png"/>Help</a>						
+						<a href="#help-modal" id="map-help-btn"><img style="margin-right:6px"  src="https://img.icons8.com/small/20/336389/help.png"/>Help</a>						
 					</div>
 					<div id="navigation">
 						<ul id="nav-list">
@@ -650,7 +650,7 @@
 			<div id="main-wrapper">
 				<div id="mobile-menu">
 					<button id="close-menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
-						<img src="https://img.icons8.com/?size=20&id=R8PWwzNXLnaX&format=png&color=FFFFFF"/>
+						<img src="https://img.icons8.com/?size=18&id=R8PWwzNXLnaX&format=png&color=336389"/>
 						<span class="toggle-text">Close</span>
 					</button>
 					<div id="mobile-admin-div">
@@ -1030,19 +1030,16 @@
 						<button id="help-btn" class="map-toggle-btn help">
 							<a href="#help-modal">
 							<i class="icon-ui phone-show"></i>
-							<img src="https://img.icons8.com/small/22/222222/help.png"/>
+							<img src="https://img.icons8.com/small/22/336389/help.png"/>
+							<span class="toggle-text">Help</span>
 						</a>
 						</button>
-						<button id="menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
-							<img src="https://img.icons8.com/?size=20&id=36389&format=png&color=FFFFFF"/>
+						<button id="menu-btn" class="map-toggle-btn desktop-hide" aria-label="Toggle menu">
+							<img src="https://img.icons8.com/?size=18&id=36389&format=png&color=#336389"/>
 							<span class="toggle-text">Menu</span>
 						</button>
-						<button id="close-menu-btn" class="map-toggle-btn" aria-label="Toggle menu">
-							<img src="https://img.icons8.com/?size=20&id=36389&format=png&color=FFFFFF"/>
-							<span class="toggle-text">X Close</span>
-						</button>
 						<button id="labels-btn" class="map-toggle-btn" aria-label="Toggle building labels">
-							<svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+							<svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="var(--smooth-blue)" stroke-width="2">
 								<path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
 								<polyline points="9 22 9 12 15 12 15 22"></polyline>
 							</svg>

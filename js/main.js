@@ -72,6 +72,7 @@ var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
 var classrooms_lyr;
+var ev_charging_lyr;
 
 var foods = [];
 var transportations = [];
@@ -378,6 +379,32 @@ require([
 	
 	   
     //FEATURE RENDERERS
+
+	const iconSymbol = {
+		type: "picture-marker",  // Autocasts as new PictureMarkerSymbol()
+		url: "https://img.icons8.com/?size=20&id=13900&format=png&color=000000", // Replace with your icon URL
+		width: "20px",
+		height: "20px"
+	};
+
+	const evSymbol = {
+		type:"picture-marker",
+		url:"https://img.icons8.com/?size=40&id=lyvfiHt7ifrB&format=png&color=659a37",
+		width:"32px",
+		height:"32px"
+	};
+
+	// 2. Create a simple renderer that overrides the default style with your icon
+	const customRenderer = {
+		type: "simple",  // Autocasts as new SimpleRenderer()
+		symbol: iconSymbol
+	};
+
+	const evRenderer = {
+		type:"simple",
+		symbol: evSymbol
+	}
+
     var defaultMarker = {
         type: "simple",
         symbol:{
@@ -445,8 +472,8 @@ require([
         symbol: {
             type: "text",
             color: [0,0,0,0.6],
-            haloColor: [255,255,255, 1],
-            haloSize: 6,
+            haloColor: [255,255,255, 0.7],
+            haloSize: 4,
             font: {
                 family: "Roboto",
                 size: 9,
@@ -656,12 +683,13 @@ require([
 			fillOpacity:0			
 		},
 		popup:{
-			defaultPopupTemplateEnabled: true,
+			//defaultPopupTemplateEnabled: true,
             highlightEnabled: true,
             dockEnabled: true,
             dockOptions:{
-				buttonEnabled: false,
-                position: "bottom-center"
+				buttonEnabled: true,
+                position: "bottom-left",
+				breakpoint:false
             }
         }
     })
@@ -782,9 +810,11 @@ require([
     })
     ada_spaces_lyr = new FeatureLayer({
         portalItem:{
-            id: "1cc88e563dff47398dda9cd7100c7448"
+            id: "7a460dd1f37f470ea145ad321e630957"
+			//id:"a2144b7765e14fcaba5e1c80e8688fd9"
 			
         },
+		renderer: customRenderer,
         visible: false
     })
     bike_repair_lyr = new FeatureLayer({
@@ -896,16 +926,24 @@ require([
 		symbol:defaultMarker
 	})
 
+	ev_charging_lyr = new FeatureLayer({
+		portalItem:{
+			id:"421511c9342249b7a632ce4e71beacca"
+		},
+		renderer:evRenderer,
+		visible:false
+	})
+
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
-  	transportations = [shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr]
+  	transportations = [ev_charging_lyr, ada_spaces_lyr, shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr]
   	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [buildings_lyr, parking_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
+	everyLayer = [ buildings_lyr, parking_lyr,  ada_spaces_lyr, ev_charging_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
 	
 	
 	
@@ -950,20 +988,22 @@ require([
 	
 	view.ui.remove("attribution");
     
+	view.ui.move("zoom", "bottom-right")
+
     homeBtn = new Home({
         view: view
     })
-    view.ui.add(homeBtn, "top-left")
+    view.ui.add(homeBtn, "top-right")
     
     var locateBtn = new Locate({
         view: view
       });
 
-    view.ui.add(locateBtn, {position: "top-left"});
+    view.ui.add(locateBtn, {position: "top-right"});
 	
-	view.ui.add(bmExpand, "top-left");
+	view.ui.add(bmExpand, "top-right");
 	
-	view.ui.add(bkExpand, "top-left");
+	view.ui.add(bkExpand, "top-right");
     
 	view.ui.add("map-options-footer", "top-right")
     
@@ -972,7 +1012,7 @@ require([
 	searchWidget = new Search({
         view: view,
 		container: "map-options",
-        maxSuggestions: 10,
+        maxSuggestions: 20,
 		allPlaceholder: "What are you searching for? ... ",
         sources: [
 			{featureLayer: {
@@ -1149,6 +1189,8 @@ require([
                 })
             }, 2000);
         });
+		view.popup.dockEnabled = true
+		view.popup.dockOptions.position = "bottom-left"
     });
 	
 	//toggle menu icon and close icon on mobile
@@ -1327,6 +1369,7 @@ require([
 				close_menu_icon.style.display = 'none'
 			  }
 			});
+			view.popup.dockOptions.position = "bottom-center"
 		}
 	}
 	
