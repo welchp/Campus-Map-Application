@@ -382,7 +382,7 @@ require([
 
 	const iconSymbol = {
 		type: "picture-marker",  // Autocasts as new PictureMarkerSymbol()
-		url: "https://img.icons8.com/?size=20&id=13900&format=png&color=000000", // Replace with your icon URL
+		url: "https://mediafiles.ucsc.edu/ppc/icons/ada-parking-icon.png", // Replace with your icon URL
 		width: "20px",
 		height: "20px"
 	};
