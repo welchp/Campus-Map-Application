@@ -222,7 +222,8 @@ function turnOnExploreMode() {
 }
 
 function changeVisibility(lyr){
-    console.log("visible was: " + lyr.visible)
+	let initial_state = lyr.visible
+    //console.log("visible was: " + lyr.visible)
     if (lyr.visible == false){
         lyr.visible = true;
         /*lyr.queryExtent().then(function(results) {
@@ -231,7 +232,7 @@ function changeVisibility(lyr){
     } else {
         lyr.visible = false;
     }
-    console.log("visible is: " + lyr.visible)
+    console.log(lyr.title + "- visible " + initial_state + " --> " + lyr.visible)
 }
 
 function expandableMenus() {
@@ -382,7 +383,7 @@ require([
 
 	const iconSymbol = {
 		type: "picture-marker",  // Autocasts as new PictureMarkerSymbol()
-		url: "https://mediafiles.ucsc.edu/ppc/icons/ada-parking-icon.png", // Replace with your icon URL
+		url: "https://img.icons8.com/?size=100&id=80359&format=png&color=000000", // Replace with your icon URL
 		width: "20px",
 		height: "20px"
 	};
@@ -751,7 +752,8 @@ require([
 			id:"01ed9d62518e41dcbef07bfd6b989d85"
         },
         visible: false,
-        labelingInfo:[parkingLabelClass]
+        labelingInfo:[parkingLabelClass],
+		labelsVisible: false
         //definitionExpression: "NUMBER is not null"
     })
     poi_lyr = new FeatureLayer({
@@ -1164,12 +1166,13 @@ require([
 				}
 		});
 		
-		//monitorClearAll();
+		monitorClearAll();
 	
 	});
 	
 	//URL params for buildings
 	view.when(function(){
+		hideBox();
 		console.log("adding layers...")
 		//hybrid.addMany(everyLayer)
 		console.log("parsing URL for params...")
@@ -1382,10 +1385,10 @@ require([
 			}, 2000)
 		})
 	}
-	
+
 	//All the logic for 'Clear All' functionalty
 	visLayers = everyLayer.slice(1)
-	clearbutton = document.getElementById("clear-layers-icon")
+	clearbutton = document.getElementById("clear-layers-btn")
 	var setVisibilities = function(){
 		let visibilities = visLayers.map(lyr => lyr.visible)
 		return visibilities
@@ -1407,6 +1410,43 @@ require([
 		}
 	}
 
+
+	//clearbutton = document.getElementById("clear-layers-btn")
+	//clearbutton.addEventListener("click", );
+	
+	var clear_all_node = document.getElementById("clear-layers-btn");
+	function clearAll() {
+		console.log("turning layers off...")
+
+		//everyLayer.forEach(layer => {
+			// Only update layers that are currently visible
+			//if (layer.visible) {
+			//	layer.visible = false;
+			//	console.log(layer.title + ": Off");
+			//}
+		//});
+
+		//arr.forEach(function(lyr){
+		//	lyr.visible = false	
+		//})
+		//console.log("done.")
+		
+		console.log("unchecking all boxes...")
+		var boxes = document.querySelectorAll(".container input[type='checkbox']:checked")
+		boxes.forEach((element) => {
+			element.click();
+		});
+		clear_all_node.style.display = 'none'
+		console.log("done.")
+		
+		/*var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
+		checked.forEach(function(element){
+			element.setAttribute('class', 'icon-ui-checkbox-unchecked') 
+		})*/
+	};
+	calcite.addEvent(clear_all_node, click, clearAll);
+	
+
 	var building_labels_node = document.getElementById("labels-btn");
 	function toggleBuildingLabels() {
 		if (buildings_lyr.labelsVisible == true) {
@@ -1416,30 +1456,6 @@ require([
 		 } 
 	}
 	calcite.addEvent(building_labels_node, click, toggleBuildingLabels);
-	
-	var clear_all_node = document.getElementById("clear-layers-icon");
-	function clearAll(visLayers) {
-		clear_all_node.style.display = 'none'
-		console.log("turning layers off...")
-		visLayers.forEach(function(lyr){
-			lyr.visible = false	
-		})
-		console.log("done.")
-		
-		console.log("unchecking all boxes...")
-		var boxes = document.querySelectorAll(".container input[type='checkbox']:checked")
-		boxes.forEach((element) => {
-			element.click();
-		});
-		console.log("done.")
-		
-		/*var checked = document.querySelectorAll(".icon-ui-checkbox-checked")
-		checked.forEach(function(element){
-			element.setAttribute('class', 'icon-ui-checkbox-unchecked') 
-		})*/
-	};
-	//calcite.addEvent(clear_all_node, click, clearAll(visLayers));
-	
   
     // Can probably delete the function below
     //***
@@ -1554,6 +1570,6 @@ require([
 	//watchBuildingLabels();
 	//expandableMenus();
 	//eyeballVis();
-	//watchLayerVisibility();
+	watchLayerVisibility();
 	clickBuildingFromLookupTool();
 });

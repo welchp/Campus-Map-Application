@@ -579,6 +579,8 @@
 							height: 100%;
 							width: 100%;
 							position:relative;
+							transition: opacity 5s ease, display 5s ease;
+							transition-behavior: allow-discrete; 
 						}
 
 						#announcements p {
@@ -598,7 +600,21 @@
 						#announcements a, #announcements a:visited {
 							color:var(--smooth-blue)
 						}
+
+						/* When this utility class is added, it fades and then unmounts from view */
+						#announcements.fadeout {
+							opacity: 0;
+							display: none;
+						}
+
 					</style>
+
+					<script>
+					function hideBox() {
+						document.getElementById('announcements').classList.add('fadeout');
+					}
+					</script>
+
 					<div id="announcements">
 						<div class="banner-container news-block">
 							<div class="app-banner">
@@ -753,7 +769,7 @@
 									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/CB972F/car.png" />Parking Lots, ADA spaces, & EV
 										Chargers
-										<input type="checkbox" onclick="changeVisibility(parking_lyr);changeVisibility(ada_spaces_lyr)">
+										<input type="checkbox" onclick="changeVisibility(parking_lyr);changeVisibility(ada_spaces_lyr);changeVisibility(ev_charging_lyr)">
 										<span class="checkmark"></span>
 									</label>
 								</nav>	
@@ -1027,16 +1043,16 @@
 				</div>
 				<div id="viewDiv">
 					<div id="bottom-button-container">
+						<button id="clear-layers-btn" class="map-toggle-btn" aria-label="turn map layers off">
+							<calcite-icon icon="view-hide" /></calcite-icon>
+							<span class="toggle-text">Layers Off</span>
+						</button>
 						<button id="help-btn" class="map-toggle-btn help">
 							<a href="#help-modal">
-							<i class="icon-ui phone-show"></i>
-							<img src="https://img.icons8.com/small/22/336389/help.png"/>
-							<span class="toggle-text">Help</span>
-						</a>
-						</button>
-						<button id="menu-btn" class="map-toggle-btn desktop-hide" aria-label="Toggle menu">
-							<img src="https://img.icons8.com/?size=18&id=36389&format=png&color=#336389"/>
-							<span class="toggle-text">Menu</span>
+								<i class="icon-ui phone-show"></i>
+								<img src="https://img.icons8.com/small/22/336389/help.png"/>
+								<span class="toggle-text">Help</span>
+							</a>
 						</button>
 						<button id="labels-btn" class="map-toggle-btn" aria-label="Toggle building labels">
 							<svg class="toggle-icon" viewBox="0 0 24 24" fill="none" stroke="var(--smooth-blue)" stroke-width="2">
@@ -1044,6 +1060,10 @@
 								<polyline points="9 22 9 12 15 12 15 22"></polyline>
 							</svg>
 							<span class="toggle-text">Labels</span>
+						</button>
+						<button id="menu-btn" class="map-toggle-btn desktop-hide" aria-label="Toggle menu">
+							<img src="https://img.icons8.com/?size=18&id=36389&format=png&color=#336389"/>
+							<span class="toggle-text">Menu</span>
 						</button>
 					</div>
 					<div id="clear-layers-icon" class="icon-ui phone-show">

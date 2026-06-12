@@ -416,28 +416,28 @@ input {
 }
 
 .esri-search__submit-button .esri-widget--button {
-	border-radius:12px;
+	border-radius:24px;
 }
 
 .esri-search__container .esri-search__sources-button {
 	height:48px;
-	border-top-left-radius:1em;
-	border-bottom-left-radius:1em;
+	border-top-left-radius:24px;
+	border-bottom-left-radius:24px;
 }
 
 .esri-search__container .esri-search__submit-button {
 	height:48px;
 	width:48px;
-	border-top-right-radius:1em;
-	border-bottom-right-radius:1em;
-	border-top-left-radius:1em;
-	border-bottom-left-radius:1em;
+	border-top-right-radius:24px;
+	border-bottom-right-radius:24px;
+	border-top-left-radius:24px;
+	border-bottom-left-radius:24px;
 	border:1px solid #efefef;
 }
 
 .esri-search__container {
 	width:100%;
-	border-radius:1em;
+	border-radius:24px;
 }
 
 .esri-search__submit-button {
@@ -617,7 +617,7 @@ input {
 	align-items: center;
 	position: absolute;
 	top: 125px;
-	right: 14px;
+	left: 14px;
 	background-color: rgba(0, 0, 0, 0.6);
 	color: #fff;
 	border: 2px solid rgba(255, 255, 255, 0.7);
@@ -627,6 +627,22 @@ input {
 	box-shadow: 0 2px 3px rgba(0, 0, 0, 0.5);
 	text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 	cursor: pointer;
+}
+
+#clear-layers-btn-container {
+    flex-direction: row;
+	justify-content: start;
+	align-items: start;
+}
+
+#clear-layers-btn {
+	display: none;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background: #efefef;
+    color: #222;
 }
 
 #bottom-button-container {
@@ -655,7 +671,7 @@ input {
   
   /* Sizing & Padding (Min 48px height for mobile tap targets) */
   height: 48px;
-  padding: 0 16px;
+  padding: 0 12px;
   border-radius: 24px;
   
   /* Contrast & Visibility Over Maps */
@@ -685,7 +701,7 @@ input {
   backdrop-filter: blur(8px); /* Blurs complex satellite imagery behind it */
   -webkit-backdrop-filter: blur(8px);
   border: 1.5px solid rgba(255, 255, 255, 0.25); /* Subtle light border */
-  box-hadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3), 
               0 0 0 1px rgba(0, 0, 0, 0.2); /* Double shadow for depth over any background */
   color: var(--smooth-blue);
 }
@@ -716,7 +732,6 @@ input {
 	position: absolute;
 	background: #efefef;
 	color:var(--smooth-blue);
-
 }
 
 #help-btn {
@@ -1594,6 +1609,10 @@ h4 {
 
 		}
 
+		#clear-layers-btn-container {
+
+		}
+
 		.map-toggle-btn {
 			padding:0.5em;
 			height:auto;
@@ -1605,9 +1624,8 @@ h4 {
 
 		#close-menu-btn {
 			position:absolute;
-			bottom:48px;
-			left:50%;
-			translate:-50% -50%;
+			top: 80px;
+            right: 24px;
 		}
 
 	}
