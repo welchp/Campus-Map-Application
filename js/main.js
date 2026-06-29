@@ -95,14 +95,14 @@ var constructionpopuptemplate;
 var bldgcards;
 
 function clickBuildingFromLookupTool() {
-	var bldgcards = document.querySelectorAll('.bldg');
+	var bldgcards = document.querySelectorAll('.facility-card');
 
 	bldgcards.forEach(function (card) {
 		card.addEventListener('click', function (event) {
 			console.log("clicked a building card")
 
 			// If the clicked element doesn't have the right selector, bail
-			if (!event.target.matches('.bldg')) return;
+			if (!event.target.matches('.facility-card')) return;
 			console.log(event.target)
 			if (buildings_lyr.labelsVisible == false) {
 				buildings_lyr.labelsVisible = true;
@@ -716,6 +716,7 @@ require([
         portalItem:{
             id:"444f951ecbc1471186c0b069448d39fe"
         },
+		outFields:["*"],
         definitionExpression: "HIDE not in (1,-1)",
         visible: true,
 	  	renderer: {
@@ -1169,7 +1170,35 @@ require([
 		monitorClearAll();
 	
 	});
-	
+
+	function allowUrlParamsForVisibility() {
+		if (Object.hasOwn(params.query, 'visibleLayers')) {
+			var visible_layers = params.query.visibleLayers.split("|")
+			console.log(visible_layers)
+
+			// Find all label elements on the page
+			var label_containers = document.getElementsByClassName('container');
+
+			visible_layers.forEach(visible_layer => {
+				Array.from(label_containers).forEach(label => {
+					//console.log(label.textContent.trim())
+					// Check if the label contains your exact text
+					if (label.textContent.trim() === visible_layer) {
+						// Get the element immediately following the label
+						console.log(label.textContent.trim())
+						const targetInput = label.querySelector("input");
+						console.log(targetInput)
+
+						// Verify the next element exists and is an input, then click it
+						if (targetInput && targetInput.tagName === 'INPUT') {
+							targetInput.click();
+						}
+					}
+				});
+			});
+		}
+	}
+
 	//URL params for buildings
 	view.when(function(){
 		hideBox();
@@ -1178,22 +1207,42 @@ require([
 		console.log("parsing URL for params...")
         u = document.URL
         params = urlUtils.urlToObject(u);
-		console.log(params.query.ASSETNUM)
-        query = new Query();
-        query.where = "ASSETNUM = '" + params.query.ASSETNUM + "'";
-        query.returnGeometry = true;
-        console.log(query.where)
-        buildings_lyr.queryExtent(query).then(function(results){
-            setTimeout(function(){
-                view.goTo(results.extent).then(function(){
-	            	var newZoom = view.zoom - 2.5
-    	            view.zoom = newZoom
-                	//toggleBuildingLabels()
-                })
-            }, 2000);
-        });
-		view.popup.dockEnabled = true
-		view.popup.dockOptions.position = "bottom-left"
+		
+		//allowUrlParamsForVisibility();
+
+		if (Object.hasOwn(params.query, 'building')) {
+			console.log(params.query.building)
+			query = new Query();
+			query.where = "ASSETNUM = '" + params.query.building + "'";
+			query.returnGeometry = true;
+			query.outFields = ["*"]; 
+			//console.log(query.where)
+			buildings_lyr.queryExtent(query).then((results) => {
+				setTimeout(function(){
+					view.goTo(results.extent).then(() => {
+						var newZoom = view.zoom - 2.5
+						view.zoom = newZoom
+						buildings_lyr.labelsVisible = true
+					})
+				}, 2000);
+			});
+
+
+			buildings_lyr.queryFeatures(query).then((results) => {
+				if (results.features.length > 0) {
+				const feature = results.features[0];
+
+				// 5. Programmatically trigger the click/selection
+				view.popup.open({
+					features: [feature],
+					fetchFeatures: true,
+					layer: buildings_lyr
+				});
+				}
+			});
+		}        
+		//view.popup.dockEnabled = true
+		//view.popup.dockOptions.position = "bottom-left"
     });
 	
 	//toggle menu icon and close icon on mobile
@@ -1491,9 +1540,7 @@ require([
 		buildings_lyr.queryFeatures().then(function(results){
 		bldg_list = results.features
 		bldg_list.forEach(function(bldg){
-			//console.log(bldg.attributes["BUILDINGNAME"])
-			//console.log(bldg.attributes)
-			makeBldgCard(bldg)
+			createFacilityCard(bldg);
 			})
 		});
 	}
@@ -1504,7 +1551,8 @@ require([
 		var caan = bldg.attributes["ASSETNUM"]
 		var depts = bldg.attributes["DEPARTMENTS"]
 		var address = bldg.attributes["ADDRESS"]
-		var alias = bldg.attributes["BUILDINGURL"]
+		var building_url = bldg.attributes["BUILDINGURL"]
+		var alias = bldg.attributes["ALIAS"]
 		//console.log(name)
 		//console.log(caan)
 		//console.log(depts)
@@ -1515,25 +1563,22 @@ require([
 		d.className = "bldg"
 
 		var bldglink = document.createElement("a")
-		bldglink.href = alias
+		bldglink.href = building_url
 		var nametag = document.createElement("p")
 		nametag.className = "nametag"
 		nametag.textContent = name + " (" + caan + ")"
 		bldglink.appendChild(nametag)
 		d.appendChild(bldglink)
 
-		var caantag = document.createElement("p")
-		caantag.className = "caan"
-		caantag.textContent = "CAAN NUMBER: " + caan
-		//d.appendChild(caantag)
-
 		var addresstag = document.createElement("p")
 		addresstag.textContent = "ADDRESS: " + address
 		d.appendChild(addresstag)
 		
 		var aliastag = document.createElement("p")
-		aliastag.textContent = "SHARE: " + alias
-		//d.appendChild(aliastag)
+		aliastag.textContent = "ALIAS: " + alias
+		if (alias) {
+			d.appendChild(aliastag);
+		};
 
 		var depts_list = document.createElement("p")
 		depts_list.className = "depts"
@@ -1551,25 +1596,62 @@ require([
 
 		return d
 	}
+
+	function createFacilityCard(facility) {
+		// 1. Handle optional aliases gracefully
+		const aliasHTML = facility.attributes["ALIAS"]
+			? `<br><em>Also known as: ` + facility.attributes["ALIAS"] + `</em>`
+			: '';
+
+		// 2. Generate directions URL (assuming you have X/Y or Lat/Lng coords)
+		// Or replace with your custom directions link logic
+		//const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(facility.attributes["ADDRESS)}`;
+
+		// 3. Return the minimal HTML template literal
+		var htmltemplate = `
+			<div class="facility-card">
+			<div>
+				<h2 class="fac-title">` + facility.attributes["BUILDINGNAME"] + `<span class="get-directions-btn">GET DIRECTIONS</span></h2>
+				<p class="fac-meta">
+				CAAN: ` + facility.attributes["ASSETNUM"] + 
+				aliasHTML +
+				`</p>
+			</div>
+
+			<div>
+				<div class="fac-section-title">Location</div>
+				<p class="fac-meta" style="font-size: 1.1rem; color: #333;">` + facility.attributes["ADDRESS"] + `</p>
+			</div>
+
+			<div>
+				<div class="fac-section-title">Occupying Departments</div>
+				<div class="fac-departments">` + facility.attributes["DEPARTMENTS"] + `</div>
+			</div>
+
+			</div>
+		`;
+
+		bldg_list_div.innerHTML += htmltemplate
+	}
 	
 	
 	var  bldg_list_div = document.getElementById("bldg-list")
 	
 	//FUNCTIONS TO RUN
-	//filterBuildings();
-	getBuildingList();
-	//indicateVisibility();
-    //toggleVisibility();
-    //toggleMenu();
-  	setBasemap();
-  	setBuildingLabels();
-    //showLegend();
-	setZoom();
 	loader();
+	setZoom();
+	setBasemap();
+	getBuildingList();
+  	setBuildingLabels();
+	watchLayerVisibility();
+	clickBuildingFromLookupTool();
 	//indicateAll();
 	//watchBuildingLabels();
 	//expandableMenus();
 	//eyeballVis();
-	watchLayerVisibility();
-	clickBuildingFromLookupTool();
+	//indicateVisibility();
+    //toggleVisibility();
+    //toggleMenu();
+    //showLegend();
+	
 });

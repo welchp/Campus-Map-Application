@@ -53,9 +53,10 @@
 				input = document.getElementById("bldg-search");
 				textFilter = input.value.toUpperCase();
 				all_bldgs = document.getElementById("bldg-list");
-				bldg_list = all_bldgs.getElementsByClassName("bldg");
+				bldg_list = all_bldgs.getElementsByClassName("facility-card");
 				for (i = 0; i < bldg_list.length; i++) {
-					ps = bldg_list[i].getElementsByTagName("p")[0];
+					
+					ps = bldg_list[i];
 					txtValue = ps.textContent || ps.innerText;
 					if (txtValue.toUpperCase().indexOf(textFilter) > -1) {
 						bldg_list[i].style.display = "";
@@ -579,7 +580,7 @@
 							height: 100%;
 							width: 100%;
 							position:relative;
-							transition: opacity 5s ease, display 5s ease;
+							transition: opacity 20s ease, display 20s ease;
 							transition-behavior: allow-discrete; 
 						}
 
