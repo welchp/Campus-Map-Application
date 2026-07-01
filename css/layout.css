@@ -1308,12 +1308,12 @@ input {
 }
 
 .modal__content {
-	border-radius: 6px;
+	border-radius:25px;
 	position: relative;
-	width:70%;
-	max-width: 80%;
-	max-height: 80%;
-	height: 800px;
+	width:90%;
+	max-width: 1200px;
+	height: 80%;
+	max-height: 90%;
 	background: #fff;
 	padding: 1em;
 	overflow: auto;
@@ -1332,7 +1332,6 @@ input {
 }
 
 .modal__close {
-	position: -webkit-sticky;
 	position: absolute;
     top: 1em;
     right: 50%;
@@ -1462,11 +1461,11 @@ h4 {
 	background-color: var(--smooth-blue);
 	color:#fff;
 	border-radius: 0.5em;
-	font-size: 0.5em;
+	font-size: 0.75em;
 	font-weight: 500;
-	margin-left: 10px;
 	box-shadow: var(--shadow1);
 	white-space: nowrap;
+	cursor: pointer;
 }
 
 /* Layout container for positioning on your white layout */
@@ -1607,7 +1606,7 @@ h4 {
 .fac-directions-btn {
   display: block;
   text-align: center;
-  background-color: #0070f3; /* Clean, recognizable blue */
+  background-color:#efefef; /* Clean, recognizable blue */
   color: white;
   text-decoration: none;
   font-weight: 600;
@@ -1619,7 +1618,8 @@ h4 {
 }
 
 .fac-directions-btn:hover {
-  background-color: #0051b3;
+  background-color: #efefef;
+  color: var(--smooth-blue);
 }
 
 #bldg-search {

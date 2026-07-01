@@ -71,7 +71,6 @@ var lactation_lyr;
 var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
-var classrooms_lyr;
 var ev_charging_lyr;
 
 var foods = [];
@@ -381,24 +380,24 @@ require([
 	   
     //FEATURE RENDERERS
 
-	const iconSymbol = {
+	const ada_spaces_marker = {
 		type: "picture-marker",  // Autocasts as new PictureMarkerSymbol()
-		url: "https://img.icons8.com/?size=100&id=80359&format=png&color=000000", // Replace with your icon URL
+		url: "https://img.icons8.com/?size=36&id=13900&format=png&color=000000", 
 		width: "20px",
 		height: "20px"
 	};
 
 	const evSymbol = {
 		type:"picture-marker",
-		url:"https://img.icons8.com/?size=40&id=lyvfiHt7ifrB&format=png&color=659a37",
+		url:"https://img.icons8.com/?size=36&id=lyvfiHt7ifrB&format=png",
 		width:"32px",
 		height:"32px"
 	};
 
 	// 2. Create a simple renderer that overrides the default style with your icon
-	const customRenderer = {
+	const ada_spaces_renderer = {
 		type: "simple",  // Autocasts as new SimpleRenderer()
-		symbol: iconSymbol
+		symbol: ada_spaces_marker
 	};
 
 	const evRenderer = {
@@ -749,13 +748,12 @@ require([
     })
     parking_lyr = new FeatureLayer({
         portalItem:{
-            //id: "f795b2c9af644ac190cec4d72b767041"
 			id:"01ed9d62518e41dcbef07bfd6b989d85"
         },
         visible: false,
+		opacity:0.3,
         labelingInfo:[parkingLabelClass],
 		labelsVisible: false
-        //definitionExpression: "NUMBER is not null"
     })
     poi_lyr = new FeatureLayer({
         portalItem:{
@@ -817,7 +815,7 @@ require([
 			//id:"a2144b7765e14fcaba5e1c80e8688fd9"
 			
         },
-		renderer: customRenderer,
+		renderer: ada_spaces_renderer,
         visible: false
     })
     bike_repair_lyr = new FeatureLayer({
@@ -920,14 +918,6 @@ require([
 		},
 		visible: false
 	})
-	
-	classrooms_lyr = new FeatureLayer({
-		portalItem:{
-			id:"2b8bd80d6f684a0d956d0fe41908e88c"
-		},
-		visible: false,
-		symbol:defaultMarker
-	})
 
 	ev_charging_lyr = new FeatureLayer({
 		portalItem:{
@@ -940,13 +930,13 @@ require([
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [ev_charging_lyr, ada_spaces_lyr, shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr]
-  	student_life = [classrooms_lyr, construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
+  	student_life = [construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
   	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [ buildings_lyr, parking_lyr,  ada_spaces_lyr, ev_charging_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, classrooms_lyr]
+	everyLayer = [ buildings_lyr, parking_lyr,  ada_spaces_lyr, ev_charging_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr]
 	
 	
 	
@@ -1537,14 +1527,18 @@ require([
 	});
 	
 	function getBuildingList() {
-		buildings_lyr.queryFeatures().then(function(results){
-		bldg_list = results.features
-		bldg_list.forEach(function(bldg){
-			createFacilityCard(bldg);
+		var bldg_query = buildings_lyr.createQuery();
+		bldg_query.returnGeometry = true;
+		bldg_query.outSpatialReference = { wkid: 4326 };
+		buildings_lyr.queryFeatures(bldg_query).then(function (results) {
+			bldg_list = results.features
+			bldg_list.forEach(function (bldg) {
+				createFacilityCard(bldg);
 			})
 		});
 	}
 	
+
 	
 	function makeBldgCard(bldg){
 		var name = bldg.attributes["BUILDINGNAME"]
@@ -1605,13 +1599,14 @@ require([
 
 		// 2. Generate directions URL (assuming you have X/Y or Lat/Lng coords)
 		// Or replace with your custom directions link logic
-		//const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(facility.attributes["ADDRESS)}`;
+		const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=` + facility.geometry.centroid.y + `,` + facility.geometry.centroid.x
+		//const directionsUrl = `https://www.google.com/maps/dir/?api=1&destination=`
 
 		// 3. Return the minimal HTML template literal
 		var htmltemplate = `
 			<div class="facility-card">
 			<div>
-				<h2 class="fac-title">` + facility.attributes["BUILDINGNAME"] + `<span class="get-directions-btn">GET DIRECTIONS</span></h2>
+				<h2 class="fac-title">` + facility.attributes["BUILDINGNAME"] + `</h2>
 				<p class="fac-meta">
 				CAAN: ` + facility.attributes["ASSETNUM"] + 
 				aliasHTML +
@@ -1627,6 +1622,8 @@ require([
 				<div class="fac-section-title">Occupying Departments</div>
 				<div class="fac-departments">` + facility.attributes["DEPARTMENTS"] + `</div>
 			</div>
+			
+			<a href="` + directionsUrl + `" target="_blank" class="fac-directions-btn">Get Directions</a>
 
 			</div>
 		`;
