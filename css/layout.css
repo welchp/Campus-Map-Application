@@ -410,6 +410,10 @@ input {
   opacity: 0.7;
 }
 
+.esri-search__container {
+	border:1px solid lightgray;
+}
+
 .esri-search__container .esri-search__input, .esri-search__container .esri-widget--button {
 	border-radius:0px;
 	height:48px;
@@ -432,7 +436,7 @@ input {
 	border-bottom-right-radius:24px;
 	border-top-left-radius:24px;
 	border-bottom-left-radius:24px;
-	border:1px solid #efefef;
+	border:1px solid lightgray;
 }
 
 .esri-search__container {
@@ -449,7 +453,7 @@ input {
 }
 
 #map-options {
-	border-radius:1em;
+	border-radius:24px;
 }
 
 .break {
@@ -1017,6 +1021,12 @@ input {
 .ac-sub .ac-input:checked~.ac-sub-text {
     opacity: 1;
     height: auto;
+}
+
+.ac-text > div {
+	font-size:0.8em;
+	display: flex;
+	flex-direction: row;
 }
 
 .ac-sub .ac-label {

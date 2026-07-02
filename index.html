@@ -365,13 +365,15 @@
 							.layer-info {
 								background-color: #fff;
 								border:1px solid #ededed;
-								padding:0.5em 1em
+								padding:0.5em 1em;
+								width:50%;
 							}
 							
 							.layer-info p {
 								color:#444;
 								font-size:0.9em
 							}
+
 						</style>
 						
 						<nav role="navigation" aria-labelledby="sidenav">
@@ -423,7 +425,7 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<a href="https://taps.ucsc.edu">Transportation and Parking Services website</a>
+										<a href="https://taps.ucsc.edu">Transportation and Parking Services (TAPS)</a>
 										<p>Learn more about transportation on campus</p>
 									</div>
 									<div class="layer-info">
@@ -465,17 +467,8 @@
 										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
 										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
 									</div>
-									<div class="layer-info">
-										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
-										<p>Learn more about PPDO Projects and their construction impacts</p>
-									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
-									<label class="container">
-										<img src="https://img.icons8.com/small/24/6301CB/engineer.png" />Construction Impacts
-										<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
-										<span class="checkmark"></span>
-									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png" />Colleges
 										<input type="checkbox" onclick="changeVisibility(colleges_lyr)">
 										<span class="checkmark"></span>
@@ -502,9 +495,18 @@
 										<a href="#bldg-modal">Building Lookup Tool</a>
 										<p>Get building names, addresses, and CAANs</p>
 									</div>
+									<div class="layer-info">
+										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
+										<p>Learn more about PPDO Projects and their construction impacts</p>
+									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
-								
+									<label class="container">
+										<img src="https://img.icons8.com/small/24/339999/engineer.png" />Construction Impacts
+										<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
+										<span class="checkmark"></span>
+									</label>
+
 									<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png" />Emergency Blue Light Phones
 										<input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
 										<span class="checkmark"></span>
@@ -522,11 +524,6 @@
 								
 									<label class="container"><img src="https://img.icons8.com/small/24/339999/recycling.png" />Recycling Locations
 										<input type="checkbox" onclick="changeVisibility(recycling_lyr)">
-										<span class="checkmark"></span>
-									</label>
-								
-									<label class="container"><img src="https://img.icons8.com/small/24/339999/pdf.png" />Printable Map Extents
-										<input type="checkbox" onclick="changeVisibility(pdf_extents_lyr)">
 										<span class="checkmark"></span>
 									</label>
 								</nav>
@@ -786,17 +783,8 @@
 										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
 										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
 									</div>
-									<div class="layer-info">
-										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
-										<p>Learn more about PPDO Projects and their construction impacts</p>
-									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
-									<label class="container">
-										<img src="https://img.icons8.com/small/24/6301CB/engineer.png" />Construction Impacts
-										<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
-										<span class="checkmark"></span>
-									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png" />Colleges
 										<input type="checkbox" onclick="changeVisibility(colleges_lyr)">
 										<span class="checkmark"></span>
@@ -823,9 +811,18 @@
 										<a href="#bldg-modal">Building Lookup Tool</a>
 										<p>Get building names, addresses, and CAANs</p>
 									</div>
+									<div class="layer-info">
+										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
+										<p>Learn more about PPDO Projects and their construction impacts</p>
+									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
-								
+									<label class="container">
+										<img src="https://img.icons8.com/small/24/339999/engineer.png" />Construction Impacts
+										<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
+										<span class="checkmark"></span>
+									</label> 
+
 									<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png" />Emergency Blue Light Phones
 										<input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
 										<span class="checkmark"></span>
@@ -846,10 +843,6 @@
 										<span class="checkmark"></span>
 									</label>
 								
-									<label class="container"><img src="https://img.icons8.com/small/24/339999/pdf.png" />Printable Map Extents
-										<input type="checkbox" onclick="changeVisibility(pdf_extents_lyr)">
-										<span class="checkmark"></span>
-									</label>
 								</nav>
 							</article>
 						</div>
@@ -931,19 +924,10 @@
 										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
 										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
 									</div>
-									<div class="layer-info">
-										<a href="https://ppdo.ucsc.edu/design-construction/projects/">Capital Projects</a>
-										<p>Learn more about PPDO Projects and their construction impacts</p>
-									</div>
 								</div>
 							</article>
 						</div>
 						<nav class="hide" role="navigation" aria-labelledby="sidenav">
-							<label class="container">
-						  		<img src="https://img.icons8.com/small/24/339999/engineer.png"/>Construction Impacts
-							  	<input type="checkbox" onclick="changeVisibility(construction_impacts_lyr)">
-							  	<span class="checkmark"></span>
-							</label>
 							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png"/>Colleges
 							  <input type="checkbox" onclick="changeVisibility(colleges_lyr)">
 							  <span class="checkmark"></span>
@@ -954,44 +938,6 @@
 							</label>
 							<label class="container"><img src="https://img.icons8.com/small/24/6301CB/service.png"/>Student Support Services
 							  <input type="checkbox" onclick="changeVisibility(support_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-						</nav>
-						
-						<nav class="hide" role="navigation" aria-labelledby="sidenav">
-							<div class="ac">
-								<input class="ac-input" id="facilities-m" name="facilities-m" type="checkbox" /> <label class="ac-label" for="facilities-m"><img width="24" height="24" src="https://img.icons8.com/material/24/339999/connectivity-and-help.png" alt="connectivity-and-help"/>Health, Safety &amp; Facilities</label>
-								<article class="ac-text">
-								<div class="">
-									<div class="layer-info">
-										<a href="#bldg-modal">Building Lookup Tool</a>
-										<p>Get building names, addresses, and CAANs</p>
-									</div>
-								</div>
-							</article>
-							</div>						
-							<label class="container"><img src="https://img.icons8.com/small/24/339999/phone.png"/>Emergency Blue Light Phones
-							  <input type="checkbox" onclick="changeVisibility(emergency_phones_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
-							<label class="container"><img src="https://img.icons8.com/small/24/339999/toilet-bowl.png"/>All-Gender Restrooms
-							  <input type="checkbox" onclick="changeVisibility(genderinclusive_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
-							<label class="container"><img src="https://img.icons8.com/small/24/339999/breastfeeding.png"/>Lactation Spaces
-							  <input type="checkbox" onclick="changeVisibility(lactation_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
-							<label class="container"><img src="https://img.icons8.com/small/24/339999/recycling.png"/>Recycling Locations
-							  <input type="checkbox" onclick="changeVisibility(recycling_lyr)">
-							  <span class="checkmark"></span>
-							</label>
-							
-							<label class="container"><img src="https://img.icons8.com/small/24/339999/pdf.png"/>Printable Map Extents
-							  <input type="checkbox" onclick="changeVisibility(pdf_extents_lyr)">
 							  <span class="checkmark"></span>
 							</label>
 						</nav>
