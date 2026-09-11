@@ -397,8 +397,9 @@ require([
 
 	const social_spaces_symbol = {
 		type:"picture-marker",
-		url:"https://img.icons8.com/?size=36&id=21613&format=png&color=6301CB",
-		height:"20px"
+		url:"https://img.icons8.com/?size=100&id=AXAzyxeWycrs&format=png&color=6301CB",
+		height:"20px",
+		width: "20px"
 	};
 
 	// 2. Create a simple renderer that overrides the default style with your icon
