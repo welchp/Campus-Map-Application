@@ -72,6 +72,7 @@ var pdf_extents_lyr;
 var buildingsLayerView;
 var bikeshare_lyr;
 var ev_charging_lyr;
+var social_spaces_lyr;
 
 var foods = [];
 var transportations = [];
@@ -394,6 +395,12 @@ require([
 		height:"32px"
 	};
 
+	const social_spaces_symbol = {
+		type:"picture-marker",
+		url:"https://img.icons8.com/?size=36&id=21613&format=png&color=6301CB",
+		height:"20px"
+	};
+
 	// 2. Create a simple renderer that overrides the default style with your icon
 	const ada_spaces_renderer = {
 		type: "simple",  // Autocasts as new SimpleRenderer()
@@ -403,7 +410,12 @@ require([
 	const evRenderer = {
 		type:"simple",
 		symbol: evSymbol
-	}
+	};
+
+	const social_spaces_renderer = {
+		type:"simple",
+		symbol: social_spaces_symbol
+	};
 
     var defaultMarker = {
         type: "simple",
@@ -927,16 +939,24 @@ require([
 		visible:false
 	})
 
+	social_spaces_lyr = new FeatureLayer({
+		portalItem:{
+			id:"52fcb8304a7f41e08caf287b87a4cedb"
+		},
+		renderer: social_spaces_renderer,
+		visible: false
+	})
+
     //Layer Groups  
   	foods = [cafes_lyr, perks_lyr, dining_halls_lyr, food_trucks_lyr]
   	transportations = [ev_charging_lyr, ada_spaces_lyr, shuttles_lyr, metro_bus_lyr, parking_lyr, bikeshare_lyr, bike_repair_lyr]
-  	student_life = [construction_impacts_lyr, colleges_lyr, libraries_lyr, support_lyr]
-  	facilities = [emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
+  	student_life = [social_spaces_lyr, colleges_lyr, libraries_lyr, support_lyr]
+  	facilities = [construction_impacts_lyr, emergency_phones_lyr, genderinclusive_lyr, lactation_lyr, recycling_lyr, pdf_extents_lyr]
   	recreations = [rec_lyr, gardens_lyr, poi_lyr]
 	buildings = [buildings_lyr]
   	allLayers = [foods, transportations, student_life, facilities, recreations, buildings] 
   	
-	everyLayer = [ buildings_lyr, parking_lyr,  ada_spaces_lyr, ev_charging_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr]
+	everyLayer = [ buildings_lyr, parking_lyr,  ada_spaces_lyr, ev_charging_lyr, bus_route_lyr, zones_lyr, libraries_lyr, support_lyr, shuttles_lyr, metro_bus_lyr, cafes_lyr, perks_lyr, food_trucks_lyr, bike_repair_lyr, dining_halls_lyr, bikeshare_lyr, bike_repair_lyr, genderinclusive_lyr, emergency_phones_lyr, lactation_lyr, recycling_lyr, gardens_lyr, poi_lyr, rec_lyr, colleges_lyr, labels_lyr, support_lyr, construction_impacts_lyr, pdf_extents_lyr, social_spaces_lyr]
 	
 	
 	

@@ -653,7 +653,6 @@ input {
 	position:absolute;
 	bottom:0;
 	left:0;
-	width:90%;
 	padding:8px;
 	display:flex;
 	gap:0.5em;
@@ -1027,6 +1026,7 @@ input {
 	font-size:0.8em;
 	display: flex;
 	flex-direction: row;
+	gap:4px
 }
 
 .ac-sub .ac-label {
@@ -1310,6 +1310,7 @@ input {
 	background: rgba(77, 77, 77, .7);
 	transition: all .4s;
 	z-index: 9999;
+
 }
 
 .modal:target {
@@ -1327,6 +1328,7 @@ input {
 	background: #fff;
 	padding: 1em;
 	overflow: auto;
+	margin:1em
 }
 
 .modal__footer {
@@ -1341,6 +1343,11 @@ input {
 	}
 }
 
+.modal a {
+	color: var(--smooth-blue);
+	font-weight: 600;
+}
+
 .modal__close {
 	position: absolute;
     top: 1em;
@@ -1353,12 +1360,7 @@ input {
 	box-shadow: -2px 2px 4px rgba(0, 0, 0, 0.12);
 	transform: translate(0.75em, 0);
 	z-index: 9999;
-	border: 2px solid #fff;
-}
-
-.modal a {
-	color: var(--smooth-blue);
-	font-weight: 600;
+	border: 1px solid  var(--smooth-blue);
 }
 
 .modal__footer > a {
@@ -1711,8 +1713,8 @@ h4 {
 			flex-direction:column;
 			align-items: end;
 			gap:0.4em;
-			width:100%;
-
+			left:unset;
+			right:0;
 		}
 
 		#clear-layers-btn-container {
