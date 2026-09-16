@@ -340,7 +340,7 @@
 			<div id="side-bar" class="phone-hide">
 				<a href="https://ucsc.edu"><img src="images/logos/UC%20Santa%20Cruz%20Logo%20-%20Blue%20RGB.png" id="ucsc-logo"></a>
 				<h1 class="main-title">Campus Map</h1>
-				<div style="width:100%">
+				<div style="width:100%;padding:1rem;">
 					<div id="toggle-div">
 						<label class="toggle">
 							<input id="label-toggle" class="toggle-checkbox" type="checkbox">
@@ -353,6 +353,16 @@
 
 					</div>
 				</div>
+
+				<style>
+					#layer-list {
+						border:1px solid #efefef;
+						max-height: 450px;
+						box-shadow: 
+							inset 0 0 12px 2px rgba(0, 0, 0, 0.03),
+							inset 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+					}
+				</style>
 
 				<div id="layer-list">
 					
@@ -460,17 +470,21 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a>
-										<p>Learn more about Student Support programs available on campus.</p>
+										<a href="https://studentsuccess.ucsc.edu/community/spaces/">Study, Gathering & Social Spaces</a>
+										<p>A range of indoor and outdoor spaces to be used for studying, connecting, and building community.</p>
 									</div>
 									<div class="layer-info">
-										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
-										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
+										<a href="https://classrooms.ucsc.edu/">Classrooms Directory</a>
+										<p>Directory of Registrar-managed General Assignment Classrooms.</p>
 									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
 									<label class="container"><img src="https://img.icons8.com/?size=24&id=7765&format=png&color=6301CB" />Study, Gathering & Social Spaces <span class="new-tag">NEW</span>
 										<input type="checkbox" onclick="changeVisibility(social_spaces_lyr)">
+										<span class="checkmark"></span>
+									</label>
+									<label class="container"><img src="https://img.icons8.com/?size=24&id=YS0FCRRsoohz&format=png&color=6301CB" />General Assignment Classrooms<span class="new-tag">NEW</span>
+										<input type="checkbox" onclick="changeVisibility(classrooms_lyr)">
 										<span class="checkmark"></span>
 									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png" />Colleges
@@ -616,7 +630,7 @@
 							<div class="app-banner">
 								<span class="banner-badge">New</span>
 								
-								<p class="banner-message">Study, Gathering & Social Spaces layer added to the map!</p>
+								<p class="banner-message">Social Spaces and General Assignment Classrooms layers added to the map under Campus Life!</p>
 								
 								<button class="banner-close-btn" aria-label="Dismiss announcement">
 								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
@@ -780,17 +794,21 @@
 							<article class="ac-text">
 								<div>
 									<div class="layer-info">
-										<a href="https://advising.ucsc.edu/success/support.html">Student Success Support Services website</a>
-										<p>Learn more about Student Support programs available on campus.</p>
+										<a href="https://studentsuccess.ucsc.edu/community/spaces/">Study, Gathering & Social Spaces</a>
+										<p>A range of indoor and outdoor spaces to be used for studying, connecting, and building community.</p>
 									</div>
 									<div class="layer-info">
-										<a href="https://spaces.ucsc.edu/">UCSC Spaces</a>
-										<p>Learn more about the study, social, and gathering spaces designed to meet the diverse needs of our students.</p>
+										<a href="https://classrooms.ucsc.edu/">Classrooms Directory</a>
+										<p>Scheduling and physical features classrooms are managed by the Office of the Registrar. Classroom technology is managed by Instructional Spaces team.</p>
 									</div>
 								</div>
 								<nav class="" role="navigation" aria-labelledby="sidenav">
-									<label class="container"><img src="https://img.icons8.com/?size=24&id=7765&format=png&color=6301CB" />Study, Gathering & Social Spaces
+									<label class="container"><img src="https://img.icons8.com/?size=24&id=7765&format=png&color=6301CB" />Study, Gathering & Social Spaces<span class="new-tag">NEW</span>
 										<input type="checkbox" onclick="changeVisibility(social_spaces_lyr)">
+										<span class="checkmark"></span>
+									</label>
+									<label class="container"><img src="https://img.icons8.com/?size=24&id=YS0FCRRsoohz&format=png&color=6301CB" />General Assignment Classrooms<span class="new-tag">NEW</span>
+										<input type="checkbox" onclick="changeVisibility(classrooms_lyr)">
 										<span class="checkmark"></span>
 									</label>
 									<label class="container"><img src="https://img.icons8.com/small/24/6301CB/building.png" />Colleges
