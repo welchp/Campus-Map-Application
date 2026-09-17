@@ -275,11 +275,7 @@ body {
 	vertical-align: text-top;
 }
 
-#nav-list p {
-}
-
 nav {
-	bakground-color: #fff3cd;
 	transition: display 5s;
 }
 
@@ -555,7 +551,6 @@ input {
 	bottom: 10px;
 	left: 10px;
 	min-height: 40px;
-	ma-height: 40px;
 	width: 60px;
 	background-color: rgba(0, 0, 0, 0.5);
 	border: 1px solid white;
@@ -586,7 +581,6 @@ input {
 }
 
 .nav-box:hover {
-	bordr: 1px solid #ededed;
 	box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
 }
 
@@ -853,15 +847,12 @@ input {
 	overflow: auto;
 	overflow-x: hidden;
 	-webkit-box-shadow: var(--shadow2);
+	box-shadow: var(--shadow2);
 	z-index: 999;
 }
 
 #side-bar > a {
 	margin: 0;
-}
-
-#side-bar > * {
-	argin: 5px;
 }
 
 .side-nav {
@@ -975,13 +966,13 @@ input {
 	box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
 }
 
-.ac-input:checked+label,
+.ac-input:checked + label,
 .ac-label:hover {
     box-shadow: var(--shadow1);
 }
 
 .ac-label:after,
-.ac-input:checked+.ac-label:after {
+.ac-input:checked + .ac-label:after {
     content: "+";
     position: absolute;
     display: block;
@@ -992,15 +983,14 @@ input {
     line-height: 2.25em;
     text-align: center;
     background-color: #e5e5e5;
-    transition: background-color .15s ease-in-out;
 }
 
 .ac-label:hover:after,
-.ac-input:checked+.ac-label:after {
+.ac-input:checked + .ac-label:after {
     background-color: #b5b5b5;
 }
 
-.ac-input:checked+.ac-label:after {
+.ac-input:checked + .ac-label:after {
     content: "-";
 }
 
@@ -1014,18 +1004,14 @@ input {
     height: 0;
     margin-bottom: .5em;
 	margin-bottom: 0;
-    transition: opacity .5s ease-in-out, display 2s ease-in-out;
+    transition: display .3s ease-in-out, opacity .3s ease-in-out, height .3s ease-in-out;
     overflow: hidden;
 }
 
-.ac-text {
-	transition: display 5s ease-in-out;
-}
-
-.ac-input:checked~.ac-text,
-.ac-sub .ac-input:checked~.ac-sub-text {
+.ac-input:checked ~ .ac-text,
+.ac-sub .ac-input:checked ~ .ac-sub-text {
     opacity: 1;
-    height: auto;
+    height: 100%;
 }
 
 .ac-text > div {
@@ -1048,12 +1034,12 @@ input {
 }
 
 .ac-sub .ac-label:after,
-.ac-sub .ac-input:checked+.ac-label:after {
+.ac-sub .ac-input:checked + .ac-label:after {
     left: 0;
     background: none;
 }
 
-.ac-sub .ac-input:checked+label,
+.ac-sub .ac-input:checked + label,
 .ac-sub .ac-label:hover {
     background: none;
 }
@@ -1412,9 +1398,6 @@ h4 {
 	text-decoration: underline
 }
 
-.pdf-modal-content {
-}
-
 #toc-list {
 	list-style:none;
 	padding:0;
@@ -1721,10 +1704,6 @@ h4 {
 			gap:0.4em;
 			left:unset;
 			right:0;
-		}
-
-		#clear-layers-btn-container {
-
 		}
 
 		.map-toggle-btn {
