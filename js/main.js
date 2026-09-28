@@ -1051,6 +1051,16 @@ require([
 		allPlaceholder: "What are you searching for? ... ",
         sources: [
 			{featureLayer: {
+				url: "https://services1.arcgis.com/stBH6xTKFN83oDku/arcgis/rest/services/GA_Classroom_Points_PPDO/FeatureServer/0"},
+			searchFields: ["AIS_Formatted_Name"],
+			suggestionTemplate: "{AIS_Formatted_Name}",
+			displayField: "AIS_Formatted_Name",
+			exactMatch: false,
+			outFields: ["*"],
+			name: "General Assignment Classrooms",
+			placeholder: "Which classroom are you searching for?"
+			},
+			{featureLayer: {
 				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
 			searchFields: ["RESOURCE"],
 			suggestionTemplate: "{RESOURCE}",
@@ -1342,6 +1352,16 @@ require([
 				container: "mobile-search-bar",
 				allPlaceholder: " What are you searching for? ...",
 				sources: [
+					{featureLayer: {
+						url: "https://services1.arcgis.com/stBH6xTKFN83oDku/arcgis/rest/services/GA_Classroom_Points_PPDO/FeatureServer/0"},
+					searchFields: ["AIS_Formatted_Name"],
+					suggestionTemplate: "{AIS_Formatted_Name}",
+					displayField: "AIS_Formatted_Name",
+					exactMatch: false,
+					outFields: ["*"],
+					name: "General Assignment Classrooms",
+					placeholder: "Which classroom are you searching for?"
+					},
 					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
 					searchFields: ["RESOURCE"],
