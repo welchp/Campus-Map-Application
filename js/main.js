@@ -93,6 +93,7 @@ var lightBlueMarker;
 
 var ptemplate;
 var constructionpopuptemplate;
+var classrooms_popup_template;
 var bldgcards;
 
 function clickBuildingFromLookupTool() {
@@ -375,9 +376,14 @@ require([
 	};
 	
 	constructionpopuptemplate = {
-		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel}</span>{Project}",
-		content:"<div><br><p>Start Date: {StartDate}</p><p>Projected End Date: {EndDate}</p><p style='padding:2em;border:1px solid #ededed'>{Description}</p></div>"
-	}
+		title:"<span class='impact-level {ImpactLevel}'>{ImpactLevel} Impact</span>{Project}",
+		content:"<div><br><p>Start Date: {BeginDate}</p><p>Projected End Date: {CompletionDate}</p><p style='padding:2em;border:1px solid #ededed'>{Description}</p></div>"
+	};
+
+	classrooms_popup_template = {
+		title: "{Source_Space_Name}",
+		content: "<div><p><span style='font-size:18px;'><span><strong>{AIS_Formatted_Name}</strong></span><strong>&nbsp;</strong></span><br><span style='font-size:12px;'><span>{BUILDING_NAME}</span>&nbsp;</span></p><p>    <a href='{Classroom_URL}'>View in the Office of the Registrar''s Classroom Directory</a></p><p><span style='font-size:12px;'>SlugSpace Id: <span>{SPACE_ID}</span>&nbsp;</span><br><span style='font-size:12px;'><span>{LEVEL_ID}&nbsp;</span>&nbsp;</span></p></div>"
+	};
 	
 	   
     //FEATURE RENDERERS
@@ -709,12 +715,12 @@ require([
 			fillOpacity:0			
 		},
 		popup:{
-			//defaultPopupTemplateEnabled: true,
+			defaultPopupTemplateEnabled: true,
             highlightEnabled: true,
             dockEnabled: true,
             dockOptions:{
 				buttonEnabled: true,
-                position: "bottom-left",
+                position: "top-left",
 				breakpoint:false
             }
         }
@@ -1046,6 +1052,7 @@ require([
 	
 	searchWidget = new Search({
         view: view,
+		popupEnabled: true,
 		container: "map-options",
         maxSuggestions: 20,
 		allPlaceholder: "What are you searching for? ... ",
@@ -1058,7 +1065,8 @@ require([
 			exactMatch: false,
 			outFields: ["*"],
 			name: "General Assignment Classrooms",
-			placeholder: "Which classroom are you searching for?"
+			placeholder: "Enter the AIS classroom name ...",
+			popuptemplate: classrooms_popup_template
 			},
 			{featureLayer: {
 				url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
@@ -1243,7 +1251,6 @@ require([
 
 	//URL params for buildings
 	view.when(function(){
-		hideBox();
 		console.log("adding layers...")
 		//hybrid.addMany(everyLayer)
 		console.log("parsing URL for params...")
@@ -1258,7 +1265,7 @@ require([
 			query.where = "ASSETNUM = '" + params.query.building + "'";
 			query.returnGeometry = true;
 			query.outFields = ["*"]; 
-			//console.log(query.where)
+			console.log(query.where)
 			buildings_lyr.queryExtent(query).then((results) => {
 				setTimeout(function(){
 					view.goTo(results.extent).then(() => {
@@ -1360,7 +1367,8 @@ require([
 					exactMatch: false,
 					outFields: ["*"],
 					name: "General Assignment Classrooms",
-					placeholder: "Which classroom are you searching for?"
+					placeholder: "Enter the AIS classroom name ...",
+					popuptemplate: classrooms_popup_template
 					},
 					{featureLayer: {
 						url: "https://services3.arcgis.com/21H3muniXm83m5hZ/arcgis/rest/services/Student_Support/FeatureServer/0"},
